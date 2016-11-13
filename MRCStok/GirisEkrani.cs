@@ -17,7 +17,7 @@ namespace MRCStok
         {
             InitializeComponent();
 
-            DatabaseControl();
+            
 
             db = new StokMatikEntities();
         }
@@ -81,6 +81,7 @@ namespace MRCStok
                     catch
                     {
                         MessageBox.Show("Kullanıcı Bulunamadı!", "HATA!");
+                        DatabaseControl();
                     }
                 }
             }

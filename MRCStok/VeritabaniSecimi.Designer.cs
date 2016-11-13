@@ -49,6 +49,7 @@
             this.Controls.Add(this.button1);
             this.Name = "VeritabaniSecimi";
             this.Text = "VeritabaniSecimi";
+            this.Load += new System.EventHandler(this.VeritabaniSecimi_Load);
             this.ResumeLayout(false);
 
         }

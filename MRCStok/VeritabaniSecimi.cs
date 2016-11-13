@@ -27,5 +27,10 @@ namespace MRCStok
             }
             this.Close();
         }
+
+        private void VeritabaniSecimi_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
