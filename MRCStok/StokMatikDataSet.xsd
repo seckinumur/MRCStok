@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="StokMatikDataSet" targetNamespace="http://tempuri.org/StokMatikDataSet.xsd" xmlns:mstns="http://tempuri.org/StokMatikDataSet.xsd" xmlns="http://tempuri.org/StokMatikDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="StokMatikConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="StokMatikConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MRCStok.Properties.Settings.GlobalReference.Default.StokMatikConnectionString" Provider="System.Data.SQLite.EF6" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="UrunlerTableAdapter" GeneratorDataComponentClassName="UrunlerTableAdapter" Name="Urunler" UserDataComponentName="UrunlerTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="StokMatikConnectionString (Settings)" DbObjectName="main.Urunler" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT [UrunAdi], [UrunFiyati], [UrunAdedi], [UrunGramaji], [UrunPaketi], [UrunBarkodu], [UrunEklemeTarihi] FROM [Urunler]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="UrunAdi" DataSetColumn="UrunAdi" />
+              <Mapping SourceColumn="UrunFiyati" DataSetColumn="UrunFiyati" />
+              <Mapping SourceColumn="UrunAdedi" DataSetColumn="UrunAdedi" />
+              <Mapping SourceColumn="UrunGramaji" DataSetColumn="UrunGramaji" />
+              <Mapping SourceColumn="UrunPaketi" DataSetColumn="UrunPaketi" />
+              <Mapping SourceColumn="UrunBarkodu" DataSetColumn="UrunBarkodu" />
+              <Mapping SourceColumn="UrunEklemeTarihi" DataSetColumn="UrunEklemeTarihi" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="StokMatikDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="StokMatikDataSet" msprop:Generator_UserDSName="StokMatikDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Urunler" msprop:Generator_TableClassName="UrunlerDataTable" msprop:Generator_TableVarName="tableUrunler" msprop:Generator_RowChangedName="UrunlerRowChanged" msprop:Generator_TablePropName="Urunler" msprop:Generator_RowDeletingName="UrunlerRowDeleting" msprop:Generator_RowChangingName="UrunlerRowChanging" msprop:Generator_RowEvHandlerName="UrunlerRowChangeEventHandler" msprop:Generator_RowDeletedName="UrunlerRowDeleted" msprop:Generator_RowClassName="UrunlerRow" msprop:Generator_UserTableName="Urunler" msprop:Generator_RowEvArgName="UrunlerRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="UrunAdi" msprop:Generator_ColumnVarNameInTable="columnUrunAdi" msprop:Generator_ColumnPropNameInRow="UrunAdi" msprop:Generator_ColumnPropNameInTable="UrunAdiColumn" msprop:Generator_UserColumnName="UrunAdi">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UrunFiyati" msprop:Generator_ColumnVarNameInTable="columnUrunFiyati" msprop:Generator_ColumnPropNameInRow="UrunFiyati" msprop:Generator_ColumnPropNameInTable="UrunFiyatiColumn" msprop:Generator_UserColumnName="UrunFiyati">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UrunAdedi" msprop:Generator_ColumnVarNameInTable="columnUrunAdedi" msprop:Generator_ColumnPropNameInRow="UrunAdedi" msprop:Generator_ColumnPropNameInTable="UrunAdediColumn" msprop:Generator_UserColumnName="UrunAdedi">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UrunGramaji" msprop:Generator_ColumnVarNameInTable="columnUrunGramaji" msprop:Generator_ColumnPropNameInRow="UrunGramaji" msprop:Generator_ColumnPropNameInTable="UrunGramajiColumn" msprop:Generator_UserColumnName="UrunGramaji">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UrunPaketi" msprop:Generator_ColumnVarNameInTable="columnUrunPaketi" msprop:Generator_ColumnPropNameInRow="UrunPaketi" msprop:Generator_ColumnPropNameInTable="UrunPaketiColumn" msprop:Generator_UserColumnName="UrunPaketi">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UrunBarkodu" msprop:Generator_ColumnVarNameInTable="columnUrunBarkodu" msprop:Generator_ColumnPropNameInRow="UrunBarkodu" msprop:Generator_ColumnPropNameInTable="UrunBarkoduColumn" msprop:Generator_UserColumnName="UrunBarkodu" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UrunEklemeTarihi" msprop:Generator_ColumnVarNameInTable="columnUrunEklemeTarihi" msprop:Generator_ColumnPropNameInRow="UrunEklemeTarihi" msprop:Generator_ColumnPropNameInTable="UrunEklemeTarihiColumn" msprop:Generator_UserColumnName="UrunEklemeTarihi">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="StokMatikDataSet1" targetNamespace="http://tempuri.org/StokMatikDataSet1.xsd" xmlns:mstns="http://tempuri.org/StokMatikDataSet1.xsd" xmlns="http://tempuri.org/StokMatikDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="StokMatikConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="StokMatikConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.MRCStok.Properties.Settings.GlobalReference.Default.StokMatikConnectionString" Provider="System.Data.SQLite.EF6" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="KullanicilarTableAdapter" GeneratorDataComponentClassName="KullanicilarTableAdapter" Name="Kullanicilar" UserDataComponentName="KullanicilarTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="StokMatikConnectionString (Settings)" DbObjectName="main.Kullanicilar" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT [KullaniciAdi], [KullaniciYetkisi], [KullaniciSifresi] FROM [Kullanicilar]</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="KullaniciAdi" DataSetColumn="KullaniciAdi" />
+              <Mapping SourceColumn="KullaniciYetkisi" DataSetColumn="KullaniciYetkisi" />
+              <Mapping SourceColumn="KullaniciSifresi" DataSetColumn="KullaniciSifresi" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="StokMatikDataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="StokMatikDataSet1" msprop:Generator_UserDSName="StokMatikDataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Kullanicilar" msprop:Generator_TableClassName="KullanicilarDataTable" msprop:Generator_TableVarName="tableKullanicilar" msprop:Generator_TablePropName="Kullanicilar" msprop:Generator_RowDeletingName="KullanicilarRowDeleting" msprop:Generator_RowChangingName="KullanicilarRowChanging" msprop:Generator_RowEvHandlerName="KullanicilarRowChangeEventHandler" msprop:Generator_RowDeletedName="KullanicilarRowDeleted" msprop:Generator_UserTableName="Kullanicilar" msprop:Generator_RowChangedName="KullanicilarRowChanged" msprop:Generator_RowEvArgName="KullanicilarRowChangeEvent" msprop:Generator_RowClassName="KullanicilarRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KullaniciAdi" msprop:Generator_ColumnVarNameInTable="columnKullaniciAdi" msprop:Generator_ColumnPropNameInRow="KullaniciAdi" msprop:Generator_ColumnPropNameInTable="KullaniciAdiColumn" msprop:Generator_UserColumnName="KullaniciAdi">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KullaniciYetkisi" msprop:Generator_ColumnVarNameInTable="columnKullaniciYetkisi" msprop:Generator_ColumnPropNameInRow="KullaniciYetkisi" msprop:Generator_ColumnPropNameInTable="KullaniciYetkisiColumn" msprop:Generator_UserColumnName="KullaniciYetkisi">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KullaniciSifresi" msprop:Generator_ColumnVarNameInTable="columnKullaniciSifresi" msprop:Generator_ColumnPropNameInRow="KullaniciSifresi" msprop:Generator_ColumnPropNameInTable="KullaniciSifresiColumn" msprop:Generator_UserColumnName="KullaniciSifresi">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1">
+      <xs:selector xpath=".//mstns:Kullanicilar" />
+      <xs:field xpath="mstns:KullaniciAdi" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
