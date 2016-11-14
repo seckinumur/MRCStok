@@ -26,7 +26,7 @@ namespace MRCStok.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("data source=C:\\MRCStok\\Data\\StokMatik.db")]
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=C:\\MRCStok\\Data\\StokMatik.db;synchronous=Full")]
         public string StokMatikConnectionString {
             get {
                 return ((string)(this["StokMatikConnectionString"]));

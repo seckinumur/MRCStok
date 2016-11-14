@@ -197,6 +197,38 @@ namespace MRCStok
                         }
                     }
                 }
+                else if (checkBox1.Checked== true)
+                {
+                    Uyari = MessageBox.Show(textBox27.Text + " Adlı Kullanıcıya Stok İzini Verilecek Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
+                    if (Uyari == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            var bulbakayim = db.Kullanicilar.Where(p => p.KullaniciAdi == textBox27.Text).FirstOrDefault();
+                            bulbakayim.KullaniciAdi = textBox27.Text;
+                            bulbakayim.KullaniciSifresi = textBox26.Text;
+                            bulbakayim.KullaniciYetkisi = "stok";
+                            db.SaveChanges();
+                            MessageBox.Show(textBox27.Text + " Adlı Kullanıcı Sistemde Mevcuttu. Bilgileri Güncelleştirilip Stok Yetkisiyle Başarıyla Kaydedildi ");
+                            textBox27.Text = "";
+                            textBox26.Text = "";
+                            Form1_Load(sender, e);    // datagridt wiev yineleme işleme önemli kod.
+                        }
+                        catch
+                        {
+                            Kullanicilar ekle = new Kullanicilar();
+                            ekle.KullaniciAdi = textBox27.Text;
+                            ekle.KullaniciSifresi = textBox26.Text;
+                            ekle.KullaniciYetkisi = "stok";
+                            db.Kullanicilar.Add(ekle);
+                            db.SaveChanges();
+                            MessageBox.Show(textBox27.Text + " Adlı Kullanıcı Stok Yetkisiyle Başarıyla Kaydedildi ");
+                            textBox27.Text = "";
+                            textBox26.Text = "";
+                            Form1_Load(sender, e);
+                        }
+                    }
+                }
                 else
                 {
                     try
@@ -440,7 +472,7 @@ namespace MRCStok
                     {
                         try
                         {
-                            var bul = db.Urunler.Where(p => p.UrunAdi == UrunadiUrunEkle.Text).FirstOrDefault();
+                            var bul = db.Urunler.Where(p => p.UrunAdi == UrunadiUrunEkle.Text && p.UrunPaketi== AmbalajUrunEkle.SelectedItem.ToString()).FirstOrDefault();
                             if (bul.UrunAdi == UrunadiUrunEkle.Text)
                             {
                                 MessageBox.Show("Bu ürün Daha Önceden Kaydedilmiş!, Eğer Ürünün Bilgilerini Güncellemek istiyorsanız ürün ismine çift tıklayarak ürün güncelle Panosundan işlemlerinizi yapabilirsiniz!", "UYARI!");
@@ -522,7 +554,7 @@ namespace MRCStok
 
         private void UrunduzenleButonu_Click(object sender, EventArgs e)
         {
-            if (AdminKontrol == "admin")
+            if (AdminKontrol == "admin" && AdminKontrol=="stok")
             {
                 try
                 {
@@ -718,7 +750,7 @@ namespace MRCStok
 
         private void button14_Click(object sender, EventArgs e)
         {
-            if (AdminKontrol == "admin")
+            if (AdminKontrol == "admin" && AdminKontrol=="stok")
             {
                 if (HizliStokUrunAdedi.Text == "")
                 {
@@ -847,10 +879,41 @@ namespace MRCStok
 
         private void button3_Click(object sender, EventArgs e)
         {
+            DialogResult Uyari = new DialogResult();
+            Uyari = MessageBox.Show("Siparişler İptal Edilecek Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
+            if (Uyari == DialogResult.Yes)
+            {
+                try
+                {
+                    var bul = db.UrunSepeti.Where(p => p.MusteriAdi == textBox3.Text).ToList();
+                    foreach (var n in bul)
+                    {
+                        double adet = Convert.ToDouble(n.UrunAdedi);
+                        string urunadi = n.UrunAdi;
+                        var adibul = db.Urunler.Where(p => p.UrunAdi == urunadi).FirstOrDefault();
+                        double stokadet = Convert.ToDouble(adibul.UrunAdedi);
+                        double topla = stokadet + adet;
+                        adibul.UrunAdedi = topla.ToString();
+                        db.UrunSepeti.Remove(n);
+                        db.SaveChanges();
+                        Form1_Load(sender, e);
+                        MessageBox.Show("Sipariş Silindi");
+                        textBox3.Text = "";
+                    }
+
+                }
+                catch
+                {
+
+                }
+            }
             dataGridView2.Rows.Clear();
             textBox2.Text = "";
             textBox16.Text = "";
             sayac = 0;
+            textBox4.Text = "0";
+            textBox5.Text = "0";
+            textBox6.Text = "0";
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -1235,6 +1298,203 @@ namespace MRCStok
 
                         Range myRange = (Range)sheet1.Cells[StartRow + i, StartCol + j];
                         myRange.Value2 = dataGridView8[j, i].Value == null ? "" : dataGridView8[j, i].Value;
+                        myRange.Select();
+                    }
+                }
+                ac.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Bilgisayarınızda Microsoft Office 2016 Yüklü değil. İşlem İptal Edildi");
+                ac.Close();
+            }
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            if (AdminKontrol != "yerel" && AdminKontrol != "admin")
+            {
+                MessageBox.Show("Yalnızca Yerel ve admin Kullanıcı siparişi iptal edebilir!");
+            }
+            else
+            {
+                if (textBox3.Text == "")
+                {
+                    MessageBox.Show("Önce Sipariş Seçilmeli!");
+                }
+                else
+                {
+                    DialogResult Uyari = new DialogResult();
+                    Uyari = MessageBox.Show(textBox3.Text + " Adlı Müşterinin Tüm Siparişleri Tamemen Silinecek Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
+                    if (Uyari == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            var bul = db.UrunSepeti.Where(p => p.MusteriAdi == textBox3.Text).ToList();
+                            foreach (var n in bul)
+                            {
+                                double adet = Convert.ToDouble(n.UrunAdedi);
+                                string urunadi = n.UrunAdi;
+                                var adibul = db.Urunler.Where(p => p.UrunAdi == urunadi).FirstOrDefault();
+                                double stokadet = Convert.ToDouble(adibul.UrunAdedi);
+                                double topla = stokadet + adet;
+                                adibul.UrunAdedi = topla.ToString();
+                                db.UrunSepeti.Remove(n);
+                                db.SaveChanges();
+                                Form1_Load(sender, e);
+                                MessageBox.Show("Sipariş Silindi");
+                                textBox3.Text = "";
+                            }
+
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+                }
+            }  
+        }
+
+        private void button24_Click(object sender, EventArgs e)
+        {
+            string selicideger = Convert.ToDateTime(dateTimePicker2.Text).ToShortDateString();
+            if (checkBox2.Checked==true)
+            {
+                dataGridView6.Rows.Clear();
+                try
+                {
+                   var bul=  db.Raporlama.Where(p => p.Ay == MevcutAy).ToList();
+                    int i = 0;
+                    foreach (var m in bul)
+                    {
+                        dataGridView6.Rows.Add();
+                        dataGridView6.Rows[i].Cells[0].Value = m.GidenMusteriler;
+                        dataGridView6.Rows[i].Cells[1].Value = m.GidenUrunler;
+                        dataGridView6.Rows[i].Cells[2].Value = m.UrunGramaji;
+                        dataGridView6.Rows[i].Cells[3].Value = m.UrunAdedi;
+                        dataGridView6.Rows[i].Cells[4].Value = m.UrunPaketi;
+                        dataGridView6.Rows[i].Cells[5].Value = m.Fiyati;
+                        dataGridView6.Rows[i].Cells[6].Value = m.FaturaDurumu;
+                        dataGridView6.Rows[i].Cells[7].Value = m.Tarih;
+                        i++;
+                    }
+                    Form1_Load(sender, e);
+                }
+                catch
+                {
+
+                }
+            }
+            else
+            {
+                dataGridView6.Rows.Clear();
+                try
+                {
+                    var bul = db.Raporlama.Where(p => p.Tarih == selicideger).ToList();
+                    int i = 0;
+                    foreach (var m in bul)
+                    {
+                        dataGridView6.Rows.Add();
+                        dataGridView6.Rows[i].Cells[0].Value = m.GidenMusteriler;
+                        dataGridView6.Rows[i].Cells[1].Value = m.GidenUrunler;
+                        dataGridView6.Rows[i].Cells[2].Value = m.UrunGramaji;
+                        dataGridView6.Rows[i].Cells[3].Value = m.UrunAdedi;
+                        dataGridView6.Rows[i].Cells[4].Value = m.UrunPaketi;
+                        dataGridView6.Rows[i].Cells[5].Value = m.Fiyati;
+                        dataGridView6.Rows[i].Cells[6].Value = m.FaturaDurumu;
+                        dataGridView6.Rows[i].Cells[7].Value = m.Tarih;
+                        i++;
+                    }
+                    Form1_Load(sender, e);
+                }
+                catch
+                {
+
+                }
+            }
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            if(AdminKontrol=="admin" || AdminKontrol=="stok")
+            {
+                DialogResult Uyari = new DialogResult();
+                Uyari = MessageBox.Show("sipariş tamamalanacak Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
+                if (Uyari == DialogResult.Yes)
+                {
+                    try
+                    {
+                        var bul = db.UrunSepeti.Where(p => p.MusteriAdi == textBox3.Text).ToList();
+                        foreach (var n in bul)
+                        {
+                            Raporlama ekle = new Raporlama();
+                            ekle.Ay = MevcutAy;
+                            ekle.FaturaDurumu = n.UrunFaturasi;
+                            ekle.Fiyati = n.UrunFiyati;
+                            ekle.GidenMusteriler = n.MusteriAdi;
+                            ekle.GidenUrunler = n.UrunAdi;
+                            ekle.Gun = MevcutGun;
+                            ekle.Tarih = tarih;
+                            ekle.UrunAdedi = n.UrunAdedi;
+                            ekle.UrunGramaji = n.UrunGramaji;
+                            ekle.UrunPaketi = n.UrunAmbalaji;
+                            ekle.Yil = MevcutYil;
+                            db.Raporlama.Add(ekle);
+                            db.UrunSepeti.Remove(n);
+                            db.SaveChanges();
+                            Form1_Load(sender, e);
+                            MessageBox.Show("Sipariş Tamamlanadı");
+                            textBox3.Text = "";
+                        }
+                        dataGridView8.Rows.Clear();
+                    }
+                    catch
+                    {
+
+                    }
+                }
+
+                }
+            else
+            {
+                MessageBox.Show("Sadece admin ve stok yetkisi olan kullanıcı siparişi tamamlayabilir!");
+            }
+        }
+
+        private void button26_Click(object sender, EventArgs e)
+        {
+            dataGridView8.Rows.Clear();
+        }
+
+        private void button31_Click(object sender, EventArgs e)
+        {
+            ExcelUyari ac = new ExcelUyari();
+            ac.Show();
+            ac.Visible = false;
+            try
+            {
+                ac.Visible = true;
+                Excel.Application excel = new Excel.Application();
+                excel.Visible = true;
+                object Missing = Type.Missing;
+                Workbook workbook = excel.Workbooks.Add(Missing);
+                Worksheet sheet1 = (Worksheet)workbook.Sheets[1];
+                int StartCol = 1;
+                int StartRow = 1;
+                for (int j = 0; j < dataGridView6.Columns.Count; j++)
+                {
+                    Range myRange = (Range)sheet1.Cells[StartRow, StartCol + j];
+                    myRange.Value2 = dataGridView6.Columns[j].HeaderText;
+                }
+                StartRow++;
+                for (int i = 0; i < dataGridView6.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dataGridView6.Columns.Count; j++)
+                    {
+
+                        Range myRange = (Range)sheet1.Cells[StartRow + i, StartCol + j];
+                        myRange.Value2 = dataGridView6[j, i].Value == null ? "" : dataGridView6[j, i].Value;
                         myRange.Select();
                     }
                 }

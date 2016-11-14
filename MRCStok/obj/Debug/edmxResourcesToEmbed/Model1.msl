@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StokMatikModelStoreContainer" CdmEntityContainer="StokMatikEntities">
+    <EntitySetMapping Name="Kullanicilar">
+      <EntityTypeMapping TypeName="StokMatikModel.Kullanicilar">
+        <MappingFragment StoreEntitySet="Kullanicilar">
+          <ScalarProperty Name="KullanicilarId" ColumnName="KullanicilarId" />
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="KullaniciYetkisi" ColumnName="KullaniciYetkisi" />
+          <ScalarProperty Name="KullaniciSifresi" ColumnName="KullaniciSifresi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Musteriler">
+      <EntityTypeMapping TypeName="StokMatikModel.Musteriler">
+        <MappingFragment StoreEntitySet="Musteriler">
+          <ScalarProperty Name="MusteriId" ColumnName="MusteriId" />
+          <ScalarProperty Name="MusteriAdi" ColumnName="MusteriAdi" />
+          <ScalarProperty Name="MusteriAdresi" ColumnName="MusteriAdresi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urunler">
+      <EntityTypeMapping TypeName="StokMatikModel.Urunler">
+        <MappingFragment StoreEntitySet="Urunler">
+          <ScalarProperty Name="UrunEklemeTarihi" ColumnName="UrunEklemeTarihi" />
+          <ScalarProperty Name="UrunlerId" ColumnName="UrunlerId" />
+          <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+          <ScalarProperty Name="UrunFiyati" ColumnName="UrunFiyati" />
+          <ScalarProperty Name="UrunAdedi" ColumnName="UrunAdedi" />
+          <ScalarProperty Name="UrunGramaji" ColumnName="UrunGramaji" />
+          <ScalarProperty Name="UrunPaketi" ColumnName="UrunPaketi" />
+          <ScalarProperty Name="UrunBarkodu" ColumnName="UrunBarkodu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Raporlama">
+      <EntityTypeMapping TypeName="StokMatikModel.Raporlama">
+        <MappingFragment StoreEntitySet="Raporlama">
+          <ScalarProperty Name="UrunAdedi" ColumnName="UrunAdedi" />
+          <ScalarProperty Name="Gun" ColumnName="Gun" />
+          <ScalarProperty Name="Yil" ColumnName="Yil" />
+          <ScalarProperty Name="Ay" ColumnName="Ay" />
+          <ScalarProperty Name="FaturaDurumu" ColumnName="FaturaDurumu" />
+          <ScalarProperty Name="Fiyati" ColumnName="Fiyati" />
+          <ScalarProperty Name="UrunPaketi" ColumnName="UrunPaketi" />
+          <ScalarProperty Name="UrunGramaji" ColumnName="UrunGramaji" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="GidenMusteriler" ColumnName="GidenMusteriler" />
+          <ScalarProperty Name="GidenUrunler" ColumnName="GidenUrunler" />
+          <ScalarProperty Name="GunlukRaporId" ColumnName="GunlukRaporId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UrunSepeti">
+      <EntityTypeMapping TypeName="StokMatikModel.UrunSepeti">
+        <MappingFragment StoreEntitySet="UrunSepeti">
+          <ScalarProperty Name="Gun" ColumnName="Gun" />
+          <ScalarProperty Name="Yil" ColumnName="Yil" />
+          <ScalarProperty Name="Ay" ColumnName="Ay" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="UrunFaturasi" ColumnName="UrunFaturasi" />
+          <ScalarProperty Name="UrunFiyati" ColumnName="UrunFiyati" />
+          <ScalarProperty Name="UrunAmbalaji" ColumnName="UrunAmbalaji" />
+          <ScalarProperty Name="UrunGramaji" ColumnName="UrunGramaji" />
+          <ScalarProperty Name="UrunAdedi" ColumnName="UrunAdedi" />
+          <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
+          <ScalarProperty Name="MusteriAdi" ColumnName="MusteriAdi" />
+          <ScalarProperty Name="UrunSepetiId" ColumnName="UrunSepetiId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

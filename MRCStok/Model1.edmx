@@ -37,6 +37,7 @@
           <Property Name="Ay" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="Yil" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="Gun" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="UrunAdedi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
         </EntityType>
         <EntityType Name="Urunler">
           <Key>
@@ -131,6 +132,7 @@
           <Property Name="Ay" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
           <Property Name="Yil" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
           <Property Name="Gun" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="UrunAdedi" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="UrunSepeti">
           <Key>
@@ -191,6 +193,7 @@
           <EntitySetMapping Name="Raporlama">
             <EntityTypeMapping TypeName="StokMatikModel.Raporlama">
               <MappingFragment StoreEntitySet="Raporlama">
+                <ScalarProperty Name="UrunAdedi" ColumnName="UrunAdedi" />
                 <ScalarProperty Name="Gun" ColumnName="Gun" />
                 <ScalarProperty Name="Yil" ColumnName="Yil" />
                 <ScalarProperty Name="Ay" ColumnName="Ay" />

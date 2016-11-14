@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StokMatikModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=C:\MRCStok\Data\StokMatik.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Kullanicilar">
+    <Key>
+      <PropertyRef Name="KullanicilarId" />
+    </Key>
+    <Property Name="KullanicilarId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="KullaniciYetkisi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="KullaniciSifresi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Musteriler">
+    <Key>
+      <PropertyRef Name="MusteriId" />
+    </Key>
+    <Property Name="MusteriId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MusteriAdi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="MusteriAdresi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Raporlama">
+    <Key>
+      <PropertyRef Name="GunlukRaporId" />
+    </Key>
+    <Property Name="GunlukRaporId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GidenUrunler" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="GidenMusteriler" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Tarih" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="UrunGramaji" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="UrunPaketi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Fiyati" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="FaturaDurumu" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Ay" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Yil" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Gun" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="UrunAdedi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Urunler">
+    <Key>
+      <PropertyRef Name="UrunlerId" />
+    </Key>
+    <Property Name="UrunlerId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UrunAdi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="UrunFiyati" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="UrunAdedi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="UrunGramaji" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="UrunPaketi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="UrunBarkodu" Type="nvarchar" MaxLength="2147483647" />
+    <Property Name="UrunEklemeTarihi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UrunSepeti">
+    <Key>
+      <PropertyRef Name="UrunSepetiId" />
+    </Key>
+    <Property Name="UrunSepetiId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MusteriAdi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="UrunAdi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="UrunAdedi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="UrunGramaji" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="UrunAmbalaji" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="UrunFiyati" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="UrunFaturasi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Tarih" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Ay" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Yil" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+    <Property Name="Gun" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="StokMatikModelStoreContainer">
+    <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" store:Type="Tables" />
+    <EntitySet Name="Musteriler" EntityType="Self.Musteriler" store:Type="Tables" />
+    <EntitySet Name="Raporlama" EntityType="Self.Raporlama" store:Type="Tables" />
+    <EntitySet Name="Urunler" EntityType="Self.Urunler" store:Type="Tables" />
+    <EntitySet Name="UrunSepeti" EntityType="Self.UrunSepeti" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

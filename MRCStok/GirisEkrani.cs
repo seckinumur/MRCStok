@@ -13,34 +13,11 @@ namespace MRCStok
     public partial class GirisEkrani : Form
     {
         public StokMatikEntities db;
+        public string Baglanti;
         public GirisEkrani()
         {
             InitializeComponent();
-
-            
-
             db = new StokMatikEntities();
-        }
-
-        private void DatabaseControl()
-        {
-            try
-            {
-                if (db.Database.Connection.State != ConnectionState.Open)
-                {
-                    VeritabaniSecimi form = new MRCStok.VeritabaniSecimi();
-                    form.ShowDialog();
-                    db.Database.Connection.ConnectionString = form.Text;
-                }
-            }
-            catch (Exception)
-            {
-
-                VeritabaniSecimi form = new MRCStok.VeritabaniSecimi();
-                form.ShowDialog();
-                db.Database.Connection.ConnectionString = form.Text;
-            }
-            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -60,28 +37,37 @@ namespace MRCStok
                     try
                     {
                         var KullaniciBul = db.Kullanicilar.Where(p => p.KullaniciAdi == textBox1.Text).FirstOrDefault();
-
-
-                        if (KullaniciBul.KullaniciSifresi == textBox2.Text)
+                        if (KullaniciBul.KullaniciAdi == textBox1.Text)
                         {
+                            if (KullaniciBul.KullaniciSifresi == textBox2.Text)
+                            {
 
-                            Form1 frm = new Form1();
-                            frm.Show();
-                            frm.Kullaniciata.Text = KullaniciBul.KullaniciAdi;
-                            frm.AdminKontrol = KullaniciBul.KullaniciYetkisi;
-                            frm.UyariBilgisi.Text = "Tüm Sistemler Normal Çalışıyor";
-                            this.Hide();
+                                Form1 frm = new Form1();
+                                frm.Show();
+                                frm.Kullaniciata.Text = KullaniciBul.KullaniciAdi;
+                                frm.AdminKontrol = KullaniciBul.KullaniciYetkisi;
+                                frm.UyariBilgisi.Text = "Tüm Sistemler Normal Çalışıyor";
+                                this.Hide();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Şifre Yanlış!", "HATA!");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Şifre Yanlış!", "HATA!");
+                            MessageBox.Show("Kullanıcı Bulunamadı!", "HATA!");
                         }
-
                     }
                     catch
                     {
-                        MessageBox.Show("Kullanıcı Bulunamadı!", "HATA!");
-                        DatabaseControl();
+                        DialogResult Uyari = new DialogResult();
+                        Uyari = MessageBox.Show("Tanımlı Veritabanı Bulunamadı! Veritabanını Eklemek İstiyormusunuz?", "DİKKAT!", MessageBoxButtons.YesNo);
+                        if (Uyari == DialogResult.Yes)
+                        {
+                            VeritabaniSecme acc = new VeritabaniSecme();
+                            acc.Show();
+                        }
                     }
                 }
             }
@@ -120,5 +106,7 @@ namespace MRCStok
                 Application.Exit();
             }
         }
+
+       
     }
 }

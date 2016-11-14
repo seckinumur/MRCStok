@@ -25,5 +25,6 @@ namespace MRCStok
         public string Ay { get; set; }
         public string Yil { get; set; }
         public string Gun { get; set; }
+        public string UrunAdedi { get; set; }
     }
 }
