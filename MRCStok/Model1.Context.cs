@@ -29,6 +29,5 @@ namespace MRCStok
         public virtual DbSet<Musteriler> Musteriler { get; set; }
         public virtual DbSet<Urunler> Urunler { get; set; }
         public virtual DbSet<Raporlama> Raporlama { get; set; }
-        public virtual DbSet<UrunSepeti> UrunSepeti { get; set; }
     }
 }

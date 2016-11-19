@@ -35,7 +35,6 @@
     <EntitySet Name="Musteriler" EntityType="Self.Musteriler" />
     <EntitySet Name="Urunler" EntityType="Self.Urunler" />
     <EntitySet Name="Raporlama" EntityType="StokMatikModel.Raporlama" />
-    <EntitySet Name="UrunSepeti" EntityType="StokMatikModel.UrunSepeti" />
   </EntityContainer>
   <EntityType Name="Raporlama">
     <Key>
@@ -53,22 +52,5 @@
     <Property Name="Yil" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
     <Property Name="Gun" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
     <Property Name="UrunAdedi" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-  </EntityType>
-  <EntityType Name="UrunSepeti">
-    <Key>
-      <PropertyRef Name="UrunSepetiId" />
-    </Key>
-    <Property Name="UrunSepetiId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MusteriAdi" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-    <Property Name="UrunAdi" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-    <Property Name="UrunAdedi" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-    <Property Name="UrunGramaji" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-    <Property Name="UrunAmbalaji" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-    <Property Name="UrunFiyati" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-    <Property Name="UrunFaturasi" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-    <Property Name="Tarih" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-    <Property Name="Ay" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-    <Property Name="Yil" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-    <Property Name="Gun" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

@@ -52,29 +52,11 @@
           <Property Name="UrunBarkodu" Type="nvarchar" MaxLength="2147483647" />
           <Property Name="UrunEklemeTarihi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
         </EntityType>
-        <EntityType Name="UrunSepeti">
-          <Key>
-            <PropertyRef Name="UrunSepetiId" />
-          </Key>
-          <Property Name="UrunSepetiId" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="MusteriAdi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-          <Property Name="UrunAdi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-          <Property Name="UrunAdedi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-          <Property Name="UrunGramaji" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-          <Property Name="UrunAmbalaji" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-          <Property Name="UrunFiyati" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-          <Property Name="UrunFaturasi" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-          <Property Name="Tarih" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-          <Property Name="Ay" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-          <Property Name="Yil" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-          <Property Name="Gun" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
-        </EntityType>
         <EntityContainer Name="StokMatikModelStoreContainer">
           <EntitySet Name="Kullanicilar" EntityType="Self.Kullanicilar" store:Type="Tables" />
           <EntitySet Name="Musteriler" EntityType="Self.Musteriler" store:Type="Tables" />
           <EntitySet Name="Raporlama" EntityType="Self.Raporlama" store:Type="Tables" />
           <EntitySet Name="Urunler" EntityType="Self.Urunler" store:Type="Tables" />
-          <EntitySet Name="UrunSepeti" EntityType="Self.UrunSepeti" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -115,7 +97,6 @@
           <EntitySet Name="Musteriler" EntityType="Self.Musteriler" />
           <EntitySet Name="Urunler" EntityType="Self.Urunler" />
           <EntitySet Name="Raporlama" EntityType="StokMatikModel.Raporlama" />
-          <EntitySet Name="UrunSepeti" EntityType="StokMatikModel.UrunSepeti" />
         </EntityContainer>
         <EntityType Name="Raporlama">
           <Key>
@@ -133,23 +114,6 @@
           <Property Name="Yil" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
           <Property Name="Gun" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
           <Property Name="UrunAdedi" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="UrunSepeti">
-          <Key>
-            <PropertyRef Name="UrunSepetiId" />
-          </Key>
-          <Property Name="UrunSepetiId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="MusteriAdi" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="UrunAdi" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="UrunAdedi" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="UrunGramaji" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="UrunAmbalaji" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="UrunFiyati" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="UrunFaturasi" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="Tarih" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="Ay" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="Yil" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
-          <Property Name="Gun" Type="String" Nullable="false" MaxLength="2147483647" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -205,24 +169,6 @@
                 <ScalarProperty Name="GidenMusteriler" ColumnName="GidenMusteriler" />
                 <ScalarProperty Name="GidenUrunler" ColumnName="GidenUrunler" />
                 <ScalarProperty Name="GunlukRaporId" ColumnName="GunlukRaporId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="UrunSepeti">
-            <EntityTypeMapping TypeName="StokMatikModel.UrunSepeti">
-              <MappingFragment StoreEntitySet="UrunSepeti">
-                <ScalarProperty Name="Gun" ColumnName="Gun" />
-                <ScalarProperty Name="Yil" ColumnName="Yil" />
-                <ScalarProperty Name="Ay" ColumnName="Ay" />
-                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
-                <ScalarProperty Name="UrunFaturasi" ColumnName="UrunFaturasi" />
-                <ScalarProperty Name="UrunFiyati" ColumnName="UrunFiyati" />
-                <ScalarProperty Name="UrunAmbalaji" ColumnName="UrunAmbalaji" />
-                <ScalarProperty Name="UrunGramaji" ColumnName="UrunGramaji" />
-                <ScalarProperty Name="UrunAdedi" ColumnName="UrunAdedi" />
-                <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
-                <ScalarProperty Name="MusteriAdi" ColumnName="MusteriAdi" />
-                <ScalarProperty Name="UrunSepetiId" ColumnName="UrunSepetiId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -30,5 +30,10 @@ namespace MRCStok
             
             this.Close();
         }
+
+        private void VeritabaniSecme_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

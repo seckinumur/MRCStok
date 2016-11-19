@@ -52,23 +52,5 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="UrunSepeti">
-      <EntityTypeMapping TypeName="StokMatikModel.UrunSepeti">
-        <MappingFragment StoreEntitySet="UrunSepeti">
-          <ScalarProperty Name="Gun" ColumnName="Gun" />
-          <ScalarProperty Name="Yil" ColumnName="Yil" />
-          <ScalarProperty Name="Ay" ColumnName="Ay" />
-          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
-          <ScalarProperty Name="UrunFaturasi" ColumnName="UrunFaturasi" />
-          <ScalarProperty Name="UrunFiyati" ColumnName="UrunFiyati" />
-          <ScalarProperty Name="UrunAmbalaji" ColumnName="UrunAmbalaji" />
-          <ScalarProperty Name="UrunGramaji" ColumnName="UrunGramaji" />
-          <ScalarProperty Name="UrunAdedi" ColumnName="UrunAdedi" />
-          <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
-          <ScalarProperty Name="MusteriAdi" ColumnName="MusteriAdi" />
-          <ScalarProperty Name="UrunSepetiId" ColumnName="UrunSepetiId" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

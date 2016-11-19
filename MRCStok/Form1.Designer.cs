@@ -29,14 +29,25 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.UrunAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UrunAdedi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UrunFiyatii = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.urunlerBindingSource7 = new System.Windows.Forms.BindingSource(this.components);
+            this.stokMatikDataSet = new MRCStok.StokMatikDataSet();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colUrunAdi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUrunFiyati = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUrunAdedi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUrunGramaji = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUrunPaketi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUrunEklemeTarihi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.textBox23 = new System.Windows.Forms.TextBox();
             this.label36 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -48,16 +59,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.UrunAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UrunGramaji = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UrunAdedi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UrunAmbalajii = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UrunFiyatii = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.button39 = new System.Windows.Forms.Button();
@@ -66,12 +69,15 @@
             this.label24 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.urunFiyatiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.urunAdediDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.urunGramajiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.urunPaketiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.urunEklemeTarihiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.urunlerBindingSource9 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.button23 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
@@ -121,38 +127,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.UrunadiUrunEkle = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.UrunEklemeTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button41 = new System.Windows.Forms.Button();
-            this.button40 = new System.Windows.Forms.Button();
-            this.dataGridView8 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UrunAmbalaji = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UrunFiyati = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SiparisTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Uruntarihiw = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.button17 = new System.Windows.Forms.Button();
-            this.label34 = new System.Windows.Forms.Label();
-            this.button19 = new System.Windows.Forms.Button();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.button18 = new System.Windows.Forms.Button();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
-            this.MusteriAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
             this.button13 = new System.Windows.Forms.Button();
@@ -175,18 +149,30 @@
             this.MusteriAdiMusteriEkle = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.musteriAdiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.musteriAdresiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.musterilerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.stokMatikDataSet2 = new MRCStok.StokMatikDataSet2();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.button28 = new System.Windows.Forms.Button();
-            this.button42 = new System.Windows.Forms.Button();
-            this.button43 = new System.Windows.Forms.Button();
-            this.button32 = new System.Windows.Forms.Button();
-            this.button31 = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.faturadurumu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
+            this.button32 = new System.Windows.Forms.Button();
             this.button30 = new System.Windows.Forms.Button();
+            this.button31 = new System.Windows.Forms.Button();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.button25 = new System.Windows.Forms.Button();
@@ -199,11 +185,9 @@
             this.button24 = new System.Windows.Forms.Button();
             this.label31 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.label51 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label32 = new System.Windows.Forms.Label();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.Kullaniciİslemleri = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button37 = new System.Windows.Forms.Button();
             this.button36 = new System.Windows.Forms.Button();
             this.button35 = new System.Windows.Forms.Button();
@@ -213,87 +197,61 @@
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.KullaniciListesi = new System.Windows.Forms.DataGridView();
-            this.button34 = new System.Windows.Forms.Button();
-            this.YöneticiSifresi = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.YoneticiKullaniciAdi = new System.Windows.Forms.TextBox();
-            this.label37 = new System.Windows.Forms.Label();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.UyariBilgisi = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.Kullaniciata = new System.Windows.Forms.ToolStripStatusLabel();
-            this.label35 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.urunAdediDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.urunGramajiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.urunPaketiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.urunFiyatiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.urunBarkoduDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.urunlerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.stokMatikDataSet = new MRCStok.StokMatikDataSet();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.urunAdediDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.urunGramajiDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.urunPaketiDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.urunFiyatiDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.urunBarkoduDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.urunlerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.musteriAdiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.musteriAdresiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.musterilerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.stokMatikDataSet2 = new MRCStok.StokMatikDataSet2();
             this.kullaniciAdiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kullaniciSifresiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kullaniciYetkisiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kullanicilarBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.stokMatikDataSet1 = new MRCStok.StokMatikDataSet1();
+            this.button34 = new System.Windows.Forms.Button();
+            this.YöneticiSifresi = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.YoneticiKullaniciAdi = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.urunlerBindingSource8 = new System.Windows.Forms.BindingSource(this.components);
+            this.urunlerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.urunlerBindingSource6 = new System.Windows.Forms.BindingSource(this.components);
+            this.urunlerBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.urunlerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.urunlerBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.UyariBilgisi = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.Kullaniciata = new System.Windows.Forms.ToolStripStatusLabel();
+            this.label35 = new System.Windows.Forms.Label();
             this.urunSepetiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.stokMatikDataSet3 = new MRCStok.StokMatikDataSet3();
             this.kullanicilarTableAdapter = new MRCStok.StokMatikDataSet1TableAdapters.KullanicilarTableAdapter();
             this.musterilerTableAdapter = new MRCStok.StokMatikDataSet2TableAdapters.MusterilerTableAdapter();
             this.urunlerTableAdapter = new MRCStok.StokMatikDataSetTableAdapters.UrunlerTableAdapter();
             this.urunSepetiTableAdapter = new MRCStok.StokMatikDataSet3TableAdapters.UrunSepetiTableAdapter();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.faturadurumu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.urunlerBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
+            this.urunlerBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
+            this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource9)).BeginInit();
             this.groupBox15.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
-            this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.groupBox14.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.musterilerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet2)).BeginInit();
             this.tabPage5.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
-            this.groupBox6.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox10.SuspendLayout();
@@ -301,59 +259,217 @@
             this.groupBox13.SuspendLayout();
             this.Kullaniciİslemleri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KullaniciListesi)).BeginInit();
-            this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.musterilerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kullanicilarBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource4)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.urunSepetiBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource5)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1129, 657);
+            this.tabControl1.Size = new System.Drawing.Size(1240, 657);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.dataGridView2);
+            this.tabPage1.Controls.Add(this.gridControl1);
             this.tabPage1.Controls.Add(this.textBox23);
             this.tabPage1.Controls.Add(this.label36);
             this.tabPage1.Controls.Add(this.groupBox3);
-            this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.groupBox1);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.dataGridView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1121, 624);
+            this.tabPage1.Size = new System.Drawing.Size(1232, 624);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "SİPARİŞ ÇIKIŞI YAP";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToDeleteRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.UrunAdi,
+            this.UrunAdedi,
+            this.UrunFiyatii});
+            this.dataGridView2.Location = new System.Drawing.Point(815, 42);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.Size = new System.Drawing.Size(411, 286);
+            this.dataGridView2.TabIndex = 0;
+            this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
+            // 
+            // UrunAdi
+            // 
+            this.UrunAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.UrunAdi.HeaderText = "ÜRÜN ADI";
+            this.UrunAdi.Name = "UrunAdi";
+            this.UrunAdi.ReadOnly = true;
+            this.UrunAdi.Width = 111;
+            // 
+            // UrunAdedi
+            // 
+            this.UrunAdedi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.UrunAdedi.HeaderText = "ÜRÜN ADEDİ";
+            this.UrunAdedi.Name = "UrunAdedi";
+            this.UrunAdedi.ReadOnly = true;
+            this.UrunAdedi.Width = 133;
+            // 
+            // UrunFiyatii
+            // 
+            this.UrunFiyatii.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.UrunFiyatii.HeaderText = "ÜRÜN FİYATI";
+            this.UrunFiyatii.Name = "UrunFiyatii";
+            this.UrunFiyatii.ReadOnly = true;
+            this.UrunFiyatii.Width = 134;
+            // 
+            // gridControl1
+            // 
+            this.gridControl1.DataSource = this.urunlerBindingSource7;
+            this.gridControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.gridControl1.Location = new System.Drawing.Point(3, 3);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(809, 618);
+            this.gridControl1.TabIndex = 12;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // urunlerBindingSource7
+            // 
+            this.urunlerBindingSource7.DataMember = "Urunler";
+            this.urunlerBindingSource7.DataSource = this.stokMatikDataSet;
+            // 
+            // stokMatikDataSet
+            // 
+            this.stokMatikDataSet.DataSetName = "StokMatikDataSet";
+            this.stokMatikDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // gridView1
+            // 
+            this.gridView1.Appearance.GroupPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridView1.Appearance.GroupPanel.Options.UseFont = true;
+            this.gridView1.Appearance.SelectedRow.BackColor = System.Drawing.Color.Blue;
+            this.gridView1.Appearance.SelectedRow.BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.gridView1.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colUrunAdi,
+            this.colUrunFiyati,
+            this.colUrunAdedi,
+            this.colUrunGramaji,
+            this.colUrunPaketi,
+            this.colUrunEklemeTarihi});
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.GroupPanelText = "TÜM ÜRÜNLERİN LİSTESİ";
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsBehavior.AutoExpandAllGroups = true;
+            this.gridView1.OptionsBehavior.Editable = false;
+            this.gridView1.OptionsBehavior.ReadOnly = true;
+            this.gridView1.OptionsCustomization.AllowRowSizing = true;
+            this.gridView1.OptionsFind.AlwaysVisible = true;
+            this.gridView1.OptionsView.RowAutoHeight = true;
+            this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
+            // 
+            // colUrunAdi
+            // 
+            this.colUrunAdi.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.colUrunAdi.AppearanceCell.Options.UseFont = true;
+            this.colUrunAdi.FieldName = "UrunAdi";
+            this.colUrunAdi.Name = "colUrunAdi";
+            this.colUrunAdi.OptionsColumn.AllowEdit = false;
+            this.colUrunAdi.OptionsColumn.ReadOnly = true;
+            this.colUrunAdi.Visible = true;
+            this.colUrunAdi.VisibleIndex = 0;
+            this.colUrunAdi.Width = 318;
+            // 
+            // colUrunFiyati
+            // 
+            this.colUrunFiyati.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.colUrunFiyati.AppearanceCell.Options.UseFont = true;
+            this.colUrunFiyati.FieldName = "UrunFiyati";
+            this.colUrunFiyati.Name = "colUrunFiyati";
+            this.colUrunFiyati.OptionsColumn.AllowEdit = false;
+            this.colUrunFiyati.OptionsColumn.ReadOnly = true;
+            this.colUrunFiyati.Visible = true;
+            this.colUrunFiyati.VisibleIndex = 1;
+            this.colUrunFiyati.Width = 88;
+            // 
+            // colUrunAdedi
+            // 
+            this.colUrunAdedi.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.colUrunAdedi.AppearanceCell.Options.UseFont = true;
+            this.colUrunAdedi.FieldName = "UrunAdedi";
+            this.colUrunAdedi.Name = "colUrunAdedi";
+            this.colUrunAdedi.OptionsColumn.AllowEdit = false;
+            this.colUrunAdedi.OptionsColumn.ReadOnly = true;
+            this.colUrunAdedi.Visible = true;
+            this.colUrunAdedi.VisibleIndex = 2;
+            this.colUrunAdedi.Width = 93;
+            // 
+            // colUrunGramaji
+            // 
+            this.colUrunGramaji.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.colUrunGramaji.AppearanceCell.Options.UseFont = true;
+            this.colUrunGramaji.FieldName = "UrunGramaji";
+            this.colUrunGramaji.Name = "colUrunGramaji";
+            this.colUrunGramaji.OptionsColumn.AllowEdit = false;
+            this.colUrunGramaji.OptionsColumn.ReadOnly = true;
+            this.colUrunGramaji.Visible = true;
+            this.colUrunGramaji.VisibleIndex = 3;
+            this.colUrunGramaji.Width = 93;
+            // 
+            // colUrunPaketi
+            // 
+            this.colUrunPaketi.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.colUrunPaketi.AppearanceCell.Options.UseFont = true;
+            this.colUrunPaketi.FieldName = "UrunPaketi";
+            this.colUrunPaketi.Name = "colUrunPaketi";
+            this.colUrunPaketi.OptionsColumn.AllowEdit = false;
+            this.colUrunPaketi.OptionsColumn.ReadOnly = true;
+            this.colUrunPaketi.Visible = true;
+            this.colUrunPaketi.VisibleIndex = 4;
+            this.colUrunPaketi.Width = 127;
+            // 
+            // colUrunEklemeTarihi
+            // 
+            this.colUrunEklemeTarihi.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.colUrunEklemeTarihi.AppearanceCell.Options.UseFont = true;
+            this.colUrunEklemeTarihi.FieldName = "UrunEklemeTarihi";
+            this.colUrunEklemeTarihi.Name = "colUrunEklemeTarihi";
+            this.colUrunEklemeTarihi.OptionsColumn.AllowEdit = false;
+            this.colUrunEklemeTarihi.OptionsColumn.ReadOnly = true;
+            this.colUrunEklemeTarihi.Visible = true;
+            this.colUrunEklemeTarihi.VisibleIndex = 5;
+            this.colUrunEklemeTarihi.Width = 72;
+            // 
             // textBox23
             // 
-            this.textBox23.Location = new System.Drawing.Point(820, 38);
+            this.textBox23.Location = new System.Drawing.Point(931, 5);
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(228, 26);
             this.textBox23.TabIndex = 11;
@@ -361,7 +477,7 @@
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(707, 41);
+            this.label36.Location = new System.Drawing.Point(818, 8);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(88, 20);
             this.label36.TabIndex = 10;
@@ -377,7 +493,7 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.textBox4);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Location = new System.Drawing.Point(711, 540);
+            this.groupBox3.Location = new System.Drawing.Point(821, 539);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(396, 78);
             this.groupBox3.TabIndex = 9;
@@ -461,22 +577,11 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "TOPLAM:";
             // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.Gold;
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Location = new System.Drawing.Point(711, 482);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(103, 51);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "ÜRÜN ÇIKAR";
-            this.button4.UseVisualStyleBackColor = false;
-            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Red;
             this.button3.ForeColor = System.Drawing.SystemColors.Control;
-            this.button3.Location = new System.Drawing.Point(821, 482);
+            this.button3.Location = new System.Drawing.Point(931, 481);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(144, 51);
             this.button3.TabIndex = 7;
@@ -488,81 +593,13 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Green;
             this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(971, 482);
+            this.button2.Location = new System.Drawing.Point(1081, 481);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(144, 51);
             this.button2.TabIndex = 6;
-            this.button2.Text = "SEPETE GÖNDER";
+            this.button2.Text = "GÖNDER";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dataGridView2);
-            this.groupBox2.Location = new System.Drawing.Point(711, 70);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(402, 259);
-            this.groupBox2.TabIndex = 5;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "EKLENEN ÜRÜNLER";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.UrunAdi,
-            this.UrunGramaji,
-            this.UrunAdedi,
-            this.UrunAmbalajii,
-            this.UrunFiyatii});
-            this.dataGridView2.Location = new System.Drawing.Point(10, 25);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(386, 224);
-            this.dataGridView2.TabIndex = 0;
-            // 
-            // UrunAdi
-            // 
-            this.UrunAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UrunAdi.HeaderText = "ÜRÜN ADI";
-            this.UrunAdi.Name = "UrunAdi";
-            this.UrunAdi.ReadOnly = true;
-            this.UrunAdi.Width = 111;
-            // 
-            // UrunGramaji
-            // 
-            this.UrunGramaji.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UrunGramaji.HeaderText = "ÜRÜN GRAMAJI";
-            this.UrunGramaji.Name = "UrunGramaji";
-            this.UrunGramaji.ReadOnly = true;
-            this.UrunGramaji.Width = 155;
-            // 
-            // UrunAdedi
-            // 
-            this.UrunAdedi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UrunAdedi.HeaderText = "ÜRÜN ADEDİ";
-            this.UrunAdedi.Name = "UrunAdedi";
-            this.UrunAdedi.ReadOnly = true;
-            this.UrunAdedi.Width = 133;
-            // 
-            // UrunAmbalajii
-            // 
-            this.UrunAmbalajii.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UrunAmbalajii.HeaderText = "ÜRÜN AMBALAJI";
-            this.UrunAmbalajii.Name = "UrunAmbalajii";
-            this.UrunAmbalajii.ReadOnly = true;
-            this.UrunAmbalajii.Width = 161;
-            // 
-            // UrunFiyatii
-            // 
-            this.UrunFiyatii.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UrunFiyatii.HeaderText = "ÜRÜN FİYATI";
-            this.UrunFiyatii.Name = "UrunFiyatii";
-            this.UrunFiyatii.ReadOnly = true;
-            this.UrunFiyatii.Width = 134;
             // 
             // groupBox1
             // 
@@ -573,7 +610,7 @@
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(711, 335);
+            this.groupBox1.Location = new System.Drawing.Point(821, 334);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(408, 141);
             this.groupBox1.TabIndex = 4;
@@ -654,89 +691,98 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Müşteri Adı:";
             // 
-            // button1
+            // tabPage2
             // 
-            this.button1.BackColor = System.Drawing.Color.Peru;
-            this.button1.Location = new System.Drawing.Point(1054, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(61, 58);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "BUL";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.textBox1.Location = new System.Drawing.Point(820, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(228, 26);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.label1.Location = new System.Drawing.Point(707, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 20);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "ÜRÜN ARA:";
+            this.tabPage2.BackColor = System.Drawing.Color.Transparent;
+            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.groupBox15);
+            this.tabPage2.Controls.Add(this.groupBox5);
+            this.tabPage2.Controls.Add(this.groupBox4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1232, 624);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "ÜRÜN GİRİŞİ YAP";
             // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.DarkGreen;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
+            this.dataGridViewTextBoxColumn1,
+            this.urunFiyatiDataGridViewTextBoxColumn,
             this.urunAdediDataGridViewTextBoxColumn,
             this.urunGramajiDataGridViewTextBoxColumn,
             this.urunPaketiDataGridViewTextBoxColumn,
-            this.urunFiyatiDataGridViewTextBoxColumn,
-            this.urunBarkoduDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.urunlerBindingSource;
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle49.BackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle49.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle49;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 6);
+            this.urunEklemeTarihiDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.urunlerBindingSource9;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(695, 612);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Size = new System.Drawing.Size(768, 615);
+            this.dataGridView1.TabIndex = 18;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
-            // Column1
+            // dataGridViewTextBoxColumn1
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.DataPropertyName = "UrunAdi";
-            this.Column1.HeaderText = "ÜRÜN ADI";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 111;
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "UrunAdi";
+            this.dataGridViewTextBoxColumn1.HeaderText = "UrunAdi";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 99;
             // 
-            // tabPage2
+            // urunFiyatiDataGridViewTextBoxColumn
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.Transparent;
-            this.tabPage2.Controls.Add(this.groupBox15);
-            this.tabPage2.Controls.Add(this.groupBox5);
-            this.tabPage2.Controls.Add(this.groupBox4);
-            this.tabPage2.Controls.Add(this.dataGridView3);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1121, 624);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "ÜRÜN GİRİŞİ YAP";
+            this.urunFiyatiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.urunFiyatiDataGridViewTextBoxColumn.DataPropertyName = "UrunFiyati";
+            this.urunFiyatiDataGridViewTextBoxColumn.HeaderText = "UrunFiyati";
+            this.urunFiyatiDataGridViewTextBoxColumn.Name = "urunFiyatiDataGridViewTextBoxColumn";
+            this.urunFiyatiDataGridViewTextBoxColumn.ReadOnly = true;
+            this.urunFiyatiDataGridViewTextBoxColumn.Width = 116;
+            // 
+            // urunAdediDataGridViewTextBoxColumn
+            // 
+            this.urunAdediDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.urunAdediDataGridViewTextBoxColumn.DataPropertyName = "UrunAdedi";
+            this.urunAdediDataGridViewTextBoxColumn.HeaderText = "UrunAdedi";
+            this.urunAdediDataGridViewTextBoxColumn.Name = "urunAdediDataGridViewTextBoxColumn";
+            this.urunAdediDataGridViewTextBoxColumn.ReadOnly = true;
+            this.urunAdediDataGridViewTextBoxColumn.Width = 119;
+            // 
+            // urunGramajiDataGridViewTextBoxColumn
+            // 
+            this.urunGramajiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.urunGramajiDataGridViewTextBoxColumn.DataPropertyName = "UrunGramaji";
+            this.urunGramajiDataGridViewTextBoxColumn.HeaderText = "UrunGramaji";
+            this.urunGramajiDataGridViewTextBoxColumn.Name = "urunGramajiDataGridViewTextBoxColumn";
+            this.urunGramajiDataGridViewTextBoxColumn.ReadOnly = true;
+            this.urunGramajiDataGridViewTextBoxColumn.Width = 135;
+            // 
+            // urunPaketiDataGridViewTextBoxColumn
+            // 
+            this.urunPaketiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.urunPaketiDataGridViewTextBoxColumn.DataPropertyName = "UrunPaketi";
+            this.urunPaketiDataGridViewTextBoxColumn.HeaderText = "UrunPaketi";
+            this.urunPaketiDataGridViewTextBoxColumn.Name = "urunPaketiDataGridViewTextBoxColumn";
+            this.urunPaketiDataGridViewTextBoxColumn.ReadOnly = true;
+            this.urunPaketiDataGridViewTextBoxColumn.Width = 123;
+            // 
+            // urunEklemeTarihiDataGridViewTextBoxColumn
+            // 
+            this.urunEklemeTarihiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.urunEklemeTarihiDataGridViewTextBoxColumn.DataPropertyName = "UrunEklemeTarihi";
+            this.urunEklemeTarihiDataGridViewTextBoxColumn.HeaderText = "UrunEklemeTarihi";
+            this.urunEklemeTarihiDataGridViewTextBoxColumn.Name = "urunEklemeTarihiDataGridViewTextBoxColumn";
+            this.urunEklemeTarihiDataGridViewTextBoxColumn.ReadOnly = true;
+            this.urunEklemeTarihiDataGridViewTextBoxColumn.Width = 176;
+            // 
+            // urunlerBindingSource9
+            // 
+            this.urunlerBindingSource9.DataMember = "Urunler";
+            this.urunlerBindingSource9.DataSource = this.stokMatikDataSet;
             // 
             // groupBox15
             // 
@@ -750,7 +796,7 @@
             this.groupBox15.Controls.Add(this.HizliStokUrunAdedi);
             this.groupBox15.Controls.Add(this.HizliStokUrunAdi);
             this.groupBox15.Controls.Add(this.label42);
-            this.groupBox15.Location = new System.Drawing.Point(666, 449);
+            this.groupBox15.Location = new System.Drawing.Point(777, 449);
             this.groupBox15.Name = "groupBox15";
             this.groupBox15.Size = new System.Drawing.Size(449, 169);
             this.groupBox15.TabIndex = 16;
@@ -879,7 +925,7 @@
             this.groupBox5.Controls.Add(this.label21);
             this.groupBox5.Controls.Add(this.UrunAdiUrunDuzenle);
             this.groupBox5.Controls.Add(this.label22);
-            this.groupBox5.Location = new System.Drawing.Point(666, 207);
+            this.groupBox5.Location = new System.Drawing.Point(777, 207);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(449, 236);
             this.groupBox5.TabIndex = 15;
@@ -1117,7 +1163,7 @@
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.UrunadiUrunEkle);
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Location = new System.Drawing.Point(666, 6);
+            this.groupBox4.Location = new System.Drawing.Point(777, 6);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(449, 195);
             this.groupBox4.TabIndex = 1;
@@ -1141,7 +1187,7 @@
             this.button38.Name = "button38";
             this.button38.Size = new System.Drawing.Size(175, 36);
             this.button38.TabIndex = 15;
-            this.button38.Text = "HAMMADDE EKLE";
+            this.button38.Text = "İADE EKLE";
             this.button38.UseVisualStyleBackColor = false;
             this.button38.Click += new System.EventHandler(this.button38_Click);
             // 
@@ -1319,383 +1365,6 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Ürün Adı:";
             // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AllowUserToDeleteRows = false;
-            this.dataGridView3.AutoGenerateColumns = false;
-            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle50.BackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle50.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle50.ForeColor = System.Drawing.Color.Snow;
-            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle50;
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.urunAdediDataGridViewTextBoxColumn1,
-            this.urunGramajiDataGridViewTextBoxColumn1,
-            this.urunPaketiDataGridViewTextBoxColumn1,
-            this.urunFiyatiDataGridViewTextBoxColumn1,
-            this.urunBarkoduDataGridViewTextBoxColumn1,
-            this.UrunEklemeTarihi});
-            this.dataGridView3.DataSource = this.urunlerBindingSource1;
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle51.BackColor = System.Drawing.Color.DarkGreen;
-            dataGridViewCellStyle51.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle51.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle51;
-            this.dataGridView3.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.ReadOnly = true;
-            this.dataGridView3.Size = new System.Drawing.Size(654, 612);
-            this.dataGridView3.TabIndex = 0;
-            this.dataGridView3.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellDoubleClick);
-            // 
-            // UrunEklemeTarihi
-            // 
-            this.UrunEklemeTarihi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UrunEklemeTarihi.DataPropertyName = "UrunEklemeTarihi";
-            this.UrunEklemeTarihi.HeaderText = "ÜRÜN EKLEME TARİHİ";
-            this.UrunEklemeTarihi.Name = "UrunEklemeTarihi";
-            this.UrunEklemeTarihi.ReadOnly = true;
-            this.UrunEklemeTarihi.Width = 205;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.dateTimePicker1);
-            this.tabPage3.Controls.Add(this.button41);
-            this.tabPage3.Controls.Add(this.button40);
-            this.tabPage3.Controls.Add(this.dataGridView8);
-            this.tabPage3.Controls.Add(this.label26);
-            this.tabPage3.Controls.Add(this.label23);
-            this.tabPage3.Controls.Add(this.groupBox7);
-            this.tabPage3.Controls.Add(this.dataGridView4);
-            this.tabPage3.Location = new System.Drawing.Point(4, 29);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1121, 624);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "SİPARİŞ SEPETİ";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(903, 440);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
-            this.dateTimePicker1.TabIndex = 18;
-            this.dateTimePicker1.Value = new System.DateTime(2016, 11, 14, 0, 0, 0, 0);
-            // 
-            // button41
-            // 
-            this.button41.BackColor = System.Drawing.Color.DarkOliveGreen;
-            this.button41.ForeColor = System.Drawing.SystemColors.Control;
-            this.button41.Location = new System.Drawing.Point(879, 552);
-            this.button41.Name = "button41";
-            this.button41.Size = new System.Drawing.Size(236, 62);
-            this.button41.TabIndex = 17;
-            this.button41.Text = "BEKLEYEN TÜM SİPARİŞLERİ LİSTELE";
-            this.button41.UseVisualStyleBackColor = false;
-            this.button41.Click += new System.EventHandler(this.button41_Click);
-            // 
-            // button40
-            // 
-            this.button40.BackColor = System.Drawing.Color.SaddleBrown;
-            this.button40.ForeColor = System.Drawing.SystemColors.Control;
-            this.button40.Location = new System.Drawing.Point(879, 485);
-            this.button40.Name = "button40";
-            this.button40.Size = new System.Drawing.Size(236, 62);
-            this.button40.TabIndex = 16;
-            this.button40.Text = "SEÇİLEN TARİHİ LİSTELE";
-            this.button40.UseVisualStyleBackColor = false;
-            this.button40.Click += new System.EventHandler(this.button40_Click);
-            // 
-            // dataGridView8
-            // 
-            this.dataGridView8.AllowUserToDeleteRows = false;
-            this.dataGridView8.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView8.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView8.BackgroundColor = System.Drawing.Color.Wheat;
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle52.BackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle52.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle52.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView8.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle52;
-            this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView8.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.UrunAmbalaji,
-            this.UrunFiyati,
-            this.SiparisTarihi,
-            this.Uruntarihiw});
-            this.dataGridView8.GridColor = System.Drawing.Color.Black;
-            this.dataGridView8.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView8.Name = "dataGridView8";
-            this.dataGridView8.ReadOnly = true;
-            this.dataGridView8.Size = new System.Drawing.Size(867, 516);
-            this.dataGridView8.TabIndex = 9;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn2.HeaderText = "MÜŞTERİ ADI";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 137;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn3.HeaderText = "ÜRÜN ADI:";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 115;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn4.HeaderText = "ÜRÜN GRAMAJI";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 155;
-            // 
-            // UrunAmbalaji
-            // 
-            this.UrunAmbalaji.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UrunAmbalaji.HeaderText = "ÜRÜN ADEDİ";
-            this.UrunAmbalaji.Name = "UrunAmbalaji";
-            this.UrunAmbalaji.ReadOnly = true;
-            this.UrunAmbalaji.Width = 133;
-            // 
-            // UrunFiyati
-            // 
-            this.UrunFiyati.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UrunFiyati.HeaderText = "ÜRÜN AMBALAJI";
-            this.UrunFiyati.Name = "UrunFiyati";
-            this.UrunFiyati.ReadOnly = true;
-            this.UrunFiyati.Width = 161;
-            // 
-            // SiparisTarihi
-            // 
-            this.SiparisTarihi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.SiparisTarihi.HeaderText = "ÜRÜN FİYATI";
-            this.SiparisTarihi.Name = "SiparisTarihi";
-            this.SiparisTarihi.ReadOnly = true;
-            this.SiparisTarihi.Width = 134;
-            // 
-            // Uruntarihiw
-            // 
-            this.Uruntarihiw.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Uruntarihiw.HeaderText = "ÜRÜN TARİHİ";
-            this.Uruntarihiw.Name = "Uruntarihiw";
-            this.Uruntarihiw.ReadOnly = true;
-            this.Uruntarihiw.Width = 137;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(942, 24);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(116, 20);
-            this.label26.TabIndex = 8;
-            this.label26.Text = "SİPARİŞLER";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(899, 4);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(186, 20);
-            this.label23.TabIndex = 7;
-            this.label23.Text = "SEPETTE BEKLEYEN";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.textBox3);
-            this.groupBox7.Controls.Add(this.label25);
-            this.groupBox7.Controls.Add(this.textBox8);
-            this.groupBox7.Controls.Add(this.label33);
-            this.groupBox7.Controls.Add(this.button17);
-            this.groupBox7.Controls.Add(this.label34);
-            this.groupBox7.Controls.Add(this.button19);
-            this.groupBox7.Controls.Add(this.textBox9);
-            this.groupBox7.Controls.Add(this.button18);
-            this.groupBox7.Controls.Add(this.label48);
-            this.groupBox7.Controls.Add(this.label49);
-            this.groupBox7.Controls.Add(this.label50);
-            this.groupBox7.Controls.Add(this.textBox10);
-            this.groupBox7.Location = new System.Drawing.Point(6, 528);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(867, 90);
-            this.groupBox7.TabIndex = 2;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "ÜRETİM SEPETİ İŞLEMLERİ";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(300, 53);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(187, 26);
-            this.textBox3.TabIndex = 9;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(233, 55);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(64, 20);
-            this.label25.TabIndex = 8;
-            this.label25.Text = "M.ADI:";
-            // 
-            // textBox8
-            // 
-            this.textBox8.ForeColor = System.Drawing.Color.OrangeRed;
-            this.textBox8.Location = new System.Drawing.Point(300, 21);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(89, 26);
-            this.textBox8.TabIndex = 7;
-            this.textBox8.Text = "0";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.ForeColor = System.Drawing.Color.OrangeRed;
-            this.label33.Location = new System.Drawing.Point(233, 24);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(61, 20);
-            this.label33.TabIndex = 6;
-            this.label33.Text = "ADET:";
-            // 
-            // button17
-            // 
-            this.button17.BackColor = System.Drawing.Color.DarkOrange;
-            this.button17.ForeColor = System.Drawing.SystemColors.Control;
-            this.button17.Location = new System.Drawing.Point(517, 17);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(115, 69);
-            this.button17.TabIndex = 6;
-            this.button17.Text = "EXCEL\'LE DÖK";
-            this.button17.UseVisualStyleBackColor = false;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label34.Location = new System.Drawing.Point(188, 55);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(19, 20);
-            this.label34.TabIndex = 5;
-            this.label34.Text = "₺";
-            // 
-            // button19
-            // 
-            this.button19.BackColor = System.Drawing.Color.Crimson;
-            this.button19.ForeColor = System.Drawing.SystemColors.Control;
-            this.button19.Location = new System.Drawing.Point(638, 17);
-            this.button19.Name = "button19";
-            this.button19.Size = new System.Drawing.Size(102, 69);
-            this.button19.TabIndex = 5;
-            this.button19.Text = "SİPARİŞİ SİL";
-            this.button19.UseVisualStyleBackColor = false;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
-            // 
-            // textBox9
-            // 
-            this.textBox9.ForeColor = System.Drawing.Color.DarkGreen;
-            this.textBox9.Location = new System.Drawing.Point(93, 52);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(89, 26);
-            this.textBox9.TabIndex = 4;
-            this.textBox9.Text = "0";
-            // 
-            // button18
-            // 
-            this.button18.BackColor = System.Drawing.Color.DarkGreen;
-            this.button18.ForeColor = System.Drawing.SystemColors.Control;
-            this.button18.Location = new System.Drawing.Point(746, 17);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(115, 69);
-            this.button18.TabIndex = 4;
-            this.button18.Text = "SİPARİŞİ TAMAMLA";
-            this.button18.UseVisualStyleBackColor = false;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label48.Location = new System.Drawing.Point(9, 55);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(84, 20);
-            this.label48.TabIndex = 3;
-            this.label48.Text = "TOPLAM:";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.ForeColor = System.Drawing.Color.DarkRed;
-            this.label49.Location = new System.Drawing.Point(188, 24);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(34, 20);
-            this.label49.TabIndex = 2;
-            this.label49.Text = "KG";
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.ForeColor = System.Drawing.Color.DarkRed;
-            this.label50.Location = new System.Drawing.Point(9, 24);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(84, 20);
-            this.label50.TabIndex = 0;
-            this.label50.Text = "TOPLAM:";
-            // 
-            // textBox10
-            // 
-            this.textBox10.ForeColor = System.Drawing.Color.Maroon;
-            this.textBox10.Location = new System.Drawing.Point(93, 21);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(89, 26);
-            this.textBox10.TabIndex = 1;
-            this.textBox10.Text = "0";
-            // 
-            // dataGridView4
-            // 
-            this.dataGridView4.AllowUserToDeleteRows = false;
-            this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView4.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MusteriAdi});
-            this.dataGridView4.Location = new System.Drawing.Point(879, 47);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.ReadOnly = true;
-            this.dataGridView4.Size = new System.Drawing.Size(236, 378);
-            this.dataGridView4.TabIndex = 0;
-            this.dataGridView4.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView4_CellDoubleClick);
-            // 
-            // MusteriAdi
-            // 
-            this.MusteriAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.MusteriAdi.HeaderText = "MÜŞTERİ ADI";
-            this.MusteriAdi.Name = "MusteriAdi";
-            this.MusteriAdi.ReadOnly = true;
-            this.MusteriAdi.Width = 137;
-            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.groupBox14);
@@ -1705,7 +1374,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1121, 624);
+            this.tabPage4.Size = new System.Drawing.Size(1232, 624);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "MÜŞTERİ YÖNETİMİ";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1714,7 +1383,7 @@
             // 
             this.groupBox14.Controls.Add(this.button13);
             this.groupBox14.Controls.Add(this.button12);
-            this.groupBox14.Location = new System.Drawing.Point(779, 421);
+            this.groupBox14.Location = new System.Drawing.Point(887, 421);
             this.groupBox14.Name = "groupBox14";
             this.groupBox14.Size = new System.Drawing.Size(342, 101);
             this.groupBox14.TabIndex = 7;
@@ -1755,7 +1424,7 @@
             this.groupBox9.Controls.Add(this.label29);
             this.groupBox9.Controls.Add(this.MusteriAdiMusteriDuzenle);
             this.groupBox9.Controls.Add(this.label30);
-            this.groupBox9.Location = new System.Drawing.Point(776, 201);
+            this.groupBox9.Location = new System.Drawing.Point(884, 201);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(342, 214);
             this.groupBox9.TabIndex = 6;
@@ -1863,7 +1532,7 @@
             this.groupBox8.Controls.Add(this.label28);
             this.groupBox8.Controls.Add(this.MusteriAdiMusteriEkle);
             this.groupBox8.Controls.Add(this.label27);
-            this.groupBox8.Location = new System.Drawing.Point(776, 6);
+            this.groupBox8.Location = new System.Drawing.Point(884, 6);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(342, 189);
             this.groupBox8.TabIndex = 1;
@@ -1940,51 +1609,119 @@
             this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView5.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView5.BackgroundColor = System.Drawing.SystemColors.ControlDark;
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle53.BackColor = System.Drawing.Color.OrangeRed;
-            dataGridViewCellStyle53.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle53.ForeColor = System.Drawing.Color.SeaShell;
-            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.SeaShell;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.musteriAdiDataGridViewTextBoxColumn,
             this.musteriAdresiDataGridViewTextBoxColumn});
             this.dataGridView5.DataSource = this.musterilerBindingSource;
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle54.BackColor = System.Drawing.Color.OrangeRed;
-            dataGridViewCellStyle54.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle54.ForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle54.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle54.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle54.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView5.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.OrangeRed;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView5.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView5.GridColor = System.Drawing.Color.OldLace;
             this.dataGridView5.Location = new System.Drawing.Point(6, 6);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.ReadOnly = true;
-            this.dataGridView5.Size = new System.Drawing.Size(764, 612);
+            this.dataGridView5.Size = new System.Drawing.Size(872, 612);
             this.dataGridView5.TabIndex = 0;
             this.dataGridView5.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellDoubleClick);
             // 
+            // musteriAdiDataGridViewTextBoxColumn
+            // 
+            this.musteriAdiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.musteriAdiDataGridViewTextBoxColumn.DataPropertyName = "MusteriAdi";
+            this.musteriAdiDataGridViewTextBoxColumn.HeaderText = "MÜŞTERİ ADI";
+            this.musteriAdiDataGridViewTextBoxColumn.Name = "musteriAdiDataGridViewTextBoxColumn";
+            this.musteriAdiDataGridViewTextBoxColumn.ReadOnly = true;
+            this.musteriAdiDataGridViewTextBoxColumn.Width = 137;
+            // 
+            // musteriAdresiDataGridViewTextBoxColumn
+            // 
+            this.musteriAdresiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.musteriAdresiDataGridViewTextBoxColumn.DataPropertyName = "MusteriAdresi";
+            this.musteriAdresiDataGridViewTextBoxColumn.HeaderText = "MÜŞTERİ ADRESİ";
+            this.musteriAdresiDataGridViewTextBoxColumn.Name = "musteriAdresiDataGridViewTextBoxColumn";
+            this.musteriAdresiDataGridViewTextBoxColumn.ReadOnly = true;
+            this.musteriAdresiDataGridViewTextBoxColumn.Width = 170;
+            // 
+            // musterilerBindingSource
+            // 
+            this.musterilerBindingSource.DataMember = "Musteriler";
+            this.musterilerBindingSource.DataSource = this.stokMatikDataSet2;
+            // 
+            // stokMatikDataSet2
+            // 
+            this.stokMatikDataSet2.DataSetName = "StokMatikDataSet2";
+            this.stokMatikDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.groupBox2);
             this.tabPage5.Controls.Add(this.dataGridView6);
-            this.tabPage5.Controls.Add(this.groupBox6);
-            this.tabPage5.Controls.Add(this.button32);
-            this.tabPage5.Controls.Add(this.button31);
             this.tabPage5.Controls.Add(this.groupBox12);
             this.tabPage5.Controls.Add(this.groupBox11);
             this.tabPage5.Controls.Add(this.groupBox10);
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1121, 624);
+            this.tabPage5.Size = new System.Drawing.Size(1232, 624);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "RAPORLAR";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.button5);
+            this.groupBox2.Controls.Add(this.button6);
+            this.groupBox2.Location = new System.Drawing.Point(896, 502);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(333, 116);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "FATURA NUMARASINA GÖRE ARAMA";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(10, 41);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(174, 26);
+            this.textBox1.TabIndex = 11;
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Maroon;
+            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button5.Location = new System.Drawing.Point(190, 68);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(134, 42);
+            this.button5.TabIndex = 9;
+            this.button5.Text = "İPTAL";
+            this.button5.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.DarkGreen;
+            this.button6.ForeColor = System.Drawing.SystemColors.Control;
+            this.button6.Location = new System.Drawing.Point(190, 25);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(134, 42);
+            this.button6.TabIndex = 7;
+            this.button6.Text = "GÖSTER";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
             // 
             // dataGridView6
             // 
@@ -2004,106 +1741,147 @@
             this.dataGridView6.Location = new System.Drawing.Point(3, 3);
             this.dataGridView6.Name = "dataGridView6";
             this.dataGridView6.ReadOnly = true;
-            this.dataGridView6.Size = new System.Drawing.Size(773, 615);
+            this.dataGridView6.Size = new System.Drawing.Size(884, 615);
             this.dataGridView6.TabIndex = 11;
+            this.dataGridView6.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView6_CellDoubleClick);
             // 
-            // groupBox6
+            // dataGridViewTextBoxColumn5
             // 
-            this.groupBox6.Controls.Add(this.textBox11);
-            this.groupBox6.Controls.Add(this.button28);
-            this.groupBox6.Controls.Add(this.button42);
-            this.groupBox6.Controls.Add(this.button43);
-            this.groupBox6.Location = new System.Drawing.Point(782, 306);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(333, 128);
-            this.groupBox6.TabIndex = 10;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "ÜRÜNE GÖRE ARAMA";
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn5.HeaderText = "MÜŞTERİ ADI";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 137;
             // 
-            // textBox11
+            // dataGridViewTextBoxColumn6
             // 
-            this.textBox11.Location = new System.Drawing.Point(146, 38);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(181, 26);
-            this.textBox11.TabIndex = 12;
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn6.HeaderText = "ÜRÜN ADI:";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 115;
             // 
-            // button28
+            // dataGridViewTextBoxColumn7
             // 
-            this.button28.Location = new System.Drawing.Point(6, 25);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(134, 52);
-            this.button28.TabIndex = 14;
-            this.button28.Text = "ÜRÜN SEÇ";
-            this.button28.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn7.HeaderText = "ÜRÜN GRAMAJI";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 155;
             // 
-            // button42
+            // dataGridViewTextBoxColumn8
             // 
-            this.button42.Location = new System.Drawing.Point(168, 81);
-            this.button42.Name = "button42";
-            this.button42.Size = new System.Drawing.Size(127, 42);
-            this.button42.TabIndex = 13;
-            this.button42.Text = "İPTAL";
-            this.button42.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn8.HeaderText = "ÜRÜN ADEDİ";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 133;
             // 
-            // button43
+            // dataGridViewTextBoxColumn9
             // 
-            this.button43.Location = new System.Drawing.Point(29, 80);
-            this.button43.Name = "button43";
-            this.button43.Size = new System.Drawing.Size(134, 42);
-            this.button43.TabIndex = 12;
-            this.button43.Text = "GÖSTER";
-            this.button43.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn9.HeaderText = "ÜRÜN AMBALAJI";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 161;
             // 
-            // button32
+            // dataGridViewTextBoxColumn10
             // 
-            this.button32.Location = new System.Drawing.Point(782, 560);
-            this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(165, 58);
-            this.button32.TabIndex = 5;
-            this.button32.Text = "LİSTEYİ TEMİZLE";
-            this.button32.UseVisualStyleBackColor = true;
+            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn10.HeaderText = "ÜRÜN FİYATI";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 134;
             // 
-            // button31
+            // faturadurumu
             // 
-            this.button31.BackColor = System.Drawing.Color.Orange;
-            this.button31.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button31.Location = new System.Drawing.Point(950, 560);
-            this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(165, 58);
-            this.button31.TabIndex = 4;
-            this.button31.Text = "MEVCUT LİSTEYİ  Excel’e Aktar";
-            this.button31.UseVisualStyleBackColor = false;
-            this.button31.Click += new System.EventHandler(this.button31_Click);
+            this.faturadurumu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.faturadurumu.HeaderText = "FATURA DURUMU";
+            this.faturadurumu.Name = "faturadurumu";
+            this.faturadurumu.ReadOnly = true;
+            this.faturadurumu.Width = 172;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn11.HeaderText = "SİPARİŞ TARİHİ";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 156;
             // 
             // groupBox12
             // 
+            this.groupBox12.Controls.Add(this.button1);
             this.groupBox12.Controls.Add(this.button33);
+            this.groupBox12.Controls.Add(this.button32);
             this.groupBox12.Controls.Add(this.button30);
-            this.groupBox12.Location = new System.Drawing.Point(785, 435);
+            this.groupBox12.Controls.Add(this.button31);
+            this.groupBox12.Location = new System.Drawing.Point(893, 262);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(333, 124);
+            this.groupBox12.Size = new System.Drawing.Size(333, 234);
             this.groupBox12.TabIndex = 3;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "ÖZEL ARAMA";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button1.Location = new System.Drawing.Point(10, 115);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(317, 37);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "İADE GELEN ÜRÜNLER";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // button33
             // 
-            this.button33.Location = new System.Drawing.Point(10, 74);
+            this.button33.BackColor = System.Drawing.Color.DarkGreen;
+            this.button33.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button33.Location = new System.Drawing.Point(10, 72);
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(317, 37);
             this.button33.TabIndex = 1;
             this.button33.Text = "BEDELSİZ GİDEN ÜRÜNLER";
-            this.button33.UseVisualStyleBackColor = true;
+            this.button33.UseVisualStyleBackColor = false;
+            this.button33.Click += new System.EventHandler(this.button33_Click);
+            // 
+            // button32
+            // 
+            this.button32.BackColor = System.Drawing.Color.DarkRed;
+            this.button32.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button32.Location = new System.Drawing.Point(10, 163);
+            this.button32.Name = "button32";
+            this.button32.Size = new System.Drawing.Size(158, 58);
+            this.button32.TabIndex = 5;
+            this.button32.Text = "LİSTEYİ TEMİZLE";
+            this.button32.UseVisualStyleBackColor = false;
+            this.button32.Click += new System.EventHandler(this.button32_Click);
             // 
             // button30
             // 
+            this.button30.BackColor = System.Drawing.Color.SaddleBrown;
+            this.button30.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button30.Location = new System.Drawing.Point(10, 29);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(317, 37);
             this.button30.TabIndex = 0;
             this.button30.Text = "FATURASIZ GİDEN ÜRÜNLER";
-            this.button30.UseVisualStyleBackColor = true;
+            this.button30.UseVisualStyleBackColor = false;
+            this.button30.Click += new System.EventHandler(this.button30_Click);
+            // 
+            // button31
+            // 
+            this.button31.BackColor = System.Drawing.Color.Orange;
+            this.button31.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button31.Location = new System.Drawing.Point(171, 163);
+            this.button31.Name = "button31";
+            this.button31.Size = new System.Drawing.Size(156, 58);
+            this.button31.TabIndex = 4;
+            this.button31.Text = "MEVCUT LİSTEYİ  Excel’e Aktar";
+            this.button31.UseVisualStyleBackColor = false;
+            this.button31.Click += new System.EventHandler(this.button31_Click);
             // 
             // groupBox11
             // 
@@ -2111,9 +1889,9 @@
             this.groupBox11.Controls.Add(this.button25);
             this.groupBox11.Controls.Add(this.button27);
             this.groupBox11.Controls.Add(this.button29);
-            this.groupBox11.Location = new System.Drawing.Point(782, 129);
+            this.groupBox11.Location = new System.Drawing.Point(893, 129);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(333, 171);
+            this.groupBox11.Size = new System.Drawing.Size(333, 127);
             this.groupBox11.TabIndex = 2;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "MÜŞTERİYE GÖRE ARAMA";
@@ -2128,30 +1906,39 @@
             // 
             // button25
             // 
+            this.button25.BackColor = System.Drawing.Color.Orange;
+            this.button25.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button25.Location = new System.Drawing.Point(3, 60);
             this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(324, 52);
+            this.button25.Size = new System.Drawing.Size(121, 52);
             this.button25.TabIndex = 10;
             this.button25.Text = "MÜŞTERİ SEÇ";
-            this.button25.UseVisualStyleBackColor = true;
+            this.button25.UseVisualStyleBackColor = false;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
             // 
             // button27
             // 
-            this.button27.Location = new System.Drawing.Point(168, 118);
+            this.button27.BackColor = System.Drawing.Color.Maroon;
+            this.button27.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button27.Location = new System.Drawing.Point(233, 60);
             this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(127, 42);
+            this.button27.Size = new System.Drawing.Size(94, 52);
             this.button27.TabIndex = 9;
             this.button27.Text = "İPTAL";
-            this.button27.UseVisualStyleBackColor = true;
+            this.button27.UseVisualStyleBackColor = false;
+            this.button27.Click += new System.EventHandler(this.button27_Click);
             // 
             // button29
             // 
-            this.button29.Location = new System.Drawing.Point(29, 118);
+            this.button29.BackColor = System.Drawing.Color.DarkGreen;
+            this.button29.ForeColor = System.Drawing.SystemColors.Control;
+            this.button29.Location = new System.Drawing.Point(129, 60);
             this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(134, 42);
+            this.button29.Size = new System.Drawing.Size(98, 52);
             this.button29.TabIndex = 7;
             this.button29.Text = "GÖSTER";
-            this.button29.UseVisualStyleBackColor = true;
+            this.button29.UseVisualStyleBackColor = false;
+            this.button29.Click += new System.EventHandler(this.button29_Click);
             // 
             // groupBox10
             // 
@@ -2160,7 +1947,7 @@
             this.groupBox10.Controls.Add(this.button26);
             this.groupBox10.Controls.Add(this.button24);
             this.groupBox10.Controls.Add(this.label31);
-            this.groupBox10.Location = new System.Drawing.Point(782, 6);
+            this.groupBox10.Location = new System.Drawing.Point(893, 6);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(333, 117);
             this.groupBox10.TabIndex = 1;
@@ -2220,50 +2007,14 @@
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.label51);
-            this.tabPage6.Controls.Add(this.comboBox4);
-            this.tabPage6.Controls.Add(this.label32);
             this.tabPage6.Controls.Add(this.groupBox13);
             this.tabPage6.Location = new System.Drawing.Point(4, 29);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1121, 624);
+            this.tabPage6.Size = new System.Drawing.Size(1232, 624);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "AYARLAR";
             this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(449, 419);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(406, 20);
-            this.label51.TabIndex = 3;
-            this.label51.Text = "VARSAYILAN OLARAK 30 SN AYARLANMIŞTIR.";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
-            "30000",
-            "60000",
-            "120000",
-            "300000"});
-            this.comboBox4.Location = new System.Drawing.Point(360, 411);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(83, 28);
-            this.comboBox4.TabIndex = 2;
-            this.comboBox4.Text = "30000";
-            this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(6, 414);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(348, 20);
-            this.label32.TabIndex = 1;
-            this.label32.Text = "SİSTEM GÜNCELLEME ZAMANLAYICISI:";
             // 
             // groupBox13
             // 
@@ -2276,7 +2027,7 @@
             this.groupBox13.Controls.Add(this.label37);
             this.groupBox13.Location = new System.Drawing.Point(6, 6);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(1109, 395);
+            this.groupBox13.Size = new System.Drawing.Size(1220, 395);
             this.groupBox13.TabIndex = 0;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "KULLANICI EKLEMEK YADA ÇIKARMAK İÇİN YÖNETİCİ GİRİŞİ YAPIN!";
@@ -2299,6 +2050,16 @@
             this.Kullaniciİslemleri.TabStop = false;
             this.Kullaniciİslemleri.Text = "KULLANICI İŞLEMLERİ";
             this.Kullaniciİslemleri.Visible = false;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(375, 64);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(190, 24);
+            this.checkBox1.TabIndex = 15;
+            this.checkBox1.Text = "STOK YETKİSİ VER";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // button37
             // 
@@ -2389,10 +2150,47 @@
             this.KullaniciListesi.Location = new System.Drawing.Point(624, 14);
             this.KullaniciListesi.Name = "KullaniciListesi";
             this.KullaniciListesi.ReadOnly = true;
-            this.KullaniciListesi.Size = new System.Drawing.Size(479, 375);
+            this.KullaniciListesi.Size = new System.Drawing.Size(590, 375);
             this.KullaniciListesi.TabIndex = 5;
             this.KullaniciListesi.Visible = false;
             this.KullaniciListesi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.KullaniciListesi_CellDoubleClick);
+            // 
+            // kullaniciAdiDataGridViewTextBoxColumn
+            // 
+            this.kullaniciAdiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.kullaniciAdiDataGridViewTextBoxColumn.DataPropertyName = "KullaniciAdi";
+            this.kullaniciAdiDataGridViewTextBoxColumn.HeaderText = "Kullanıcı Adı";
+            this.kullaniciAdiDataGridViewTextBoxColumn.Name = "kullaniciAdiDataGridViewTextBoxColumn";
+            this.kullaniciAdiDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kullaniciAdiDataGridViewTextBoxColumn.Width = 120;
+            // 
+            // kullaniciSifresiDataGridViewTextBoxColumn
+            // 
+            this.kullaniciSifresiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.kullaniciSifresiDataGridViewTextBoxColumn.DataPropertyName = "KullaniciSifresi";
+            this.kullaniciSifresiDataGridViewTextBoxColumn.HeaderText = "Kullanıcı Şifresi";
+            this.kullaniciSifresiDataGridViewTextBoxColumn.Name = "kullaniciSifresiDataGridViewTextBoxColumn";
+            this.kullaniciSifresiDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kullaniciSifresiDataGridViewTextBoxColumn.Width = 142;
+            // 
+            // kullaniciYetkisiDataGridViewTextBoxColumn
+            // 
+            this.kullaniciYetkisiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.kullaniciYetkisiDataGridViewTextBoxColumn.DataPropertyName = "KullaniciYetkisi";
+            this.kullaniciYetkisiDataGridViewTextBoxColumn.HeaderText = "Kullanıcı Yetkisi";
+            this.kullaniciYetkisiDataGridViewTextBoxColumn.Name = "kullaniciYetkisiDataGridViewTextBoxColumn";
+            this.kullaniciYetkisiDataGridViewTextBoxColumn.ReadOnly = true;
+            this.kullaniciYetkisiDataGridViewTextBoxColumn.Width = 145;
+            // 
+            // kullanicilarBindingSource
+            // 
+            this.kullanicilarBindingSource.DataMember = "Kullanicilar";
+            this.kullanicilarBindingSource.DataSource = this.stokMatikDataSet1;
+            // 
+            // stokMatikDataSet1
+            // 
+            this.stokMatikDataSet1.DataSetName = "StokMatikDataSet1";
+            this.stokMatikDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // button34
             // 
@@ -2439,106 +2237,35 @@
             this.label37.TabIndex = 0;
             this.label37.Text = "YÖNETİCİ KULLANICI ADI:";
             // 
-            // tabPage7
+            // urunlerBindingSource8
             // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 29);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1121, 624);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "HAMMADE GİRİŞİ";
-            this.tabPage7.UseVisualStyleBackColor = true;
+            this.urunlerBindingSource8.DataMember = "Urunler";
+            this.urunlerBindingSource8.DataSource = this.stokMatikDataSet;
             // 
-            // button5
+            // urunlerBindingSource1
             // 
-            this.button5.BackColor = System.Drawing.Color.Navy;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Location = new System.Drawing.Point(1143, 41);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(109, 82);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "SİPARİŞ ÇIKIŞI YAP";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.urunlerBindingSource1.DataMember = "Urunler";
+            this.urunlerBindingSource1.DataSource = this.stokMatikDataSet;
             // 
-            // button6
+            // urunlerBindingSource6
             // 
-            this.button6.BackColor = System.Drawing.Color.Green;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Location = new System.Drawing.Point(1143, 129);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(109, 82);
-            this.button6.TabIndex = 2;
-            this.button6.Text = "ÜRÜN GİRİŞİ YAP";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.urunlerBindingSource6.DataMember = "Urunler";
+            this.urunlerBindingSource6.DataSource = this.stokMatikDataSet;
             // 
-            // button7
+            // urunlerBindingSource2
             // 
-            this.button7.BackColor = System.Drawing.Color.DarkOrange;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button7.Location = new System.Drawing.Point(1143, 217);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(109, 82);
-            this.button7.TabIndex = 3;
-            this.button7.Text = "SİPARİŞ SEPETİ";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.urunlerBindingSource2.DataMember = "Urunler";
+            this.urunlerBindingSource2.DataSource = this.stokMatikDataSet;
             // 
-            // button8
+            // urunlerBindingSource
             // 
-            this.button8.BackColor = System.Drawing.Color.Olive;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button8.Location = new System.Drawing.Point(1143, 305);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(109, 82);
-            this.button8.TabIndex = 4;
-            this.button8.Text = "MÜŞTERİ YÖNETİMİ";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.urunlerBindingSource.DataMember = "Urunler";
+            this.urunlerBindingSource.DataSource = this.stokMatikDataSet;
             // 
-            // button9
+            // urunlerBindingSource4
             // 
-            this.button9.BackColor = System.Drawing.Color.DarkCyan;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button9.Location = new System.Drawing.Point(1143, 481);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(109, 82);
-            this.button9.TabIndex = 5;
-            this.button9.Text = "AYARLAR";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // button10
-            // 
-            this.button10.BackColor = System.Drawing.Color.Maroon;
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button10.Location = new System.Drawing.Point(1143, 569);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(109, 100);
-            this.button10.TabIndex = 6;
-            this.button10.Text = "OTURUMU KAPAT";
-            this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.Purple;
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button11.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button11.Location = new System.Drawing.Point(1143, 393);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(109, 82);
-            this.button11.TabIndex = 7;
-            this.button11.Text = "RAPOR";
-            this.button11.UseVisualStyleBackColor = false;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.urunlerBindingSource4.DataMember = "Urunler";
+            this.urunlerBindingSource4.DataSource = this.stokMatikDataSet;
             // 
             // statusStrip1
             // 
@@ -2580,189 +2307,6 @@
             this.label35.TabIndex = 9;
             this.label35.Text = "STOKMATİK V.1.0.3";
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // urunAdediDataGridViewTextBoxColumn
-            // 
-            this.urunAdediDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.urunAdediDataGridViewTextBoxColumn.DataPropertyName = "UrunAdedi";
-            this.urunAdediDataGridViewTextBoxColumn.HeaderText = "ÜRÜN ADEDİ";
-            this.urunAdediDataGridViewTextBoxColumn.Name = "urunAdediDataGridViewTextBoxColumn";
-            this.urunAdediDataGridViewTextBoxColumn.ReadOnly = true;
-            this.urunAdediDataGridViewTextBoxColumn.Width = 133;
-            // 
-            // urunGramajiDataGridViewTextBoxColumn
-            // 
-            this.urunGramajiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.urunGramajiDataGridViewTextBoxColumn.DataPropertyName = "UrunGramaji";
-            this.urunGramajiDataGridViewTextBoxColumn.HeaderText = "ÜRÜN GRAMAJI";
-            this.urunGramajiDataGridViewTextBoxColumn.Name = "urunGramajiDataGridViewTextBoxColumn";
-            this.urunGramajiDataGridViewTextBoxColumn.ReadOnly = true;
-            this.urunGramajiDataGridViewTextBoxColumn.Width = 155;
-            // 
-            // urunPaketiDataGridViewTextBoxColumn
-            // 
-            this.urunPaketiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.urunPaketiDataGridViewTextBoxColumn.DataPropertyName = "UrunPaketi";
-            this.urunPaketiDataGridViewTextBoxColumn.HeaderText = "ÜRÜN PAKETİ";
-            this.urunPaketiDataGridViewTextBoxColumn.Name = "urunPaketiDataGridViewTextBoxColumn";
-            this.urunPaketiDataGridViewTextBoxColumn.ReadOnly = true;
-            this.urunPaketiDataGridViewTextBoxColumn.Width = 139;
-            // 
-            // urunFiyatiDataGridViewTextBoxColumn
-            // 
-            this.urunFiyatiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.urunFiyatiDataGridViewTextBoxColumn.DataPropertyName = "UrunFiyati";
-            this.urunFiyatiDataGridViewTextBoxColumn.HeaderText = "ÜRÜN FİYATI";
-            this.urunFiyatiDataGridViewTextBoxColumn.Name = "urunFiyatiDataGridViewTextBoxColumn";
-            this.urunFiyatiDataGridViewTextBoxColumn.ReadOnly = true;
-            this.urunFiyatiDataGridViewTextBoxColumn.Width = 134;
-            // 
-            // urunBarkoduDataGridViewTextBoxColumn
-            // 
-            this.urunBarkoduDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.urunBarkoduDataGridViewTextBoxColumn.DataPropertyName = "UrunBarkodu";
-            this.urunBarkoduDataGridViewTextBoxColumn.HeaderText = "BARKOD";
-            this.urunBarkoduDataGridViewTextBoxColumn.Name = "urunBarkoduDataGridViewTextBoxColumn";
-            this.urunBarkoduDataGridViewTextBoxColumn.ReadOnly = true;
-            this.urunBarkoduDataGridViewTextBoxColumn.Width = 108;
-            // 
-            // urunlerBindingSource
-            // 
-            this.urunlerBindingSource.DataMember = "Urunler";
-            this.urunlerBindingSource.DataSource = this.stokMatikDataSet;
-            // 
-            // stokMatikDataSet
-            // 
-            this.stokMatikDataSet.DataSetName = "StokMatikDataSet";
-            this.stokMatikDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "UrunAdi";
-            this.dataGridViewTextBoxColumn1.HeaderText = "ÜRÜN ADI";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 111;
-            // 
-            // urunAdediDataGridViewTextBoxColumn1
-            // 
-            this.urunAdediDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.urunAdediDataGridViewTextBoxColumn1.DataPropertyName = "UrunAdedi";
-            this.urunAdediDataGridViewTextBoxColumn1.HeaderText = "ÜRÜN ADEDİ";
-            this.urunAdediDataGridViewTextBoxColumn1.Name = "urunAdediDataGridViewTextBoxColumn1";
-            this.urunAdediDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.urunAdediDataGridViewTextBoxColumn1.Width = 133;
-            // 
-            // urunGramajiDataGridViewTextBoxColumn1
-            // 
-            this.urunGramajiDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.urunGramajiDataGridViewTextBoxColumn1.DataPropertyName = "UrunGramaji";
-            this.urunGramajiDataGridViewTextBoxColumn1.HeaderText = "ÜRÜN GRAMAJI";
-            this.urunGramajiDataGridViewTextBoxColumn1.Name = "urunGramajiDataGridViewTextBoxColumn1";
-            this.urunGramajiDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.urunGramajiDataGridViewTextBoxColumn1.Width = 155;
-            // 
-            // urunPaketiDataGridViewTextBoxColumn1
-            // 
-            this.urunPaketiDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.urunPaketiDataGridViewTextBoxColumn1.DataPropertyName = "UrunPaketi";
-            this.urunPaketiDataGridViewTextBoxColumn1.HeaderText = "ÜRÜN PAKETİ";
-            this.urunPaketiDataGridViewTextBoxColumn1.Name = "urunPaketiDataGridViewTextBoxColumn1";
-            this.urunPaketiDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.urunPaketiDataGridViewTextBoxColumn1.Width = 139;
-            // 
-            // urunFiyatiDataGridViewTextBoxColumn1
-            // 
-            this.urunFiyatiDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.urunFiyatiDataGridViewTextBoxColumn1.DataPropertyName = "UrunFiyati";
-            this.urunFiyatiDataGridViewTextBoxColumn1.HeaderText = "ÜRÜN FİYATI";
-            this.urunFiyatiDataGridViewTextBoxColumn1.Name = "urunFiyatiDataGridViewTextBoxColumn1";
-            this.urunFiyatiDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.urunFiyatiDataGridViewTextBoxColumn1.Width = 134;
-            // 
-            // urunBarkoduDataGridViewTextBoxColumn1
-            // 
-            this.urunBarkoduDataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.urunBarkoduDataGridViewTextBoxColumn1.DataPropertyName = "UrunBarkodu";
-            this.urunBarkoduDataGridViewTextBoxColumn1.HeaderText = "BARKOD";
-            this.urunBarkoduDataGridViewTextBoxColumn1.Name = "urunBarkoduDataGridViewTextBoxColumn1";
-            this.urunBarkoduDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.urunBarkoduDataGridViewTextBoxColumn1.Width = 108;
-            // 
-            // urunlerBindingSource1
-            // 
-            this.urunlerBindingSource1.DataMember = "Urunler";
-            this.urunlerBindingSource1.DataSource = this.stokMatikDataSet;
-            // 
-            // musteriAdiDataGridViewTextBoxColumn
-            // 
-            this.musteriAdiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.musteriAdiDataGridViewTextBoxColumn.DataPropertyName = "MusteriAdi";
-            this.musteriAdiDataGridViewTextBoxColumn.HeaderText = "MÜŞTERİ ADI";
-            this.musteriAdiDataGridViewTextBoxColumn.Name = "musteriAdiDataGridViewTextBoxColumn";
-            this.musteriAdiDataGridViewTextBoxColumn.ReadOnly = true;
-            this.musteriAdiDataGridViewTextBoxColumn.Width = 137;
-            // 
-            // musteriAdresiDataGridViewTextBoxColumn
-            // 
-            this.musteriAdresiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.musteriAdresiDataGridViewTextBoxColumn.DataPropertyName = "MusteriAdresi";
-            this.musteriAdresiDataGridViewTextBoxColumn.HeaderText = "MÜŞTERİ ADRESİ";
-            this.musteriAdresiDataGridViewTextBoxColumn.Name = "musteriAdresiDataGridViewTextBoxColumn";
-            this.musteriAdresiDataGridViewTextBoxColumn.ReadOnly = true;
-            this.musteriAdresiDataGridViewTextBoxColumn.Width = 170;
-            // 
-            // musterilerBindingSource
-            // 
-            this.musterilerBindingSource.DataMember = "Musteriler";
-            this.musterilerBindingSource.DataSource = this.stokMatikDataSet2;
-            // 
-            // stokMatikDataSet2
-            // 
-            this.stokMatikDataSet2.DataSetName = "StokMatikDataSet2";
-            this.stokMatikDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // kullaniciAdiDataGridViewTextBoxColumn
-            // 
-            this.kullaniciAdiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.kullaniciAdiDataGridViewTextBoxColumn.DataPropertyName = "KullaniciAdi";
-            this.kullaniciAdiDataGridViewTextBoxColumn.HeaderText = "Kullanıcı Adı";
-            this.kullaniciAdiDataGridViewTextBoxColumn.Name = "kullaniciAdiDataGridViewTextBoxColumn";
-            this.kullaniciAdiDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kullaniciAdiDataGridViewTextBoxColumn.Width = 120;
-            // 
-            // kullaniciSifresiDataGridViewTextBoxColumn
-            // 
-            this.kullaniciSifresiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.kullaniciSifresiDataGridViewTextBoxColumn.DataPropertyName = "KullaniciSifresi";
-            this.kullaniciSifresiDataGridViewTextBoxColumn.HeaderText = "Kullanıcı Şifresi";
-            this.kullaniciSifresiDataGridViewTextBoxColumn.Name = "kullaniciSifresiDataGridViewTextBoxColumn";
-            this.kullaniciSifresiDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kullaniciSifresiDataGridViewTextBoxColumn.Width = 142;
-            // 
-            // kullaniciYetkisiDataGridViewTextBoxColumn
-            // 
-            this.kullaniciYetkisiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.kullaniciYetkisiDataGridViewTextBoxColumn.DataPropertyName = "KullaniciYetkisi";
-            this.kullaniciYetkisiDataGridViewTextBoxColumn.HeaderText = "Kullanıcı Yetkisi";
-            this.kullaniciYetkisiDataGridViewTextBoxColumn.Name = "kullaniciYetkisiDataGridViewTextBoxColumn";
-            this.kullaniciYetkisiDataGridViewTextBoxColumn.ReadOnly = true;
-            this.kullaniciYetkisiDataGridViewTextBoxColumn.Width = 145;
-            // 
-            // kullanicilarBindingSource
-            // 
-            this.kullanicilarBindingSource.DataMember = "Kullanicilar";
-            this.kullanicilarBindingSource.DataSource = this.stokMatikDataSet1;
-            // 
-            // stokMatikDataSet1
-            // 
-            this.stokMatikDataSet1.DataSetName = "StokMatikDataSet1";
-            this.stokMatikDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // urunSepetiBindingSource
             // 
             this.urunSepetiBindingSource.DataMember = "UrunSepeti";
@@ -2789,125 +2333,58 @@
             // 
             this.urunSepetiTableAdapter.ClearBeforeFill = true;
             // 
-            // checkBox1
+            // urunlerBindingSource3
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(375, 64);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(190, 24);
-            this.checkBox1.TabIndex = 15;
-            this.checkBox1.Text = "STOK YETKİSİ VER";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.urunlerBindingSource3.DataMember = "Urunler";
+            this.urunlerBindingSource3.DataSource = this.stokMatikDataSet;
             // 
-            // dataGridViewTextBoxColumn5
+            // urunlerBindingSource5
             // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn5.HeaderText = "MÜŞTERİ ADI";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 137;
+            this.urunlerBindingSource5.DataMember = "Urunler";
+            this.urunlerBindingSource5.DataSource = this.stokMatikDataSet;
             // 
-            // dataGridViewTextBoxColumn6
+            // sqlDataSource1
             // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn6.HeaderText = "ÜRÜN ADI:";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 115;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn7.HeaderText = "ÜRÜN GRAMAJI";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 155;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn8.HeaderText = "ÜRÜN ADEDİ";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 133;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn9.HeaderText = "ÜRÜN AMBALAJI";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 161;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn10.HeaderText = "ÜRÜN FİYATI";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 134;
-            // 
-            // faturadurumu
-            // 
-            this.faturadurumu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.faturadurumu.HeaderText = "FATURA DURUMU";
-            this.faturadurumu.Name = "faturadurumu";
-            this.faturadurumu.ReadOnly = true;
-            this.faturadurumu.Width = 172;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn11.HeaderText = "SİPARİŞ TARİHİ";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 156;
+            this.sqlDataSource1.Name = "sqlDataSource1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1264, 694);
             this.Controls.Add(this.label35);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.button11);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.tabControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "STOKMATİK V.1.0.3";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource9)).EndInit();
             this.groupBox15.ResumeLayout(false);
             this.groupBox15.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).EndInit();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.groupBox14.ResumeLayout(false);
             this.groupBox9.ResumeLayout(false);
@@ -2915,33 +2392,37 @@
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.musterilerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet2)).EndInit();
             this.tabPage5.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).EndInit();
-            this.groupBox6.ResumeLayout(false);
-            this.groupBox6.PerformLayout();
             this.groupBox12.ResumeLayout(false);
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
             this.groupBox13.ResumeLayout(false);
             this.groupBox13.PerformLayout();
             this.Kullaniciİslemleri.ResumeLayout(false);
             this.Kullaniciİslemleri.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KullaniciListesi)).EndInit();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.musterilerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kullanicilarBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource4)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.urunSepetiBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource5)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2951,31 +2432,18 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.ComboBox AmbalajUrunEkle;
         private System.Windows.Forms.Label label13;
@@ -2990,7 +2458,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.Button button11;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button UrunSilButonu;
         private System.Windows.Forms.TextBox UrunBarkoduUrunDuzenle;
@@ -3015,9 +2482,6 @@
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button18;
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Button MusteriDuzenleMusteriDuzenle;
@@ -3049,7 +2513,6 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.TextBox textBox23;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.GroupBox groupBox13;
         private StokMatikDataSet stokMatikDataSet;
         private System.Windows.Forms.BindingSource urunlerBindingSource;
@@ -3079,12 +2542,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn kullaniciYetkisiDataGridViewTextBoxColumn;
         public System.Windows.Forms.ToolStripStatusLabel Kullaniciata;
         public System.Windows.Forms.ToolStripStatusLabel UyariBilgisi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn urunAdediDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn urunGramajiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn urunPaketiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn urunFiyatiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn urunBarkoduDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource urunlerBindingSource1;
         private StokMatikDataSet2 stokMatikDataSet2;
         private System.Windows.Forms.BindingSource musterilerBindingSource;
@@ -3110,15 +2567,7 @@
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Button button23;
         private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn urunAdediDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn urunGramajiDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn urunPaketiDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn urunFiyatiDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn urunBarkoduDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UrunEklemeTarihi;
         private System.Windows.Forms.Button button38;
-        private System.Windows.Forms.TabPage tabPage7;
         public System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button button39;
         public System.Windows.Forms.TextBox textBox2;
@@ -3127,55 +2576,12 @@
         public System.Windows.Forms.TextBox textBox6;
         public System.Windows.Forms.TextBox textBox5;
         public System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Button button17;
-        public System.Windows.Forms.DataGridView dataGridView4;
-        public System.Windows.Forms.DataGridView dataGridView8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UrunAdi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UrunGramaji;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UrunAdedi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UrunAmbalajii;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UrunFiyatii;
         private StokMatikDataSet3 stokMatikDataSet3;
         private System.Windows.Forms.BindingSource urunSepetiBindingSource;
         private StokMatikDataSet3TableAdapters.UrunSepetiTableAdapter urunSepetiTableAdapter;
-        private System.Windows.Forms.Button button41;
-        private System.Windows.Forms.Button button40;
         private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MusteriAdi;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label51;
-        public System.Windows.Forms.ComboBox comboBox4;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button button28;
-        private System.Windows.Forms.Button button42;
-        private System.Windows.Forms.Button button43;
-        private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Button button25;
-        public System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UrunAmbalaji;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UrunFiyati;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SiparisTarihi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Uruntarihiw;
-        public System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label25;
-        public System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        public System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Label label50;
-        public System.Windows.Forms.TextBox textBox10;
         public System.Windows.Forms.DataGridView dataGridView6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        public System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
@@ -3185,6 +2591,41 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn faturadurumu;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.BindingSource urunlerBindingSource2;
+        private System.Windows.Forms.BindingSource urunlerBindingSource4;
+        private System.Windows.Forms.BindingSource urunlerBindingSource3;
+        private System.Windows.Forms.BindingSource urunlerBindingSource6;
+        private System.Windows.Forms.BindingSource urunlerBindingSource5;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private System.Windows.Forms.BindingSource urunlerBindingSource7;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunAdi;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunFiyati;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunAdedi;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunGramaji;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunPaketi;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunEklemeTarihi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UrunAdi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UrunAdedi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UrunFiyatii;
+        private System.Windows.Forms.BindingSource urunlerBindingSource8;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.BindingSource urunlerBindingSource9;
+        public System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.GroupBox groupBox2;
+        public System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn urunFiyatiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn urunAdediDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn urunGramajiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn urunPaketiDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn urunEklemeTarihiDataGridViewTextBoxColumn;
+        public System.Windows.Forms.CheckBox checkBox2;
+        public System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }
 

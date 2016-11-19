@@ -56,10 +56,8 @@ namespace MRCStok
 
                         Anaformugor.dataGridView2.Rows.Add();
                         Anaformugor.dataGridView2.Rows[Anaformugor.sayac].Cells[0].Value = textBox1.Text;
-                        Anaformugor.dataGridView2.Rows[Anaformugor.sayac].Cells[1].Value = textBox2.Text;
-                        Anaformugor.dataGridView2.Rows[Anaformugor.sayac].Cells[2].Value = textBox4.Text;
-                        Anaformugor.dataGridView2.Rows[Anaformugor.sayac].Cells[3].Value = textBox5.Text;
-                        Anaformugor.dataGridView2.Rows[Anaformugor.sayac].Cells[4].Value = textBox6.Text;
+                        Anaformugor.dataGridView2.Rows[Anaformugor.sayac].Cells[1].Value = textBox4.Text;
+                        Anaformugor.dataGridView2.Rows[Anaformugor.sayac].Cells[2].Value = textBox6.Text;
                         Anaformugor.sayac++;
                         this.Close();
                         Anaformugor.Form1_Load(sender, e);
