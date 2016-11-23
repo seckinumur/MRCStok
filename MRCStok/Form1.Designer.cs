@@ -157,12 +157,14 @@
             this.button27 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.button26 = new System.Windows.Forms.Button();
             this.button24 = new System.Windows.Forms.Button();
-            this.label31 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.Kullaniciİslemleri = new System.Windows.Forms.GroupBox();
@@ -206,8 +208,6 @@
             this.urunlerBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.urunlerBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -1660,6 +1660,7 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.button5);
             this.groupBox10.Controls.Add(this.label16);
             this.groupBox10.Controls.Add(this.label1);
             this.groupBox10.Controls.Add(this.dateTimePicker1);
@@ -1667,7 +1668,6 @@
             this.groupBox10.Controls.Add(this.checkBox2);
             this.groupBox10.Controls.Add(this.button26);
             this.groupBox10.Controls.Add(this.button24);
-            this.groupBox10.Controls.Add(this.label31);
             this.groupBox10.Location = new System.Drawing.Point(893, 6);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(333, 152);
@@ -1675,16 +1675,50 @@
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "RAPORLA";
             // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.button5.ForeColor = System.Drawing.SystemColors.Control;
+            this.button5.Location = new System.Drawing.Point(10, 113);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(317, 33);
+            this.button5.TabIndex = 12;
+            this.button5.Text = "ÜRETİMDEN GELEN ÜRÜNLER";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label16.ForeColor = System.Drawing.Color.Maroon;
+            this.label16.Location = new System.Drawing.Point(6, 51);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(21, 24);
+            this.label16.TabIndex = 11;
+            this.label16.Text = "2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.Color.Maroon;
+            this.label1.Location = new System.Drawing.Point(6, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(21, 24);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "1";
+            // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(30, 81);
+            this.dateTimePicker1.Location = new System.Drawing.Point(30, 49);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
             this.dateTimePicker1.TabIndex = 9;
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(30, 49);
+            this.dateTimePicker2.Location = new System.Drawing.Point(30, 17);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 26);
             this.dateTimePicker2.TabIndex = 8;
@@ -1693,7 +1727,7 @@
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.ForeColor = System.Drawing.Color.Maroon;
-            this.checkBox2.Location = new System.Drawing.Point(10, 122);
+            this.checkBox2.Location = new System.Drawing.Point(10, 83);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(179, 24);
             this.checkBox2.TabIndex = 7;
@@ -1723,15 +1757,6 @@
             this.button24.Text = "GÖSTER";
             this.button24.UseVisualStyleBackColor = false;
             this.button24.Click += new System.EventHandler(this.button24_Click);
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(6, 26);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(221, 20);
-            this.label31.TabIndex = 1;
-            this.label31.Text = "TARİHE GÖRE RAPORLA";
             // 
             // tabPage6
             // 
@@ -1773,7 +1798,7 @@
             this.Kullaniciİslemleri.Controls.Add(this.label40);
             this.Kullaniciİslemleri.Location = new System.Drawing.Point(6, 152);
             this.Kullaniciİslemleri.Name = "Kullaniciİslemleri";
-            this.Kullaniciİslemleri.Size = new System.Drawing.Size(612, 237);
+            this.Kullaniciİslemleri.Size = new System.Drawing.Size(747, 237);
             this.Kullaniciİslemleri.TabIndex = 6;
             this.Kullaniciİslemleri.TabStop = false;
             this.Kullaniciİslemleri.Text = "KULLANICI İŞLEMLERİ";
@@ -1791,7 +1816,7 @@
             // 
             // button37
             // 
-            this.button37.Location = new System.Drawing.Point(14, 167);
+            this.button37.Location = new System.Drawing.Point(14, 186);
             this.button37.Name = "button37";
             this.button37.Size = new System.Drawing.Size(588, 45);
             this.button37.TabIndex = 14;
@@ -1875,10 +1900,10 @@
             this.kullaniciSifresiDataGridViewTextBoxColumn,
             this.kullaniciYetkisiDataGridViewTextBoxColumn});
             this.KullaniciListesi.DataSource = this.kullanicilarBindingSource;
-            this.KullaniciListesi.Location = new System.Drawing.Point(624, 14);
+            this.KullaniciListesi.Location = new System.Drawing.Point(759, 14);
             this.KullaniciListesi.Name = "KullaniciListesi";
             this.KullaniciListesi.ReadOnly = true;
-            this.KullaniciListesi.Size = new System.Drawing.Size(590, 375);
+            this.KullaniciListesi.Size = new System.Drawing.Size(455, 375);
             this.KullaniciListesi.TabIndex = 5;
             this.KullaniciListesi.Visible = false;
             this.KullaniciListesi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.KullaniciListesi_CellDoubleClick);
@@ -2075,28 +2100,6 @@
             // 
             this.sqlDataSource1.Name = "sqlDataSource1";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(6, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 24);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "1";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label16.ForeColor = System.Drawing.Color.Maroon;
-            this.label16.Location = new System.Drawing.Point(6, 83);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(21, 24);
-            this.label16.TabIndex = 11;
-            this.label16.Text = "2";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2239,7 +2242,6 @@
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.Button button26;
         private System.Windows.Forms.Button button24;
-        private System.Windows.Forms.Label label31;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
@@ -2356,6 +2358,7 @@
         public System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button5;
     }
 }
 

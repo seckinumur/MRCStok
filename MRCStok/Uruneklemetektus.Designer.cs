@@ -258,6 +258,7 @@
             this.HizliStokUrunAdedi.Name = "HizliStokUrunAdedi";
             this.HizliStokUrunAdedi.Size = new System.Drawing.Size(230, 44);
             this.HizliStokUrunAdedi.TabIndex = 34;
+            this.HizliStokUrunAdedi.TextChanged += new System.EventHandler(this.HizliStokUrunAdedi_TextChanged);
             this.HizliStokUrunAdedi.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HizliStokUrunAdedi_KeyDown);
             // 
             // label2

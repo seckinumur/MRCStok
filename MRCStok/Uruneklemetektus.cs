@@ -14,10 +14,12 @@ namespace MRCStok
     {
         public Form1 Anaformburda = (Form1)Application.OpenForms["Form1"];
         public StokMatikEntities db;
+        public StokmatikHammaddeEntities db1;
         public Uruneklemetektus()
         {
             InitializeComponent();
             db = new StokMatikEntities();
+            db1 = new StokmatikHammaddeEntities();
         }
 
         private void Uruneklemetektus_Load(object sender, EventArgs e)
@@ -37,12 +39,23 @@ namespace MRCStok
                 {
                     try
                     {
+                        Uretim ekle = new Uretim();
                         var ara = db.Urunler.Where(p => p.UrunAdi == UrunAdiUrunDuzenle.Text).FirstOrDefault();
                         int ekleurun = Convert.ToInt32(HizliStokUrunAdedi.Text);
                         int mevcuturun = Convert.ToInt32(ara.UrunAdedi);
                         int sonhali = ekleurun + mevcuturun;
                         ara.UrunAdedi = sonhali.ToString();
                         ara.UrunEklemeTarihi = DateTime.Now.ToShortDateString();
+                        ekle.Ay = DateTime.Now.Month.ToString();
+                        ekle.Gun = DateTime.Now.Day.ToString();
+                        ekle.UrunAdedi = HizliStokUrunAdedi.Text;
+                        ekle.UrunAdi = UrunAdiUrunDuzenle.Text;
+                        ekle.UrunAmbalaji = ara.UrunPaketi;
+                        ekle.UrunGramaji = ara.UrunGramaji;
+                        ekle.UrunUretimTarihi = DateTime.Now.ToShortDateString();
+                        ekle.Yil = DateTime.Now.Year.ToString();
+                        db1.Uretim.Add(ekle);
+                        db1.SaveChanges();
                         db.SaveChanges();
                         MessageBox.Show(ara.UrunAdi + " Adlı Ürünün " + mevcuturun.ToString() + " Adet'ine " + ekleurun.ToString() + " Adet Daha Eklendi. Ürünün Yeni Adeti: " + sonhali.ToString() + " Olmuştur.");
                         Anaformburda.Form1_Load(sender, e);
@@ -156,6 +169,11 @@ namespace MRCStok
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void HizliStokUrunAdedi_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

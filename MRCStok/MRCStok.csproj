@@ -186,6 +186,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StokMatikDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Uretim.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Uretim.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Uretim.cs">
+      <DependentUpon>Uretim.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Uretim.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Uretim.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Uretim1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Uretim.tt</DependentUpon>
+    </Compile>
     <Compile Include="Urunegorelistele.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +329,13 @@
     <None Include="StokMatikDataSet3.xss">
       <DependentUpon>StokMatikDataSet3.xsd</DependentUpon>
     </None>
+    <EntityDeploy Include="Uretim.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Uretim.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Uretim.edmx.diagram">
+      <DependentUpon>Uretim.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -326,6 +351,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Uretim.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Uretim.edmx</DependentUpon>
+      <LastGenOutput>Uretim.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Uretim.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Uretim.edmx</DependentUpon>
+      <LastGenOutput>Uretim1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

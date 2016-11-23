@@ -15,6 +15,7 @@ namespace MRCStok
     public partial class Form1 : Form
     {
         public StokMatikEntities db;
+        public StokmatikHammaddeEntities db1;
         public GirisEkrani f21 = (GirisEkrani)System.Windows.Forms.Application.OpenForms["GirisEkrani"];
         public Uruneklemetektus uruneklemyegit = (Uruneklemetektus)System.Windows.Forms.Application.OpenForms["Uruneklemetektus"];
         public string AdminKontrol;
@@ -28,6 +29,7 @@ namespace MRCStok
         {
             InitializeComponent();
             db = new StokMatikEntities();
+            db1 = new StokmatikHammaddeEntities();
         }
 
         private void label13_Click(object sender, EventArgs e)
@@ -460,6 +462,8 @@ namespace MRCStok
                         {
                             try
                             {
+                                string secimial;
+                                Uretim ekle1 = new Uretim();
                                 Urunler ekle = new Urunler();
                                 ekle.UrunAdi = UrunadiUrunEkle.Text;
                                 ekle.UrunAdedi = UrunAdediUrunEkle.Text;
@@ -468,14 +472,26 @@ namespace MRCStok
                                 if(UrunGramajiUrunEkle.SelectedItem!=UrunGramajiUrunEkle.Text)
                                 {
                                     ekle.UrunGramaji = UrunGramajiUrunEkle.Text;
+                                    secimial= UrunGramajiUrunEkle.Text;
                                 }
                                 else
                                 {
                                    ekle.UrunGramaji = UrunGramajiUrunEkle.SelectedItem.ToString();
+                                    secimial= UrunGramajiUrunEkle.SelectedItem.ToString();
                                 }
                                 ekle.UrunPaketi = AmbalajUrunEkle.SelectedItem.ToString();
                                 ekle.UrunEklemeTarihi = DateTime.Now.ToShortDateString();
                                 db.Urunler.Add(ekle);
+                                ekle1.Ay = DateTime.Now.Month.ToString();
+                                ekle1.Gun = DateTime.Now.Day.ToString();
+                                ekle1.UrunAdedi = UrunAdediUrunEkle.Text;
+                                ekle1.UrunAdi = UrunadiUrunEkle.Text;
+                                ekle1.UrunAmbalaji = AmbalajUrunEkle.SelectedItem.ToString();
+                                ekle1.UrunGramaji = secimial;
+                                ekle1.UrunUretimTarihi = DateTime.Now.ToShortDateString();
+                                ekle1.Yil = DateTime.Now.Year.ToString();
+                                db1.Uretim.Add(ekle1);
+                                db1.SaveChanges();
                                 db.SaveChanges();
                                 MessageBox.Show("Ürün Başarıyla Eklendi!");
                                 UrunadiUrunEkle.Text = "";
@@ -1524,6 +1540,67 @@ namespace MRCStok
             catch
             {
                 MessageBox.Show("Ürün Bulunamadı!", "UYARI!");
+            }
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+            string selicideger = Convert.ToDateTime(dateTimePicker2.Text).ToShortDateString();
+            string selicideger2 = Convert.ToDateTime(dateTimePicker1.Text).ToShortDateString();
+            string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
+            if (checkBox2.Checked == true)
+            {
+                dataGridView6.Rows.Clear();
+
+                try
+                {
+                    var bul = db1.Uretim.Where(p => p.Ay == seciliay).ToList();
+                    int i = 0;
+                    foreach (var m in bul)
+                    {
+                        dataGridView6.Rows.Add();
+                        dataGridView6.Rows[i].Cells[0].Value ="MRC ÜRETİM";
+                        dataGridView6.Rows[i].Cells[1].Value = m.UrunAdi;
+                        dataGridView6.Rows[i].Cells[2].Value = m.UrunGramaji;
+                        dataGridView6.Rows[i].Cells[3].Value = m.UrunAdedi;
+                        dataGridView6.Rows[i].Cells[4].Value = m.UrunAmbalaji;
+                        dataGridView6.Rows[i].Cells[5].Value = "###";
+                        dataGridView6.Rows[i].Cells[6].Value = "###";
+                        dataGridView6.Rows[i].Cells[7].Value = m.UrunUretimTarihi;
+                        i++;
+                    }
+                }
+                catch
+                {
+
+                }
+            }
+            else
+            {
+                dataGridView6.Rows.Clear();
+
+                try
+                {
+                    var bul = db1.Uretim.Where(p => p.UrunUretimTarihi == selicideger && p.UrunUretimTarihi == selicideger2).ToList();
+                    int i = 0;
+                    foreach (var m in bul)
+                    {
+                        dataGridView6.Rows.Add();
+                        dataGridView6.Rows[i].Cells[0].Value = "MRC ÜRETİM";
+                        dataGridView6.Rows[i].Cells[1].Value = m.UrunAdi;
+                        dataGridView6.Rows[i].Cells[2].Value = m.UrunGramaji;
+                        dataGridView6.Rows[i].Cells[3].Value = m.UrunAdedi;
+                        dataGridView6.Rows[i].Cells[4].Value = m.UrunAmbalaji;
+                        dataGridView6.Rows[i].Cells[5].Value = "###";
+                        dataGridView6.Rows[i].Cells[6].Value = "###";
+                        dataGridView6.Rows[i].Cells[7].Value = m.UrunUretimTarihi;
+                        i++;
+                    }
+                }
+                catch
+                {
+
+                }
             }
         }
     }
