@@ -31,6 +31,7 @@ namespace MRCStok
         {
             string str = gridView1.FocusedValue.ToString();
             string selicideger = Convert.ToDateTime(ff11.dateTimePicker2.Text).ToShortDateString();
+            string selicideger2 = Convert.ToDateTime(ff11.dateTimePicker1.Text).ToShortDateString();
             string seciliay = Convert.ToDateTime(ff11.dateTimePicker2.Text).Month.ToString();
             if (ff11.checkBox2.Checked == true)
             {
@@ -65,7 +66,7 @@ namespace MRCStok
                 ff11.dataGridView6.Rows.Clear();
                 try
                 {
-                    var bul = db.Raporlama.Where(p => p.Tarih == selicideger && p.GidenUrunler == str).ToList();
+                    var bul = db.Raporlama.Where(p => p.Tarih == selicideger && p.GidenUrunler == str && p.Tarih==selicideger2).ToList();
                     int i = 0;
                     foreach (var m in bul)
                     {
@@ -93,6 +94,11 @@ namespace MRCStok
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void gridControl1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

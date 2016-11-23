@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.stokMatikDataSet2 = new MRCStok.StokMatikDataSet2();
-            this.musterilerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.musterilerTableAdapter = new MRCStok.StokMatikDataSet2TableAdapters.MusterilerTableAdapter();
             this.musteriAdiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.musteriAdresiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.musterilerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.stokMatikDataSet2 = new MRCStok.StokMatikDataSet2();
+            this.musterilerTableAdapter = new MRCStok.StokMatikDataSet2TableAdapters.MusterilerTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.musterilerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -59,21 +59,8 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(818, 463);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            // 
-            // stokMatikDataSet2
-            // 
-            this.stokMatikDataSet2.DataSetName = "StokMatikDataSet2";
-            this.stokMatikDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // musterilerBindingSource
-            // 
-            this.musterilerBindingSource.DataMember = "Musteriler";
-            this.musterilerBindingSource.DataSource = this.stokMatikDataSet2;
-            // 
-            // musterilerTableAdapter
-            // 
-            this.musterilerTableAdapter.ClearBeforeFill = true;
             // 
             // musteriAdiDataGridViewTextBoxColumn
             // 
@@ -92,6 +79,20 @@
             this.musteriAdresiDataGridViewTextBoxColumn.Name = "musteriAdresiDataGridViewTextBoxColumn";
             this.musteriAdresiDataGridViewTextBoxColumn.ReadOnly = true;
             this.musteriAdresiDataGridViewTextBoxColumn.Width = 216;
+            // 
+            // musterilerBindingSource
+            // 
+            this.musterilerBindingSource.DataMember = "Musteriler";
+            this.musterilerBindingSource.DataSource = this.stokMatikDataSet2;
+            // 
+            // stokMatikDataSet2
+            // 
+            this.stokMatikDataSet2.DataSetName = "StokMatikDataSet2";
+            this.stokMatikDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // musterilerTableAdapter
+            // 
+            this.musterilerTableAdapter.ClearBeforeFill = true;
             // 
             // label1
             // 
@@ -138,8 +139,8 @@
             this.TopMost = true;
             this.Load += new System.EventHandler(this.MusteriSecmeEkrani_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.musterilerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

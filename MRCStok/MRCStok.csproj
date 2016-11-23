@@ -198,6 +198,12 @@
     <Compile Include="UrunEklemeEkrani.Designer.cs">
       <DependentUpon>UrunEklemeEkrani.cs</DependentUpon>
     </Compile>
+    <Compile Include="Uruneklemetektus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Uruneklemetektus.Designer.cs">
+      <DependentUpon>Uruneklemetektus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Urunler.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -237,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UrunEklemeEkrani.resx">
       <DependentUpon>UrunEklemeEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Uruneklemetektus.resx">
+      <DependentUpon>Uruneklemetektus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VeritabaniSecme.resx">
       <DependentUpon>VeritabaniSecme.cs</DependentUpon>

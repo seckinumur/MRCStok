@@ -16,6 +16,7 @@ namespace MRCStok
     {
         public StokMatikEntities db;
         public GirisEkrani f21 = (GirisEkrani)System.Windows.Forms.Application.OpenForms["GirisEkrani"];
+        public Uruneklemetektus uruneklemyegit = (Uruneklemetektus)System.Windows.Forms.Application.OpenForms["Uruneklemetektus"];
         public string AdminKontrol;
         public string tarih = DateTime.Now.ToShortDateString();
         public string MevcutGun = DateTime.Now.Day.ToString();
@@ -37,7 +38,7 @@ namespace MRCStok
         public void Form1_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'stokMatikDataSet3.UrunSepeti' table. You can move, or remove it, as needed.
-           
+
             // TODO: This line of code loads data into the 'stokMatikDataSet2.Musteriler' table. You can move, or remove it, as needed.
             this.musterilerTableAdapter.Fill(this.stokMatikDataSet2.Musteriler);
             // TODO: This line of code loads data into the 'stokMatikDataSet1.Kullanicilar' table. You can move, or remove it, as needed.
@@ -464,7 +465,14 @@ namespace MRCStok
                                 ekle.UrunAdedi = UrunAdediUrunEkle.Text;
                                 ekle.UrunBarkodu = UrunbarkoduUrunEkle.Text;
                                 ekle.UrunFiyati = UrunFiyatiUrunEkle.Text;
-                                ekle.UrunGramaji = UrunGramajiUrunEkle.SelectedItem.ToString();
+                                if(UrunGramajiUrunEkle.SelectedItem!=UrunGramajiUrunEkle.Text)
+                                {
+                                    ekle.UrunGramaji = UrunGramajiUrunEkle.Text;
+                                }
+                                else
+                                {
+                                   ekle.UrunGramaji = UrunGramajiUrunEkle.SelectedItem.ToString();
+                                }
                                 ekle.UrunPaketi = AmbalajUrunEkle.SelectedItem.ToString();
                                 ekle.UrunEklemeTarihi = DateTime.Now.ToShortDateString();
                                 db.Urunler.Add(ekle);
@@ -528,56 +536,6 @@ namespace MRCStok
 
         }
 
-        private void UrunduzenleButonu_Click(object sender, EventArgs e)
-        {
-            if (AdminKontrol == "admin" || AdminKontrol == "stok")
-            {
-                try
-                {
-                    var bul = db.Urunler.Where(p => p.UrunAdi == UrunDuzenleSecilenAd.Text).FirstOrDefault();
-
-                    if (bul.UrunAdi == UrunDuzenleSecilenAd.Text)
-                    {
-
-                        DialogResult Uyari = new DialogResult();
-                        Uyari = MessageBox.Show(UrunDuzenleSecilenAd.Text + " Adlı ürünün Bilgileri Güncellenecek Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
-                        if (Uyari == DialogResult.Yes)
-                        {
-
-                            bul.UrunAdi = UrunAdiUrunDuzenle.Text;
-                            bul.UrunAdedi = UrunAdediUrunDuzenle.Text;
-                            bul.UrunBarkodu = UrunBarkoduUrunDuzenle.Text;
-                            bul.UrunFiyati = UrunFiyatiUrunDuzenle.Text;
-                            bul.UrunGramaji = UrunGramajıUrunDuzenle.SelectedItem.ToString();
-                            bul.UrunPaketi = AmbalajUrunDuzenle.SelectedItem.ToString();
-                            bul.UrunEklemeTarihi = DateTime.Now.ToShortDateString();
-                            db.SaveChanges();
-                            MessageBox.Show("Ürün Başarıyla Güncellendi");
-                            UrunDuzenleSecilenAd.Text = "";
-                            UrunAdiUrunDuzenle.Text = "";
-                            UrunAdediUrunDuzenle.Text = "";
-                            UrunBarkoduUrunDuzenle.Text = "";
-                            UrunFiyatiUrunDuzenle.Text = "0";
-                            HizliStokBarkod.Text = "";
-                            HizliStokUrunAdedi.Text = "";
-                            HizliStokUrunAdi.Text = "";
-                            Form1_Load(sender, e);
-                        }
-                    }
-                }
-                catch
-                {
-
-                    MessageBox.Show("Veritabanına Bağlanamadı!");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Yalnızca ADMIN Yetkisi Verilmiş Kullanıcılar Ürün Düzenleyebilirler.", "Yetkisiz Kullanıcı!");
-            }
-
-        }
-
         private void dataGridView5_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int xkoordinat = dataGridView5.CurrentCellAddress.X; //Seçili satırın X koordinatı
@@ -610,60 +568,6 @@ namespace MRCStok
             Form1_Load(sender, e);
         }
 
-        private void IptalUrunDuzenle_Click(object sender, EventArgs e)
-        {
-            UrunAdiUrunDuzenle.Text = "";
-            UrunAdediUrunDuzenle.Text = "";
-            UrunBarkoduUrunDuzenle.Text = "";
-            UrunFiyatiUrunDuzenle.Text = "0";
-            HizliStokBarkod.Text = "";
-            HizliStokUrunAdedi.Text = "";
-            HizliStokUrunAdi.Text = "";
-            Form1_Load(sender, e);
-        }
-
-        private void UrunSilButonu_Click(object sender, EventArgs e)
-        {
-            if (AdminKontrol == "admin")
-            {
-                try
-                {
-                    var bul = db.Urunler.Where(p => p.UrunAdi == UrunAdiUrunDuzenle.Text).FirstOrDefault();
-                    if (bul.UrunAdi == UrunAdiUrunDuzenle.Text)
-                    {
-                        DialogResult Uyari = new DialogResult();
-                        Uyari = MessageBox.Show(UrunAdiUrunDuzenle.Text + " Adlı ürünün Silinecek Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
-                        if (Uyari == DialogResult.Yes)
-                        {
-
-                            db.Urunler.Remove(bul);
-                            db.SaveChanges();
-                            MessageBox.Show("Ürün Başarıyla Silindi!");
-                            UrunDuzenleSecilenAd.Text = "";
-                            UrunAdiUrunDuzenle.Text = "";
-                            UrunAdediUrunDuzenle.Text = "";
-                            UrunBarkoduUrunDuzenle.Text = "";
-                            UrunFiyatiUrunDuzenle.Text = "0";
-                            HizliStokBarkod.Text = "";
-                            HizliStokUrunAdedi.Text = "";
-                            HizliStokUrunAdi.Text = "";
-                            Form1_Load(sender, e);
-                        }
-                    }
-                }
-                catch
-                {
-
-                    MessageBox.Show("Veritabanına Bağlanamadı!");
-
-                }
-            }
-            else
-            {
-                MessageBox.Show("Sadece ADMIN Yetkisi Verilmiş Kullanıcılar Ürün Silebilir.", "Yetkisiz Kullanıcı!");
-            }
-
-        }
 
         private void button20_Click(object sender, EventArgs e)
         {
@@ -694,64 +598,7 @@ namespace MRCStok
                 MessageBox.Show("Veritabanına Bağlanamadı!");
             }
         }
-
-        private void button14_Click(object sender, EventArgs e)
-        {
-            if (AdminKontrol == "admin" || AdminKontrol == "stok")
-            {
-                if (HizliStokUrunAdedi.Text == "")
-                {
-                    MessageBox.Show("Ürün Adedini Giriniz!");
-                }
-                else
-                {
-                    try
-                    {
-                        var ara = db.Urunler.Where(p => p.UrunAdi == HizliStokUrunAdi.Text).FirstOrDefault();
-                        int ekleurun = Convert.ToInt32(HizliStokUrunAdedi.Text);
-                        int mevcuturun = Convert.ToInt32(ara.UrunAdedi);
-                        int sonhali = ekleurun + mevcuturun;
-                        ara.UrunAdedi = sonhali.ToString();
-                        ara.UrunEklemeTarihi = DateTime.Now.ToShortDateString();
-                        db.SaveChanges();
-                        MessageBox.Show(ara.UrunAdi + " Adlı Ürünün " + mevcuturun.ToString() + " Adet'ine " + ekleurun.ToString() + " Adet Daha Eklendi. Ürünün Yeni Adeti: " + sonhali.ToString() + " Olmuştur.");
-                        HizliStokBarkod.Text = "";
-                        HizliStokUrunAdedi.Text = "";
-                        HizliStokUrunAdi.Text = "";
-                        UrunDuzenleSecilenAd.Text = "";
-                        UrunAdiUrunDuzenle.Text = "";
-                        UrunAdediUrunDuzenle.Text = "";
-                        UrunBarkoduUrunDuzenle.Text = "";
-                        UrunFiyatiUrunDuzenle.Text = "0";
-                        Form1_Load(sender, e);
-
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Veritabanına Bağlanamadı!");
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Sadece ADMIN Yetkisi Verilen Kullanıcılar Hızlı Ürün Ekleyebilir.", "Yetkisiz Kullanıcı!");
-            }
-
-        }
-
-        private void button15_Click(object sender, EventArgs e)
-        {
-            HizliStokBarkod.Text = "";
-            HizliStokUrunAdedi.Text = "";
-            HizliStokUrunAdi.Text = "";
-            UrunDuzenleSecilenAd.Text = "";
-            UrunAdiUrunDuzenle.Text = "";
-            UrunAdediUrunDuzenle.Text = "";
-            UrunBarkoduUrunDuzenle.Text = "";
-            UrunFiyatiUrunDuzenle.Text = "0";
-            Form1_Load(sender, e);
-        }
-
+ 
         private void button16_Click(object sender, EventArgs e)
         {
             ExcelUyari ac = new ExcelUyari();
@@ -805,15 +652,15 @@ namespace MRCStok
             {
                 try
                 {
-                    for (int i =0; i< dataGridView2.Rows.Count -1 ;i++)
+                    for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
                     {
-                    string urunn = dataGridView2.Rows[i].Cells[0].Value.ToString();
-                    var bul = db.Urunler.Where(p => p.UrunAdi == urunn ).FirstOrDefault();
-                    double adet = Convert.ToDouble(dataGridView2.Rows[i].Cells[1].Value.ToString());
-                    double stokadet = Convert.ToDouble(bul.UrunAdedi);
-                    double topla = stokadet + adet;
-                    bul.UrunAdedi = topla.ToString();
-                    db.SaveChanges();
+                        string urunn = dataGridView2.Rows[i].Cells[0].Value.ToString();
+                        var bul = db.Urunler.Where(p => p.UrunAdi == urunn).FirstOrDefault();
+                        double adet = Convert.ToDouble(dataGridView2.Rows[i].Cells[1].Value.ToString());
+                        double stokadet = Convert.ToDouble(bul.UrunAdedi);
+                        double topla = stokadet + adet;
+                        bul.UrunAdedi = topla.ToString();
+                        db.SaveChanges();
                     }
                     MessageBox.Show("Sipariş Sepetindeki Ürün Silindi!");
                     dataGridView2.Rows.Clear();
@@ -831,8 +678,6 @@ namespace MRCStok
                 }
             }
         }
-
-
 
         private void button39_Click(object sender, EventArgs e)
         {
@@ -1014,11 +859,12 @@ namespace MRCStok
         private void button24_Click(object sender, EventArgs e)
         {
             string selicideger = Convert.ToDateTime(dateTimePicker2.Text).ToShortDateString();
+            string selicideger2 = Convert.ToDateTime(dateTimePicker1.Text).ToShortDateString();
             string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
             if (checkBox2.Checked == true)
             {
                 dataGridView6.Rows.Clear();
-                
+
                 try
                 {
                     var bul = db.Raporlama.Where(p => p.Ay == seciliay).ToList();
@@ -1046,10 +892,10 @@ namespace MRCStok
             else
             {
                 dataGridView6.Rows.Clear();
-                
+
                 try
                 {
-                    var bul = db.Raporlama.Where(p => p.Tarih == selicideger).ToList();
+                    var bul = db.Raporlama.Where(p => p.Tarih == selicideger && p.Tarih==selicideger2).ToList();
                     int i = 0;
                     foreach (var m in bul)
                     {
@@ -1121,11 +967,11 @@ namespace MRCStok
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(f21.yenidenbaslama!=true)
+            if (f21.yenidenbaslama != true)
             {
-                   f21.Close();
-            }       
-    
+                f21.Close();
+            }
+
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
@@ -1215,49 +1061,12 @@ namespace MRCStok
 
         private void gridView2_DoubleClick(object sender, EventArgs e)
         {
-            string str = gridView1.FocusedValue.ToString();
-            try
-            {
-                var urunbul = db.Urunler.Where(p => p.UrunAdi == str).FirstOrDefault();
-                UrunDuzenleSecilenAd.Text = urunbul.UrunAdi;
-                UrunAdiUrunDuzenle.Text = urunbul.UrunAdi;
-                UrunAdediUrunDuzenle.Text = urunbul.UrunAdedi;
-                UrunBarkoduUrunDuzenle.Text = urunbul.UrunBarkodu;
-                UrunFiyatiUrunDuzenle.Text = urunbul.UrunFiyati;
-                UrunGramajıUrunDuzenle.SelectedItem = urunbul.UrunGramaji;
-                AmbalajUrunDuzenle.SelectedItem = urunbul.UrunPaketi;
-                HizliStokUrunAdi.Text = urunbul.UrunAdi;
-                HizliStokBarkod.Text = urunbul.UrunBarkodu;
-            }
-            catch
-            {
-                MessageBox.Show("Seçmek İçin Ürün İsmine Çift Tıklayın");
-            }
+
         }
 
         private void gridView2_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                string str = gridView1.FocusedValue.ToString();
-                try
-                {
-                    var urunbul = db.Urunler.Where(p => p.UrunAdi == str).FirstOrDefault();
-                    UrunDuzenleSecilenAd.Text = urunbul.UrunAdi;
-                    UrunAdiUrunDuzenle.Text = urunbul.UrunAdi;
-                    UrunAdediUrunDuzenle.Text = urunbul.UrunAdedi;
-                    UrunBarkoduUrunDuzenle.Text = urunbul.UrunBarkodu;
-                    UrunFiyatiUrunDuzenle.Text = urunbul.UrunFiyati;
-                    UrunGramajıUrunDuzenle.SelectedItem = urunbul.UrunGramaji;
-                    AmbalajUrunDuzenle.SelectedItem = urunbul.UrunPaketi;
-                    HizliStokUrunAdi.Text = urunbul.UrunAdi;
-                    HizliStokBarkod.Text = urunbul.UrunBarkodu;
-                }
-                catch
-                {
-                    MessageBox.Show("Seçmek İçin Ürün İsmine Çift Tıklayın");
-                }
-            }
+
         }
 
         private void button25_Click(object sender, EventArgs e)
@@ -1270,6 +1079,7 @@ namespace MRCStok
         private void button29_Click(object sender, EventArgs e)
         {
             string selicideger = Convert.ToDateTime(dateTimePicker2.Text).ToShortDateString();
+            string selicideger2 = Convert.ToDateTime(dateTimePicker1.Text).ToShortDateString();
             string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
             if (checkBox2.Checked == true)
             {
@@ -1303,7 +1113,7 @@ namespace MRCStok
                 dataGridView6.Rows.Clear();
                 try
                 {
-                    var musteri = db.Raporlama.Where(p => p.GidenMusteriler == textBox7.Text && p.Tarih == selicideger).ToList();
+                    var musteri = db.Raporlama.Where(p => p.GidenMusteriler == textBox7.Text && p.Tarih == selicideger && p.Tarih==selicideger2).ToList();
                     int i = 0;
                     foreach (var m in musteri)
                     {
@@ -1336,6 +1146,7 @@ namespace MRCStok
         private void button30_Click(object sender, EventArgs e)
         {
             string selicideger = Convert.ToDateTime(dateTimePicker2.Text).ToShortDateString();
+            string selicideger2 = Convert.ToDateTime(dateTimePicker1.Text).ToShortDateString();
             string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
             if (checkBox2.Checked == true)
             {
@@ -1369,7 +1180,7 @@ namespace MRCStok
                 dataGridView6.Rows.Clear();
                 try
                 {
-                    var musteri = db.Raporlama.Where(p => p.FaturaDurumu == "FATURASIZ" && p.Tarih == selicideger).ToList();
+                    var musteri = db.Raporlama.Where(p => p.FaturaDurumu == "FATURASIZ" && p.Tarih == selicideger && p.Tarih==selicideger2).ToList();
                     int i = 0;
                     foreach (var m in musteri)
                     {
@@ -1396,6 +1207,7 @@ namespace MRCStok
         private void button33_Click(object sender, EventArgs e)
         {
             string selicideger = Convert.ToDateTime(dateTimePicker2.Text).ToShortDateString();
+            string selicideger2 = Convert.ToDateTime(dateTimePicker1.Text).ToShortDateString();
             string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
             if (checkBox2.Checked == true)
             {
@@ -1429,7 +1241,7 @@ namespace MRCStok
                 dataGridView6.Rows.Clear();
                 try
                 {
-                    var musteri = db.Raporlama.Where(p => p.FaturaDurumu == "BEDELSİZ" && p.Tarih == selicideger).ToList();
+                    var musteri = db.Raporlama.Where(p => p.FaturaDurumu == "BEDELSİZ" && p.Tarih == selicideger && p.Tarih==selicideger2).ToList();
                     int i = 0;
                     foreach (var m in musteri)
                     {
@@ -1462,6 +1274,7 @@ namespace MRCStok
         private void button6_Click_1(object sender, EventArgs e)
         {
             string selicideger = Convert.ToDateTime(dateTimePicker2.Text).ToShortDateString();
+            string selicideger2 = Convert.ToDateTime(dateTimePicker1.Text).ToShortDateString();
             string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
             if (checkBox2.Checked == true)
             {
@@ -1495,7 +1308,7 @@ namespace MRCStok
                 dataGridView6.Rows.Clear();
                 try
                 {
-                    var musteri = db.Raporlama.Where(p => p.FaturaDurumu == textBox1.Text && p.Tarih == selicideger).ToList();
+                    var musteri = db.Raporlama.Where(p => p.FaturaDurumu == textBox1.Text && p.Tarih == selicideger && p.Tarih==selicideger2).ToList();
                     int i = 0;
                     foreach (var m in musteri)
                     {
@@ -1522,6 +1335,7 @@ namespace MRCStok
         private void button1_Click(object sender, EventArgs e)
         {
             string selicideger = Convert.ToDateTime(dateTimePicker2.Text).ToShortDateString();
+            string selicideger2 = Convert.ToDateTime(dateTimePicker1.Text).ToShortDateString();
             string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
             if (checkBox2.Checked == true)
             {
@@ -1555,7 +1369,7 @@ namespace MRCStok
                 dataGridView6.Rows.Clear();
                 try
                 {
-                    var musteri = db.Raporlama.Where(p => p.FaturaDurumu == "İADE" && p.Tarih == selicideger).ToList();
+                    var musteri = db.Raporlama.Where(p => p.FaturaDurumu == "İADE" && p.Tarih == selicideger && p.Tarih==selicideger2).ToList();
                     int i = 0;
                     foreach (var m in musteri)
                     {
@@ -1581,31 +1395,7 @@ namespace MRCStok
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            int xkoordinat = dataGridView1.CurrentCellAddress.X; //Seçili satırın X koordinatı
-            int ykoordinat = dataGridView1.CurrentCellAddress.Y;  //Seçili satırın Y koordinatı
-            string str = "";
-            str = dataGridView1.Rows[ykoordinat].Cells[xkoordinat].Value.ToString();
-            if (e.RowIndex == -1)
-            {
-                return;
-            }
-            try
-            {
-                var urunbul = db.Urunler.Where(p => p.UrunAdi == str).FirstOrDefault();
-                UrunDuzenleSecilenAd.Text = urunbul.UrunAdi;
-                UrunAdiUrunDuzenle.Text = urunbul.UrunAdi;
-                UrunAdediUrunDuzenle.Text = urunbul.UrunAdedi;
-                UrunBarkoduUrunDuzenle.Text = urunbul.UrunBarkodu;
-                UrunFiyatiUrunDuzenle.Text = urunbul.UrunFiyati;
-                UrunGramajıUrunDuzenle.SelectedItem = urunbul.UrunGramaji;
-                AmbalajUrunDuzenle.SelectedItem = urunbul.UrunPaketi;
-                HizliStokUrunAdi.Text = urunbul.UrunAdi;
-                HizliStokBarkod.Text = urunbul.UrunBarkodu;
-            }
-            catch
-            {
-                MessageBox.Show("Seçmek İçin Ürün İsmine Çift Tıklayın");
-            }
+
         }
 
         private void dataGridView6_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -1618,7 +1408,7 @@ namespace MRCStok
             {
                 return;
             }
-             try
+            try
             {
                 GidenMusteriDuzenle ac = new GidenMusteriDuzenle();
                 ac.Show();
@@ -1635,11 +1425,11 @@ namespace MRCStok
                 string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
                 double adet, sonuc = 0, fiyat, fiyatsonuc = 0, gramaj, toplamgramaj = 0;
                 if (checkBox2.Checked == true)
+                {
+                    var bul = db.Raporlama.Where(p => p.GidenMusteriler == str && p.Ay == seciliay).ToList();
+                    int sayac = 0;
+                    foreach (var n in bul)
                     {
-                        var bul = db.Raporlama.Where(p => p.GidenMusteriler == str && p.Ay == seciliay).ToList();
-                        int sayac = 0;
-                        foreach (var n in bul)
-                        {
                         ac.dataGridView1.Rows.Add();
                         ac.dataGridView1.Rows[sayac].Cells[0].Value = n.GidenUrunler;
                         ac.dataGridView1.Rows[sayac].Cells[1].Value = n.UrunAdedi;
@@ -1648,27 +1438,27 @@ namespace MRCStok
                         ac.dataGridView1.Rows[sayac].Cells[4].Value = n.UrunPaketi;
                         ac.dataGridView1.Rows[sayac].Cells[5].Value = n.FaturaDurumu;
                         ac.dataGridView1.Rows[sayac].Cells[6].Value = n.Tarih;
-                        
-                       
-                            adet = Convert.ToDouble(n.UrunAdedi);
-                            sonuc = adet + sonuc;
+
+
+                        adet = Convert.ToDouble(n.UrunAdedi);
+                        sonuc = adet + sonuc;
                         ac.textBox2.Text = sonuc.ToString();
-                            fiyat = Convert.ToDouble(n.Fiyati);
-                            fiyatsonuc = fiyat + fiyatsonuc;
+                        fiyat = Convert.ToDouble(n.Fiyati);
+                        fiyatsonuc = fiyat + fiyatsonuc;
                         ac.textBox5.Text = fiyatsonuc.ToString();
-                            gramaj = Convert.ToDouble(n.UrunGramaji);
-                            toplamgramaj = gramaj + toplamgramaj;
+                        gramaj = Convert.ToDouble(n.UrunGramaji);
+                        toplamgramaj = gramaj + toplamgramaj;
                         ac.textBox4.Text = toplamgramaj.ToString();
-                       
+
                         sayac++;
-                        }
                     }
-                    else
+                }
+                else
+                {
+                    var bul = db.Raporlama.Where(p => p.GidenMusteriler == str && p.Tarih == selicideger).ToList();
+                    int sayac = 0;
+                    foreach (var n in bul)
                     {
-                        var bul = db.Raporlama.Where(p => p.GidenMusteriler == str && p.Tarih == selicideger).ToList();
-                        int sayac = 0;
-                        foreach (var n in bul)
-                        {
                         ac.dataGridView1.Rows.Add();
                         ac.dataGridView1.Rows[sayac].Cells[0].Value = n.GidenUrunler;
                         ac.dataGridView1.Rows[sayac].Cells[1].Value = n.UrunAdedi;
@@ -1689,19 +1479,52 @@ namespace MRCStok
                         ac.textBox4.Text = toplamgramaj.ToString();
 
                         sayac++;
-                        }
-                    }                                   
+                    }
+                }
             }
             catch
             {
                 MessageBox.Show("Seçmek İçin Ürün İsmine Çift Tıklayın");
-            }                    
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             Urunegorelistele ac = new Urunegorelistele();
             ac.Show();
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HizliStokUrunAdedi_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gridView2_DoubleClick_1(object sender, EventArgs e)
+        {
+            string str = gridView2.FocusedValue.ToString();
+            try
+            {
+                var ekle = db.Urunler.Where(p => p.UrunAdi == str).FirstOrDefault();
+                if (ekle.UrunAdi == str)
+                {
+                    Uruneklemetektus ac = new Uruneklemetektus();
+                    ac.Show();
+                    ac.UrunAdiUrunDuzenle.Text = ekle.UrunAdi;
+                    ac.UrunGramajıUrunDuzenle.SelectedItem = ekle.UrunGramaji;
+                    ac.UrunAdediUrunDuzenle.Text = ekle.UrunAdedi;
+                    ac.AmbalajUrunDuzenle.SelectedItem = ekle.UrunPaketi;
+                    ac.UrunFiyatiUrunDuzenle.Text = ekle.UrunFiyati;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Ürün Bulunamadı!", "UYARI!");
+            }
         }
     }
 }
