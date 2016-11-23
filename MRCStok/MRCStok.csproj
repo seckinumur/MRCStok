@@ -186,6 +186,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StokMatikDataSet3.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Urunegorelistele.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Urunegorelistele.Designer.cs">
+      <DependentUpon>Urunegorelistele.cs</DependentUpon>
+    </Compile>
     <Compile Include="UrunEklemeEkrani.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +232,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Urunegorelistele.resx">
+      <DependentUpon>Urunegorelistele.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UrunEklemeEkrani.resx">
       <DependentUpon>UrunEklemeEkrani.cs</DependentUpon>
     </EmbeddedResource>

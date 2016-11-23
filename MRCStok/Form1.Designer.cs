@@ -156,7 +156,6 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.dataGridView6 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -168,6 +167,7 @@
             this.faturadurumu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
             this.button32 = new System.Windows.Forms.Button();
@@ -701,7 +701,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1232, 624);
+            this.tabPage2.Size = new System.Drawing.Size(1124, 624);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "ÜRÜN GİRİŞİ YAP";
             // 
@@ -1374,7 +1374,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1232, 624);
+            this.tabPage4.Size = new System.Drawing.Size(1124, 624);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "MÜŞTERİ YÖNETİMİ";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1676,7 +1676,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1232, 624);
+            this.tabPage5.Size = new System.Drawing.Size(1124, 624);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "RAPORLAR";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1684,40 +1684,28 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.button5);
             this.groupBox2.Controls.Add(this.button6);
-            this.groupBox2.Location = new System.Drawing.Point(896, 502);
+            this.groupBox2.Location = new System.Drawing.Point(893, 262);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(333, 116);
+            this.groupBox2.Size = new System.Drawing.Size(333, 60);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "FATURA NUMARASINA GÖRE ARAMA";
+            this.groupBox2.Text = "FATURA NO  ARAMA";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(10, 41);
+            this.textBox1.Location = new System.Drawing.Point(6, 25);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(174, 26);
             this.textBox1.TabIndex = 11;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.Maroon;
-            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button5.Location = new System.Drawing.Point(190, 68);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(134, 42);
-            this.button5.TabIndex = 9;
-            this.button5.Text = "İPTAL";
-            this.button5.UseVisualStyleBackColor = false;
             // 
             // button6
             // 
             this.button6.BackColor = System.Drawing.Color.DarkGreen;
             this.button6.ForeColor = System.Drawing.SystemColors.Control;
-            this.button6.Location = new System.Drawing.Point(190, 25);
+            this.button6.Location = new System.Drawing.Point(186, 15);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(134, 42);
+            this.button6.Size = new System.Drawing.Size(134, 39);
             this.button6.TabIndex = 7;
             this.button6.Text = "GÖSTER";
             this.button6.UseVisualStyleBackColor = false;
@@ -1811,23 +1799,36 @@
             // 
             // groupBox12
             // 
+            this.groupBox12.Controls.Add(this.button4);
             this.groupBox12.Controls.Add(this.button1);
             this.groupBox12.Controls.Add(this.button33);
             this.groupBox12.Controls.Add(this.button32);
             this.groupBox12.Controls.Add(this.button30);
             this.groupBox12.Controls.Add(this.button31);
-            this.groupBox12.Location = new System.Drawing.Point(893, 262);
+            this.groupBox12.Location = new System.Drawing.Point(893, 328);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(333, 234);
+            this.groupBox12.Size = new System.Drawing.Size(333, 290);
             this.groupBox12.TabIndex = 3;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "ÖZEL ARAMA";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Orange;
+            this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button4.Location = new System.Drawing.Point(10, 25);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(307, 36);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "ÜRÜN SEÇ";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(10, 115);
+            this.button1.Location = new System.Drawing.Point(7, 153);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(317, 37);
             this.button1.TabIndex = 6;
@@ -1839,7 +1840,7 @@
             // 
             this.button33.BackColor = System.Drawing.Color.DarkGreen;
             this.button33.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button33.Location = new System.Drawing.Point(10, 72);
+            this.button33.Location = new System.Drawing.Point(7, 110);
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(317, 37);
             this.button33.TabIndex = 1;
@@ -1851,9 +1852,9 @@
             // 
             this.button32.BackColor = System.Drawing.Color.DarkRed;
             this.button32.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button32.Location = new System.Drawing.Point(10, 163);
+            this.button32.Location = new System.Drawing.Point(10, 196);
             this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(158, 58);
+            this.button32.Size = new System.Drawing.Size(158, 88);
             this.button32.TabIndex = 5;
             this.button32.Text = "LİSTEYİ TEMİZLE";
             this.button32.UseVisualStyleBackColor = false;
@@ -1863,7 +1864,7 @@
             // 
             this.button30.BackColor = System.Drawing.Color.SaddleBrown;
             this.button30.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button30.Location = new System.Drawing.Point(10, 29);
+            this.button30.Location = new System.Drawing.Point(7, 67);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(317, 37);
             this.button30.TabIndex = 0;
@@ -1875,9 +1876,9 @@
             // 
             this.button31.BackColor = System.Drawing.Color.Orange;
             this.button31.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button31.Location = new System.Drawing.Point(171, 163);
+            this.button31.Location = new System.Drawing.Point(171, 196);
             this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(156, 58);
+            this.button31.Size = new System.Drawing.Size(156, 88);
             this.button31.TabIndex = 4;
             this.button31.Text = "MEVCUT LİSTEYİ  Excel’e Aktar";
             this.button31.UseVisualStyleBackColor = false;
@@ -2011,7 +2012,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 29);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1232, 624);
+            this.tabPage6.Size = new System.Drawing.Size(1124, 624);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "AYARLAR";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -2615,7 +2616,6 @@
         public System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.GroupBox groupBox2;
         public System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -2626,6 +2626,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn urunEklemeTarihiDataGridViewTextBoxColumn;
         public System.Windows.Forms.CheckBox checkBox2;
         public System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Button button4;
     }
 }
 

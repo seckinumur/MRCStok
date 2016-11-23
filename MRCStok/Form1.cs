@@ -44,6 +44,7 @@ namespace MRCStok
             this.kullanicilarTableAdapter.Fill(this.stokMatikDataSet1.Kullanicilar);
             // TODO: This line of code loads data into the 'stokMatikDataSet.Urunler' table. You can move, or remove it, as needed.
             this.urunlerTableAdapter.Fill(this.stokMatikDataSet.Urunler);
+            f21.yenidenbaslama = false;
 
         }
 
@@ -1017,6 +1018,7 @@ namespace MRCStok
             if (checkBox2.Checked == true)
             {
                 dataGridView6.Rows.Clear();
+                
                 try
                 {
                     var bul = db.Raporlama.Where(p => p.Ay == seciliay).ToList();
@@ -1034,7 +1036,7 @@ namespace MRCStok
                         dataGridView6.Rows[i].Cells[7].Value = m.Tarih;
                         i++;
                     }
-                    Form1_Load(sender, e);
+                    //Form1_Load(sender, e);
                 }
                 catch
                 {
@@ -1044,6 +1046,7 @@ namespace MRCStok
             else
             {
                 dataGridView6.Rows.Clear();
+                
                 try
                 {
                     var bul = db.Raporlama.Where(p => p.Tarih == selicideger).ToList();
@@ -1061,7 +1064,7 @@ namespace MRCStok
                         dataGridView6.Rows[i].Cells[7].Value = m.Tarih;
                         i++;
                     }
-                    Form1_Load(sender, e);
+                    //Form1_Load(sender, e);
                 }
                 catch
                 {
@@ -1118,7 +1121,11 @@ namespace MRCStok
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            f21.Close();
+            if(f21.yenidenbaslama!=true)
+            {
+                   f21.Close();
+            }       
+    
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
@@ -1284,7 +1291,7 @@ namespace MRCStok
                         dataGridView6.Rows[i].Cells[7].Value = m.Tarih;
                         i++;
                     }
-                    Form1_Load(sender, e);
+                    //Form1_Load(sender, e);
                 }
                 catch
                 {
@@ -1311,7 +1318,7 @@ namespace MRCStok
                         dataGridView6.Rows[i].Cells[7].Value = m.Tarih;
                         i++;
                     }
-                    Form1_Load(sender, e);
+                    //Form1_Load(sender, e);
                 }
                 catch
                 {
@@ -1476,7 +1483,7 @@ namespace MRCStok
                         dataGridView6.Rows[i].Cells[7].Value = m.Tarih;
                         i++;
                     }
-                    Form1_Load(sender, e);
+                    //Form1_Load(sender, e);
                 }
                 catch
                 {
@@ -1689,6 +1696,12 @@ namespace MRCStok
             {
                 MessageBox.Show("Seçmek İçin Ürün İsmine Çift Tıklayın");
             }                    
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Urunegorelistele ac = new Urunegorelistele();
+            ac.Show();
         }
     }
 }

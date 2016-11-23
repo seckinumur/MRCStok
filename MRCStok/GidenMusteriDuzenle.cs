@@ -14,6 +14,7 @@ namespace MRCStok
     {
         public StokMatikEntities db;
         public Form1 f213 = (Form1)System.Windows.Forms.Application.OpenForms["Form1"];
+        public GirisEkrani f211 = (GirisEkrani)System.Windows.Forms.Application.OpenForms["GirisEkrani"];
         public string Musteri;
         public string adedinial;
         public GidenMusteriDuzenle()
@@ -45,6 +46,7 @@ namespace MRCStok
             string selicideger = Convert.ToDateTime(f213.dateTimePicker2.Text).ToShortDateString();
             string seciliay = Convert.ToDateTime(f213.dateTimePicker2.Text).Month.ToString();
             string adet = dataGridView1.Rows[ykoordinat].Cells[1].Value.ToString();
+            adedinial = adet;
             if (f213.checkBox2.Checked == true)
             {
                 try
@@ -57,7 +59,7 @@ namespace MRCStok
                     AmbalajUrunEkle.SelectedItem = bul.UrunPaketi;
                     textBox6.Text = bul.Fiyati;
                     textBox16.Text = bul.FaturaDurumu;
-                    comboBox3.SelectedItem = bul.FaturaDurumu;
+                    
                 }
                 catch
                 {
@@ -77,7 +79,7 @@ namespace MRCStok
                     AmbalajUrunEkle.SelectedItem = bul.UrunPaketi;
                     textBox6.Text = bul.Fiyati;
                     textBox16.Text = bul.FaturaDurumu;
-                    comboBox3.SelectedItem = bul.FaturaDurumu;
+                    
                 }
                 catch
                 {
@@ -100,14 +102,32 @@ namespace MRCStok
                 {
                     try
                     {
+                        double sonuc = 0;
+                        var ekle = db.Urunler.Where(p => p.UrunAdi == textBox7.Text).FirstOrDefault();
+                        double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
                         var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial).FirstOrDefault();
+                        double seciliadet = Convert.ToDouble(bul.UrunAdedi);
+                        double girilenadet = Convert.ToDouble(textBox3.Text);
+                        if (girilenadet < seciliadet)
+                        {
+                            sonuc = seciliadet - girilenadet;
+                            double sonuc2 = urunadedi + sonuc;
+                            ekle.UrunAdedi = sonuc2.ToString();
+
+                        }
+                        else
+                        {
+                            sonuc = girilenadet - seciliadet;
+                            double sonuc2 = urunadedi - sonuc;
+                            ekle.UrunAdedi = sonuc2.ToString();
+                        }
                         bul.GidenUrunler = textBox7.Text;
                         bul.UrunGramaji = UrunGramajiUrunEkle.SelectedItem.ToString();
                         bul.UrunAdedi = textBox3.Text;
                         bul.UrunPaketi = AmbalajUrunEkle.SelectedItem.ToString();
                         bul.Fiyati = textBox6.Text;
                         bul.FaturaDurumu = textBox16.Text;
-                        bul.FaturaDurumu = comboBox3.SelectedItem.ToString();
+                        
                         bul.Ay = DateTime.Now.Month.ToString();
                         bul.Gun = DateTime.Now.Day.ToString();
                         bul.Yil = DateTime.Now.Year.ToString();
@@ -115,8 +135,13 @@ namespace MRCStok
                         db.SaveChanges();
                         f213.dataGridView6.Rows.Clear();
                         adedinial = "";
+                        f211.yenidenbaslama = true;
+                        f213.Close();
+                        Form1 frm = new Form1();
+                        frm.Show();
                         this.Close();
-
+                        MessageBox.Show("ÜRÜN DÜZELTMESİ TAMAMLANDI!");
+                        f213.Refresh();
                     }
                     catch
                     {
@@ -128,14 +153,31 @@ namespace MRCStok
                 {
                     try
                     {
+                        double sonuc = 0;
+                        var ekle = db.Urunler.Where(p => p.UrunAdi == textBox7.Text).FirstOrDefault();
+                        double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
                         var bul = db.Raporlama.Where(p => p.Tarih == selicideger && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial).FirstOrDefault();
+                        double seciliadet = Convert.ToDouble(bul.UrunAdedi);
+                        double girilenadet = Convert.ToDouble(textBox3.Text);
+                        if (girilenadet < seciliadet)
+                        {
+                            sonuc = seciliadet - girilenadet;
+                            double sonuc2 = urunadedi + sonuc;
+                            ekle.UrunAdedi = sonuc2.ToString();
+
+                        }
+                        else
+                        {
+                            sonuc = girilenadet - seciliadet;
+                            double sonuc2 = urunadedi - sonuc;
+                            ekle.UrunAdedi = sonuc2.ToString();
+                        }
                         bul.GidenUrunler = textBox7.Text;
                         bul.UrunGramaji = UrunGramajiUrunEkle.SelectedItem.ToString();
                         bul.UrunAdedi = textBox3.Text;
                         bul.UrunPaketi = AmbalajUrunEkle.SelectedItem.ToString();
                         bul.Fiyati = textBox6.Text;
                         bul.FaturaDurumu = textBox16.Text;
-                        bul.FaturaDurumu = comboBox3.SelectedItem.ToString();
                         bul.Ay = DateTime.Now.Month.ToString();
                         bul.Gun = DateTime.Now.Day.ToString();
                         bul.Yil = DateTime.Now.Year.ToString();
@@ -143,8 +185,13 @@ namespace MRCStok
                         db.SaveChanges();
                         f213.dataGridView6.Rows.Clear();
                         adedinial = "";
+                        f211.yenidenbaslama = true;
+                        f213.Close();
+                        Form1 frm = new Form1();
+                        frm.Show();
                         this.Close();
-
+                        MessageBox.Show("ÜRÜN DÜZELTMESİ TAMAMLANDI!");
+                        
                     }
                     catch
                     {
@@ -173,10 +220,16 @@ namespace MRCStok
                         try
                         {
                             var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial).FirstOrDefault();
+                            var ekle = db.Urunler.Where(p => p.UrunAdi == bul.GidenUrunler).FirstOrDefault();
+                            double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
+                            double seciliadet = Convert.ToDouble(bul.UrunAdedi);
+                            double sonuc = urunadedi + seciliadet;
+                            ekle.UrunAdedi = sonuc.ToString();
                             db.Raporlama.Remove(bul);
                             db.SaveChanges();
                             MessageBox.Show("MÜŞTERİNİN BU GÖNDERİSİ TAMAMEN SİLİNDİ");
                             f213.dataGridView6.Rows.Clear();
+                            f213.Form1_Load(sender, e);
                             adedinial = "";
                             this.Close();
                         }
@@ -191,10 +244,16 @@ namespace MRCStok
                         try
                         {
                             var bul = db.Raporlama.Where(p => p.Tarih == selicideger && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial).FirstOrDefault();
+                            var ekle = db.Urunler.Where(p => p.UrunAdi == bul.GidenUrunler).FirstOrDefault();
+                            double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
+                            double seciliadet = Convert.ToDouble(bul.UrunAdedi);
+                            double sonuc = urunadedi + seciliadet;
+                            ekle.UrunAdedi = sonuc.ToString();
                             db.Raporlama.Remove(bul);
                             db.SaveChanges();
                             MessageBox.Show("MÜŞTERİNİN BU GÖNDERİSİ TAMAMEN SİLİNDİ");
                             f213.dataGridView6.Rows.Clear();
+                            f213.Form1_Load(sender, e);
                             adedinial = "";
                             this.Close();
 
@@ -221,8 +280,14 @@ namespace MRCStok
                     try
                     {
                         var bul = db.Raporlama.Where(p => p.GidenMusteriler == textBox1.Text && p.Ay == seciliay).ToList();
+                       
                         foreach (var n in bul)
                         {
+                            var ekle = db.Urunler.Where(p => p.UrunAdi == n.GidenUrunler).FirstOrDefault();
+                            double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
+                            double seciliadet = Convert.ToDouble(n.UrunAdedi);
+                            double sonuc = urunadedi + seciliadet;
+                            ekle.UrunAdedi = sonuc.ToString();
                             db.Raporlama.Remove(n);
                             db.SaveChanges();
                         }
@@ -244,6 +309,11 @@ namespace MRCStok
                         var bul = db.Raporlama.Where(p => p.GidenMusteriler == textBox1.Text && p.Tarih == selicideger).ToList();
                         foreach (var n in bul)
                         {
+                            var ekle = db.Urunler.Where(p => p.UrunAdi == n.GidenUrunler).FirstOrDefault();
+                            double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
+                            double seciliadet = Convert.ToDouble(n.UrunAdedi);
+                            double sonuc = urunadedi + seciliadet;
+                            ekle.UrunAdedi = sonuc.ToString();
                             db.Raporlama.Remove(n);
                             db.SaveChanges();
                         }
@@ -258,6 +328,11 @@ namespace MRCStok
                     }
                 }
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

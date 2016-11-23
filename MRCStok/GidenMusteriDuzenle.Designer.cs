@@ -55,7 +55,6 @@
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -92,6 +91,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(1024, 360);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // label8
@@ -368,21 +368,6 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // comboBox3
-            // 
-            this.comboBox3.ForeColor = System.Drawing.Color.Crimson;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "FATURALI",
-            "FATURASIZ",
-            "BEDELSİZ",
-            "İADE"});
-            this.comboBox3.Location = new System.Drawing.Point(398, 612);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(136, 37);
-            this.comboBox3.TabIndex = 36;
-            this.comboBox3.Text = "FATURALI";
-            // 
             // textBox16
             // 
             this.textBox16.ForeColor = System.Drawing.Color.Crimson;
@@ -410,7 +395,6 @@
             this.ClientSize = new System.Drawing.Size(1058, 651);
             this.ControlBox = false;
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.textBox16);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox3);
@@ -433,7 +417,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.Margin = new System.Windows.Forms.Padding(7);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "GidenMusteriDuzenle";
@@ -478,7 +462,6 @@
         public System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.Label label13;
         public System.Windows.Forms.DataGridView dataGridView1;

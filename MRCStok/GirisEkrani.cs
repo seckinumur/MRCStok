@@ -13,6 +13,7 @@ namespace MRCStok
     public partial class GirisEkrani : Form
     {
         public StokMatikEntities db;
+        public bool yenidenbaslama;
         public string Baglanti;
         public GirisEkrani()
         {
