@@ -13,6 +13,7 @@ namespace MRCStok
     public partial class Uruneklemetektus : Form
     {
         public Form1 Anaformburda = (Form1)Application.OpenForms["Form1"];
+        public GirisEkrani f216 = (GirisEkrani)System.Windows.Forms.Application.OpenForms["GirisEkrani"];
         public StokMatikEntities db;
         public StokmatikHammaddeEntities db1;
         public Uruneklemetektus()
@@ -128,7 +129,7 @@ namespace MRCStok
             {
                 try
                 {
-                    var bul = db.Urunler.Where(p => p.UrunAdi == UrunAdiUrunDuzenle.Text).FirstOrDefault();
+                    var bul = db.Urunler.Where(p => p.UrunAdi == label3.Text).FirstOrDefault();
                         DialogResult Uyari = new DialogResult();
                         Uyari = MessageBox.Show(UrunAdiUrunDuzenle.Text + " Adlı ürünün Bilgileri Güncellenecek Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
                         if (Uyari == DialogResult.Yes)
@@ -149,9 +150,14 @@ namespace MRCStok
                             bul.UrunPaketi = AmbalajUrunDuzenle.SelectedItem.ToString();
                             bul.UrunEklemeTarihi = DateTime.Now.ToShortDateString();
                             db.SaveChanges();
-                            MessageBox.Show("Ürün Başarıyla Güncellendi");
-                            Anaformburda.Form1_Load(sender, e);
+                            string yetki = Anaformburda.AdminKontrol;
+                            f216.yenidenbaslama = true;
+                            Anaformburda.Close();
+                            Form1 frm = new Form1();
+                            frm.Show();
+                            frm.AdminKontrol = yetki;
                             this.Close();
+                            MessageBox.Show("Ürün Başarıyla Güncellendi");
                         }
                 }
                 catch

@@ -47,6 +47,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label47
@@ -68,7 +69,7 @@
             this.UrunSilButonu.Location = new System.Drawing.Point(168, 201);
             this.UrunSilButonu.Name = "UrunSilButonu";
             this.UrunSilButonu.Size = new System.Drawing.Size(195, 62);
-            this.UrunSilButonu.TabIndex = 31;
+            this.UrunSilButonu.TabIndex = 2;
             this.UrunSilButonu.Text = "ÜRÜNÜ SİL";
             this.UrunSilButonu.UseVisualStyleBackColor = false;
             this.UrunSilButonu.Click += new System.EventHandler(this.UrunSilButonu_Click);
@@ -103,7 +104,7 @@
             this.UrunduzenleButonu.Location = new System.Drawing.Point(369, 201);
             this.UrunduzenleButonu.Name = "UrunduzenleButonu";
             this.UrunduzenleButonu.Size = new System.Drawing.Size(184, 62);
-            this.UrunduzenleButonu.TabIndex = 28;
+            this.UrunduzenleButonu.TabIndex = 3;
             this.UrunduzenleButonu.Text = "KAYDET";
             this.UrunduzenleButonu.UseVisualStyleBackColor = false;
             this.UrunduzenleButonu.Click += new System.EventHandler(this.UrunduzenleButonu_Click);
@@ -126,7 +127,7 @@
             this.AmbalajUrunDuzenle.Location = new System.Drawing.Point(341, 146);
             this.AmbalajUrunDuzenle.Name = "AmbalajUrunDuzenle";
             this.AmbalajUrunDuzenle.Size = new System.Drawing.Size(212, 33);
-            this.AmbalajUrunDuzenle.TabIndex = 27;
+            this.AmbalajUrunDuzenle.TabIndex = 8;
             this.AmbalajUrunDuzenle.Text = "TENEKE KUTU";
             // 
             // UrunGramajıUrunDuzenle
@@ -157,7 +158,7 @@
             this.UrunGramajıUrunDuzenle.Location = new System.Drawing.Point(185, 146);
             this.UrunGramajıUrunDuzenle.Name = "UrunGramajıUrunDuzenle";
             this.UrunGramajıUrunDuzenle.Size = new System.Drawing.Size(109, 33);
-            this.UrunGramajıUrunDuzenle.TabIndex = 25;
+            this.UrunGramajıUrunDuzenle.TabIndex = 7;
             this.UrunGramajıUrunDuzenle.Text = "0,100";
             // 
             // label19
@@ -180,7 +181,7 @@
             this.UrunFiyatiUrunDuzenle.Name = "UrunFiyatiUrunDuzenle";
             this.UrunFiyatiUrunDuzenle.ReadOnly = true;
             this.UrunFiyatiUrunDuzenle.Size = new System.Drawing.Size(110, 32);
-            this.UrunFiyatiUrunDuzenle.TabIndex = 23;
+            this.UrunFiyatiUrunDuzenle.TabIndex = 6;
             this.UrunFiyatiUrunDuzenle.Text = "0";
             // 
             // label20
@@ -203,7 +204,7 @@
             this.UrunAdediUrunDuzenle.Name = "UrunAdediUrunDuzenle";
             this.UrunAdediUrunDuzenle.ReadOnly = true;
             this.UrunAdediUrunDuzenle.Size = new System.Drawing.Size(109, 32);
-            this.UrunAdediUrunDuzenle.TabIndex = 21;
+            this.UrunAdediUrunDuzenle.TabIndex = 5;
             // 
             // label21
             // 
@@ -225,7 +226,7 @@
             this.UrunAdiUrunDuzenle.Name = "UrunAdiUrunDuzenle";
             this.UrunAdiUrunDuzenle.ReadOnly = true;
             this.UrunAdiUrunDuzenle.Size = new System.Drawing.Size(368, 32);
-            this.UrunAdiUrunDuzenle.TabIndex = 19;
+            this.UrunAdiUrunDuzenle.TabIndex = 4;
             // 
             // label22
             // 
@@ -257,7 +258,7 @@
             this.HizliStokUrunAdedi.Location = new System.Drawing.Point(323, 269);
             this.HizliStokUrunAdedi.Name = "HizliStokUrunAdedi";
             this.HizliStokUrunAdedi.Size = new System.Drawing.Size(230, 44);
-            this.HizliStokUrunAdedi.TabIndex = 34;
+            this.HizliStokUrunAdedi.TabIndex = 0;
             this.HizliStokUrunAdedi.TextChanged += new System.EventHandler(this.HizliStokUrunAdedi_TextChanged);
             this.HizliStokUrunAdedi.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HizliStokUrunAdedi_KeyDown);
             // 
@@ -280,7 +281,7 @@
             this.button1.Location = new System.Drawing.Point(19, 201);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(143, 62);
-            this.button1.TabIndex = 36;
+            this.button1.TabIndex = 1;
             this.button1.Text = "ÜRÜNÜ DÜZENLE";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -291,10 +292,20 @@
             this.button2.Location = new System.Drawing.Point(536, 1);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(51, 43);
-            this.button2.TabIndex = 37;
+            this.button2.TabIndex = 9;
             this.button2.Text = "X";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(15, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 20);
+            this.label3.TabIndex = 38;
+            this.label3.Text = "label3";
+            this.label3.Visible = false;
             // 
             // Uruneklemetektus
             // 
@@ -303,6 +314,7 @@
             this.BackColor = System.Drawing.Color.DarkRed;
             this.ClientSize = new System.Drawing.Size(590, 325);
             this.ControlBox = false;
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
@@ -360,5 +372,6 @@
         public System.Windows.Forms.TextBox UrunAdediUrunDuzenle;
         public System.Windows.Forms.TextBox UrunAdiUrunDuzenle;
         private System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Label label3;
     }
 }

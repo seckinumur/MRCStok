@@ -705,10 +705,12 @@
             // 
             // gridView2
             // 
+            this.gridView2.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridView2.Appearance.Row.Options.UseFont = true;
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colUrunAdi1,
-            this.colUrunFiyati1,
             this.colUrunAdedi1,
+            this.colUrunFiyati1,
             this.colUrunGramaji1,
             this.colUrunPaketi1,
             this.colUrunEklemeTarihi1});

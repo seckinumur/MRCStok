@@ -1094,6 +1094,7 @@ namespace MRCStok
                     dataGridView2.Rows.RemoveAt(ykoordinat);
                     sayac--;
                     db.SaveChanges();
+
                     MessageBox.Show("Sipariş Sepetindeki Ürün Silindi!");
                     Form1_Load(sender, e);
                 }
@@ -1715,6 +1716,7 @@ namespace MRCStok
                 {
                     Uruneklemetektus ac = new Uruneklemetektus();
                     ac.Show();
+                    ac.label3.Text = ekle.UrunAdi;
                     ac.UrunAdiUrunDuzenle.Text = ekle.UrunAdi;
                     ac.UrunGramajıUrunDuzenle.SelectedItem = ekle.UrunGramaji;
                     ac.UrunAdediUrunDuzenle.Text = ekle.UrunAdedi;

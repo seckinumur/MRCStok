@@ -141,7 +141,6 @@ namespace MRCStok
                         frm.Show();
                         this.Close();
                         MessageBox.Show("ÜRÜN DÜZELTMESİ TAMAMLANDI!");
-                        f213.Refresh();
                     }
                     catch
                     {
@@ -191,7 +190,6 @@ namespace MRCStok
                         frm.Show();
                         this.Close();
                         MessageBox.Show("ÜRÜN DÜZELTMESİ TAMAMLANDI!");
-                        
                     }
                     catch
                     {
