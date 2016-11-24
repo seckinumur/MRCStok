@@ -157,6 +157,7 @@
             this.button27 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -1607,9 +1608,9 @@
             this.groupBox11.Controls.Add(this.button25);
             this.groupBox11.Controls.Add(this.button27);
             this.groupBox11.Controls.Add(this.button29);
-            this.groupBox11.Location = new System.Drawing.Point(896, 164);
+            this.groupBox11.Location = new System.Drawing.Point(896, 192);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(333, 127);
+            this.groupBox11.Size = new System.Drawing.Size(333, 99);
             this.groupBox11.TabIndex = 2;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "MÜŞTERİYE GÖRE ARAMA";
@@ -1619,16 +1620,16 @@
             this.textBox7.Location = new System.Drawing.Point(3, 25);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(324, 26);
+            this.textBox7.Size = new System.Drawing.Size(224, 26);
             this.textBox7.TabIndex = 11;
             // 
             // button25
             // 
             this.button25.BackColor = System.Drawing.Color.Orange;
             this.button25.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button25.Location = new System.Drawing.Point(3, 60);
+            this.button25.Location = new System.Drawing.Point(3, 57);
             this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(121, 52);
+            this.button25.Size = new System.Drawing.Size(224, 31);
             this.button25.TabIndex = 10;
             this.button25.Text = "MÜŞTERİ SEÇ";
             this.button25.UseVisualStyleBackColor = false;
@@ -1638,9 +1639,9 @@
             // 
             this.button27.BackColor = System.Drawing.Color.Maroon;
             this.button27.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button27.Location = new System.Drawing.Point(233, 60);
+            this.button27.Location = new System.Drawing.Point(229, 57);
             this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(94, 52);
+            this.button27.Size = new System.Drawing.Size(98, 31);
             this.button27.TabIndex = 9;
             this.button27.Text = "İPTAL";
             this.button27.UseVisualStyleBackColor = false;
@@ -1650,9 +1651,9 @@
             // 
             this.button29.BackColor = System.Drawing.Color.DarkGreen;
             this.button29.ForeColor = System.Drawing.SystemColors.Control;
-            this.button29.Location = new System.Drawing.Point(129, 60);
+            this.button29.Location = new System.Drawing.Point(229, 22);
             this.button29.Name = "button29";
-            this.button29.Size = new System.Drawing.Size(98, 52);
+            this.button29.Size = new System.Drawing.Size(98, 34);
             this.button29.TabIndex = 7;
             this.button29.Text = "GÖSTER";
             this.button29.UseVisualStyleBackColor = false;
@@ -1660,6 +1661,7 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.button7);
             this.groupBox10.Controls.Add(this.button5);
             this.groupBox10.Controls.Add(this.label16);
             this.groupBox10.Controls.Add(this.label1);
@@ -1668,12 +1670,24 @@
             this.groupBox10.Controls.Add(this.checkBox2);
             this.groupBox10.Controls.Add(this.button26);
             this.groupBox10.Controls.Add(this.button24);
-            this.groupBox10.Location = new System.Drawing.Point(893, 6);
+            this.groupBox10.Location = new System.Drawing.Point(893, 1);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(333, 152);
+            this.groupBox10.Size = new System.Drawing.Size(333, 189);
             this.groupBox10.TabIndex = 1;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "RAPORLA";
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button7.ForeColor = System.Drawing.SystemColors.Control;
+            this.button7.Location = new System.Drawing.Point(10, 147);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(317, 33);
+            this.button7.TabIndex = 13;
+            this.button7.Text = "ÜRETİLEN SEÇİLEN ÜRÜN";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click_1);
             // 
             // button5
             // 
@@ -1683,7 +1697,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(317, 33);
             this.button5.TabIndex = 12;
-            this.button5.Text = "ÜRETİMDEN GELEN ÜRÜNLER";
+            this.button5.Text = "ÜRETİLEN TÜM ÜRÜNLER";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
@@ -2359,6 +2373,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button7;
     }
 }
 

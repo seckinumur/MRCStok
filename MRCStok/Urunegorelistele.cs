@@ -13,11 +13,14 @@ namespace MRCStok
     public partial class Urunegorelistele : Form
     {
         public StokMatikEntities db;
+        public StokmatikHammaddeEntities db1;
         public Form1 ff11 = (Form1)System.Windows.Forms.Application.OpenForms["Form1"];
+        public bool gelenurunrapor=false;
         public Urunegorelistele()
         {
             InitializeComponent();
             db = new StokMatikEntities();
+            db1 = new StokmatikHammaddeEntities();
         }
 
         private void Urunegorelistele_Load(object sender, EventArgs e)
@@ -29,64 +32,193 @@ namespace MRCStok
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            string str = gridView1.FocusedValue.ToString();
-            string selicideger = Convert.ToDateTime(ff11.dateTimePicker2.Text).ToShortDateString();
-            string selicideger2 = Convert.ToDateTime(ff11.dateTimePicker1.Text).ToShortDateString();
-            string seciliay = Convert.ToDateTime(ff11.dateTimePicker2.Text).Month.ToString();
-            if (ff11.checkBox2.Checked == true)
+            if(gelenurunrapor==false)
             {
-                ff11.dataGridView6.Rows.Clear();
-                try
+                string str = gridView1.FocusedValue.ToString();
+                string seciliay = Convert.ToDateTime(ff11.dateTimePicker2.Text).Month.ToString();
+                if (ff11.checkBox2.Checked == true)
                 {
-                    var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler==str).ToList();
-                    int i = 0;
-                    foreach (var m in bul)
+                    ff11.dataGridView6.Rows.Clear();
+                    try
                     {
-                        ff11.dataGridView6.Rows.Add();
-                        ff11.dataGridView6.Rows[i].Cells[0].Value = m.GidenMusteriler;
-                        ff11.dataGridView6.Rows[i].Cells[1].Value = m.GidenUrunler;
-                        ff11.dataGridView6.Rows[i].Cells[2].Value = m.UrunGramaji;
-                        ff11.dataGridView6.Rows[i].Cells[3].Value = m.UrunAdedi;
-                        ff11.dataGridView6.Rows[i].Cells[4].Value = m.UrunPaketi;
-                        ff11.dataGridView6.Rows[i].Cells[5].Value = m.Fiyati;
-                        ff11.dataGridView6.Rows[i].Cells[6].Value = m.FaturaDurumu;
-                        ff11.dataGridView6.Rows[i].Cells[7].Value = m.Tarih;
-                        i++;
+                        var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler == str).ToList();
+                        int i = 0;
+                        foreach (var m in bul)
+                        {
+                            ff11.dataGridView6.Rows.Add();
+                            ff11.dataGridView6.Rows[i].Cells[0].Value = m.GidenMusteriler;
+                            ff11.dataGridView6.Rows[i].Cells[1].Value = m.GidenUrunler;
+                            ff11.dataGridView6.Rows[i].Cells[2].Value = m.UrunGramaji;
+                            ff11.dataGridView6.Rows[i].Cells[3].Value = m.UrunAdedi;
+                            ff11.dataGridView6.Rows[i].Cells[4].Value = m.UrunPaketi;
+                            ff11.dataGridView6.Rows[i].Cells[5].Value = m.Fiyati;
+                            ff11.dataGridView6.Rows[i].Cells[6].Value = m.FaturaDurumu;
+                            ff11.dataGridView6.Rows[i].Cells[7].Value = m.Tarih;
+                            i++;
+                        }
+                        this.Close();
                     }
-                    ff11.Form1_Load(sender, e);
-                    this.Close();
-                }
-                catch
-                {
+                    catch
+                    {
 
+                    }
                 }
+                else
+                {
+                    int n = 0;
+                    ff11.dataGridView6.Rows.Clear();
+                    DateTime ilktarih = ff11.dateTimePicker2.Value.Date;
+                    DateTime sontarih = ff11.dateTimePicker1.Value.Date;
+                    if (ilktarih.ToShortDateString() == sontarih.ToShortDateString())
+                    {
+                        try
+                        {
+                            string tarih = ilktarih.ToShortDateString();
+                            var bul = db.Raporlama.Where(p => p.Tarih == tarih && p.GidenUrunler == str).ToList();
+                            foreach (var m in bul)
+                            {
+                                ff11.dataGridView6.Rows.Add();
+                                ff11.dataGridView6.Rows[n].Cells[0].Value = m.GidenMusteriler;
+                                ff11.dataGridView6.Rows[n].Cells[1].Value = m.GidenUrunler;
+                                ff11.dataGridView6.Rows[n].Cells[2].Value = m.UrunGramaji;
+                                ff11.dataGridView6.Rows[n].Cells[3].Value = m.UrunAdedi;
+                                ff11.dataGridView6.Rows[n].Cells[4].Value = m.UrunPaketi;
+                                ff11.dataGridView6.Rows[n].Cells[5].Value = m.Fiyati;
+                                ff11.dataGridView6.Rows[n].Cells[6].Value = m.FaturaDurumu;
+                                ff11.dataGridView6.Rows[n].Cells[7].Value = m.Tarih;
+                                n++;
+                            }
+                            this.Close();
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i <= (sontarih - ilktarih).Days; i++)
+                        {
+                            string tarih = ilktarih.AddDays(i).ToShortDateString();
+                            try
+                            {
+                                var bul = db.Raporlama.Where(p => p.Tarih == tarih && p.GidenUrunler == str).ToList();
+                                foreach (var m in bul)
+                                {
+                                    ff11.dataGridView6.Rows.Add();
+                                    ff11.dataGridView6.Rows[n].Cells[0].Value = m.GidenMusteriler;
+                                    ff11.dataGridView6.Rows[n].Cells[1].Value = m.GidenUrunler;
+                                    ff11.dataGridView6.Rows[n].Cells[2].Value = m.UrunGramaji;
+                                    ff11.dataGridView6.Rows[n].Cells[3].Value = m.UrunAdedi;
+                                    ff11.dataGridView6.Rows[n].Cells[4].Value = m.UrunPaketi;
+                                    ff11.dataGridView6.Rows[n].Cells[5].Value = m.Fiyati;
+                                    ff11.dataGridView6.Rows[n].Cells[6].Value = m.FaturaDurumu;
+                                    ff11.dataGridView6.Rows[n].Cells[7].Value = m.Tarih;
+                                    n++;
+                                }
+                                this.Close();
+                            }
+                            catch
+                            {
+
+                            }
+                        }
+                    }
+                }
+            
             }
-            else
+            else    // Filmin başladığı yer hacı
             {
-                ff11.dataGridView6.Rows.Clear();
-                try
+                string str = gridView1.FocusedValue.ToString();
+                string seciliay = Convert.ToDateTime(ff11.dateTimePicker2.Text).Month.ToString();
+                if (ff11.checkBox2.Checked == true)
                 {
-                    var bul = db.Raporlama.Where(p => p.Tarih == selicideger && p.GidenUrunler == str && p.Tarih==selicideger2).ToList();
-                    int i = 0;
-                    foreach (var m in bul)
+                    ff11.dataGridView6.Rows.Clear();
+                    try
                     {
-                        ff11.dataGridView6.Rows.Add();
-                        ff11.dataGridView6.Rows[i].Cells[0].Value = m.GidenMusteriler;
-                        ff11.dataGridView6.Rows[i].Cells[1].Value = m.GidenUrunler;
-                        ff11.dataGridView6.Rows[i].Cells[2].Value = m.UrunGramaji;
-                        ff11.dataGridView6.Rows[i].Cells[3].Value = m.UrunAdedi;
-                        ff11.dataGridView6.Rows[i].Cells[4].Value = m.UrunPaketi;
-                        ff11.dataGridView6.Rows[i].Cells[5].Value = m.Fiyati;
-                        ff11.dataGridView6.Rows[i].Cells[6].Value = m.FaturaDurumu;
-                        ff11.dataGridView6.Rows[i].Cells[7].Value = m.Tarih;
-                        i++;
+                        int i = 0;
+                        var bul = db1.Uretim.Where(p => p.Ay== seciliay && p.UrunAdi==str).ToList();
+                        foreach (var m in bul)
+                        {
+                            ff11.dataGridView6.Rows.Add();
+                            ff11.dataGridView6.Rows[i].Cells[0].Value = "MRC ÜRETİM";
+                            ff11.dataGridView6.Rows[i].Cells[1].Value = m.UrunAdi;
+                            ff11.dataGridView6.Rows[i].Cells[2].Value = m.UrunGramaji;
+                            ff11.dataGridView6.Rows[i].Cells[3].Value = m.UrunAdedi;
+                            ff11.dataGridView6.Rows[i].Cells[4].Value = m.UrunAmbalaji;
+                            ff11.dataGridView6.Rows[i].Cells[5].Value = "###";
+                            ff11.dataGridView6.Rows[i].Cells[6].Value = "###";
+                            ff11.dataGridView6.Rows[i].Cells[7].Value = m.UrunUretimTarihi;
+                            i++;
+                        }
+                        this.Close();
                     }
-                    ff11.Form1_Load(sender, e);
-                    this.Close();
-                }
-                catch
-                {
+                    catch
+                    {
 
+                    }
+                }
+                else
+                {
+                    int n = 0;
+                    ff11.dataGridView6.Rows.Clear();
+                    DateTime ilktarih = ff11.dateTimePicker2.Value.Date;
+                    DateTime sontarih = ff11.dateTimePicker1.Value.Date;
+                    if (ilktarih.ToShortDateString() == sontarih.ToShortDateString())
+                    {
+                        try
+                        {
+                            string tarih = ilktarih.ToShortDateString();
+                            var bul = db1.Uretim.Where(p => p.UrunUretimTarihi==tarih && p.UrunAdi == str).ToList();
+                            foreach (var m in bul)
+                            {
+                                ff11.dataGridView6.Rows.Add();
+                                ff11.dataGridView6.Rows[n].Cells[0].Value = "MRC ÜRETİM";
+                                ff11.dataGridView6.Rows[n].Cells[1].Value = m.UrunAdi;
+                                ff11.dataGridView6.Rows[n].Cells[2].Value = m.UrunGramaji;
+                                ff11.dataGridView6.Rows[n].Cells[3].Value = m.UrunAdedi;
+                                ff11.dataGridView6.Rows[n].Cells[4].Value = m.UrunAmbalaji;
+                                ff11.dataGridView6.Rows[n].Cells[5].Value = "###";
+                                ff11.dataGridView6.Rows[n].Cells[6].Value = "###";
+                                ff11.dataGridView6.Rows[n].Cells[7].Value = m.UrunUretimTarihi;
+                                n++;
+                            }
+                            this.Close();
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i <= (sontarih - ilktarih).Days; i++)
+                        {
+                            string tarih = ilktarih.AddDays(i).ToShortDateString();
+                            try
+                            {
+                                var bul = db1.Uretim.Where(p => p.UrunUretimTarihi == tarih && p.UrunAdi == str).ToList();
+                                foreach (var m in bul)
+                                {
+                                    ff11.dataGridView6.Rows.Add();
+                                    ff11.dataGridView6.Rows[n].Cells[0].Value = "MRC ÜRETİM";
+                                    ff11.dataGridView6.Rows[n].Cells[1].Value = m.UrunAdi;
+                                    ff11.dataGridView6.Rows[n].Cells[2].Value = m.UrunGramaji;
+                                    ff11.dataGridView6.Rows[n].Cells[3].Value = m.UrunAdedi;
+                                    ff11.dataGridView6.Rows[n].Cells[4].Value = m.UrunAmbalaji;
+                                    ff11.dataGridView6.Rows[n].Cells[5].Value = "###";
+                                    ff11.dataGridView6.Rows[n].Cells[6].Value = "###";
+                                    ff11.dataGridView6.Rows[n].Cells[7].Value = m.UrunUretimTarihi;
+                                    n++;
+                                }
+                                this.Close();
+                            }
+                            catch
+                            {
+
+                            }
+                        }
+                    }
                 }
             }
         }
