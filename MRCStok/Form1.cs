@@ -451,7 +451,7 @@ namespace MRCStok
                     {
                         try
                         {
-                            var bul = db.Urunler.Where(p => p.UrunAdi == UrunadiUrunEkle.Text && p.UrunPaketi == AmbalajUrunEkle.SelectedItem.ToString()).FirstOrDefault();
+                            var bul = db.Urunler.Where(p => p.UrunAdi == UrunadiUrunEkle.Text).FirstOrDefault();
                             if (bul.UrunAdi == UrunadiUrunEkle.Text)
                             {
                                 MessageBox.Show("Bu ürün Daha Önceden Kaydedilmiş!, Eğer Ürünün Bilgilerini Güncellemek istiyorsanız ürün ismine çift tıklayarak ürün güncelle Panosundan işlemlerinizi yapabilirsiniz!", "UYARI!");
