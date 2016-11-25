@@ -337,5 +337,25 @@ namespace MRCStok
         {
 
         }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Char.IsLetter(e.KeyChar) || Char.IsSymbol(e.KeyChar) || Char.IsPunctuation(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar);
+        }
+
+        private void textBox16_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Char.IsLetter(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar);
+        }
+
+        private void UrunGramajiUrunEkle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Char.IsLetter(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar);
+        }
     }
 }

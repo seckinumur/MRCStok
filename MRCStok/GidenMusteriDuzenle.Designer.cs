@@ -114,6 +114,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(151, 35);
             this.textBox6.TabIndex = 23;
+            this.textBox6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox6_KeyPress);
             // 
             // label7
             // 
@@ -143,6 +144,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(227, 35);
             this.textBox3.TabIndex = 17;
+            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // label4
             // 
@@ -232,6 +234,7 @@
             this.UrunGramajiUrunEkle.Size = new System.Drawing.Size(118, 37);
             this.UrunGramajiUrunEkle.TabIndex = 26;
             this.UrunGramajiUrunEkle.Text = "0,100";
+            this.UrunGramajiUrunEkle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UrunGramajiUrunEkle_KeyPress);
             // 
             // button1
             // 
@@ -378,6 +381,8 @@
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(151, 35);
             this.textBox16.TabIndex = 35;
+            this.textBox16.TextChanged += new System.EventHandler(this.textBox16_TextChanged);
+            this.textBox16.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // label13
             // 

@@ -86,6 +86,7 @@
             this.UrunBarkoduUrunDuzenle.ReadOnly = true;
             this.UrunBarkoduUrunDuzenle.Size = new System.Drawing.Size(277, 32);
             this.UrunBarkoduUrunDuzenle.TabIndex = 30;
+            this.UrunBarkoduUrunDuzenle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UrunBarkoduUrunDuzenle_KeyPress);
             // 
             // label16
             // 
@@ -162,6 +163,7 @@
             this.UrunGramajıUrunDuzenle.Size = new System.Drawing.Size(109, 33);
             this.UrunGramajıUrunDuzenle.TabIndex = 7;
             this.UrunGramajıUrunDuzenle.Text = "0,100";
+            this.UrunGramajıUrunDuzenle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UrunGramajıUrunDuzenle_KeyPress);
             // 
             // label19
             // 
@@ -185,6 +187,8 @@
             this.UrunFiyatiUrunDuzenle.Size = new System.Drawing.Size(110, 32);
             this.UrunFiyatiUrunDuzenle.TabIndex = 6;
             this.UrunFiyatiUrunDuzenle.Text = "0";
+            this.UrunFiyatiUrunDuzenle.TextChanged += new System.EventHandler(this.UrunFiyatiUrunDuzenle_TextChanged);
+            this.UrunFiyatiUrunDuzenle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UrunFiyatiUrunDuzenle_KeyPress);
             // 
             // label20
             // 
@@ -207,6 +211,7 @@
             this.UrunAdediUrunDuzenle.ReadOnly = true;
             this.UrunAdediUrunDuzenle.Size = new System.Drawing.Size(109, 32);
             this.UrunAdediUrunDuzenle.TabIndex = 5;
+            this.UrunAdediUrunDuzenle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UrunAdediUrunDuzenle_KeyPress);
             // 
             // label21
             // 
@@ -263,6 +268,7 @@
             this.HizliStokUrunAdedi.TabIndex = 0;
             this.HizliStokUrunAdedi.TextChanged += new System.EventHandler(this.HizliStokUrunAdedi_TextChanged);
             this.HizliStokUrunAdedi.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HizliStokUrunAdedi_KeyDown);
+            this.HizliStokUrunAdedi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UrunBarkoduUrunDuzenle_KeyPress);
             // 
             // label2
             // 

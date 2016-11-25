@@ -1838,6 +1838,21 @@ namespace MRCStok
             ac.Show();
             ac.gelenurunrapor = true;
         }
+
+        private void textBox23_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Char.IsLetter(e.KeyChar) || Char.IsSymbol(e.KeyChar) || Char.IsPunctuation(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar);
+        }
+
+        private void UrunGramajiUrunEkle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Char.IsLetter(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar);
+        }
+
+        private void UrunFiyatiUrunEkle_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

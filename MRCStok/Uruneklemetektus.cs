@@ -186,5 +186,30 @@ namespace MRCStok
         {
 
         }
+
+        private void UrunBarkoduUrunDuzenle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Char.IsLetter(e.KeyChar) || Char.IsSymbol(e.KeyChar) || Char.IsPunctuation(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar);
+        }
+
+        private void UrunAdediUrunDuzenle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Char.IsLetter(e.KeyChar) || Char.IsSymbol(e.KeyChar) || Char.IsPunctuation(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar);
+        }
+
+        private void UrunFiyatiUrunDuzenle_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void UrunFiyatiUrunDuzenle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Char.IsLetter(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar);
+        }
+
+        private void UrunGramajıUrunDuzenle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Char.IsLetter(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar);
+        }
     }
 }

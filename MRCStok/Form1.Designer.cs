@@ -456,6 +456,7 @@
             this.textBox23.Name = "textBox23";
             this.textBox23.Size = new System.Drawing.Size(228, 26);
             this.textBox23.TabIndex = 11;
+            this.textBox23.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox23_KeyPress);
             // 
             // label36
             // 
@@ -644,6 +645,7 @@
             this.textBox16.Size = new System.Drawing.Size(139, 26);
             this.textBox16.TabIndex = 6;
             this.textBox16.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox16.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox23_KeyPress);
             // 
             // label24
             // 
@@ -919,6 +921,7 @@
             this.UrunbarkoduUrunEkle.ReadOnly = true;
             this.UrunbarkoduUrunEkle.Size = new System.Drawing.Size(311, 26);
             this.UrunbarkoduUrunEkle.TabIndex = 14;
+            this.UrunbarkoduUrunEkle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox23_KeyPress);
             // 
             // label15
             // 
@@ -1019,6 +1022,7 @@
             this.UrunGramajiUrunEkle.Size = new System.Drawing.Size(93, 28);
             this.UrunGramajiUrunEkle.TabIndex = 7;
             this.UrunGramajiUrunEkle.Text = "0,100";
+            this.UrunGramajiUrunEkle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UrunGramajiUrunEkle_KeyPress);
             // 
             // label12
             // 
@@ -1038,6 +1042,8 @@
             this.UrunFiyatiUrunEkle.Size = new System.Drawing.Size(70, 26);
             this.UrunFiyatiUrunEkle.TabIndex = 5;
             this.UrunFiyatiUrunEkle.Text = "0";
+            this.UrunFiyatiUrunEkle.TextChanged += new System.EventHandler(this.UrunFiyatiUrunEkle_TextChanged);
+            this.UrunFiyatiUrunEkle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UrunGramajiUrunEkle_KeyPress);
             // 
             // label11
             // 
@@ -1056,6 +1062,7 @@
             this.UrunAdediUrunEkle.Name = "UrunAdediUrunEkle";
             this.UrunAdediUrunEkle.Size = new System.Drawing.Size(100, 26);
             this.UrunAdediUrunEkle.TabIndex = 3;
+            this.UrunAdediUrunEkle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox23_KeyPress);
             // 
             // label10
             // 
@@ -1418,6 +1425,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(174, 26);
             this.textBox1.TabIndex = 11;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox23_KeyPress);
             // 
             // button6
             // 
