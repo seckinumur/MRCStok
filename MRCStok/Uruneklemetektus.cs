@@ -41,7 +41,7 @@ namespace MRCStok
                     try
                     {
                         Uretim ekle = new Uretim();
-                        var ara = db.Urunler.Where(p => p.UrunAdi == UrunAdiUrunDuzenle.Text).FirstOrDefault();
+                        var ara = db.Urunler.Where(p => p.UrunAdi == label3.Text && p.UrunGramaji == label4.Text && p.UrunPaketi == label5.Text).FirstOrDefault();
                         int ekleurun = Convert.ToInt32(HizliStokUrunAdedi.Text);
                         int mevcuturun = Convert.ToInt32(ara.UrunAdedi);
                         int sonhali = ekleurun + mevcuturun;
@@ -58,9 +58,14 @@ namespace MRCStok
                         db1.Uretim.Add(ekle);
                         db1.SaveChanges();
                         db.SaveChanges();
-                        MessageBox.Show(ara.UrunAdi + " Adlı Ürünün " + mevcuturun.ToString() + " Adet'ine " + ekleurun.ToString() + " Adet Daha Eklendi. Ürünün Yeni Adeti: " + sonhali.ToString() + " Olmuştur.");
-                        Anaformburda.Form1_Load(sender, e);
+                        f216.yenidenbaslama = true;
+                        string kontrolal = Anaformburda.AdminKontrol;
+                        Anaformburda.Close();
+                        Form1 frm = new Form1();
+                        frm.Show();
+                        frm.AdminKontrol = kontrolal;
                         this.Close();
+                        MessageBox.Show(ara.UrunAdi + " Adlı Ürünün " + mevcuturun.ToString() + " Adet'ine " + ekleurun.ToString() + " Adet Daha Eklendi. Ürünün Yeni Adeti: " + sonhali.ToString() + " Olmuştur.");
                     }
                     catch
                     {
@@ -94,7 +99,7 @@ namespace MRCStok
             {
                 try
                 {
-                    var bul = db.Urunler.Where(p => p.UrunAdi == UrunAdiUrunDuzenle.Text).FirstOrDefault();
+                    var bul = db.Urunler.Where(p => p.UrunAdi == UrunAdiUrunDuzenle.Text && p.UrunGramaji == label4.Text && p.UrunPaketi == label5.Text).FirstOrDefault();
                     if (bul.UrunAdi == UrunAdiUrunDuzenle.Text)
                     {
                         DialogResult Uyari = new DialogResult();
@@ -129,7 +134,7 @@ namespace MRCStok
             {
                 try
                 {
-                    var bul = db.Urunler.Where(p => p.UrunAdi == label3.Text).FirstOrDefault();
+                    var bul = db.Urunler.Where(p => p.UrunAdi == label3.Text && p.UrunGramaji==label4.Text && p.UrunPaketi== label5.Text).FirstOrDefault();
                         DialogResult Uyari = new DialogResult();
                         Uyari = MessageBox.Show(UrunAdiUrunDuzenle.Text + " Adlı ürünün Bilgileri Güncellenecek Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
                         if (Uyari == DialogResult.Yes)

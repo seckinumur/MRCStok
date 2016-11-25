@@ -32,7 +32,7 @@ namespace MRCStok
                     double girilen = Convert.ToDouble(textBox4.Text);
                     if (girilen <= kontrol && girilen > 0)
                     {
-                        var ekle = Anaformugor.db.Urunler.Where(p => p.UrunAdi == textBox1.Text).FirstOrDefault();
+                        var ekle = Anaformugor.db.Urunler.Where(p => p.UrunAdi == textBox1.Text && p.UrunGramaji==textBox2.Text && p.UrunPaketi== textBox5.Text).FirstOrDefault();
                         double mevcutgramaj = Convert.ToDouble(Anaformugor.textBox4.Text);
                         double mevcutadet = Convert.ToDouble(Anaformugor.textBox6.Text);
                         double mevcuttl = Convert.ToDouble(Anaformugor.textBox5.Text);

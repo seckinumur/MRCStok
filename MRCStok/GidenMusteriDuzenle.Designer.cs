@@ -57,6 +57,9 @@
             this.button4 = new System.Windows.Forms.Button();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.adiurunun = new System.Windows.Forms.Label();
+            this.gramajiurunun = new System.Windows.Forms.Label();
+            this.ambalajiurunun = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -387,6 +390,36 @@
             this.label13.TabIndex = 37;
             this.label13.Text = "FATURA NO:";
             // 
+            // adiurunun
+            // 
+            this.adiurunun.AutoSize = true;
+            this.adiurunun.Location = new System.Drawing.Point(490, 576);
+            this.adiurunun.Name = "adiurunun";
+            this.adiurunun.Size = new System.Drawing.Size(92, 29);
+            this.adiurunun.TabIndex = 38;
+            this.adiurunun.Text = "label14";
+            this.adiurunun.Visible = false;
+            // 
+            // gramajiurunun
+            // 
+            this.gramajiurunun.AutoSize = true;
+            this.gramajiurunun.Location = new System.Drawing.Point(588, 576);
+            this.gramajiurunun.Name = "gramajiurunun";
+            this.gramajiurunun.Size = new System.Drawing.Size(92, 29);
+            this.gramajiurunun.TabIndex = 39;
+            this.gramajiurunun.Text = "label15";
+            this.gramajiurunun.Visible = false;
+            // 
+            // ambalajiurunun
+            // 
+            this.ambalajiurunun.AutoSize = true;
+            this.ambalajiurunun.Location = new System.Drawing.Point(541, 613);
+            this.ambalajiurunun.Name = "ambalajiurunun";
+            this.ambalajiurunun.Size = new System.Drawing.Size(92, 29);
+            this.ambalajiurunun.TabIndex = 40;
+            this.ambalajiurunun.Text = "label16";
+            this.ambalajiurunun.Visible = false;
+            // 
             // GidenMusteriDuzenle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
@@ -394,6 +427,9 @@
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(1058, 651);
             this.ControlBox = false;
+            this.Controls.Add(this.ambalajiurunun);
+            this.Controls.Add(this.gramajiurunun);
+            this.Controls.Add(this.adiurunun);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox16);
             this.Controls.Add(this.button4);
@@ -466,5 +502,8 @@
         private System.Windows.Forms.Label label13;
         public System.Windows.Forms.DataGridView dataGridView1;
         public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.Label adiurunun;
+        public System.Windows.Forms.Label gramajiurunun;
+        public System.Windows.Forms.Label ambalajiurunun;
     }
 }

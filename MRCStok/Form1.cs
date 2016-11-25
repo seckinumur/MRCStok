@@ -451,7 +451,9 @@ namespace MRCStok
                     {
                         try
                         {
-                            var bul = db.Urunler.Where(p => p.UrunAdi == UrunadiUrunEkle.Text).FirstOrDefault();
+                            string urungramaji = UrunGramajiUrunEkle.SelectedItem.ToString();
+                            string urunpaketi = AmbalajUrunEkle.SelectedItem.ToString();
+                            var bul = db.Urunler.Where(p => p.UrunAdi == UrunadiUrunEkle.Text && p.UrunGramaji==urungramaji && p.UrunPaketi== urunpaketi).FirstOrDefault();
                             if (bul.UrunAdi == UrunadiUrunEkle.Text)
                             {
                                 MessageBox.Show("Bu ürün Daha Önceden Kaydedilmiş!, Eğer Ürünün Bilgilerini Güncellemek istiyorsanız ürün ismine çift tıklayarak ürün güncelle Panosundan işlemlerinizi yapabilirsiniz!", "UYARI!");
@@ -1023,9 +1025,11 @@ namespace MRCStok
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
             string str = gridView1.FocusedValue.ToString();
+            string Urungramajinial = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "UrunGramaji").ToString();
+            string urunpaketinial = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "UrunPaketi").ToString();
             try
             {
-                var ekle = db.Urunler.Where(p => p.UrunAdi == str).FirstOrDefault();
+                var ekle = db.Urunler.Where(p => p.UrunAdi == str && p.UrunGramaji== Urungramajinial && p.UrunPaketi== urunpaketinial).FirstOrDefault();
                 if (ekle.UrunAdi == str)
                 {
                     UrunEklemeEkrani ac = new UrunEklemeEkrani();
@@ -1048,9 +1052,11 @@ namespace MRCStok
             if (e.KeyCode == Keys.Enter)
             {
                 string str = gridView1.FocusedValue.ToString();
+                string Urungramajinial = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "UrunGramaji").ToString();
+                string urunpaketinial = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "UrunPaketi").ToString();
                 try
                 {
-                    var ekle = db.Urunler.Where(p => p.UrunAdi == str).FirstOrDefault();
+                    var ekle = db.Urunler.Where(p => p.UrunAdi == str && p.UrunGramaji==Urungramajinial && p.UrunPaketi== urunpaketinial).FirstOrDefault();
                     if (ekle.UrunAdi == str)
                     {
                         UrunEklemeEkrani ac = new UrunEklemeEkrani();
@@ -1709,14 +1715,18 @@ namespace MRCStok
         private void gridView2_DoubleClick_1(object sender, EventArgs e)
         {
             string str = gridView2.FocusedValue.ToString();
+            string Urungramajinial = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "UrunGramaji").ToString();
+            string urunpaketinial = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "UrunPaketi").ToString();
             try
             {
-                var ekle = db.Urunler.Where(p => p.UrunAdi == str).FirstOrDefault();
+                var ekle = db.Urunler.Where(p => p.UrunAdi == str && p.UrunGramaji == Urungramajinial && p.UrunPaketi == urunpaketinial).FirstOrDefault();
                 if (ekle.UrunAdi == str)
                 {
                     Uruneklemetektus ac = new Uruneklemetektus();
                     ac.Show();
                     ac.label3.Text = ekle.UrunAdi;
+                    ac.label4.Text = ekle.UrunGramaji;
+                    ac.label5.Text = ekle.UrunPaketi;
                     ac.UrunAdiUrunDuzenle.Text = ekle.UrunAdi;
                     ac.UrunGramajıUrunDuzenle.SelectedItem = ekle.UrunGramaji;
                     ac.UrunAdediUrunDuzenle.Text = ekle.UrunAdedi;

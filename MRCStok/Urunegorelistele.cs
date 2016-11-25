@@ -35,13 +35,15 @@ namespace MRCStok
             if(gelenurunrapor==false)
             {
                 string str = gridView1.FocusedValue.ToString();
+                string Urungramajinial = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "UrunGramaji").ToString();
+                string urunpaketinial = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "UrunPaketi").ToString();
                 string seciliay = Convert.ToDateTime(ff11.dateTimePicker2.Text).Month.ToString();
                 if (ff11.checkBox2.Checked == true)
                 {
                     ff11.dataGridView6.Rows.Clear();
                     try
                     {
-                        var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler == str).ToList();
+                        var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler == str && p.UrunGramaji==Urungramajinial && p.UrunPaketi==urunpaketinial).ToList();
                         int i = 0;
                         foreach (var m in bul)
                         {
@@ -74,7 +76,7 @@ namespace MRCStok
                         try
                         {
                             string tarih = ilktarih.ToShortDateString();
-                            var bul = db.Raporlama.Where(p => p.Tarih == tarih && p.GidenUrunler == str).ToList();
+                            var bul = db.Raporlama.Where(p => p.Tarih == tarih && p.GidenUrunler == str && p.UrunGramaji == Urungramajinial && p.UrunPaketi == urunpaketinial).ToList();
                             foreach (var m in bul)
                             {
                                 ff11.dataGridView6.Rows.Add();
@@ -102,7 +104,7 @@ namespace MRCStok
                             string tarih = ilktarih.AddDays(i).ToShortDateString();
                             try
                             {
-                                var bul = db.Raporlama.Where(p => p.Tarih == tarih && p.GidenUrunler == str).ToList();
+                                var bul = db.Raporlama.Where(p => p.Tarih == tarih && p.GidenUrunler == str && p.UrunGramaji == Urungramajinial && p.UrunPaketi == urunpaketinial).ToList();
                                 foreach (var m in bul)
                                 {
                                     ff11.dataGridView6.Rows.Add();
@@ -130,6 +132,8 @@ namespace MRCStok
             else    // Filmin başladığı yer hacı
             {
                 string str = gridView1.FocusedValue.ToString();
+                string Urungramajinial = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "UrunGramaji").ToString();
+                string urunpaketinial = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "UrunPaketi").ToString();
                 string seciliay = Convert.ToDateTime(ff11.dateTimePicker2.Text).Month.ToString();
                 if (ff11.checkBox2.Checked == true)
                 {
@@ -137,7 +141,7 @@ namespace MRCStok
                     try
                     {
                         int i = 0;
-                        var bul = db1.Uretim.Where(p => p.Ay== seciliay && p.UrunAdi==str).ToList();
+                        var bul = db1.Uretim.Where(p => p.Ay== seciliay && p.UrunAdi==str && p.UrunGramaji == Urungramajinial && p.UrunAmbalaji == urunpaketinial).ToList();
                         foreach (var m in bul)
                         {
                             ff11.dataGridView6.Rows.Add();
@@ -169,7 +173,7 @@ namespace MRCStok
                         try
                         {
                             string tarih = ilktarih.ToShortDateString();
-                            var bul = db1.Uretim.Where(p => p.UrunUretimTarihi==tarih && p.UrunAdi == str).ToList();
+                            var bul = db1.Uretim.Where(p => p.UrunUretimTarihi==tarih && p.UrunAdi == str && p.UrunGramaji == Urungramajinial && p.UrunAmbalaji == urunpaketinial).ToList();
                             foreach (var m in bul)
                             {
                                 ff11.dataGridView6.Rows.Add();
@@ -197,7 +201,7 @@ namespace MRCStok
                             string tarih = ilktarih.AddDays(i).ToShortDateString();
                             try
                             {
-                                var bul = db1.Uretim.Where(p => p.UrunUretimTarihi == tarih && p.UrunAdi == str).ToList();
+                                var bul = db1.Uretim.Where(p => p.UrunUretimTarihi == tarih && p.UrunAdi == str && p.UrunGramaji == Urungramajinial && p.UrunAmbalaji == urunpaketinial).ToList();
                                 foreach (var m in bul)
                                 {
                                     ff11.dataGridView6.Rows.Add();

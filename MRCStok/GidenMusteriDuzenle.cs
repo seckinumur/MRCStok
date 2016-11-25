@@ -46,12 +46,17 @@ namespace MRCStok
             string selicideger = Convert.ToDateTime(f213.dateTimePicker2.Text).ToShortDateString();
             string seciliay = Convert.ToDateTime(f213.dateTimePicker2.Text).Month.ToString();
             string adet = dataGridView1.Rows[ykoordinat].Cells[1].Value.ToString();
+            string gramajii = dataGridView1.Rows[ykoordinat].Cells[4].Value.ToString();
+            string ambalajiii = dataGridView1.Rows[ykoordinat].Cells[5].Value.ToString();
+            adiurunun.Text = str;
+            gramajiurunun.Text = gramajii;
+            ambalajiurunun.Text = ambalajiii;
             adedinial = adet;
             if (f213.checkBox2.Checked == true)
             {
                 try
                 {
-                    var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler == str && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adet).FirstOrDefault();
+                    var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler == str && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adet && p.UrunGramaji== gramajii && p.UrunPaketi== ambalajiii).FirstOrDefault();
                     textBox7.Text = bul.GidenUrunler;
                     UrunGramajiUrunEkle.SelectedItem = bul.UrunGramaji;
                     textBox3.Text = bul.UrunAdedi;
@@ -70,7 +75,7 @@ namespace MRCStok
             {
                 try
                 {
-                    var bul = db.Raporlama.Where(p => p.Tarih == selicideger && p.GidenUrunler == str && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adet).FirstOrDefault();
+                    var bul = db.Raporlama.Where(p => p.Tarih == selicideger && p.GidenUrunler == str && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adet && p.UrunGramaji == gramajii && p.UrunPaketi == ambalajiii).FirstOrDefault();
 
                     textBox7.Text = bul.GidenUrunler;
                     UrunGramajiUrunEkle.SelectedItem = bul.UrunGramaji;
@@ -105,7 +110,7 @@ namespace MRCStok
                         double sonuc = 0;
                         var ekle = db.Urunler.Where(p => p.UrunAdi == textBox7.Text).FirstOrDefault();
                         double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
-                        var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial).FirstOrDefault();
+                        var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial && p.UrunGramaji == gramajiurunun.Text && p.UrunPaketi == ambalajiurunun.Text).FirstOrDefault();
                         double seciliadet = Convert.ToDouble(bul.UrunAdedi);
                         double girilenadet = Convert.ToDouble(textBox3.Text);
                         if (girilenadet < seciliadet)
@@ -155,7 +160,7 @@ namespace MRCStok
                         double sonuc = 0;
                         var ekle = db.Urunler.Where(p => p.UrunAdi == textBox7.Text).FirstOrDefault();
                         double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
-                        var bul = db.Raporlama.Where(p => p.Tarih == selicideger && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial).FirstOrDefault();
+                        var bul = db.Raporlama.Where(p => p.Tarih == selicideger && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial && p.UrunGramaji == gramajiurunun.Text && p.UrunPaketi == ambalajiurunun.Text).FirstOrDefault();
                         double seciliadet = Convert.ToDouble(bul.UrunAdedi);
                         double girilenadet = Convert.ToDouble(textBox3.Text);
                         if (girilenadet < seciliadet)
@@ -217,7 +222,7 @@ namespace MRCStok
                     {
                         try
                         {
-                            var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial).FirstOrDefault();
+                            var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial && p.UrunGramaji == gramajiurunun.Text && p.UrunPaketi == ambalajiurunun.Text).FirstOrDefault();
                             var ekle = db.Urunler.Where(p => p.UrunAdi == bul.GidenUrunler).FirstOrDefault();
                             double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
                             double seciliadet = Convert.ToDouble(bul.UrunAdedi);
@@ -241,7 +246,7 @@ namespace MRCStok
                     {
                         try
                         {
-                            var bul = db.Raporlama.Where(p => p.Tarih == selicideger && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial).FirstOrDefault();
+                            var bul = db.Raporlama.Where(p => p.Tarih == selicideger && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial && p.UrunGramaji == gramajiurunun.Text && p.UrunPaketi == ambalajiurunun.Text).FirstOrDefault();
                             var ekle = db.Urunler.Where(p => p.UrunAdi == bul.GidenUrunler).FirstOrDefault();
                             double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
                             double seciliadet = Convert.ToDouble(bul.UrunAdedi);

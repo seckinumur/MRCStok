@@ -74,10 +74,10 @@
             this.urunlerBindingSource10 = new System.Windows.Forms.BindingSource(this.components);
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colUrunAdi1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colUrunFiyati1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUrunAdedi1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUrunGramaji1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUrunPaketi1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUrunFiyati1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUrunEklemeTarihi1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -710,9 +710,9 @@
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colUrunAdi1,
             this.colUrunAdedi1,
-            this.colUrunFiyati1,
             this.colUrunGramaji1,
             this.colUrunPaketi1,
+            this.colUrunFiyati1,
             this.colUrunEklemeTarihi1});
             this.gridView2.GridControl = this.gridControl2;
             this.gridView2.Name = "gridView2";
@@ -730,17 +730,7 @@
             this.colUrunAdi1.OptionsColumn.ReadOnly = true;
             this.colUrunAdi1.Visible = true;
             this.colUrunAdi1.VisibleIndex = 0;
-            this.colUrunAdi1.Width = 231;
-            // 
-            // colUrunFiyati1
-            // 
-            this.colUrunFiyati1.FieldName = "UrunFiyati";
-            this.colUrunFiyati1.Name = "colUrunFiyati1";
-            this.colUrunFiyati1.OptionsColumn.AllowEdit = false;
-            this.colUrunFiyati1.OptionsColumn.ReadOnly = true;
-            this.colUrunFiyati1.Visible = true;
-            this.colUrunFiyati1.VisibleIndex = 1;
-            this.colUrunFiyati1.Width = 72;
+            this.colUrunAdi1.Width = 288;
             // 
             // colUrunAdedi1
             // 
@@ -749,7 +739,7 @@
             this.colUrunAdedi1.OptionsColumn.AllowEdit = false;
             this.colUrunAdedi1.OptionsColumn.ReadOnly = true;
             this.colUrunAdedi1.Visible = true;
-            this.colUrunAdedi1.VisibleIndex = 2;
+            this.colUrunAdedi1.VisibleIndex = 1;
             this.colUrunAdedi1.Width = 73;
             // 
             // colUrunGramaji1
@@ -759,8 +749,8 @@
             this.colUrunGramaji1.OptionsColumn.AllowEdit = false;
             this.colUrunGramaji1.OptionsColumn.ReadOnly = true;
             this.colUrunGramaji1.Visible = true;
-            this.colUrunGramaji1.VisibleIndex = 3;
-            this.colUrunGramaji1.Width = 82;
+            this.colUrunGramaji1.VisibleIndex = 2;
+            this.colUrunGramaji1.Width = 67;
             // 
             // colUrunPaketi1
             // 
@@ -769,8 +759,18 @@
             this.colUrunPaketi1.OptionsColumn.AllowEdit = false;
             this.colUrunPaketi1.OptionsColumn.ReadOnly = true;
             this.colUrunPaketi1.Visible = true;
-            this.colUrunPaketi1.VisibleIndex = 4;
-            this.colUrunPaketi1.Width = 94;
+            this.colUrunPaketi1.VisibleIndex = 3;
+            this.colUrunPaketi1.Width = 124;
+            // 
+            // colUrunFiyati1
+            // 
+            this.colUrunFiyati1.FieldName = "UrunFiyati";
+            this.colUrunFiyati1.Name = "colUrunFiyati1";
+            this.colUrunFiyati1.OptionsColumn.AllowEdit = false;
+            this.colUrunFiyati1.OptionsColumn.ReadOnly = true;
+            this.colUrunFiyati1.Visible = true;
+            this.colUrunFiyati1.VisibleIndex = 4;
+            this.colUrunFiyati1.Width = 54;
             // 
             // colUrunEklemeTarihi1
             // 
@@ -780,7 +780,7 @@
             this.colUrunEklemeTarihi1.OptionsColumn.ReadOnly = true;
             this.colUrunEklemeTarihi1.Visible = true;
             this.colUrunEklemeTarihi1.VisibleIndex = 5;
-            this.colUrunEklemeTarihi1.Width = 127;
+            this.colUrunEklemeTarihi1.Width = 73;
             // 
             // dataGridView1
             // 
