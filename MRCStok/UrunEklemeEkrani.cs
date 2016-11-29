@@ -22,17 +22,17 @@ namespace MRCStok
         {
             if (e.KeyCode == Keys.Enter)
             {
-               if(textBox4.Text=="")
+                if (textBox4.Text == "")
                 {
                     MessageBox.Show("Ürün adedinin girmediniz!");
                 }
-               else
+                else
                 {
                     double kontrol = Convert.ToDouble(textBox3.Text);
                     double girilen = Convert.ToDouble(textBox4.Text);
                     if (girilen <= kontrol && girilen > 0)
                     {
-                        var ekle = Anaformugor.db.Urunler.Where(p => p.UrunAdi == textBox1.Text && p.UrunGramaji==textBox2.Text && p.UrunPaketi== textBox5.Text).FirstOrDefault();
+                        var ekle = Anaformugor.db.Urunler.Where(p => p.UrunAdi == textBox1.Text && p.UrunGramaji == textBox2.Text && p.UrunPaketi == textBox5.Text).FirstOrDefault();
                         double mevcutgramaj = Convert.ToDouble(Anaformugor.textBox4.Text);
                         double mevcutadet = Convert.ToDouble(Anaformugor.textBox6.Text);
                         double mevcuttl = Convert.ToDouble(Anaformugor.textBox5.Text);
@@ -41,14 +41,14 @@ namespace MRCStok
                         double urunadeti = girilen;
                         double urunfiyati = Convert.ToDouble(textBox6.Text);
 
-                        double toplamgramaj = mevcutgramaj + urungramaji*girilen;
+                        double toplamgramaj = mevcutgramaj + urungramaji * girilen;
                         double toplamadet = mevcutadet + girilen;
-                        double tolamtl = mevcuttl + urunfiyati*girilen;
+                        double tolamtl = mevcuttl + urunfiyati * girilen;
                         double Urunadetii = Convert.ToDouble(ekle.UrunAdedi);
                         double Sonurunadedi = Urunadetii - girilen;
 
                         ekle.UrunAdedi = Sonurunadedi.ToString();
-                        Anaformugor.db.SaveChanges(); 
+                        Anaformugor.db.SaveChanges();
 
                         Anaformugor.textBox4.Text = toplamgramaj.ToString();
                         Anaformugor.textBox6.Text = toplamadet.ToString();
@@ -61,14 +61,13 @@ namespace MRCStok
                         Anaformugor.sayac++;
                         this.Close();
                         Anaformugor.Form1_Load(sender, e);
-                }
+                    }
                     else
                     {
                         MessageBox.Show("STOKTA BULUNAN ÜRÜN MİKTARINDAN FARKLI ÜRÜN ÇIKIŞI YAPAMAZSINIZ!", "UYARI!");
                     }
                 }
-                }
-                   
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -78,17 +77,15 @@ namespace MRCStok
 
         private void UrunEklemeEkrani_Load(object sender, EventArgs e)
         {
-
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
         }
 
         private void textBox4_KeyPress(object sender, KeyPressEventArgs e)

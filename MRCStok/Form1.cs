@@ -34,21 +34,14 @@ namespace MRCStok
 
         private void label13_Click(object sender, EventArgs e)
         {
-
         }
 
         public void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'stokMatikDataSet3.UrunSepeti' table. You can move, or remove it, as needed.
-
-            // TODO: This line of code loads data into the 'stokMatikDataSet2.Musteriler' table. You can move, or remove it, as needed.
             this.musterilerTableAdapter.Fill(this.stokMatikDataSet2.Musteriler);
-            // TODO: This line of code loads data into the 'stokMatikDataSet1.Kullanicilar' table. You can move, or remove it, as needed.
             this.kullanicilarTableAdapter.Fill(this.stokMatikDataSet1.Kullanicilar);
-            // TODO: This line of code loads data into the 'stokMatikDataSet.Urunler' table. You can move, or remove it, as needed.
             this.urunlerTableAdapter.Fill(this.stokMatikDataSet.Urunler);
             f21.yenidenbaslama = false;
-
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -283,36 +276,6 @@ namespace MRCStok
             YöneticiSifresi.Text = "";
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectedIndex = 0;
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectedIndex = 1;
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectedIndex = 2;
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectedIndex = 3;
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectedIndex = 4;
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-            tabControl1.SelectedIndex = 5;
-        }
-
         private void MusteriKaydetMusteriEkle_Click(object sender, EventArgs e)
         {
             if (MusteriAdiMusteriEkle.Text == "")
@@ -403,7 +366,7 @@ namespace MRCStok
                         {
                             string urungramaji = UrunGramajiUrunEkle.SelectedItem.ToString();
                             string urunpaketi = AmbalajUrunEkle.SelectedItem.ToString();
-                            var bul = db.Urunler.Where(p => p.UrunAdi == UrunadiUrunEkle.Text && p.UrunGramaji==urungramaji && p.UrunPaketi== urunpaketi).FirstOrDefault();
+                            var bul = db.Urunler.Where(p => p.UrunAdi == UrunadiUrunEkle.Text && p.UrunGramaji == urungramaji && p.UrunPaketi == urunpaketi).FirstOrDefault();
                             if (bul.UrunAdi == UrunadiUrunEkle.Text)
                             {
                                 MessageBox.Show("Bu ürün Daha Önceden Kaydedilmiş!, Eğer Ürünün Bilgilerini Güncellemek istiyorsanız ürün ismine çift tıklayarak ürün güncelle Panosundan işlemlerinizi yapabilirsiniz!", "UYARI!");
@@ -794,7 +757,6 @@ namespace MRCStok
                         dataGridView6.Rows[i].Cells[7].Value = m.Tarih;
                         i++;
                     }
-                    //Form1_Load(sender, e);
                 }
                 catch
                 {
@@ -829,7 +791,6 @@ namespace MRCStok
                     }
                     catch
                     {
-
                     }
                 }
                 else
@@ -915,7 +876,6 @@ namespace MRCStok
             {
                 f21.Close();
             }
-
         }
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
@@ -925,7 +885,7 @@ namespace MRCStok
             string urunpaketinial = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "UrunPaketi").ToString();
             try
             {
-                var ekle = db.Urunler.Where(p => p.UrunAdi == str && p.UrunGramaji== Urungramajinial && p.UrunPaketi== urunpaketinial).FirstOrDefault();
+                var ekle = db.Urunler.Where(p => p.UrunAdi == str && p.UrunGramaji == Urungramajinial && p.UrunPaketi == urunpaketinial).FirstOrDefault();
                 if (ekle.UrunAdi == str)
                 {
                     UrunEklemeEkrani ac = new UrunEklemeEkrani();
@@ -952,7 +912,7 @@ namespace MRCStok
                 string urunpaketinial = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "UrunPaketi").ToString();
                 try
                 {
-                    var ekle = db.Urunler.Where(p => p.UrunAdi == str && p.UrunGramaji==Urungramajinial && p.UrunPaketi== urunpaketinial).FirstOrDefault();
+                    var ekle = db.Urunler.Where(p => p.UrunAdi == str && p.UrunGramaji == Urungramajinial && p.UrunPaketi == urunpaketinial).FirstOrDefault();
                     if (ekle.UrunAdi == str)
                     {
                         UrunEklemeEkrani ac = new UrunEklemeEkrani();
@@ -1002,7 +962,6 @@ namespace MRCStok
                 }
                 catch
                 {
-
                 }
             }
 
@@ -1046,7 +1005,6 @@ namespace MRCStok
                         dataGridView6.Rows[i].Cells[7].Value = m.Tarih;
                         i++;
                     }
-                    //Form1_Load(sender, e);
                 }
                 catch
                 {
@@ -1081,7 +1039,6 @@ namespace MRCStok
                     }
                     catch
                     {
-
                     }
                 }
                 else
@@ -1108,7 +1065,6 @@ namespace MRCStok
                         }
                         catch
                         {
-
                         }
                     }
                 }
@@ -1179,7 +1135,6 @@ namespace MRCStok
                     }
                     catch
                     {
-
                     }
                 }
                 else
@@ -1206,7 +1161,6 @@ namespace MRCStok
                         }
                         catch
                         {
-
                         }
                     }
                 }
@@ -1271,7 +1225,6 @@ namespace MRCStok
                     }
                     catch
                     {
-
                     }
                 }
                 else
@@ -1298,7 +1251,6 @@ namespace MRCStok
                         }
                         catch
                         {
-
                         }
                     }
                 }
@@ -1368,7 +1320,6 @@ namespace MRCStok
                     }
                     catch
                     {
-
                     }
                 }
                 else
@@ -1395,7 +1346,6 @@ namespace MRCStok
                         }
                         catch
                         {
-
                         }
                     }
                 }
@@ -1460,7 +1410,6 @@ namespace MRCStok
                     }
                     catch
                     {
-
                     }
                 }
                 else
@@ -1487,7 +1436,6 @@ namespace MRCStok
                         }
                         catch
                         {
-
                         }
                     }
                 }
@@ -1539,8 +1487,6 @@ namespace MRCStok
                         ac.dataGridView1.Rows[sayac].Cells[4].Value = n.UrunPaketi;
                         ac.dataGridView1.Rows[sayac].Cells[5].Value = n.FaturaDurumu;
                         ac.dataGridView1.Rows[sayac].Cells[6].Value = n.Tarih;
-
-
                         adet = Convert.ToDouble(n.UrunAdedi);
                         sonuc = adet + sonuc;
                         ac.textBox2.Text = sonuc.ToString();
@@ -1550,7 +1496,6 @@ namespace MRCStok
                         gramaj = Convert.ToDouble(n.UrunGramaji);
                         toplamgramaj = gramaj + toplamgramaj;
                         ac.textBox4.Text = toplamgramaj.ToString();
-
                         sayac++;
                     }
                 }
@@ -1568,7 +1513,6 @@ namespace MRCStok
                         ac.dataGridView1.Rows[sayac].Cells[4].Value = n.UrunPaketi;
                         ac.dataGridView1.Rows[sayac].Cells[5].Value = n.FaturaDurumu;
                         ac.dataGridView1.Rows[sayac].Cells[6].Value = n.Tarih;
-
                         adet = Convert.ToDouble(n.UrunAdedi);
                         sonuc = adet + sonuc;
                         ac.textBox2.Text = sonuc.ToString();
@@ -1578,7 +1522,6 @@ namespace MRCStok
                         gramaj = Convert.ToDouble(n.UrunGramaji);
                         toplamgramaj = gramaj + toplamgramaj;
                         ac.textBox4.Text = toplamgramaj.ToString();
-
                         sayac++;
                     }
                 }
@@ -1658,7 +1601,6 @@ namespace MRCStok
                 }
                 catch
                 {
-
                 }
             }
             else
@@ -1672,7 +1614,7 @@ namespace MRCStok
                     try
                     {
                         string tarih = ilktarih.ToShortDateString();
-                        var bul = db1.Uretim.Where(p => p.UrunUretimTarihi ==tarih).ToList();
+                        var bul = db1.Uretim.Where(p => p.UrunUretimTarihi == tarih).ToList();
                         foreach (var m in bul)
                         {
                             dataGridView6.Rows.Add();
@@ -1689,7 +1631,6 @@ namespace MRCStok
                     }
                     catch
                     {
-
                     }
                 }
                 else
@@ -1716,7 +1657,6 @@ namespace MRCStok
                         }
                         catch
                         {
-
                         }
                     }
                 }
@@ -1755,7 +1695,7 @@ namespace MRCStok
             try
             {
                 var musteribul = db.Musteriler.Where(p => p.MusteriAdi == str).FirstOrDefault();
-                if(musteribul.MusteriAdi==str)
+                if (musteribul.MusteriAdi == str)
                 {
                     MusteriKontrolEkrani ac = new MusteriKontrolEkrani();
                     ac.Show();
@@ -1763,7 +1703,6 @@ namespace MRCStok
                     ac.MusteriAdiMusteriDuzenle.Text = musteribul.MusteriAdi;
                     ac.AdresMusteriDuzenle.Text = musteribul.MusteriAdresi;
                 }
-                
             }
             catch
             {
