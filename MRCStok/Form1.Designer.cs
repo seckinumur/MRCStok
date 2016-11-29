@@ -203,6 +203,7 @@
             this.urunlerBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.urunlerBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            this.button8 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -1739,6 +1740,7 @@
             // 
             // Kullaniciİslemleri
             // 
+            this.Kullaniciİslemleri.Controls.Add(this.button8);
             this.Kullaniciİslemleri.Controls.Add(this.checkBox1);
             this.Kullaniciİslemleri.Controls.Add(this.button37);
             this.Kullaniciİslemleri.Controls.Add(this.button36);
@@ -1768,7 +1770,7 @@
             // 
             // button37
             // 
-            this.button37.Location = new System.Drawing.Point(14, 186);
+            this.button37.Location = new System.Drawing.Point(14, 174);
             this.button37.Name = "button37";
             this.button37.Size = new System.Drawing.Size(588, 45);
             this.button37.TabIndex = 14;
@@ -2052,6 +2054,16 @@
             // 
             this.sqlDataSource1.Name = "sqlDataSource1";
             // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(608, 174);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(133, 45);
+            this.button8.TabIndex = 16;
+            this.button8.Text = "HAKKINDA";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2306,6 +2318,7 @@
         private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
         private DevExpress.XtraGrid.Columns.GridColumn colMusteriAdi;
         private DevExpress.XtraGrid.Columns.GridColumn colMusteriAdresi;
+        private System.Windows.Forms.Button button8;
     }
 }
 

@@ -29,56 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.musteriAdiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.musteriAdresiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.musterilerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.stokMatikDataSet2 = new MRCStok.StokMatikDataSet2();
             this.musterilerTableAdapter = new MRCStok.StokMatikDataSet2TableAdapters.MusterilerTableAdapter();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.musterilerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.colMusteriAdi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMusteriAdresi = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.musterilerBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.musterilerBindingSource1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.musteriAdiDataGridViewTextBoxColumn,
-            this.musteriAdresiDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.musterilerBindingSource;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 42);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(818, 463);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            // 
-            // musteriAdiDataGridViewTextBoxColumn
-            // 
-            this.musteriAdiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.musteriAdiDataGridViewTextBoxColumn.DataPropertyName = "MusteriAdi";
-            this.musteriAdiDataGridViewTextBoxColumn.HeaderText = "MÜŞTERİ ADI";
-            this.musteriAdiDataGridViewTextBoxColumn.Name = "musteriAdiDataGridViewTextBoxColumn";
-            this.musteriAdiDataGridViewTextBoxColumn.ReadOnly = true;
-            this.musteriAdiDataGridViewTextBoxColumn.Width = 172;
-            // 
-            // musteriAdresiDataGridViewTextBoxColumn
-            // 
-            this.musteriAdresiDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.musteriAdresiDataGridViewTextBoxColumn.DataPropertyName = "MusteriAdresi";
-            this.musteriAdresiDataGridViewTextBoxColumn.HeaderText = "MÜŞTERİ ADRESİ";
-            this.musteriAdresiDataGridViewTextBoxColumn.Name = "musteriAdresiDataGridViewTextBoxColumn";
-            this.musteriAdresiDataGridViewTextBoxColumn.ReadOnly = true;
-            this.musteriAdresiDataGridViewTextBoxColumn.Width = 216;
             // 
             // musterilerBindingSource
             // 
@@ -98,7 +64,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(102, 9);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(582, 26);
             this.label1.TabIndex = 1;
@@ -108,7 +74,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.DarkRed;
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(777, 4);
+            this.button1.Location = new System.Drawing.Point(600, 9);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(42, 35);
             this.button1.TabIndex = 2;
@@ -116,16 +82,65 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // gridControl1
+            // 
+            this.gridControl1.DataSource = this.musterilerBindingSource1;
+            this.gridControl1.Location = new System.Drawing.Point(4, 50);
+            this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Name = "gridControl1";
+            this.gridControl1.Size = new System.Drawing.Size(638, 453);
+            this.gridControl1.TabIndex = 3;
+            this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gridView1
+            // 
+            this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridView1.Appearance.Row.Options.UseFont = true;
+            this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMusteriAdi,
+            this.colMusteriAdresi});
+            this.gridView1.GridControl = this.gridControl1;
+            this.gridView1.Name = "gridView1";
+            this.gridView1.OptionsFind.AlwaysVisible = true;
+            this.gridView1.OptionsFind.FindNullPrompt = "Bir Müşteri Seçin...";
+            this.gridView1.OptionsFind.ShowFindButton = false;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
+            // 
+            // musterilerBindingSource1
+            // 
+            this.musterilerBindingSource1.DataMember = "Musteriler";
+            this.musterilerBindingSource1.DataSource = this.stokMatikDataSet2;
+            // 
+            // colMusteriAdi
+            // 
+            this.colMusteriAdi.FieldName = "MusteriAdi";
+            this.colMusteriAdi.Name = "colMusteriAdi";
+            this.colMusteriAdi.OptionsColumn.AllowEdit = false;
+            this.colMusteriAdi.OptionsColumn.ReadOnly = true;
+            this.colMusteriAdi.Visible = true;
+            this.colMusteriAdi.VisibleIndex = 0;
+            // 
+            // colMusteriAdresi
+            // 
+            this.colMusteriAdresi.FieldName = "MusteriAdresi";
+            this.colMusteriAdresi.Name = "colMusteriAdresi";
+            this.colMusteriAdresi.OptionsColumn.AllowEdit = false;
+            this.colMusteriAdresi.OptionsColumn.ReadOnly = true;
+            this.colMusteriAdresi.Visible = true;
+            this.colMusteriAdresi.VisibleIndex = 1;
+            // 
             // MusteriSecmeEkrani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.OrangeRed;
-            this.ClientSize = new System.Drawing.Size(831, 515);
+            this.ClientSize = new System.Drawing.Size(649, 515);
             this.ControlBox = false;
+            this.Controls.Add(this.gridControl1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
@@ -138,9 +153,11 @@
             this.Text = "MusteriSecmeEkrani";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.MusteriSecmeEkrani_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.musterilerBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.musterilerBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,10 +167,12 @@
         private StokMatikDataSet2 stokMatikDataSet2;
         private System.Windows.Forms.BindingSource musterilerBindingSource;
         private StokMatikDataSet2TableAdapters.MusterilerTableAdapter musterilerTableAdapter;
-        public System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn musteriAdiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn musteriAdresiDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private DevExpress.XtraGrid.GridControl gridControl1;
+        private System.Windows.Forms.BindingSource musterilerBindingSource1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+        private DevExpress.XtraGrid.Columns.GridColumn colMusteriAdi;
+        private DevExpress.XtraGrid.Columns.GridColumn colMusteriAdresi;
     }
 }

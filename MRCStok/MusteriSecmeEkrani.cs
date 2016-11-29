@@ -27,70 +27,27 @@ namespace MRCStok
 
         }
 
-        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (counter == false)
-            {
-            int xkoordinat = dataGridView1.CurrentCellAddress.X; //Seçili satırın X koordinatı
-            int ykoordinat = dataGridView1.CurrentCellAddress.Y;  //Seçili satırın Y koordinatı
-            string str = "";
-            str = dataGridView1.Rows[ykoordinat].Cells[xkoordinat].Value.ToString();
-            if (e.RowIndex == -1)
-            {
-                return;
-            }
-            try
-            {
-            var bul = bulma.db.Musteriler.Where(p => p.MusteriAdi == str).FirstOrDefault();
-            if (bul.MusteriAdi == str)
-            {
-            bulma.textBox2.Text = str;
-            this.Close();
-            }                        
-            }
-            catch
-            {
-                MessageBox.Show("MÜŞTERİYİ SEÇMEK İÇİN; MÜŞTERİ İSMİNE TIKLAMALISINIZ!");
-            }
-            }
-            else
-            {
-                int xkoordinat = dataGridView1.CurrentCellAddress.X; //Seçili satırın X koordinatı
-                int ykoordinat = dataGridView1.CurrentCellAddress.Y;  //Seçili satırın Y koordinatı
-                string str = "";
-                str = dataGridView1.Rows[ykoordinat].Cells[xkoordinat].Value.ToString();
-                if (e.RowIndex == -1)
-                {
-                    return;
-                }
-                try
-                {
-                    var bul = bulma.db.Musteriler.Where(p => p.MusteriAdi == str).FirstOrDefault();
-                    if (bul.MusteriAdi == str)
-                    {
-                        bulma.textBox7.Text = str;
-                        this.Close();
-
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("MÜŞTERİYİ SEÇMEK İÇİN; MÜŞTERİ İSMİNE TIKLAMALISINIZ!");
-                }
-            }
-            
-           
-            
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-
+            string str = gridView1.FocusedValue.ToString();
+            try
+            {
+                var bul = bulma.db.Musteriler.Where(p => p.MusteriAdi == str).FirstOrDefault();
+                if (bul.MusteriAdi == str)
+                {
+                    bulma.textBox2.Text = str;
+                    this.Close();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("MÜŞTERİYİ SEÇMEK İÇİN; MÜŞTERİ İSMİNE TIKLAMALISINIZ!");
+            }           
         }
     }
 }

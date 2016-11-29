@@ -1709,6 +1709,12 @@ namespace MRCStok
                 MessageBox.Show("Seçmek İçin Müşteri İsmine Çift Tıklayın");
             }
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Hakkinda ac = new Hakkinda();
+            ac.Show();
+        }
     }
 }
 

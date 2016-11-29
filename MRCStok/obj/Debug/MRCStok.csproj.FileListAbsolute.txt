@@ -443,7 +443,6 @@ C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\bin\Debug\de\DevExpress.XtraCharts.
 C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\bin\Debug\es\DevExpress.XtraCharts.v16.1.Wizard.resources.dll
 C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\bin\Debug\ja\DevExpress.XtraCharts.v16.1.Wizard.resources.dll
 C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\bin\Debug\ru\DevExpress.XtraCharts.v16.1.Wizard.resources.dll
-C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.csprojResolveAssemblyReference.cache
 C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.ExcelUyari.resources
 C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.Form1.resources
 C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.GidenMusteriDuzenle.resources
@@ -674,3 +673,5 @@ C:\Users\secki\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.VeritabaniSecme.re
 C:\Users\secki\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.csproj.GenerateResource.Cache
 C:\Users\secki\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.exe.licenses
 C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.MusteriKontrolEkrani.resources
+C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.Hakkinda.resources
+C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.csprojResolveAssemblyReference.cache

@@ -134,6 +134,12 @@
     <Compile Include="GirisEkrani.Designer.cs">
       <DependentUpon>GirisEkrani.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hakkinda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hakkinda.Designer.cs">
+      <DependentUpon>Hakkinda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Kullanicilar.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -248,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GirisEkrani.resx">
       <DependentUpon>GirisEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Hakkinda.resx">
+      <DependentUpon>Hakkinda.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MusteriKontrolEkrani.resx">
       <DependentUpon>MusteriKontrolEkrani.cs</DependentUpon>
