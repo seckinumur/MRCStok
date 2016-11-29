@@ -673,3 +673,4 @@ C:\Users\secki\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.Uruneklemetektus.r
 C:\Users\secki\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.VeritabaniSecme.resources
 C:\Users\secki\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.csproj.GenerateResource.Cache
 C:\Users\secki\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.exe.licenses
+C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.MusteriKontrolEkrani.resources

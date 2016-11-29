@@ -373,60 +373,10 @@ namespace MRCStok
 
         }
 
-        private void MusteriDuzenleMusteriDuzenle_Click(object sender, EventArgs e)
-        {
-            if (MusteriAdiMusteriDuzenle.Text == "")
-            {
-                MessageBox.Show("Muşteri Adını Girin!");
-            }
-            else
-            {
-                if (AdresMusteriDuzenle.Text == "")
-                {
-                    MessageBox.Show("Muşteri Adresini Girin!");
-                }
-                else
-                {
-                    try
-                    {
-                        var bul = db.Musteriler.Where(p => p.MusteriAdi == SecilenMusteriAdi.Text).FirstOrDefault();
-                        if (bul.MusteriAdi == SecilenMusteriAdi.Text)
-                        {
-                            DialogResult Uyari = new DialogResult();
-                            Uyari = MessageBox.Show(SecilenMusteriAdi.Text + " Adlı Musteri Bilgileri Güncellenecek Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
-                            if (Uyari == DialogResult.Yes)
-                            {
-
-                                bul.MusteriAdi = MusteriAdiMusteriDuzenle.Text;
-                                bul.MusteriAdresi = AdresMusteriDuzenle.Text;
-                                MessageBox.Show("Müşteri Başarıyla Güncelleştirildi!");
-                                MusteriAdiMusteriDuzenle.Text = "";
-                                AdresMusteriDuzenle.Text = "";
-                                SecilenMusteriAdi.Text = "";
-                                db.SaveChanges();
-                                Form1_Load(sender, e);
-                            }
-                        }
-
-                    }
-                    catch
-                    {
-                        MessageBox.Show("Veritabanına Bağlanamadı!");
-                    }
-                }
-            }
-        }
-
         private void button21_Click(object sender, EventArgs e)
         {
             MusteriAdiMusteriEkle.Text = "";
             AdresMusteriEkle.Text = "";
-        }
-
-        private void button22_Click(object sender, EventArgs e)
-        {
-            MusteriAdiMusteriDuzenle.Text = "";
-            AdresMusteriDuzenle.Text = "";
         }
 
         private void UrunEkleButon_Click(object sender, EventArgs e)
@@ -554,29 +504,6 @@ namespace MRCStok
 
         }
 
-        private void dataGridView5_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int xkoordinat = dataGridView5.CurrentCellAddress.X; //Seçili satırın X koordinatı
-            int ykoordinat = dataGridView5.CurrentCellAddress.Y;  //Seçili satırın Y koordinatı
-            string str = "";
-            str = dataGridView5.Rows[ykoordinat].Cells[xkoordinat].Value.ToString();
-            if (e.RowIndex == -1)
-            {
-                return;
-            }
-            try
-            {
-                var musteribul = db.Musteriler.Where(p => p.MusteriAdi == str).FirstOrDefault();
-                SecilenMusteriAdi.Text = musteribul.MusteriAdi;
-                MusteriAdiMusteriDuzenle.Text = musteribul.MusteriAdi;
-                AdresMusteriDuzenle.Text = musteribul.MusteriAdresi;
-            }
-            catch
-            {
-                MessageBox.Show("Seçmek İçin Müşteri İsmine Çift Tıklayın");
-            }
-        }
-
         private void IptalButonUrunEkle_Click(object sender, EventArgs e)
         {
             UrunadiUrunEkle.Text = "";
@@ -584,37 +511,6 @@ namespace MRCStok
             UrunbarkoduUrunEkle.Text = "";
             UrunFiyatiUrunEkle.Text = "0";
             Form1_Load(sender, e);
-        }
-
-
-        private void button20_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                var bul = db.Musteriler.Where(p => p.MusteriAdi == SecilenMusteriAdi.Text).FirstOrDefault();
-                if (bul.MusteriAdi == SecilenMusteriAdi.Text)
-                {
-                    DialogResult Uyari = new DialogResult();
-                    Uyari = MessageBox.Show(SecilenMusteriAdi.Text + " Adlı Musteri Silinecek Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
-                    if (Uyari == DialogResult.Yes)
-                    {
-
-                        db.Musteriler.Remove(bul);
-                        db.SaveChanges();
-                        MessageBox.Show("Müşteri Başarıyla Silindi!");
-                        MusteriAdiMusteriDuzenle.Text = "";
-                        AdresMusteriDuzenle.Text = "";
-                        SecilenMusteriAdi.Text = "";
-
-                        Form1_Load(sender, e);
-                    }
-                }
-
-            }
-            catch
-            {
-                MessageBox.Show("Veritabanına Bağlanamadı!");
-            }
         }
 
         private void button16_Click(object sender, EventArgs e)
@@ -1114,12 +1010,10 @@ namespace MRCStok
 
         private void gridView2_DoubleClick(object sender, EventArgs e)
         {
-
         }
 
         private void gridView2_KeyDown(object sender, KeyEventArgs e)
         {
-
         }
 
         private void button25_Click(object sender, EventArgs e)
@@ -1440,7 +1334,6 @@ namespace MRCStok
                         dataGridView6.Rows[i].Cells[7].Value = m.Tarih;
                         i++;
                     }
-                    //Form1_Load(sender, e);
                 }
                 catch
                 {
@@ -1704,12 +1597,10 @@ namespace MRCStok
 
         private void groupBox4_Enter(object sender, EventArgs e)
         {
-
         }
 
         private void HizliStokUrunAdedi_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void gridView2_DoubleClick_1(object sender, EventArgs e)
@@ -1851,7 +1742,33 @@ namespace MRCStok
 
         private void UrunFiyatiUrunEkle_TextChanged(object sender, EventArgs e)
         {
+        }
 
+        private void button13_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Bu sürümde Yazdırma Özelliği Etkin Değildir. \n Lütfen Excel'e Çıkarıp Yazdırın.");
+        }
+
+        private void gridView3_DoubleClick(object sender, EventArgs e)
+        {
+            string str = gridView3.FocusedValue.ToString();
+            try
+            {
+                var musteribul = db.Musteriler.Where(p => p.MusteriAdi == str).FirstOrDefault();
+                if(musteribul.MusteriAdi==str)
+                {
+                    MusteriKontrolEkrani ac = new MusteriKontrolEkrani();
+                    ac.Show();
+                    ac.BurdanAl.Text = musteribul.MusteriAdi;
+                    ac.MusteriAdiMusteriDuzenle.Text = musteribul.MusteriAdi;
+                    ac.AdresMusteriDuzenle.Text = musteribul.MusteriAdresi;
+                }
+                
+            }
+            catch
+            {
+                MessageBox.Show("Seçmek İçin Müşteri İsmine Çift Tıklayın");
+            }
         }
     }
 }

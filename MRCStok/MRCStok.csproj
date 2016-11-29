@@ -152,6 +152,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
+    <Compile Include="MusteriKontrolEkrani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MusteriKontrolEkrani.Designer.cs">
+      <DependentUpon>MusteriKontrolEkrani.cs</DependentUpon>
+    </Compile>
     <Compile Include="Musteriler.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -242,6 +248,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GirisEkrani.resx">
       <DependentUpon>GirisEkrani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MusteriKontrolEkrani.resx">
+      <DependentUpon>MusteriKontrolEkrani.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MusteriSecmeEkrani.resx">
       <DependentUpon>MusteriSecmeEkrani.cs</DependentUpon>

@@ -106,21 +106,16 @@
             this.UrunadiUrunEkle = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.button20 = new System.Windows.Forms.Button();
-            this.SecilenMusteriAdi = new System.Windows.Forms.TextBox();
-            this.label45 = new System.Windows.Forms.Label();
-            this.button22 = new System.Windows.Forms.Button();
-            this.MusteriDuzenleMusteriDuzenle = new System.Windows.Forms.Button();
-            this.AdresMusteriDuzenle = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.MusteriAdiMusteriDuzenle = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
+            this.gridControl3 = new DevExpress.XtraGrid.GridControl();
+            this.musterilerBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.stokMatikDataSet2 = new MRCStok.StokMatikDataSet2();
+            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMusteriAdi = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMusteriAdresi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.button13 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
             this.MusteriKaydetMusteriEkle = new System.Windows.Forms.Button();
             this.AdresMusteriEkle = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
@@ -130,7 +125,6 @@
             this.musteriAdiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.musteriAdresiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.musterilerBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.stokMatikDataSet2 = new MRCStok.StokMatikDataSet2();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -226,12 +220,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource9)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.tabPage4.SuspendLayout();
-            this.groupBox14.SuspendLayout();
-            this.groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.musterilerBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.musterilerBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet2)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
@@ -281,12 +276,13 @@
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.ForeColor = System.Drawing.Color.DarkRed;
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1232, 624);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "SİPARİŞ ÇIKIŞI YAP";
+            this.tabPage1.Text = "ÜRÜN ÇIKIŞI YAP";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // dataGridView2
@@ -374,7 +370,10 @@
             this.gridView1.OptionsBehavior.ReadOnly = true;
             this.gridView1.OptionsCustomization.AllowRowSizing = true;
             this.gridView1.OptionsFind.AlwaysVisible = true;
+            this.gridView1.OptionsFind.FindNullPrompt = "Ürün Arayın...";
+            this.gridView1.OptionsFind.ShowFindButton = false;
             this.gridView1.OptionsView.RowAutoHeight = true;
+            this.gridView1.OptionsView.ShowGroupPanel = false;
             this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
@@ -1094,8 +1093,7 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.groupBox14);
-            this.tabPage4.Controls.Add(this.groupBox9);
+            this.tabPage4.Controls.Add(this.gridControl3);
             this.tabPage4.Controls.Add(this.groupBox8);
             this.tabPage4.Controls.Add(this.dataGridView5);
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
@@ -1106,171 +1104,94 @@
             this.tabPage4.Text = "MÜŞTERİ YÖNETİMİ";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // groupBox14
+            // gridControl3
             // 
-            this.groupBox14.Controls.Add(this.button13);
-            this.groupBox14.Controls.Add(this.button12);
-            this.groupBox14.Location = new System.Drawing.Point(887, 421);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(342, 101);
-            this.groupBox14.TabIndex = 7;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "ÇIKTI ARAÇLARI";
+            this.gridControl3.DataSource = this.musterilerBindingSource1;
+            this.gridControl3.Location = new System.Drawing.Point(6, 6);
+            this.gridControl3.MainView = this.gridView3;
+            this.gridControl3.Name = "gridControl3";
+            this.gridControl3.Size = new System.Drawing.Size(1220, 495);
+            this.gridControl3.TabIndex = 8;
+            this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView3});
             // 
-            // button13
+            // musterilerBindingSource1
             // 
-            this.button13.BackColor = System.Drawing.Color.DarkSlateGray;
-            this.button13.ForeColor = System.Drawing.SystemColors.Control;
-            this.button13.Location = new System.Drawing.Point(172, 25);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(164, 67);
-            this.button13.TabIndex = 1;
-            this.button13.Text = "YAZDIR";
-            this.button13.UseVisualStyleBackColor = false;
+            this.musterilerBindingSource1.DataMember = "Musteriler";
+            this.musterilerBindingSource1.DataSource = this.stokMatikDataSet2;
             // 
-            // button12
+            // stokMatikDataSet2
             // 
-            this.button12.BackColor = System.Drawing.Color.DarkGoldenrod;
-            this.button12.ForeColor = System.Drawing.SystemColors.Control;
-            this.button12.Location = new System.Drawing.Point(4, 25);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(164, 67);
-            this.button12.TabIndex = 0;
-            this.button12.Text = " Excel’e Aktar";
-            this.button12.UseVisualStyleBackColor = false;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.stokMatikDataSet2.DataSetName = "StokMatikDataSet2";
+            this.stokMatikDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // groupBox9
+            // gridView3
             // 
-            this.groupBox9.Controls.Add(this.button20);
-            this.groupBox9.Controls.Add(this.SecilenMusteriAdi);
-            this.groupBox9.Controls.Add(this.label45);
-            this.groupBox9.Controls.Add(this.button22);
-            this.groupBox9.Controls.Add(this.MusteriDuzenleMusteriDuzenle);
-            this.groupBox9.Controls.Add(this.AdresMusteriDuzenle);
-            this.groupBox9.Controls.Add(this.label29);
-            this.groupBox9.Controls.Add(this.MusteriAdiMusteriDuzenle);
-            this.groupBox9.Controls.Add(this.label30);
-            this.groupBox9.Location = new System.Drawing.Point(884, 201);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(342, 214);
-            this.groupBox9.TabIndex = 6;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "MÜŞTERİ DÜZENLE";
+            this.gridView3.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.gridView3.Appearance.Row.Options.UseFont = true;
+            this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMusteriAdi,
+            this.colMusteriAdresi});
+            this.gridView3.GridControl = this.gridControl3;
+            this.gridView3.Name = "gridView3";
+            this.gridView3.OptionsFind.AlwaysVisible = true;
+            this.gridView3.OptionsFind.FindNullPrompt = "Müşteri Arayın...";
+            this.gridView3.OptionsFind.ShowFindButton = false;
+            this.gridView3.OptionsView.ShowGroupPanel = false;
+            this.gridView3.DoubleClick += new System.EventHandler(this.gridView3_DoubleClick);
             // 
-            // button20
+            // colMusteriAdi
             // 
-            this.button20.BackColor = System.Drawing.Color.Indigo;
-            this.button20.ForeColor = System.Drawing.SystemColors.Control;
-            this.button20.Location = new System.Drawing.Point(92, 150);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(121, 52);
-            this.button20.TabIndex = 8;
-            this.button20.Text = "MÜŞTERİYİ SİL";
-            this.button20.UseVisualStyleBackColor = false;
-            this.button20.Click += new System.EventHandler(this.button20_Click);
+            this.colMusteriAdi.FieldName = "MusteriAdi";
+            this.colMusteriAdi.Name = "colMusteriAdi";
+            this.colMusteriAdi.OptionsColumn.AllowEdit = false;
+            this.colMusteriAdi.OptionsColumn.ReadOnly = true;
+            this.colMusteriAdi.Visible = true;
+            this.colMusteriAdi.VisibleIndex = 0;
             // 
-            // SecilenMusteriAdi
+            // colMusteriAdresi
             // 
-            this.SecilenMusteriAdi.BackColor = System.Drawing.Color.Navy;
-            this.SecilenMusteriAdi.ForeColor = System.Drawing.SystemColors.Window;
-            this.SecilenMusteriAdi.Location = new System.Drawing.Point(175, 27);
-            this.SecilenMusteriAdi.Name = "SecilenMusteriAdi";
-            this.SecilenMusteriAdi.Size = new System.Drawing.Size(161, 26);
-            this.SecilenMusteriAdi.TabIndex = 7;
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(6, 30);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(168, 20);
-            this.label45.TabIndex = 6;
-            this.label45.Text = "Seçilen Müşteri Adı:";
-            // 
-            // button22
-            // 
-            this.button22.BackColor = System.Drawing.Color.DarkRed;
-            this.button22.ForeColor = System.Drawing.SystemColors.Control;
-            this.button22.Location = new System.Drawing.Point(10, 151);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(76, 52);
-            this.button22.TabIndex = 5;
-            this.button22.Text = "İPTAL";
-            this.button22.UseVisualStyleBackColor = false;
-            this.button22.Click += new System.EventHandler(this.button22_Click);
-            // 
-            // MusteriDuzenleMusteriDuzenle
-            // 
-            this.MusteriDuzenleMusteriDuzenle.BackColor = System.Drawing.Color.Green;
-            this.MusteriDuzenleMusteriDuzenle.ForeColor = System.Drawing.SystemColors.Control;
-            this.MusteriDuzenleMusteriDuzenle.Location = new System.Drawing.Point(219, 151);
-            this.MusteriDuzenleMusteriDuzenle.Name = "MusteriDuzenleMusteriDuzenle";
-            this.MusteriDuzenleMusteriDuzenle.Size = new System.Drawing.Size(117, 52);
-            this.MusteriDuzenleMusteriDuzenle.TabIndex = 4;
-            this.MusteriDuzenleMusteriDuzenle.Text = "MÜŞTERİYİ DÜZENLE";
-            this.MusteriDuzenleMusteriDuzenle.UseVisualStyleBackColor = false;
-            this.MusteriDuzenleMusteriDuzenle.Click += new System.EventHandler(this.MusteriDuzenleMusteriDuzenle_Click);
-            // 
-            // AdresMusteriDuzenle
-            // 
-            this.AdresMusteriDuzenle.BackColor = System.Drawing.Color.Navy;
-            this.AdresMusteriDuzenle.ForeColor = System.Drawing.SystemColors.Window;
-            this.AdresMusteriDuzenle.Location = new System.Drawing.Point(116, 91);
-            this.AdresMusteriDuzenle.Multiline = true;
-            this.AdresMusteriDuzenle.Name = "AdresMusteriDuzenle";
-            this.AdresMusteriDuzenle.Size = new System.Drawing.Size(220, 53);
-            this.AdresMusteriDuzenle.TabIndex = 3;
-            this.AdresMusteriDuzenle.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(6, 94);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(61, 20);
-            this.label29.TabIndex = 2;
-            this.label29.Text = "Adres:";
-            // 
-            // MusteriAdiMusteriDuzenle
-            // 
-            this.MusteriAdiMusteriDuzenle.BackColor = System.Drawing.Color.Navy;
-            this.MusteriAdiMusteriDuzenle.ForeColor = System.Drawing.SystemColors.Window;
-            this.MusteriAdiMusteriDuzenle.Location = new System.Drawing.Point(116, 59);
-            this.MusteriAdiMusteriDuzenle.Name = "MusteriAdiMusteriDuzenle";
-            this.MusteriAdiMusteriDuzenle.Size = new System.Drawing.Size(220, 26);
-            this.MusteriAdiMusteriDuzenle.TabIndex = 1;
-            this.MusteriAdiMusteriDuzenle.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(6, 62);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(104, 20);
-            this.label30.TabIndex = 0;
-            this.label30.Text = "Müşteri Adı:";
+            this.colMusteriAdresi.FieldName = "MusteriAdresi";
+            this.colMusteriAdresi.Name = "colMusteriAdresi";
+            this.colMusteriAdresi.OptionsColumn.AllowEdit = false;
+            this.colMusteriAdresi.OptionsColumn.ReadOnly = true;
+            this.colMusteriAdresi.Visible = true;
+            this.colMusteriAdresi.VisibleIndex = 1;
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.button13);
             this.groupBox8.Controls.Add(this.button21);
+            this.groupBox8.Controls.Add(this.button12);
             this.groupBox8.Controls.Add(this.MusteriKaydetMusteriEkle);
             this.groupBox8.Controls.Add(this.AdresMusteriEkle);
             this.groupBox8.Controls.Add(this.label28);
             this.groupBox8.Controls.Add(this.MusteriAdiMusteriEkle);
             this.groupBox8.Controls.Add(this.label27);
-            this.groupBox8.Location = new System.Drawing.Point(884, 6);
+            this.groupBox8.Location = new System.Drawing.Point(6, 507);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(342, 189);
+            this.groupBox8.Size = new System.Drawing.Size(1220, 111);
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "MÜŞTERİ EKLE";
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button13.ForeColor = System.Drawing.SystemColors.Control;
+            this.button13.Location = new System.Drawing.Point(968, 48);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(123, 52);
+            this.button13.TabIndex = 1;
+            this.button13.Text = "YAZDIR";
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button21
             // 
             this.button21.BackColor = System.Drawing.Color.DarkRed;
             this.button21.ForeColor = System.Drawing.SystemColors.Control;
-            this.button21.Location = new System.Drawing.Point(10, 124);
+            this.button21.Location = new System.Drawing.Point(466, 48);
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(100, 52);
             this.button21.TabIndex = 5;
@@ -1278,11 +1199,23 @@
             this.button21.UseVisualStyleBackColor = false;
             this.button21.Click += new System.EventHandler(this.button21_Click);
             // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.DarkGoldenrod;
+            this.button12.ForeColor = System.Drawing.SystemColors.Control;
+            this.button12.Location = new System.Drawing.Point(798, 48);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(164, 52);
+            this.button12.TabIndex = 0;
+            this.button12.Text = " Excel’e Aktar";
+            this.button12.UseVisualStyleBackColor = false;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
             // MusteriKaydetMusteriEkle
             // 
             this.MusteriKaydetMusteriEkle.BackColor = System.Drawing.Color.Green;
             this.MusteriKaydetMusteriEkle.ForeColor = System.Drawing.SystemColors.Control;
-            this.MusteriKaydetMusteriEkle.Location = new System.Drawing.Point(116, 124);
+            this.MusteriKaydetMusteriEkle.Location = new System.Drawing.Point(572, 48);
             this.MusteriKaydetMusteriEkle.Name = "MusteriKaydetMusteriEkle";
             this.MusteriKaydetMusteriEkle.Size = new System.Drawing.Size(220, 52);
             this.MusteriKaydetMusteriEkle.TabIndex = 4;
@@ -1294,7 +1227,7 @@
             // 
             this.AdresMusteriEkle.BackColor = System.Drawing.SystemColors.HotTrack;
             this.AdresMusteriEkle.ForeColor = System.Drawing.SystemColors.Window;
-            this.AdresMusteriEkle.Location = new System.Drawing.Point(116, 65);
+            this.AdresMusteriEkle.Location = new System.Drawing.Point(240, 48);
             this.AdresMusteriEkle.Multiline = true;
             this.AdresMusteriEkle.Name = "AdresMusteriEkle";
             this.AdresMusteriEkle.Size = new System.Drawing.Size(220, 53);
@@ -1304,7 +1237,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(6, 68);
+            this.label28.Location = new System.Drawing.Point(236, 25);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(61, 20);
             this.label28.TabIndex = 2;
@@ -1314,16 +1247,17 @@
             // 
             this.MusteriAdiMusteriEkle.BackColor = System.Drawing.SystemColors.HotTrack;
             this.MusteriAdiMusteriEkle.ForeColor = System.Drawing.SystemColors.Window;
-            this.MusteriAdiMusteriEkle.Location = new System.Drawing.Point(116, 33);
+            this.MusteriAdiMusteriEkle.Location = new System.Drawing.Point(14, 48);
+            this.MusteriAdiMusteriEkle.Multiline = true;
             this.MusteriAdiMusteriEkle.Name = "MusteriAdiMusteriEkle";
-            this.MusteriAdiMusteriEkle.Size = new System.Drawing.Size(220, 26);
+            this.MusteriAdiMusteriEkle.Size = new System.Drawing.Size(220, 52);
             this.MusteriAdiMusteriEkle.TabIndex = 1;
             this.MusteriAdiMusteriEkle.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(6, 36);
+            this.label27.Location = new System.Drawing.Point(10, 25);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(104, 20);
             this.label27.TabIndex = 0;
@@ -1358,12 +1292,11 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView5.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView5.GridColor = System.Drawing.Color.OldLace;
-            this.dataGridView5.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView5.Location = new System.Drawing.Point(6, 608);
             this.dataGridView5.Name = "dataGridView5";
             this.dataGridView5.ReadOnly = true;
-            this.dataGridView5.Size = new System.Drawing.Size(872, 612);
+            this.dataGridView5.Size = new System.Drawing.Size(10, 10);
             this.dataGridView5.TabIndex = 0;
-            this.dataGridView5.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView5_CellDoubleClick);
             // 
             // musteriAdiDataGridViewTextBoxColumn
             // 
@@ -1387,11 +1320,6 @@
             // 
             this.musterilerBindingSource.DataMember = "Musteriler";
             this.musterilerBindingSource.DataSource = this.stokMatikDataSet2;
-            // 
-            // stokMatikDataSet2
-            // 
-            this.stokMatikDataSet2.DataSetName = "StokMatikDataSet2";
-            this.stokMatikDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // tabPage5
             // 
@@ -2162,14 +2090,14 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.musterilerBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.musterilerBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet2)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -2241,13 +2169,6 @@
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Button MusteriDuzenleMusteriDuzenle;
-        private System.Windows.Forms.TextBox AdresMusteriDuzenle;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox MusteriAdiMusteriDuzenle;
-        private System.Windows.Forms.Label label30;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button MusteriKaydetMusteriEkle;
@@ -2306,12 +2227,8 @@
         private StokMatikDataSet2TableAdapters.MusterilerTableAdapter musterilerTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn musteriAdiDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn musteriAdresiDataGridViewTextBoxColumn;
-        private System.Windows.Forms.GroupBox groupBox14;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.TextBox SecilenMusteriAdi;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Button button13;
         public System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button button39;
@@ -2384,6 +2301,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button7;
+        private DevExpress.XtraGrid.GridControl gridControl3;
+        private System.Windows.Forms.BindingSource musterilerBindingSource1;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+        private DevExpress.XtraGrid.Columns.GridColumn colMusteriAdi;
+        private DevExpress.XtraGrid.Columns.GridColumn colMusteriAdresi;
     }
 }
 
