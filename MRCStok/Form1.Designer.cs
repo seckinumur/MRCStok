@@ -34,10 +34,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.UrunAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UrunAdedi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UrunFiyatii = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridControl4 = new DevExpress.XtraGrid.GridControl();
+            this.sepetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.stokmatikSepetDataSet = new MRCStok.StokmatikSepetDataSet();
+            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colUrunAdi2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUrunAdedi2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUrunGramaji2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUrunPaketi2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.urunlerBindingSource7 = new System.Windows.Forms.BindingSource(this.components);
             this.stokMatikDataSet = new MRCStok.StokMatikDataSet();
@@ -48,8 +52,6 @@
             this.colUrunGramaji = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUrunPaketi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUrunEklemeTarihi = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.textBox23 = new System.Windows.Forms.TextBox();
-            this.label36 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -163,6 +165,7 @@
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.Kullaniciİslemleri = new System.Windows.Forms.GroupBox();
+            this.button8 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button37 = new System.Windows.Forms.Button();
             this.button36 = new System.Windows.Forms.Button();
@@ -203,10 +206,13 @@
             this.urunlerBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.urunlerBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
-            this.button8 = new System.Windows.Forms.Button();
+            this.sepetTableAdapter = new MRCStok.StokmatikSepetDataSetTableAdapters.SepetTableAdapter();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sepetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stokmatikSepetDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet)).BeginInit();
@@ -269,10 +275,8 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.dataGridView2);
+            this.tabPage1.Controls.Add(this.gridControl4);
             this.tabPage1.Controls.Add(this.gridControl1);
-            this.tabPage1.Controls.Add(this.textBox23);
-            this.tabPage1.Controls.Add(this.label36);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.button2);
@@ -286,46 +290,83 @@
             this.tabPage1.Text = "ÜRÜN ÇIKIŞI YAP";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // gridControl4
             // 
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.UrunAdi,
-            this.UrunAdedi,
-            this.UrunFiyatii});
-            this.dataGridView2.Location = new System.Drawing.Point(815, 42);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(411, 286);
-            this.dataGridView2.TabIndex = 0;
-            this.dataGridView2.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellDoubleClick);
+            this.gridControl4.DataSource = this.sepetBindingSource;
+            this.gridControl4.Location = new System.Drawing.Point(817, 3);
+            this.gridControl4.MainView = this.gridView4;
+            this.gridControl4.Name = "gridControl4";
+            this.gridControl4.Size = new System.Drawing.Size(408, 340);
+            this.gridControl4.TabIndex = 13;
+            this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView4});
             // 
-            // UrunAdi
+            // sepetBindingSource
             // 
-            this.UrunAdi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UrunAdi.HeaderText = "ÜRÜN ADI";
-            this.UrunAdi.Name = "UrunAdi";
-            this.UrunAdi.ReadOnly = true;
-            this.UrunAdi.Width = 111;
+            this.sepetBindingSource.DataMember = "Sepet";
+            this.sepetBindingSource.DataSource = this.stokmatikSepetDataSet;
             // 
-            // UrunAdedi
+            // stokmatikSepetDataSet
             // 
-            this.UrunAdedi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UrunAdedi.HeaderText = "ÜRÜN ADEDİ";
-            this.UrunAdedi.Name = "UrunAdedi";
-            this.UrunAdedi.ReadOnly = true;
-            this.UrunAdedi.Width = 133;
+            this.stokmatikSepetDataSet.DataSetName = "StokmatikSepetDataSet";
+            this.stokmatikSepetDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // UrunFiyatii
+            // gridView4
             // 
-            this.UrunFiyatii.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.UrunFiyatii.HeaderText = "ÜRÜN FİYATI";
-            this.UrunFiyatii.Name = "UrunFiyatii";
-            this.UrunFiyatii.ReadOnly = true;
-            this.UrunFiyatii.Width = 134;
+            this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colUrunAdi2,
+            this.colUrunAdedi2,
+            this.colUrunGramaji2,
+            this.colUrunPaketi2});
+            this.gridView4.GridControl = this.gridControl4;
+            this.gridView4.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsFind.AlwaysVisible = true;
+            this.gridView4.OptionsFind.FindNullPrompt = "Sepete Eklenen Ürünü Arayın...";
+            this.gridView4.OptionsFind.ShowFindButton = false;
+            this.gridView4.OptionsView.ShowGroupPanel = false;
+            this.gridView4.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
+            this.gridView4.DoubleClick += new System.EventHandler(this.gridView4_DoubleClick);
+            // 
+            // colUrunAdi2
+            // 
+            this.colUrunAdi2.FieldName = "UrunAdi";
+            this.colUrunAdi2.Name = "colUrunAdi2";
+            this.colUrunAdi2.OptionsColumn.AllowEdit = false;
+            this.colUrunAdi2.OptionsColumn.ReadOnly = true;
+            this.colUrunAdi2.Visible = true;
+            this.colUrunAdi2.VisibleIndex = 0;
+            this.colUrunAdi2.Width = 332;
+            // 
+            // colUrunAdedi2
+            // 
+            this.colUrunAdedi2.FieldName = "UrunAdedi";
+            this.colUrunAdedi2.Name = "colUrunAdedi2";
+            this.colUrunAdedi2.OptionsColumn.AllowEdit = false;
+            this.colUrunAdedi2.OptionsColumn.ReadOnly = true;
+            this.colUrunAdedi2.Visible = true;
+            this.colUrunAdedi2.VisibleIndex = 1;
+            this.colUrunAdedi2.Width = 79;
+            // 
+            // colUrunGramaji2
+            // 
+            this.colUrunGramaji2.FieldName = "UrunGramaji";
+            this.colUrunGramaji2.Name = "colUrunGramaji2";
+            this.colUrunGramaji2.OptionsColumn.AllowEdit = false;
+            this.colUrunGramaji2.OptionsColumn.ReadOnly = true;
+            this.colUrunGramaji2.Visible = true;
+            this.colUrunGramaji2.VisibleIndex = 2;
+            this.colUrunGramaji2.Width = 144;
+            // 
+            // colUrunPaketi2
+            // 
+            this.colUrunPaketi2.FieldName = "UrunPaketi";
+            this.colUrunPaketi2.Name = "colUrunPaketi2";
+            this.colUrunPaketi2.OptionsColumn.AllowEdit = false;
+            this.colUrunPaketi2.OptionsColumn.ReadOnly = true;
+            this.colUrunPaketi2.Visible = true;
+            this.colUrunPaketi2.VisibleIndex = 3;
+            this.colUrunPaketi2.Width = 141;
             // 
             // gridControl1
             // 
@@ -399,7 +440,7 @@
             this.colUrunFiyati.OptionsColumn.AllowEdit = false;
             this.colUrunFiyati.OptionsColumn.ReadOnly = true;
             this.colUrunFiyati.Visible = true;
-            this.colUrunFiyati.VisibleIndex = 1;
+            this.colUrunFiyati.VisibleIndex = 4;
             this.colUrunFiyati.Width = 88;
             // 
             // colUrunAdedi
@@ -411,7 +452,7 @@
             this.colUrunAdedi.OptionsColumn.AllowEdit = false;
             this.colUrunAdedi.OptionsColumn.ReadOnly = true;
             this.colUrunAdedi.Visible = true;
-            this.colUrunAdedi.VisibleIndex = 2;
+            this.colUrunAdedi.VisibleIndex = 1;
             this.colUrunAdedi.Width = 93;
             // 
             // colUrunGramaji
@@ -423,7 +464,7 @@
             this.colUrunGramaji.OptionsColumn.AllowEdit = false;
             this.colUrunGramaji.OptionsColumn.ReadOnly = true;
             this.colUrunGramaji.Visible = true;
-            this.colUrunGramaji.VisibleIndex = 3;
+            this.colUrunGramaji.VisibleIndex = 2;
             this.colUrunGramaji.Width = 93;
             // 
             // colUrunPaketi
@@ -435,7 +476,7 @@
             this.colUrunPaketi.OptionsColumn.AllowEdit = false;
             this.colUrunPaketi.OptionsColumn.ReadOnly = true;
             this.colUrunPaketi.Visible = true;
-            this.colUrunPaketi.VisibleIndex = 4;
+            this.colUrunPaketi.VisibleIndex = 3;
             this.colUrunPaketi.Width = 127;
             // 
             // colUrunEklemeTarihi
@@ -450,23 +491,6 @@
             this.colUrunEklemeTarihi.VisibleIndex = 5;
             this.colUrunEklemeTarihi.Width = 72;
             // 
-            // textBox23
-            // 
-            this.textBox23.Location = new System.Drawing.Point(931, 5);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(228, 26);
-            this.textBox23.TabIndex = 11;
-            this.textBox23.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox23_KeyPress);
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(818, 8);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(88, 20);
-            this.label36.TabIndex = 10;
-            this.label36.Text = "BARKOD:";
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.textBox6);
@@ -477,7 +501,7 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.textBox4);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Location = new System.Drawing.Point(821, 539);
+            this.groupBox3.Location = new System.Drawing.Point(817, 539);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(396, 78);
             this.groupBox3.TabIndex = 9;
@@ -489,6 +513,7 @@
             this.textBox6.ForeColor = System.Drawing.Color.Navy;
             this.textBox6.Location = new System.Drawing.Point(301, 18);
             this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(89, 26);
             this.textBox6.TabIndex = 7;
             this.textBox6.Text = "0";
@@ -518,6 +543,7 @@
             this.textBox5.ForeColor = System.Drawing.Color.DarkGreen;
             this.textBox5.Location = new System.Drawing.Point(94, 49);
             this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(89, 26);
             this.textBox5.TabIndex = 4;
             this.textBox5.Text = "0";
@@ -547,6 +573,7 @@
             this.textBox4.ForeColor = System.Drawing.Color.Maroon;
             this.textBox4.Location = new System.Drawing.Point(94, 18);
             this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
             this.textBox4.Size = new System.Drawing.Size(89, 26);
             this.textBox4.TabIndex = 1;
             this.textBox4.Text = "0";
@@ -565,9 +592,9 @@
             // 
             this.button3.BackColor = System.Drawing.Color.Red;
             this.button3.ForeColor = System.Drawing.SystemColors.Control;
-            this.button3.Location = new System.Drawing.Point(931, 481);
+            this.button3.Location = new System.Drawing.Point(815, 496);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(144, 51);
+            this.button3.Size = new System.Drawing.Size(254, 38);
             this.button3.TabIndex = 7;
             this.button3.Text = "İPTAL ET";
             this.button3.UseVisualStyleBackColor = false;
@@ -577,9 +604,9 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Green;
             this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(1081, 481);
+            this.button2.Location = new System.Drawing.Point(1075, 496);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 51);
+            this.button2.Size = new System.Drawing.Size(144, 38);
             this.button2.TabIndex = 6;
             this.button2.Text = "GÖNDER";
             this.button2.UseVisualStyleBackColor = false;
@@ -594,7 +621,7 @@
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(821, 334);
+            this.groupBox1.Location = new System.Drawing.Point(817, 349);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(408, 141);
             this.groupBox1.TabIndex = 4;
@@ -662,6 +689,7 @@
             this.textBox2.ForeColor = System.Drawing.Color.DarkBlue;
             this.textBox2.Location = new System.Drawing.Point(121, 65);
             this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(281, 26);
             this.textBox2.TabIndex = 1;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -1010,9 +1038,16 @@
             "0,750",
             "1000",
             "1100",
+            "1500",
+            "2000",
             "2500",
+            "3000",
             "5000",
+            "7500",
             "10000",
+            "12000",
+            "15000",
+            "20000",
             "25000",
             "30000",
             "40000",
@@ -1186,6 +1221,7 @@
             this.button13.TabIndex = 1;
             this.button13.Text = "YAZDIR";
             this.button13.UseVisualStyleBackColor = false;
+            this.button13.Visible = false;
             this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button21
@@ -1758,6 +1794,16 @@
             this.Kullaniciİslemleri.Text = "KULLANICI İŞLEMLERİ";
             this.Kullaniciİslemleri.Visible = false;
             // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(608, 174);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(133, 45);
+            this.button8.TabIndex = 16;
+            this.button8.Text = "HAKKINDA";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
@@ -2012,7 +2058,7 @@
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(170, 20);
             this.label35.TabIndex = 9;
-            this.label35.Text = "STOKMATİK V.1.0.4";
+            this.label35.Text = "STOKMATİK V.1.0.5";
             // 
             // urunSepetiBindingSource
             // 
@@ -2054,15 +2100,9 @@
             // 
             this.sqlDataSource1.Name = "sqlDataSource1";
             // 
-            // button8
+            // sepetTableAdapter
             // 
-            this.button8.Location = new System.Drawing.Point(608, 174);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(133, 45);
-            this.button8.TabIndex = 16;
-            this.button8.Text = "HAKKINDA";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.sepetTableAdapter.ClearBeforeFill = true;
             // 
             // Form1
             // 
@@ -2078,13 +2118,15 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "STOKMATİK V.1.0.4";
+            this.Text = "STOKMATİK V.1.0.5";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sepetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stokmatikSepetDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.urunlerBindingSource7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet)).EndInit();
@@ -2202,13 +2244,10 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
-        private System.Windows.Forms.TextBox textBox23;
-        private System.Windows.Forms.Label label36;
         private System.Windows.Forms.GroupBox groupBox13;
         private StokMatikDataSet stokMatikDataSet;
         private System.Windows.Forms.BindingSource urunlerBindingSource;
         private StokMatikDataSetTableAdapters.UrunlerTableAdapter urunlerTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn urunAdiDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button33;
         private System.Windows.Forms.GroupBox Kullaniciİslemleri;
         private System.Windows.Forms.Button button37;
@@ -2242,7 +2281,6 @@
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button16;
         private System.Windows.Forms.Button button13;
-        public System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button button39;
         public System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label46;
@@ -2270,7 +2308,6 @@
         private System.Windows.Forms.BindingSource urunlerBindingSource6;
         private System.Windows.Forms.BindingSource urunlerBindingSource5;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
-        private DevExpress.XtraGrid.GridControl gridControl1;
         private System.Windows.Forms.BindingSource urunlerBindingSource7;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colUrunAdi;
@@ -2279,9 +2316,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colUrunGramaji;
         private DevExpress.XtraGrid.Columns.GridColumn colUrunPaketi;
         private DevExpress.XtraGrid.Columns.GridColumn colUrunEklemeTarihi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UrunAdi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UrunAdedi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UrunFiyatii;
         private System.Windows.Forms.BindingSource urunlerBindingSource8;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource urunlerBindingSource9;
@@ -2299,7 +2333,6 @@
         public System.Windows.Forms.CheckBox checkBox2;
         public System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Button button4;
-        private DevExpress.XtraGrid.GridControl gridControl2;
         private System.Windows.Forms.BindingSource urunlerBindingSource10;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
         private DevExpress.XtraGrid.Columns.GridColumn colUrunAdi1;
@@ -2319,6 +2352,17 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMusteriAdi;
         private DevExpress.XtraGrid.Columns.GridColumn colMusteriAdresi;
         private System.Windows.Forms.Button button8;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+        private StokmatikSepetDataSet stokmatikSepetDataSet;
+        private System.Windows.Forms.BindingSource sepetBindingSource;
+        private StokmatikSepetDataSetTableAdapters.SepetTableAdapter sepetTableAdapter;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunAdi2;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunAdedi2;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunGramaji2;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunPaketi2;
+        public DevExpress.XtraGrid.GridControl gridControl4;
+        public DevExpress.XtraGrid.GridControl gridControl1;
+        public DevExpress.XtraGrid.GridControl gridControl2;
     }
 }
 

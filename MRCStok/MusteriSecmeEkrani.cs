@@ -34,20 +34,41 @@ namespace MRCStok
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            string str = gridView1.FocusedValue.ToString();
-            try
+            if(counter==false)
             {
-                var bul = bulma.db.Musteriler.Where(p => p.MusteriAdi == str).FirstOrDefault();
-                if (bul.MusteriAdi == str)
+                string str = gridView1.FocusedValue.ToString();
+                try
                 {
-                    bulma.textBox2.Text = str;
-                    this.Close();
+                    var bul = bulma.db.Musteriler.Where(p => p.MusteriAdi == str).FirstOrDefault();
+                    if (bul.MusteriAdi == str)
+                    {
+                        bulma.textBox2.Text = str;
+                        this.Close();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("MÜŞTERİYİ SEÇMEK İÇİN; MÜŞTERİ İSMİNE TIKLAMALISINIZ!");
                 }
             }
-            catch
+            else
             {
-                MessageBox.Show("MÜŞTERİYİ SEÇMEK İÇİN; MÜŞTERİ İSMİNE TIKLAMALISINIZ!");
-            }           
+                string str = gridView1.FocusedValue.ToString();
+                try
+                {
+                    var bul = bulma.db.Musteriler.Where(p => p.MusteriAdi == str).FirstOrDefault();
+                    if (bul.MusteriAdi == str)
+                    {
+                        bulma.textBox7.Text = str;
+                        this.Close();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("MÜŞTERİYİ SEÇMEK İÇİN; MÜŞTERİ İSMİNE TIKLAMALISINIZ!");
+                }
+            }
+                   
         }
     }
 }

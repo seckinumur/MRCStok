@@ -16,6 +16,7 @@ namespace MRCStok
     {
         public StokMatikEntities db;
         public StokmatikHammaddeEntities db1;
+        public StokmatikSepetEntities db2;
         public GirisEkrani f21 = (GirisEkrani)System.Windows.Forms.Application.OpenForms["GirisEkrani"];
         public Uruneklemetektus uruneklemyegit = (Uruneklemetektus)System.Windows.Forms.Application.OpenForms["Uruneklemetektus"];
         public string AdminKontrol;
@@ -30,6 +31,7 @@ namespace MRCStok
             InitializeComponent();
             db = new StokMatikEntities();
             db1 = new StokmatikHammaddeEntities();
+            db2 = new StokmatikSepetEntities();
         }
 
         private void label13_Click(object sender, EventArgs e)
@@ -38,6 +40,8 @@ namespace MRCStok
 
         public void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'stokmatikSepetDataSet.Sepet' table. You can move, or remove it, as needed.
+            this.sepetTableAdapter.Fill(this.stokmatikSepetDataSet.Sepet);
             this.musterilerTableAdapter.Fill(this.stokMatikDataSet2.Musteriler);
             this.kullanicilarTableAdapter.Fill(this.stokMatikDataSet1.Kullanicilar);
             this.urunlerTableAdapter.Fill(this.stokMatikDataSet.Urunler);
@@ -529,18 +533,19 @@ namespace MRCStok
             {
                 try
                 {
-                    for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
+                    var iptal = db2.Sepet.ToList();
+                    foreach (var m in iptal)
                     {
-                        string urunn = dataGridView2.Rows[i].Cells[0].Value.ToString();
-                        var bul = db.Urunler.Where(p => p.UrunAdi == urunn).FirstOrDefault();
-                        double adet = Convert.ToDouble(dataGridView2.Rows[i].Cells[1].Value.ToString());
+                        var bul = db.Urunler.Where(p => p.UrunAdi == m.UrunAdi && p.UrunGramaji == m.UrunGramaji && p.UrunPaketi == m.UrunPaketi).FirstOrDefault();
+                        double adet = Convert.ToDouble(m.UrunAdedi);
                         double stokadet = Convert.ToDouble(bul.UrunAdedi);
                         double topla = stokadet + adet;
                         bul.UrunAdedi = topla.ToString();
+                        db2.Sepet.Remove(m);
+                        db2.SaveChanges();
                         db.SaveChanges();
                     }
                     MessageBox.Show("Sipariş Sepetindeki Ürün Silindi!");
-                    dataGridView2.Rows.Clear();
                     textBox2.Text = "";
                     textBox16.Text = "";
                     sayac = 0;
@@ -551,7 +556,7 @@ namespace MRCStok
                 }
                 catch
                 {
-
+                    MessageBox.Show("Sipariş Sepetinde Ürün Zaten Yok!");
                 }
             }
         }
@@ -570,164 +575,75 @@ namespace MRCStok
             }
             else
             {
-                if (dataGridView2.Rows[0].Cells[0].Value == null)
+                if (comboBox3.SelectedItem.ToString() == "FATURALI")
                 {
-                    MessageBox.Show("Önce Sepete Ürün Ekleyin!");
+                    if (textBox16.Text == "")
+                    {
+                        MessageBox.Show("Fatura Numarası girmemişsiniz!");
+                        return;
+                    }
                 }
-                else
+                DialogResult Uyari = new DialogResult();
+                Uyari = MessageBox.Show("Siparişiniz Tamamlanacak Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
+                if (Uyari == DialogResult.Yes)
                 {
-                    if (comboBox3.SelectedItem.ToString() == "FATURALI")
+                    try
                     {
-                        if (textBox16.Text == "")
+                        Sepet sil = new Sepet();
+                        var al = db2.Sepet.ToList();
+                        foreach (var m in al)
                         {
-                            MessageBox.Show("Fatura Numarası girmemişsiniz!");
-                        }
-                        else
-                        {
-                            DialogResult Uyari = new DialogResult();
-                            Uyari = MessageBox.Show("Siparişiniz Tamamlanacak Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
-                            if (Uyari == DialogResult.Yes)
+                            Raporlama ekle = new Raporlama();
+                            ekle.GidenMusteriler = textBox2.Text;
+                            ekle.Gun = DateTime.Now.Day.ToString();
+                            ekle.Tarih = DateTime.Now.ToShortDateString();
+                            ekle.Ay = DateTime.Now.Month.ToString();
+                            ekle.Yil = DateTime.Now.Year.ToString();
+                            ekle.GidenUrunler = m.UrunAdi;
+                            ekle.UrunGramaji = m.UrunGramaji;
+                            ekle.UrunAdedi = m.UrunAdedi;
+                            ekle.UrunPaketi = m.UrunPaketi;
+                            ekle.Fiyati = m.UrunFiyati;
+                            if (comboBox3.SelectedItem.ToString() == "FATURALI")
                             {
-                                try
+                                if (m.UrunFaturası == "BEDELSİZ")
                                 {
-
-                                    for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
-                                    {
-                                        Raporlama ekle = new Raporlama();
-                                        string urunadii = dataGridView2.Rows[i].Cells[0].Value.ToString();
-                                        var bul = db.Urunler.Where(p => p.UrunAdi == urunadii).FirstOrDefault();
-                                        ekle.GidenMusteriler = textBox2.Text;
-                                        ekle.Gun = DateTime.Now.Day.ToString();
-                                        ekle.Tarih = DateTime.Now.ToShortDateString();
-                                        ekle.Ay = DateTime.Now.Month.ToString();
-                                        ekle.Yil = DateTime.Now.Year.ToString();
-                                        ekle.GidenUrunler = bul.UrunAdi;
-                                        ekle.UrunGramaji = bul.UrunGramaji;
-                                        ekle.UrunAdedi = dataGridView2.Rows[i].Cells[1].Value.ToString();
-                                        ekle.UrunPaketi = bul.UrunPaketi;
-                                        ekle.Fiyati = dataGridView2.Rows[i].Cells[2].Value.ToString();
-                                        ekle.FaturaDurumu = textBox16.Text;
-                                        db.Raporlama.Add(ekle);
-                                        db.SaveChanges();
-                                    }
-                                    MessageBox.Show("Ürünler Sepete Eklendi!");
-                                    dataGridView2.Rows.Clear();
-                                    textBox2.Text = "";
-                                    textBox16.Text = "";
-                                    sayac = 0;
-                                    textBox4.Text = "0";
-                                    textBox5.Text = "0";
-                                    textBox6.Text = "0";
-                                    Form1_Load(sender, e);
+                                    ekle.FaturaDurumu = m.UrunFaturası;
                                 }
-                                catch
+                                else
                                 {
-                                    MessageBox.Show("VERİTABANI HATASI");
+                                    ekle.FaturaDurumu = textBox16.Text;
                                 }
                             }
+                            else
+                            {
+                                if (m.UrunFaturası == "BEDELSİZ")
+                                {
+                                    ekle.FaturaDurumu = m.UrunFaturası;
+                                }
+                                else
+                                {
+                                    ekle.FaturaDurumu = comboBox3.SelectedItem.ToString();
+                                }
+                            }
+                            db.Raporlama.Add(ekle);
+                            db2.Sepet.Remove(m);
+                            db2.SaveChanges();
+                            db.SaveChanges();
                         }
+                        textBox2.Text = "";
+                        textBox16.Text = "";
+                        sayac = 0;
+                        textBox4.Text = "0";
+                        textBox5.Text = "0";
+                        textBox6.Text = "0";
+                        Form1_Load(sender, e);
+                        gridControl4.RefreshDataSource();
+                        MessageBox.Show("Ürünler Sepete Eklendi!");
                     }
-                    else if (comboBox3.SelectedItem.ToString() == "FATURASIZ")
+                    catch
                     {
-                        if (textBox16.Text == "")
-                        {
-                            DialogResult Uyari = new DialogResult();
-                            Uyari = MessageBox.Show("Siparişiniz Tamamlanacak Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
-                            if (Uyari == DialogResult.Yes)
-                            {
-                                try
-                                {
-
-                                    for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
-                                    {
-                                        Raporlama ekle = new Raporlama();
-                                        string urunadii = dataGridView2.Rows[i].Cells[0].Value.ToString();
-                                        var bul = db.Urunler.Where(p => p.UrunAdi == urunadii).FirstOrDefault();
-                                        ekle.GidenMusteriler = textBox2.Text;
-                                        ekle.Gun = DateTime.Now.Day.ToString();
-                                        ekle.Tarih = DateTime.Now.ToShortDateString();
-                                        ekle.Ay = DateTime.Now.Month.ToString();
-                                        ekle.Yil = DateTime.Now.Year.ToString();
-                                        ekle.GidenUrunler = bul.UrunAdi;
-                                        ekle.UrunGramaji = bul.UrunGramaji;
-                                        ekle.UrunAdedi = dataGridView2.Rows[i].Cells[1].Value.ToString();
-                                        ekle.UrunPaketi = bul.UrunPaketi;
-                                        ekle.Fiyati = dataGridView2.Rows[i].Cells[2].Value.ToString();
-                                        ekle.FaturaDurumu = "FATURASIZ";
-                                        db.Raporlama.Add(ekle);
-                                        db.SaveChanges();
-                                    }
-                                    MessageBox.Show("Ürünler Sepete Eklendi!");
-                                    dataGridView2.Rows.Clear();
-                                    textBox2.Text = "";
-                                    textBox16.Text = "";
-                                    sayac = 0;
-                                    textBox4.Text = "0";
-                                    textBox5.Text = "0";
-                                    textBox6.Text = "0";
-                                    Form1_Load(sender, e);
-                                }
-                                catch
-                                {
-                                    MessageBox.Show("VERİTABANI HATASI");
-                                }
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Fatura Numarası Girilmiş!");
-                        }
-                    }
-                    else if (comboBox3.SelectedItem.ToString() == "BEDELSİZ")
-                    {
-                        if (textBox16.Text == "")
-                        {
-                            DialogResult Uyari = new DialogResult();
-                            Uyari = MessageBox.Show("Siparişiniz Tamamlanacak Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
-                            if (Uyari == DialogResult.Yes)
-                            {
-                                try
-                                {
-
-                                    for (int i = 0; i < dataGridView2.Rows.Count - 1; i++)
-                                    {
-                                        Raporlama ekle = new Raporlama();
-                                        string urunadii = dataGridView2.Rows[i].Cells[0].Value.ToString();
-                                        var bul = db.Urunler.Where(p => p.UrunAdi == urunadii).FirstOrDefault();
-                                        ekle.GidenMusteriler = textBox2.Text;
-                                        ekle.Gun = DateTime.Now.Day.ToString();
-                                        ekle.Tarih = DateTime.Now.ToShortDateString();
-                                        ekle.Ay = DateTime.Now.Month.ToString();
-                                        ekle.Yil = DateTime.Now.Year.ToString();
-                                        ekle.GidenUrunler = bul.UrunAdi;
-                                        ekle.UrunGramaji = bul.UrunGramaji;
-                                        ekle.UrunAdedi = dataGridView2.Rows[i].Cells[1].Value.ToString();
-                                        ekle.UrunPaketi = bul.UrunPaketi;
-                                        ekle.Fiyati = dataGridView2.Rows[i].Cells[2].Value.ToString();
-                                        ekle.FaturaDurumu = "BEDELSİZ";
-                                        db.Raporlama.Add(ekle);
-                                        db.SaveChanges();
-                                    }
-                                    MessageBox.Show("Ürünler Sepete Eklendi!");
-                                    dataGridView2.Rows.Clear();
-                                    textBox2.Text = "";
-                                    textBox16.Text = "";
-                                    sayac = 0;
-                                    textBox4.Text = "0";
-                                    textBox5.Text = "0";
-                                    textBox6.Text = "0";
-                                    Form1_Load(sender, e);
-                                }
-                                catch
-                                {
-                                    MessageBox.Show("VERİTABANI HATASI");
-                                }
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Fatura Numarası Girilmiş!");
-                        }
+                        MessageBox.Show("Önce Sepete Ürün Ekleyin!");
                     }
                 }
             }
@@ -878,7 +794,7 @@ namespace MRCStok
             }
         }
 
-        private void gridView1_DoubleClick(object sender, EventArgs e)
+        private void gridView1_DoubleClick(object sender, EventArgs e) // çift tıklama sahasaı.
         {
             string str = gridView1.FocusedValue.ToString();
             string Urungramajinial = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "UrunGramaji").ToString();
@@ -903,7 +819,7 @@ namespace MRCStok
             }
         }
 
-        private void gridView1_KeyDown(object sender, KeyEventArgs e)
+        private void gridView1_KeyDown(object sender, KeyEventArgs e)  // enter ile basınca
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -931,41 +847,7 @@ namespace MRCStok
             }
         }
 
-        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int xkoordinat = dataGridView2.CurrentCellAddress.X; //Seçili satırın X koordinatı
-            int ykoordinat = dataGridView2.CurrentCellAddress.Y;  //Seçili satırın Y koordinatı
-            string str = "";
-            str = dataGridView2.Rows[ykoordinat].Cells[xkoordinat].Value.ToString();
-            if (e.RowIndex == -1)
-            {
-                return;
-            }
-            DialogResult Uyari = new DialogResult();
-            Uyari = MessageBox.Show("Sepetteki Ürün Silinecek Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
-            if (Uyari == DialogResult.Yes)
-            {
-                try
-                {
-                    var bul = db.Urunler.Where(p => p.UrunAdi == str).FirstOrDefault();
 
-                    double adet = Convert.ToDouble(dataGridView2.Rows[ykoordinat].Cells[1].Value.ToString());
-                    double stokadet = Convert.ToDouble(bul.UrunAdedi);
-                    double topla = stokadet + adet;
-                    bul.UrunAdedi = topla.ToString();
-                    dataGridView2.Rows.RemoveAt(ykoordinat);
-                    sayac--;
-                    db.SaveChanges();
-
-                    MessageBox.Show("Sipariş Sepetindeki Ürün Silindi!");
-                    Form1_Load(sender, e);
-                }
-                catch
-                {
-                }
-            }
-
-        }
 
         private void gridView2_DoubleClick(object sender, EventArgs e)
         {
@@ -1714,6 +1596,29 @@ namespace MRCStok
         {
             Hakkinda ac = new Hakkinda();
             ac.Show();
+        }
+
+        private void gridView4_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                string str = gridView4.FocusedValue.ToString();
+                string Urungramajinial = gridView4.GetRowCellValue(gridView4.FocusedRowHandle, "UrunGramaji").ToString();
+                string urunpaketinial = gridView4.GetRowCellValue(gridView4.FocusedRowHandle, "UrunPaketi").ToString();
+                var bul = db2.Sepet.Where(p => p.UrunAdi == str && p.UrunGramaji == Urungramajinial && p.UrunPaketi == urunpaketinial).FirstOrDefault();
+                SepettenUrunCikar ac = new SepettenUrunCikar();
+                ac.Show();
+                ac.Urunadi.Text = bul.UrunAdi;
+                ac.UrunAmbalaji.Text = bul.UrunPaketi;
+                ac.UrunFiyati.Text = bul.UrunFiyati;
+                ac.UrunGramaji.Text = bul.UrunGramaji;
+                ac.Adedi.Text = bul.UrunAdedi;
+            }
+            catch
+            {
+                MessageBox.Show("Çıkarılıcak Ürün İsmine Tıklayın!");
+            }
+            
         }
     }
 }

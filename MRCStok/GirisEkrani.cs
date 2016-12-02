@@ -60,15 +60,9 @@ namespace MRCStok
                             MessageBox.Show("Kullanıcı Bulunamadı!", "HATA!");
                         }
                     }
-                    catch
+                    catch (Exception ex)
                     {
-                        DialogResult Uyari = new DialogResult();
-                        Uyari = MessageBox.Show("Tanımlı Veritabanı Bulunamadı! Veritabanını Eklemek İstiyormusunuz?", "DİKKAT!", MessageBoxButtons.YesNo);
-                        if (Uyari == DialogResult.Yes)
-                        {
-                            VeritabaniSecme acc = new VeritabaniSecme();
-                            acc.Show();
-                        }
+                        MessageBox.Show(ex.Message);
                     }
                 }
             }

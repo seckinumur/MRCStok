@@ -178,6 +178,15 @@
     <Compile Include="Raporlama.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Sepet.cs">
+      <DependentUpon>Stokmatiksepet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SepettenUrunCikar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SepettenUrunCikar.Designer.cs">
+      <DependentUpon>SepettenUrunCikar.cs</DependentUpon>
+    </Compile>
     <Compile Include="StokMatikDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -197,6 +206,26 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StokMatikDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Stokmatiksepet.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Stokmatiksepet.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stokmatiksepet.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Stokmatiksepet.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stokmatiksepet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Stokmatiksepet.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="StokmatikSepetDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StokmatikSepetDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Uretim.Context.cs">
       <AutoGen>True</AutoGen>
@@ -237,12 +266,6 @@
     <Compile Include="Urunler.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="VeritabaniSecme.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="VeritabaniSecme.Designer.cs">
-      <DependentUpon>VeritabaniSecme.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="ExcelUyari.resx">
       <DependentUpon>ExcelUyari.cs</DependentUpon>
     </EmbeddedResource>
@@ -274,6 +297,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SepettenUrunCikar.resx">
+      <DependentUpon>SepettenUrunCikar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Urunegorelistele.resx">
       <DependentUpon>Urunegorelistele.cs</DependentUpon>
     </EmbeddedResource>
@@ -282,9 +308,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Uruneklemetektus.resx">
       <DependentUpon>Uruneklemetektus.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="VeritabaniSecme.resx">
-      <DependentUpon>VeritabaniSecme.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Model1.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -351,6 +374,24 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Uretim.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="Stokmatiksepet.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Stokmatiksepet.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Stokmatiksepet.edmx.diagram">
+      <DependentUpon>Stokmatiksepet.edmx</DependentUpon>
+    </None>
+    <None Include="StokmatikSepetDataSet.xsc">
+      <DependentUpon>StokmatikSepetDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="StokmatikSepetDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StokmatikSepetDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StokmatikSepetDataSet.xss">
+      <DependentUpon>StokmatikSepetDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Uretim.edmx.diagram">
       <DependentUpon>Uretim.edmx</DependentUpon>
     </None>
@@ -369,6 +410,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Stokmatiksepet.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Stokmatiksepet.edmx</DependentUpon>
+      <LastGenOutput>Stokmatiksepet.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Stokmatiksepet.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Stokmatiksepet.edmx</DependentUpon>
+      <LastGenOutput>Stokmatiksepet.cs</LastGenOutput>
     </Content>
     <Content Include="Uretim.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

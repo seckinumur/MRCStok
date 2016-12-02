@@ -13,9 +13,11 @@ namespace MRCStok
     public partial class UrunEklemeEkrani : Form
     {
         public Form1 Anaformugor = (Form1)Application.OpenForms["Form1"];
+        public StokmatikSepetEntities db2;
         public UrunEklemeEkrani()
         {
             InitializeComponent();
+            db2 = new StokmatikSepetEntities();
         }
 
         private void textBox4_KeyDown(object sender, KeyEventArgs e)
@@ -32,35 +34,55 @@ namespace MRCStok
                     double girilen = Convert.ToDouble(textBox4.Text);
                     if (girilen <= kontrol && girilen > 0)
                     {
-                        var ekle = Anaformugor.db.Urunler.Where(p => p.UrunAdi == textBox1.Text && p.UrunGramaji == textBox2.Text && p.UrunPaketi == textBox5.Text).FirstOrDefault();
-                        double mevcutgramaj = Convert.ToDouble(Anaformugor.textBox4.Text);
-                        double mevcutadet = Convert.ToDouble(Anaformugor.textBox6.Text);
-                        double mevcuttl = Convert.ToDouble(Anaformugor.textBox5.Text);
 
-                        double urungramaji = Convert.ToDouble(ekle.UrunGramaji);
-                        double urunadeti = girilen;
-                        double urunfiyati = Convert.ToDouble(textBox6.Text);
-
-                        double toplamgramaj = mevcutgramaj + urungramaji * girilen;
-                        double toplamadet = mevcutadet + girilen;
-                        double tolamtl = mevcuttl + urunfiyati * girilen;
-                        double Urunadetii = Convert.ToDouble(ekle.UrunAdedi);
-                        double Sonurunadedi = Urunadetii - girilen;
-
-                        ekle.UrunAdedi = Sonurunadedi.ToString();
-                        Anaformugor.db.SaveChanges();
-
-                        Anaformugor.textBox4.Text = toplamgramaj.ToString();
-                        Anaformugor.textBox6.Text = toplamadet.ToString();
-                        Anaformugor.textBox5.Text = tolamtl.ToString();
-
-                        Anaformugor.dataGridView2.Rows.Add();
-                        Anaformugor.dataGridView2.Rows[Anaformugor.sayac].Cells[0].Value = textBox1.Text;
-                        Anaformugor.dataGridView2.Rows[Anaformugor.sayac].Cells[1].Value = textBox4.Text;
-                        Anaformugor.dataGridView2.Rows[Anaformugor.sayac].Cells[2].Value = textBox6.Text;
-                        Anaformugor.sayac++;
-                        this.Close();
-                        Anaformugor.Form1_Load(sender, e);
+                        try
+                        {
+                            var ekle = Anaformugor.db.Urunler.Where(p => p.UrunAdi == textBox1.Text && p.UrunGramaji == textBox2.Text && p.UrunPaketi == textBox5.Text).FirstOrDefault();
+                            double mevcutgramaj = Convert.ToDouble(Anaformugor.textBox4.Text);
+                            double mevcutadet = Convert.ToDouble(Anaformugor.textBox6.Text);
+                            double mevcuttl = Convert.ToDouble(Anaformugor.textBox5.Text);
+                            double urungramaji = Convert.ToDouble(ekle.UrunGramaji);
+                            double urunadeti = girilen;
+                            double urunfiyati = Convert.ToDouble(textBox6.Text);
+                            double toplamgramaj = mevcutgramaj + urungramaji * girilen;
+                            double toplamadet = mevcutadet + girilen;
+                            double tolamtl = mevcuttl + urunfiyati * girilen;
+                            double Urunadetii = Convert.ToDouble(ekle.UrunAdedi);
+                            double Sonurunadedi = Urunadetii - girilen;
+                            ekle.UrunAdedi = Sonurunadedi.ToString();
+                            Sepet sepeteat = new Sepet();
+                            sepeteat.Ay = DateTime.Now.Month.ToString();
+                            sepeteat.Gun = DateTime.Now.Day.ToString();
+                            sepeteat.Tarih = DateTime.Now.ToShortDateString();
+                            sepeteat.UrunAdedi = textBox4.Text;
+                            sepeteat.UrunAdi = textBox1.Text;
+                            sepeteat.UrunFiyati = textBox6.Text;
+                            sepeteat.UrunGramaji = textBox2.Text;
+                            sepeteat.UrunPaketi = textBox5.Text;
+                            if(checkBox1.Checked==true)
+                            {
+                                sepeteat.UrunFaturası = "BEDELSİZ";
+                            }
+                            else
+                            {
+                                sepeteat.UrunFaturası = "BELİRSİZ";
+                            }
+                            sepeteat.Yil = DateTime.Now.Year.ToString();
+                            sepeteat.UrunBarkotu = "";
+                            db2.Sepet.Add(sepeteat);
+                            db2.SaveChanges();
+                            Anaformugor.db.SaveChanges();
+                            Anaformugor.textBox4.Text = toplamgramaj.ToString();
+                            Anaformugor.textBox6.Text = toplamadet.ToString();
+                            Anaformugor.textBox5.Text = tolamtl.ToString();
+                            Anaformugor.gridControl4.RefreshDataSource();
+                            this.Close();
+                            Anaformugor.Form1_Load(sender, e);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
                     }
                     else
                     {

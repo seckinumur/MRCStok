@@ -43,6 +43,7 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -118,7 +119,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.Snow;
-            this.label5.Location = new System.Drawing.Point(65, 252);
+            this.label5.Location = new System.Drawing.Point(16, 252);
             this.label5.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(331, 26);
@@ -127,9 +128,9 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(115, 290);
+            this.textBox4.Location = new System.Drawing.Point(357, 252);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(227, 32);
+            this.textBox4.Size = new System.Drawing.Size(95, 32);
             this.textBox4.TabIndex = 0;
             this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             this.textBox4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox4_KeyDown);
@@ -196,6 +197,17 @@
             this.label8.TabIndex = 14;
             this.label8.Text = "₺";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.ForeColor = System.Drawing.Color.GreenYellow;
+            this.checkBox1.Location = new System.Drawing.Point(21, 294);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(314, 30);
+            this.checkBox1.TabIndex = 15;
+            this.checkBox1.Text = "Bu Ürünü Bedelsiz Gönder";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // UrunEklemeEkrani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
@@ -203,6 +215,7 @@
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(474, 336);
             this.ControlBox = false;
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.label7);
@@ -250,5 +263,6 @@
         public System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
