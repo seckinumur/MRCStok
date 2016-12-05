@@ -46,8 +46,8 @@ namespace MRCStok
             string selicideger = Convert.ToDateTime(f213.dateTimePicker2.Text).ToShortDateString();
             string seciliay = Convert.ToDateTime(f213.dateTimePicker2.Text).Month.ToString();
             string adet = dataGridView1.Rows[ykoordinat].Cells[1].Value.ToString();
-            string gramajii = dataGridView1.Rows[ykoordinat].Cells[4].Value.ToString();
-            string ambalajiii = dataGridView1.Rows[ykoordinat].Cells[5].Value.ToString();
+            string gramajii = dataGridView1.Rows[ykoordinat].Cells[3].Value.ToString();
+            string ambalajiii = dataGridView1.Rows[ykoordinat].Cells[4].Value.ToString();
             adiurunun.Text = str;
             gramajiurunun.Text = gramajii;
             ambalajiurunun.Text = ambalajiii;
@@ -63,12 +63,12 @@ namespace MRCStok
                     adedinial = bul.UrunAdedi;
                     AmbalajUrunEkle.SelectedItem = bul.UrunPaketi;
                     textBox6.Text = bul.Fiyati;
-                    textBox16.Text = bul.FaturaDurumu;
-                    
+                    if (bul.FaturaDurumu != "FATURALI") { textBox16.Enabled = true; textBox16.Text = bul.FaturaDurumu; comboBox1.SelectedItem = "FATURALI"; }
+                    else { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
                 }
-                catch
+                catch (Exception ex)
                 {
-
+                    MessageBox.Show(ex.Message);
                 }
             }
             else
@@ -83,8 +83,9 @@ namespace MRCStok
                     adedinial = bul.UrunAdedi;
                     AmbalajUrunEkle.SelectedItem = bul.UrunPaketi;
                     textBox6.Text = bul.Fiyati;
-                    textBox16.Text = bul.FaturaDurumu;
-                    
+                    if (bul.FaturaDurumu != "FATURALI") { textBox16.Enabled = true; textBox16.Text = bul.FaturaDurumu; comboBox1.SelectedItem = "FATURALI"; }
+                    else { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
+
                 }
                 catch
                 {
@@ -131,7 +132,8 @@ namespace MRCStok
                         bul.UrunAdedi = textBox3.Text;
                         bul.UrunPaketi = AmbalajUrunEkle.SelectedItem.ToString();
                         bul.Fiyati = textBox6.Text;
-                        bul.FaturaDurumu = textBox16.Text;
+                        if (comboBox1.SelectedItem == "FATURALI") { textBox16.Enabled = true; bul.FaturaDurumu = textBox16.Text; }
+                        else { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
                         
                         bul.Ay = DateTime.Now.Month.ToString();
                         bul.Gun = DateTime.Now.Day.ToString();
@@ -181,7 +183,8 @@ namespace MRCStok
                         bul.UrunAdedi = textBox3.Text;
                         bul.UrunPaketi = AmbalajUrunEkle.SelectedItem.ToString();
                         bul.Fiyati = textBox6.Text;
-                        bul.FaturaDurumu = textBox16.Text;
+                        if (comboBox1.SelectedItem == "FATURALI") { textBox16.Enabled = true; bul.FaturaDurumu = textBox16.Text; }
+                        else { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
                         bul.Ay = DateTime.Now.Month.ToString();
                         bul.Gun = DateTime.Now.Day.ToString();
                         bul.Yil = DateTime.Now.Year.ToString();
@@ -356,6 +359,12 @@ namespace MRCStok
         private void UrunGramajiUrunEkle_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = Char.IsLetter(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox1.SelectedItem != "FATURALI") { textBox16.Enabled = false; }
+            else { textBox16.Enabled = true; }
         }
     }
 }

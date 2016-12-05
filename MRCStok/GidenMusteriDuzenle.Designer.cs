@@ -60,6 +60,7 @@
             this.adiurunun = new System.Windows.Forms.Label();
             this.gramajiurunun = new System.Windows.Forms.Label();
             this.ambalajiurunun = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -384,7 +385,7 @@
             // textBox16
             // 
             this.textBox16.ForeColor = System.Drawing.Color.Crimson;
-            this.textBox16.Location = new System.Drawing.Point(232, 614);
+            this.textBox16.Location = new System.Drawing.Point(481, 611);
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(151, 35);
             this.textBox16.TabIndex = 35;
@@ -398,14 +399,14 @@
             this.label13.Location = new System.Drawing.Point(23, 614);
             this.label13.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(157, 29);
+            this.label13.Size = new System.Drawing.Size(225, 29);
             this.label13.TabIndex = 37;
-            this.label13.Text = "FATURA NO:";
+            this.label13.Text = "FATURA DURUMU:";
             // 
             // adiurunun
             // 
             this.adiurunun.AutoSize = true;
-            this.adiurunun.Location = new System.Drawing.Point(490, 576);
+            this.adiurunun.Location = new System.Drawing.Point(954, 592);
             this.adiurunun.Name = "adiurunun";
             this.adiurunun.Size = new System.Drawing.Size(92, 29);
             this.adiurunun.TabIndex = 38;
@@ -415,7 +416,7 @@
             // gramajiurunun
             // 
             this.gramajiurunun.AutoSize = true;
-            this.gramajiurunun.Location = new System.Drawing.Point(588, 576);
+            this.gramajiurunun.Location = new System.Drawing.Point(856, 592);
             this.gramajiurunun.Name = "gramajiurunun";
             this.gramajiurunun.Size = new System.Drawing.Size(92, 29);
             this.gramajiurunun.TabIndex = 39;
@@ -425,12 +426,28 @@
             // ambalajiurunun
             // 
             this.ambalajiurunun.AutoSize = true;
-            this.ambalajiurunun.Location = new System.Drawing.Point(541, 613);
+            this.ambalajiurunun.Location = new System.Drawing.Point(758, 592);
             this.ambalajiurunun.Name = "ambalajiurunun";
             this.ambalajiurunun.Size = new System.Drawing.Size(92, 29);
             this.ambalajiurunun.TabIndex = 40;
             this.ambalajiurunun.Text = "label16";
             this.ambalajiurunun.Visible = false;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "FATURALI",
+            "FATURASIZ",
+            "BEDELSİZ",
+            "NUMUNE",
+            "ZAYİ",
+            "İADE"});
+            this.comboBox1.Location = new System.Drawing.Point(253, 611);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(206, 37);
+            this.comboBox1.TabIndex = 41;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // GidenMusteriDuzenle
             // 
@@ -439,6 +456,7 @@
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(1058, 651);
             this.ControlBox = false;
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.ambalajiurunun);
             this.Controls.Add(this.gramajiurunun);
             this.Controls.Add(this.adiurunun);
@@ -517,5 +535,6 @@
         public System.Windows.Forms.Label adiurunun;
         public System.Windows.Forms.Label gramajiurunun;
         public System.Windows.Forms.Label ambalajiurunun;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

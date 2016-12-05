@@ -17,6 +17,7 @@ namespace MRCStok
         public StokMatikEntities db;
         public StokmatikHammaddeEntities db1;
         public StokmatikSepetEntities db2;
+       
         public GirisEkrani f21 = (GirisEkrani)System.Windows.Forms.Application.OpenForms["GirisEkrani"];
         public Uruneklemetektus uruneklemyegit = (Uruneklemetektus)System.Windows.Forms.Application.OpenForms["Uruneklemetektus"];
         public string AdminKontrol;
@@ -32,6 +33,7 @@ namespace MRCStok
             db = new StokMatikEntities();
             db1 = new StokmatikHammaddeEntities();
             db2 = new StokmatikSepetEntities();
+          
         }
 
         private void label13_Click(object sender, EventArgs e)
@@ -40,6 +42,11 @@ namespace MRCStok
 
         public void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'stokmatikAyarlarDataSet2.FaturaDurumu' table. You can move, or remove it, as needed.
+          
+            // TODO: This line of code loads data into the 'stokmatikAyarlarDataSet1.Ambalaj' ta this.ambalajTableAdapter.Fill(this.stokmatikAyarlarDataSet1.Ambalaj);
+            // TODO: This line of code loads data into the 'stokmatikAyarlarDataSet.Gramajlar' table. You can move, or remove it, as needed.
+           
             // TODO: This line of code loads data into the 'stokmatikSepetDataSet.Sepet' table. You can move, or remove it, as needed.
             this.sepetTableAdapter.Fill(this.stokmatikSepetDataSet.Sepet);
             this.musterilerTableAdapter.Fill(this.stokMatikDataSet2.Musteriler);
@@ -1618,7 +1625,199 @@ namespace MRCStok
             {
                 MessageBox.Show("Çıkarılıcak Ürün İsmine Tıklayın!");
             }
-            
+
+        }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox3.SelectedItem != "FATURALI")
+            {
+                textBox16.Enabled = false;
+            }
+            else
+            {
+                textBox16.Enabled = true;
+            }
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
+            if (checkBox2.Checked == true)
+            {
+                dataGridView6.Rows.Clear();
+                try
+                {
+                    var musteri = db.Raporlama.Where(p => p.FaturaDurumu == "NUMUNE" && p.Ay == seciliay).ToList();
+                    int i = 0;
+                    foreach (var m in musteri)
+                    {
+                        dataGridView6.Rows.Add();
+                        dataGridView6.Rows[i].Cells[0].Value = m.GidenMusteriler;
+                        dataGridView6.Rows[i].Cells[1].Value = m.GidenUrunler;
+                        dataGridView6.Rows[i].Cells[2].Value = m.UrunGramaji;
+                        dataGridView6.Rows[i].Cells[3].Value = m.UrunAdedi;
+                        dataGridView6.Rows[i].Cells[4].Value = m.UrunPaketi;
+                        dataGridView6.Rows[i].Cells[5].Value = m.Fiyati;
+                        dataGridView6.Rows[i].Cells[6].Value = m.FaturaDurumu;
+                        dataGridView6.Rows[i].Cells[7].Value = m.Tarih;
+                        i++;
+                    }
+                    Form1_Load(sender, e);
+                }
+                catch
+                {
+                    MessageBox.Show("Bulunamadı!");
+                }
+            }
+            else
+            {
+                int n = 0;
+                dataGridView6.Rows.Clear();
+                DateTime ilktarih = this.dateTimePicker2.Value.Date;
+                DateTime sontarih = this.dateTimePicker1.Value.Date;
+                if (ilktarih.ToShortDateString() == sontarih.ToShortDateString())
+                {
+                    try
+                    {
+                        string tarih = ilktarih.ToShortDateString();
+                        var bul = db.Raporlama.Where(p => p.FaturaDurumu == "NUMUNE" && p.Tarih == tarih).ToList();
+                        foreach (var m in bul)
+                        {
+                            dataGridView6.Rows.Add();
+                            dataGridView6.Rows[n].Cells[0].Value = m.GidenMusteriler;
+                            dataGridView6.Rows[n].Cells[1].Value = m.GidenUrunler;
+                            dataGridView6.Rows[n].Cells[2].Value = m.UrunGramaji;
+                            dataGridView6.Rows[n].Cells[3].Value = m.UrunAdedi;
+                            dataGridView6.Rows[n].Cells[4].Value = m.UrunPaketi;
+                            dataGridView6.Rows[n].Cells[5].Value = m.Fiyati;
+                            dataGridView6.Rows[n].Cells[6].Value = m.FaturaDurumu;
+                            dataGridView6.Rows[n].Cells[7].Value = m.Tarih;
+                            n++;
+                        }
+                    }
+                    catch
+                    {
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i <= (sontarih - ilktarih).Days; i++)
+                    {
+                        string tarih = ilktarih.AddDays(i).ToShortDateString();
+                        try
+                        {
+                            var bul = db.Raporlama.Where(p => p.FaturaDurumu == "NUMUNE" && p.Tarih == tarih).ToList();
+                            foreach (var m in bul)
+                            {
+                                dataGridView6.Rows.Add();
+                                dataGridView6.Rows[n].Cells[0].Value = m.GidenMusteriler;
+                                dataGridView6.Rows[n].Cells[1].Value = m.GidenUrunler;
+                                dataGridView6.Rows[n].Cells[2].Value = m.UrunGramaji;
+                                dataGridView6.Rows[n].Cells[3].Value = m.UrunAdedi;
+                                dataGridView6.Rows[n].Cells[4].Value = m.UrunPaketi;
+                                dataGridView6.Rows[n].Cells[5].Value = m.Fiyati;
+                                dataGridView6.Rows[n].Cells[6].Value = m.FaturaDurumu;
+                                dataGridView6.Rows[n].Cells[7].Value = m.Tarih;
+                                n++;
+                            }
+                        }
+                        catch
+                        {
+                        }
+                    }
+                }
+            }
+        }
+
+        private void button10_Click_1(object sender, EventArgs e)
+        {
+            string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
+            if (checkBox2.Checked == true)
+            {
+                dataGridView6.Rows.Clear();
+                try
+                {
+                    var musteri = db.Raporlama.Where(p => p.FaturaDurumu == "ZAYİ" && p.Ay == seciliay).ToList();
+                    int i = 0;
+                    foreach (var m in musteri)
+                    {
+                        dataGridView6.Rows.Add();
+                        dataGridView6.Rows[i].Cells[0].Value = m.GidenMusteriler;
+                        dataGridView6.Rows[i].Cells[1].Value = m.GidenUrunler;
+                        dataGridView6.Rows[i].Cells[2].Value = m.UrunGramaji;
+                        dataGridView6.Rows[i].Cells[3].Value = m.UrunAdedi;
+                        dataGridView6.Rows[i].Cells[4].Value = m.UrunPaketi;
+                        dataGridView6.Rows[i].Cells[5].Value = m.Fiyati;
+                        dataGridView6.Rows[i].Cells[6].Value = m.FaturaDurumu;
+                        dataGridView6.Rows[i].Cells[7].Value = m.Tarih;
+                        i++;
+                    }
+                    Form1_Load(sender, e);
+                }
+                catch
+                {
+                    MessageBox.Show("Bulunamadı!");
+                }
+            }
+            else
+            {
+                int n = 0;
+                dataGridView6.Rows.Clear();
+                DateTime ilktarih = this.dateTimePicker2.Value.Date;
+                DateTime sontarih = this.dateTimePicker1.Value.Date;
+                if (ilktarih.ToShortDateString() == sontarih.ToShortDateString())
+                {
+                    try
+                    {
+                        string tarih = ilktarih.ToShortDateString();
+                        var bul = db.Raporlama.Where(p => p.FaturaDurumu == "ZAYİ" && p.Tarih == tarih).ToList();
+                        foreach (var m in bul)
+                        {
+                            dataGridView6.Rows.Add();
+                            dataGridView6.Rows[n].Cells[0].Value = m.GidenMusteriler;
+                            dataGridView6.Rows[n].Cells[1].Value = m.GidenUrunler;
+                            dataGridView6.Rows[n].Cells[2].Value = m.UrunGramaji;
+                            dataGridView6.Rows[n].Cells[3].Value = m.UrunAdedi;
+                            dataGridView6.Rows[n].Cells[4].Value = m.UrunPaketi;
+                            dataGridView6.Rows[n].Cells[5].Value = m.Fiyati;
+                            dataGridView6.Rows[n].Cells[6].Value = m.FaturaDurumu;
+                            dataGridView6.Rows[n].Cells[7].Value = m.Tarih;
+                            n++;
+                        }
+                    }
+                    catch
+                    {
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i <= (sontarih - ilktarih).Days; i++)
+                    {
+                        string tarih = ilktarih.AddDays(i).ToShortDateString();
+                        try
+                        {
+                            var bul = db.Raporlama.Where(p => p.FaturaDurumu == "ZAYİ" && p.Tarih == tarih).ToList();
+                            foreach (var m in bul)
+                            {
+                                dataGridView6.Rows.Add();
+                                dataGridView6.Rows[n].Cells[0].Value = m.GidenMusteriler;
+                                dataGridView6.Rows[n].Cells[1].Value = m.GidenUrunler;
+                                dataGridView6.Rows[n].Cells[2].Value = m.UrunGramaji;
+                                dataGridView6.Rows[n].Cells[3].Value = m.UrunAdedi;
+                                dataGridView6.Rows[n].Cells[4].Value = m.UrunPaketi;
+                                dataGridView6.Rows[n].Cells[5].Value = m.Fiyati;
+                                dataGridView6.Rows[n].Cells[6].Value = m.FaturaDurumu;
+                                dataGridView6.Rows[n].Cells[7].Value = m.Tarih;
+                                n++;
+                            }
+                        }
+                        catch
+                        {
+                        }
+                    }
+                }
+            }
         }
     }
 }

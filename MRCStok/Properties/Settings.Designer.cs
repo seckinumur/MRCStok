@@ -42,5 +42,15 @@ namespace MRCStok.Properties {
                 return ((string)(this["StokmatikSepetConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("data source=C:\\MRCStok\\Data\\StokmatikAyarlar.db")]
+        public string StokmatikAyarlarConnectionString {
+            get {
+                return ((string)(this["StokmatikAyarlarConnectionString"]));
+            }
+        }
     }
 }
