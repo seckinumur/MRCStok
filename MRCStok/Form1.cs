@@ -34,26 +34,21 @@ namespace MRCStok
             db1 = new StokmatikHammaddeEntities();
             db2 = new StokmatikSepetEntities();
           
-        }
+        }   // Veritabanı Nesnelerini Tanımladık ve Yenilerini Oluşturduk.
 
         private void label13_Click(object sender, EventArgs e)
         {
-        }
+        }  // Gereksiz Bir Tıklama.
 
         public void Form1_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'stokmatikAyarlarDataSet2.FaturaDurumu' table. You can move, or remove it, as needed.
-          
-            // TODO: This line of code loads data into the 'stokmatikAyarlarDataSet1.Ambalaj' ta this.ambalajTableAdapter.Fill(this.stokmatikAyarlarDataSet1.Ambalaj);
-            // TODO: This line of code loads data into the 'stokmatikAyarlarDataSet.Gramajlar' table. You can move, or remove it, as needed.
-           
-            // TODO: This line of code loads data into the 'stokmatikSepetDataSet.Sepet' table. You can move, or remove it, as needed.
             this.sepetTableAdapter.Fill(this.stokmatikSepetDataSet.Sepet);
             this.musterilerTableAdapter.Fill(this.stokMatikDataSet2.Musteriler);
             this.kullanicilarTableAdapter.Fill(this.stokMatikDataSet1.Kullanicilar);
             this.urunlerTableAdapter.Fill(this.stokMatikDataSet.Urunler);
             f21.yenidenbaslama = false;
-        }
+
+        }  // Form1 Yükleme Alanı.
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -64,7 +59,7 @@ namespace MRCStok
             txBox.SelectionStart = pos;
             txBox.SelectionLength = slen;
             txBox.Focus();
-        }
+        }  // Tüm TextBox Büyük Harfle Yazma Kodu.
 
         private void button34_Click(object sender, EventArgs e)
         {
@@ -111,9 +106,9 @@ namespace MRCStok
                     }
                 }
             }
-        }
+        } // Ayarlar Kilit Açma İşlemi.
 
-        private void KullaniciListesi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void KullaniciListesi_CellDoubleClick(object sender, DataGridViewCellEventArgs e)  //Ayarlar Kullanıcalar Listesinden Kullanıcı Seçip İşlem Yapma.
         {
             int xkoordinat = KullaniciListesi.CurrentCellAddress.X; //Seçili satırın X koordinatı
             int ykoordinat = KullaniciListesi.CurrentCellAddress.Y;  //Seçili satırın Y koordinatı
@@ -241,13 +236,13 @@ namespace MRCStok
                     }
                 }
             }
-        }
+        }  // Ayarlar Kullanıcı Ekleme İşlemi.
 
         private void button10_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
 
-        }
+        }  // Sistemden Çıkış. Form1 Kapama işlemi.
 
         private void button36_Click(object sender, EventArgs e)
         {
@@ -276,7 +271,7 @@ namespace MRCStok
                 textBox26.Text = "";
                 Form1_Load(sender, e);    // datagridt wiev yineleme işleme önemli kod.
             }
-        }
+        }  // Ayaralar Kullanıcı Silme.
 
         private void button37_Click(object sender, EventArgs e)
         {
@@ -285,7 +280,7 @@ namespace MRCStok
             MessageBox.Show("Admin yetkisi Sonlandırıldı!");
             YoneticiKullaniciAdi.Text = "";
             YöneticiSifresi.Text = "";
-        }
+        }  // Ayarlar Kullanıcı İşlemlerini Kapama. (Oturum Kapatma)
 
         private void MusteriKaydetMusteriEkle_Click(object sender, EventArgs e)
         {
@@ -345,13 +340,13 @@ namespace MRCStok
                 }
             }
 
-        }
+        }  // Müşteri Kaydet.
 
         private void button21_Click(object sender, EventArgs e)
         {
             MusteriAdiMusteriEkle.Text = "";
             AdresMusteriEkle.Text = "";
-        }
+        } 
 
         private void UrunEkleButon_Click(object sender, EventArgs e)
         {
