@@ -30,6 +30,12 @@ namespace MRCStok
 
         private void button3_Click(object sender, EventArgs e)
         {
+            string yetki = f213.AdminKontrol;
+            f211.yenidenbaslama = true;
+            f213.Close();
+            Form1 frm = new Form1();
+            frm.Show();
+            frm.AdminKontrol = yetki;
             this.Close();
         }
 
@@ -63,8 +69,13 @@ namespace MRCStok
                     adedinial = bul.UrunAdedi;
                     AmbalajUrunEkle.SelectedItem = bul.UrunPaketi;
                     textBox6.Text = bul.Fiyati;
-                    if (bul.FaturaDurumu != "FATURALI") { textBox16.Enabled = true; textBox16.Text = bul.FaturaDurumu; comboBox1.SelectedItem = "FATURALI"; }
-                    else { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
+                    if (bul.FaturaDurumu == "FATURASIZ") { textBox16.Enabled = false;  comboBox1.SelectedItem = bul.FaturaDurumu; }
+                    else if(bul.FaturaDurumu == "BEDELSİZ") { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
+                    else if (bul.FaturaDurumu == "NUMUNE") { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
+                    else if (bul.FaturaDurumu == "ZAYİ") { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
+                    else if (bul.FaturaDurumu == "İADE") { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
+                    else if (bul.FaturaDurumu == "FATURASIZ ÖDEME") { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
+                    else { textBox16.Enabled = true; textBox16.Text = bul.FaturaDurumu; comboBox1.SelectedItem = "FATURALI"; }
                 }
                 catch (Exception ex)
                 {
@@ -83,8 +94,13 @@ namespace MRCStok
                     adedinial = bul.UrunAdedi;
                     AmbalajUrunEkle.SelectedItem = bul.UrunPaketi;
                     textBox6.Text = bul.Fiyati;
-                    if (bul.FaturaDurumu != "FATURALI") { textBox16.Enabled = true; textBox16.Text = bul.FaturaDurumu; comboBox1.SelectedItem = "FATURALI"; }
-                    else { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
+                    if (bul.FaturaDurumu == "FATURASIZ") { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
+                    else if (bul.FaturaDurumu == "BEDELSİZ") { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
+                    else if (bul.FaturaDurumu == "NUMUNE") { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
+                    else if (bul.FaturaDurumu == "ZAYİ") { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
+                    else if (bul.FaturaDurumu == "İADE") { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
+                    else if (bul.FaturaDurumu == "FATURASIZ ÖDEME") { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
+                    else { textBox16.Enabled = true; textBox16.Text = bul.FaturaDurumu; comboBox1.SelectedItem = "FATURALI"; }
 
                 }
                 catch
@@ -109,9 +125,9 @@ namespace MRCStok
                     try
                     {
                         double sonuc = 0;
-                        var ekle = db.Urunler.Where(p => p.UrunAdi == textBox7.Text).FirstOrDefault();
+                        var bul = db.Raporlama.Where(p => p.Tarih == selicideger && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial && p.UrunGramaji == gramajiurunun.Text && p.UrunPaketi == ambalajiurunun.Text).FirstOrDefault();
+                        var ekle = db.Urunler.Where(p => p.UrunAdi == textBox7.Text && p.UrunGramaji == bul.UrunGramaji && p.UrunPaketi == bul.UrunPaketi).FirstOrDefault();
                         double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
-                        var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial && p.UrunGramaji == gramajiurunun.Text && p.UrunPaketi == ambalajiurunun.Text).FirstOrDefault();
                         double seciliadet = Convert.ToDouble(bul.UrunAdedi);
                         double girilenadet = Convert.ToDouble(textBox3.Text);
                         if (girilenadet < seciliadet)
@@ -132,9 +148,14 @@ namespace MRCStok
                         bul.UrunAdedi = textBox3.Text;
                         bul.UrunPaketi = AmbalajUrunEkle.SelectedItem.ToString();
                         bul.Fiyati = textBox6.Text;
-                        if (comboBox1.SelectedItem == "FATURALI") { textBox16.Enabled = true; bul.FaturaDurumu = textBox16.Text; }
-                        else { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
-                        
+                        if (comboBox1.SelectedItem == "FATURASIZ") { textBox16.Enabled = false;  bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                        else if (comboBox1.SelectedItem == "BEDELSİZ") { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                        else if (comboBox1.SelectedItem == "NUMUNE") { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                        else if (comboBox1.SelectedItem == "ZAYİ") { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                        else if (comboBox1.SelectedItem == "İADE") { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                        else if (comboBox1.SelectedItem == "FATURASIZ ÖDEME") { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                        else { textBox16.Enabled = true; bul.FaturaDurumu = textBox16.Text; comboBox1.SelectedItem = "FATURALI"; }
+
                         bul.Ay = DateTime.Now.Month.ToString();
                         bul.Gun = DateTime.Now.Day.ToString();
                         bul.Yil = DateTime.Now.Year.ToString();
@@ -142,10 +163,12 @@ namespace MRCStok
                         db.SaveChanges();
                         f213.dataGridView6.Rows.Clear();
                         adedinial = "";
+                        string yetki = f213.AdminKontrol;
                         f211.yenidenbaslama = true;
                         f213.Close();
                         Form1 frm = new Form1();
                         frm.Show();
+                        frm.AdminKontrol = yetki;
                         this.Close();
                         MessageBox.Show("ÜRÜN DÜZELTMESİ TAMAMLANDI!");
                     }
@@ -160,9 +183,9 @@ namespace MRCStok
                     try
                     {
                         double sonuc = 0;
-                        var ekle = db.Urunler.Where(p => p.UrunAdi == textBox7.Text).FirstOrDefault();
-                        double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
                         var bul = db.Raporlama.Where(p => p.Tarih == selicideger && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial && p.UrunGramaji == gramajiurunun.Text && p.UrunPaketi == ambalajiurunun.Text).FirstOrDefault();
+                        var ekle = db.Urunler.Where(p => p.UrunAdi == textBox7.Text && p.UrunGramaji == bul.UrunGramaji && p.UrunPaketi == bul.UrunPaketi).FirstOrDefault();
+                        double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
                         double seciliadet = Convert.ToDouble(bul.UrunAdedi);
                         double girilenadet = Convert.ToDouble(textBox3.Text);
                         if (girilenadet < seciliadet)
@@ -183,8 +206,13 @@ namespace MRCStok
                         bul.UrunAdedi = textBox3.Text;
                         bul.UrunPaketi = AmbalajUrunEkle.SelectedItem.ToString();
                         bul.Fiyati = textBox6.Text;
-                        if (comboBox1.SelectedItem == "FATURALI") { textBox16.Enabled = true; bul.FaturaDurumu = textBox16.Text; }
-                        else { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                        if (comboBox1.SelectedItem == "FATURASIZ") { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                        else if (comboBox1.SelectedItem == "BEDELSİZ") { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                        else if (comboBox1.SelectedItem == "NUMUNE") { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                        else if (comboBox1.SelectedItem == "ZAYİ") { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                        else if (comboBox1.SelectedItem == "İADE") { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                        else if (comboBox1.SelectedItem == "FATURASIZ ÖDEME") { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                        else { textBox16.Enabled = true; bul.FaturaDurumu = textBox16.Text; comboBox1.SelectedItem = "FATURALI"; }
                         bul.Ay = DateTime.Now.Month.ToString();
                         bul.Gun = DateTime.Now.Day.ToString();
                         bul.Yil = DateTime.Now.Year.ToString();
@@ -192,10 +220,12 @@ namespace MRCStok
                         db.SaveChanges();
                         f213.dataGridView6.Rows.Clear();
                         adedinial = "";
+                        string yetki = f213.AdminKontrol;
                         f211.yenidenbaslama = true;
                         f213.Close();
                         Form1 frm = new Form1();
                         frm.Show();
+                        frm.AdminKontrol = yetki;
                         this.Close();
                         MessageBox.Show("ÜRÜN DÜZELTMESİ TAMAMLANDI!");
                     }
@@ -226,7 +256,7 @@ namespace MRCStok
                         try
                         {
                             var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial && p.UrunGramaji == gramajiurunun.Text && p.UrunPaketi == ambalajiurunun.Text).FirstOrDefault();
-                            var ekle = db.Urunler.Where(p => p.UrunAdi == bul.GidenUrunler).FirstOrDefault();
+                            var ekle = db.Urunler.Where(p => p.UrunAdi == bul.GidenUrunler && p.UrunGramaji == bul.UrunGramaji && p.UrunPaketi == bul.UrunPaketi).FirstOrDefault();
                             double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
                             double seciliadet = Convert.ToDouble(bul.UrunAdedi);
                             double sonuc = urunadedi + seciliadet;
@@ -250,7 +280,7 @@ namespace MRCStok
                         try
                         {
                             var bul = db.Raporlama.Where(p => p.Tarih == selicideger && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial && p.UrunGramaji == gramajiurunun.Text && p.UrunPaketi == ambalajiurunun.Text).FirstOrDefault();
-                            var ekle = db.Urunler.Where(p => p.UrunAdi == bul.GidenUrunler).FirstOrDefault();
+                            var ekle = db.Urunler.Where(p => p.UrunAdi == bul.GidenUrunler && p.UrunGramaji == bul.UrunGramaji && p.UrunPaketi == bul.UrunPaketi).FirstOrDefault();
                             double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
                             double seciliadet = Convert.ToDouble(bul.UrunAdedi);
                             double sonuc = urunadedi + seciliadet;
@@ -289,7 +319,7 @@ namespace MRCStok
                        
                         foreach (var n in bul)
                         {
-                            var ekle = db.Urunler.Where(p => p.UrunAdi == n.GidenUrunler).FirstOrDefault();
+                            var ekle = db.Urunler.Where(p => p.UrunAdi == n.GidenUrunler && p.UrunGramaji== n.UrunGramaji && p.UrunPaketi== n.UrunPaketi).FirstOrDefault();
                             double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
                             double seciliadet = Convert.ToDouble(n.UrunAdedi);
                             double sonuc = urunadedi + seciliadet;
@@ -300,8 +330,14 @@ namespace MRCStok
                         MessageBox.Show("MÜŞTERİNİN BU GÖNDERİLERİ TAMAMEN SİLİNDİ");
                         f213.dataGridView6.Rows.Clear();
                         adedinial = "";
+                        string yetki = f213.AdminKontrol;
+                        f211.yenidenbaslama = true;
+                        f213.Close();
+                        Form1 frm = new Form1();
+                        frm.Show();
+                        frm.AdminKontrol = yetki;
                         this.Close();
-                        
+
                     }
                     catch
                     {
@@ -315,7 +351,7 @@ namespace MRCStok
                         var bul = db.Raporlama.Where(p => p.GidenMusteriler == textBox1.Text && p.Tarih == selicideger).ToList();
                         foreach (var n in bul)
                         {
-                            var ekle = db.Urunler.Where(p => p.UrunAdi == n.GidenUrunler).FirstOrDefault();
+                            var ekle = db.Urunler.Where(p => p.UrunAdi == n.GidenUrunler && p.UrunGramaji == n.UrunGramaji && p.UrunPaketi == n.UrunPaketi).FirstOrDefault();
                             double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
                             double seciliadet = Convert.ToDouble(n.UrunAdedi);
                             double sonuc = urunadedi + seciliadet;
@@ -326,6 +362,12 @@ namespace MRCStok
                         MessageBox.Show("MÜŞTERİNİN BU GÖNDERİLERİ TAMAMEN SİLİNDİ");
                         f213.dataGridView6.Rows.Clear();
                         adedinial = "";
+                        string yetki = f213.AdminKontrol;
+                        f211.yenidenbaslama = true;
+                        f213.Close();
+                        Form1 frm = new Form1();
+                        frm.Show();
+                        frm.AdminKontrol = yetki;
                         this.Close();
                     }
                     catch

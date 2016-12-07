@@ -89,6 +89,8 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(22, 53);
             this.dataGridView1.Name = "dataGridView1";
@@ -442,7 +444,8 @@
             "BEDELSİZ",
             "NUMUNE",
             "ZAYİ",
-            "İADE"});
+            "İADE",
+            "FATURASIZ ÖDEME"});
             this.comboBox1.Location = new System.Drawing.Point(253, 611);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(206, 37);

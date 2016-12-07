@@ -41,6 +41,7 @@
             this.colUrunAdi2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUrunAdedi2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUrunGramaji2 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colUrunFiyati2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colUrunPaketi2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.urunlerBindingSource7 = new System.Windows.Forms.BindingSource(this.components);
@@ -213,6 +214,7 @@
             this.urunlerBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.sepetTableAdapter = new MRCStok.StokmatikSepetDataSetTableAdapters.SepetTableAdapter();
+            this.button11 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
@@ -327,15 +329,20 @@
             this.colUrunAdi2,
             this.colUrunAdedi2,
             this.colUrunGramaji2,
+            this.colUrunFiyati2,
             this.colUrunPaketi2});
             this.gridView4.GridControl = this.gridControl4;
             this.gridView4.HorzScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView4.Name = "gridView4";
+            this.gridView4.OptionsCustomization.AllowGroup = false;
+            this.gridView4.OptionsCustomization.AllowRowSizing = true;
             this.gridView4.OptionsFind.AlwaysVisible = true;
             this.gridView4.OptionsFind.FindNullPrompt = "Sepete Eklenen Ürünü Arayın...";
+            this.gridView4.OptionsFind.SearchInPreview = true;
             this.gridView4.OptionsFind.ShowFindButton = false;
+            this.gridView4.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.gridView4.OptionsView.RowAutoHeight = true;
             this.gridView4.OptionsView.ShowGroupPanel = false;
-            this.gridView4.VertScrollVisibility = DevExpress.XtraGrid.Views.Base.ScrollVisibility.Always;
             this.gridView4.DoubleClick += new System.EventHandler(this.gridView4_DoubleClick);
             // 
             // colUrunAdi2
@@ -343,40 +350,59 @@
             this.colUrunAdi2.FieldName = "UrunAdi";
             this.colUrunAdi2.Name = "colUrunAdi2";
             this.colUrunAdi2.OptionsColumn.AllowEdit = false;
+            this.colUrunAdi2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colUrunAdi2.OptionsColumn.FixedWidth = true;
             this.colUrunAdi2.OptionsColumn.ReadOnly = true;
+            this.colUrunAdi2.OptionsFilter.AllowFilter = false;
             this.colUrunAdi2.Visible = true;
             this.colUrunAdi2.VisibleIndex = 0;
-            this.colUrunAdi2.Width = 332;
+            this.colUrunAdi2.Width = 183;
             // 
             // colUrunAdedi2
             // 
             this.colUrunAdedi2.FieldName = "UrunAdedi";
             this.colUrunAdedi2.Name = "colUrunAdedi2";
             this.colUrunAdedi2.OptionsColumn.AllowEdit = false;
+            this.colUrunAdedi2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colUrunAdedi2.OptionsColumn.FixedWidth = true;
             this.colUrunAdedi2.OptionsColumn.ReadOnly = true;
             this.colUrunAdedi2.Visible = true;
             this.colUrunAdedi2.VisibleIndex = 1;
-            this.colUrunAdedi2.Width = 79;
             // 
             // colUrunGramaji2
             // 
             this.colUrunGramaji2.FieldName = "UrunGramaji";
             this.colUrunGramaji2.Name = "colUrunGramaji2";
             this.colUrunGramaji2.OptionsColumn.AllowEdit = false;
+            this.colUrunGramaji2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colUrunGramaji2.OptionsColumn.FixedWidth = true;
             this.colUrunGramaji2.OptionsColumn.ReadOnly = true;
             this.colUrunGramaji2.Visible = true;
-            this.colUrunGramaji2.VisibleIndex = 2;
-            this.colUrunGramaji2.Width = 144;
+            this.colUrunGramaji2.VisibleIndex = 3;
+            this.colUrunGramaji2.Width = 93;
+            // 
+            // colUrunFiyati2
+            // 
+            this.colUrunFiyati2.FieldName = "UrunFiyati";
+            this.colUrunFiyati2.Name = "colUrunFiyati2";
+            this.colUrunFiyati2.OptionsColumn.AllowEdit = false;
+            this.colUrunFiyati2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colUrunFiyati2.OptionsColumn.FixedWidth = true;
+            this.colUrunFiyati2.OptionsColumn.ReadOnly = true;
+            this.colUrunFiyati2.Visible = true;
+            this.colUrunFiyati2.VisibleIndex = 2;
+            this.colUrunFiyati2.Width = 86;
             // 
             // colUrunPaketi2
             // 
             this.colUrunPaketi2.FieldName = "UrunPaketi";
             this.colUrunPaketi2.Name = "colUrunPaketi2";
             this.colUrunPaketi2.OptionsColumn.AllowEdit = false;
+            this.colUrunPaketi2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.colUrunPaketi2.OptionsColumn.FixedWidth = true;
             this.colUrunPaketi2.OptionsColumn.ReadOnly = true;
             this.colUrunPaketi2.Visible = true;
-            this.colUrunPaketi2.VisibleIndex = 3;
-            this.colUrunPaketi2.Width = 141;
+            this.colUrunPaketi2.VisibleIndex = 4;
             // 
             // gridControl1
             // 
@@ -426,6 +452,8 @@
             this.gridView1.OptionsFind.ShowFindButton = false;
             this.gridView1.OptionsView.RowAutoHeight = true;
             this.gridView1.OptionsView.ShowGroupPanel = false;
+            this.gridView1.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colUrunAdi, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView1_KeyDown);
             this.gridView1.DoubleClick += new System.EventHandler(this.gridView1_DoubleClick);
             // 
@@ -451,7 +479,7 @@
             this.colUrunFiyati.OptionsColumn.ReadOnly = true;
             this.colUrunFiyati.Visible = true;
             this.colUrunFiyati.VisibleIndex = 4;
-            this.colUrunFiyati.Width = 88;
+            this.colUrunFiyati.Width = 72;
             // 
             // colUrunAdedi
             // 
@@ -463,7 +491,7 @@
             this.colUrunAdedi.OptionsColumn.ReadOnly = true;
             this.colUrunAdedi.Visible = true;
             this.colUrunAdedi.VisibleIndex = 1;
-            this.colUrunAdedi.Width = 93;
+            this.colUrunAdedi.Width = 73;
             // 
             // colUrunGramaji
             // 
@@ -475,7 +503,7 @@
             this.colUrunGramaji.OptionsColumn.ReadOnly = true;
             this.colUrunGramaji.Visible = true;
             this.colUrunGramaji.VisibleIndex = 2;
-            this.colUrunGramaji.Width = 93;
+            this.colUrunGramaji.Width = 82;
             // 
             // colUrunPaketi
             // 
@@ -487,7 +515,7 @@
             this.colUrunPaketi.OptionsColumn.ReadOnly = true;
             this.colUrunPaketi.Visible = true;
             this.colUrunPaketi.VisibleIndex = 3;
-            this.colUrunPaketi.Width = 127;
+            this.colUrunPaketi.Width = 112;
             // 
             // colUrunEklemeTarihi
             // 
@@ -499,7 +527,7 @@
             this.colUrunEklemeTarihi.OptionsColumn.ReadOnly = true;
             this.colUrunEklemeTarihi.Visible = true;
             this.colUrunEklemeTarihi.VisibleIndex = 5;
-            this.colUrunEklemeTarihi.Width = 72;
+            this.colUrunEklemeTarihi.Width = 108;
             // 
             // groupBox3
             // 
@@ -648,7 +676,8 @@
             "BEDELSİZ",
             "NUMUNE",
             "ZAYİ",
-            "İADE"});
+            "İADE",
+            "FATURASIZ ÖDEME"});
             this.comboBox3.Location = new System.Drawing.Point(266, 103);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(136, 28);
@@ -763,6 +792,8 @@
             this.gridView2.OptionsFind.FindNullPrompt = "Bir Ürün Arayın...";
             this.gridView2.OptionsFind.ShowFindButton = false;
             this.gridView2.OptionsView.ShowGroupPanel = false;
+            this.gridView2.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colUrunAdi1, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridView2.DoubleClick += new System.EventHandler(this.gridView2_DoubleClick_1);
             // 
             // colUrunAdi1
@@ -773,7 +804,7 @@
             this.colUrunAdi1.OptionsColumn.ReadOnly = true;
             this.colUrunAdi1.Visible = true;
             this.colUrunAdi1.VisibleIndex = 0;
-            this.colUrunAdi1.Width = 288;
+            this.colUrunAdi1.Width = 318;
             // 
             // colUrunAdedi1
             // 
@@ -793,7 +824,7 @@
             this.colUrunGramaji1.OptionsColumn.ReadOnly = true;
             this.colUrunGramaji1.Visible = true;
             this.colUrunGramaji1.VisibleIndex = 2;
-            this.colUrunGramaji1.Width = 67;
+            this.colUrunGramaji1.Width = 82;
             // 
             // colUrunPaketi1
             // 
@@ -803,7 +834,7 @@
             this.colUrunPaketi1.OptionsColumn.ReadOnly = true;
             this.colUrunPaketi1.Visible = true;
             this.colUrunPaketi1.VisibleIndex = 3;
-            this.colUrunPaketi1.Width = 124;
+            this.colUrunPaketi1.Width = 112;
             // 
             // colUrunFiyati1
             // 
@@ -813,7 +844,7 @@
             this.colUrunFiyati1.OptionsColumn.ReadOnly = true;
             this.colUrunFiyati1.Visible = true;
             this.colUrunFiyati1.VisibleIndex = 4;
-            this.colUrunFiyati1.Width = 54;
+            this.colUrunFiyati1.Width = 72;
             // 
             // colUrunEklemeTarihi1
             // 
@@ -823,7 +854,7 @@
             this.colUrunEklemeTarihi1.OptionsColumn.ReadOnly = true;
             this.colUrunEklemeTarihi1.Visible = true;
             this.colUrunEklemeTarihi1.VisibleIndex = 5;
-            this.colUrunEklemeTarihi1.Width = 73;
+            this.colUrunEklemeTarihi1.Width = 108;
             // 
             // dataGridView1
             // 
@@ -1187,6 +1218,8 @@
             this.gridView3.OptionsFind.FindNullPrompt = "Müşteri Arayın...";
             this.gridView3.OptionsFind.ShowFindButton = false;
             this.gridView3.OptionsView.ShowGroupPanel = false;
+            this.gridView3.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colMusteriAdi, DevExpress.Data.ColumnSortOrder.Ascending)});
             this.gridView3.DoubleClick += new System.EventHandler(this.gridView3_DoubleClick);
             // 
             // colMusteriAdi
@@ -1197,6 +1230,7 @@
             this.colMusteriAdi.OptionsColumn.ReadOnly = true;
             this.colMusteriAdi.Visible = true;
             this.colMusteriAdi.VisibleIndex = 0;
+            this.colMusteriAdi.Width = 86;
             // 
             // colMusteriAdresi
             // 
@@ -1206,6 +1240,7 @@
             this.colMusteriAdresi.OptionsColumn.ReadOnly = true;
             this.colMusteriAdresi.Visible = true;
             this.colMusteriAdresi.VisibleIndex = 1;
+            this.colMusteriAdresi.Width = 88;
             // 
             // groupBox8
             // 
@@ -1505,6 +1540,7 @@
             // 
             // groupBox12
             // 
+            this.groupBox12.Controls.Add(this.button11);
             this.groupBox12.Controls.Add(this.button10);
             this.groupBox12.Controls.Add(this.button9);
             this.groupBox12.Controls.Add(this.button4);
@@ -1550,7 +1586,7 @@
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button4.Location = new System.Drawing.Point(13, 21);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(307, 33);
+            this.button4.Size = new System.Drawing.Size(120, 33);
             this.button4.TabIndex = 12;
             this.button4.Text = "ÜRÜN SEÇ";
             this.button4.UseVisualStyleBackColor = false;
@@ -2147,6 +2183,19 @@
             // 
             this.sepetTableAdapter.ClearBeforeFill = true;
             // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.Indigo;
+            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button11.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button11.Location = new System.Drawing.Point(139, 21);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(181, 33);
+            this.button11.TabIndex = 15;
+            this.button11.Text = "FATURASIZ ÖDEME";
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2403,10 +2452,6 @@
         private StokmatikSepetDataSet stokmatikSepetDataSet;
         private System.Windows.Forms.BindingSource sepetBindingSource;
         private StokmatikSepetDataSetTableAdapters.SepetTableAdapter sepetTableAdapter;
-        private DevExpress.XtraGrid.Columns.GridColumn colUrunAdi2;
-        private DevExpress.XtraGrid.Columns.GridColumn colUrunAdedi2;
-        private DevExpress.XtraGrid.Columns.GridColumn colUrunGramaji2;
-        private DevExpress.XtraGrid.Columns.GridColumn colUrunPaketi2;
         public DevExpress.XtraGrid.GridControl gridControl4;
         public DevExpress.XtraGrid.GridControl gridControl1;
         public DevExpress.XtraGrid.GridControl gridControl2;
@@ -2422,6 +2467,12 @@
         private System.Windows.Forms.BindingSource gramajlarBindingSource1;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button9;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunAdi2;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunAdedi2;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunGramaji2;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunFiyati2;
+        private DevExpress.XtraGrid.Columns.GridColumn colUrunPaketi2;
+        private System.Windows.Forms.Button button11;
     }
 }
 

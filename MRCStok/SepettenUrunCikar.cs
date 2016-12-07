@@ -35,6 +35,15 @@ namespace MRCStok
                 var bul = db2.Sepet.Where(p => p.UrunAdi == Urunadi.Text && p.UrunGramaji == UrunGramaji.Text && p.UrunPaketi == UrunAmbalaji.Text).FirstOrDefault();
                 var bul1 = db.Urunler.Where(p => p.UrunAdi == Urunadi.Text && p.UrunGramaji == UrunGramaji.Text && p.UrunPaketi == UrunAmbalaji.Text).FirstOrDefault();
                 double adet = Convert.ToDouble(bul.UrunAdedi);
+                double oncekiadet = Convert.ToDouble(form1gor1.textBox6.Text);
+                double oncekitoplam = Convert.ToDouble(form1gor1.textBox4.Text);
+                double oncekilira = Convert.ToDouble(form1gor1.textBox5.Text);
+                double cikicakadet = Convert.ToDouble(bul.UrunAdedi);
+                double cikicaklira = Convert.ToDouble(bul.UrunFiyati);
+                double cikicaktoplam = Convert.ToDouble(bul.UrunGramaji);
+                double toplamgramyaz = oncekitoplam - (cikicaktoplam * cikicakadet);
+                double toplamadetyaz = oncekiadet - cikicakadet;
+                double toplamfiyatyaz = oncekilira - (cikicaklira * cikicakadet);
                 double stokadet = Convert.ToDouble(bul1.UrunAdedi);
                 double topla = stokadet + adet;
                 bul1.UrunAdedi = topla.ToString();
@@ -48,6 +57,9 @@ namespace MRCStok
                 Form1 frm = new Form1();
                 frm.Show();
                 frm.AdminKontrol = kontrolal;
+                frm.textBox4.Text = toplamgramyaz.ToString();
+                frm.textBox5.Text = toplamfiyatyaz.ToString();
+                frm.textBox6.Text = toplamadetyaz.ToString();
                 this.Close();
             }
             catch (Exception ex)
