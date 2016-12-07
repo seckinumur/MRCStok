@@ -1331,7 +1331,7 @@ namespace MRCStok
 
         }
 
-        private void dataGridView6_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView6_CellDoubleClick(object sender, DataGridViewCellEventArgs e)   // Raporlar 
         {
             int xkoordinat = dataGridView6.CurrentCellAddress.X; //Seçili satırın X koordinatı
             int ykoordinat = dataGridView6.CurrentCellAddress.Y;  //Seçili satırın Y koordinatı
@@ -1414,7 +1414,7 @@ namespace MRCStok
             {
                 MessageBox.Show("Seçmek İçin Ürün İsmine Çift Tıklayın");
             }
-        }
+        }   
 
         private void button4_Click(object sender, EventArgs e)
         {

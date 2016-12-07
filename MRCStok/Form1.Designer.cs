@@ -142,6 +142,7 @@
             this.faturadurumu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -214,7 +215,6 @@
             this.urunlerBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.sepetTableAdapter = new MRCStok.StokmatikSepetDataSetTableAdapters.SepetTableAdapter();
-            this.button11 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
@@ -678,9 +678,9 @@
             "ZAYİ",
             "İADE",
             "FATURASIZ ÖDEME"});
-            this.comboBox3.Location = new System.Drawing.Point(266, 103);
+            this.comboBox3.Location = new System.Drawing.Point(229, 103);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(136, 28);
+            this.comboBox3.Size = new System.Drawing.Size(173, 28);
             this.comboBox3.TabIndex = 12;
             this.comboBox3.Text = "FATURALI";
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
@@ -711,7 +711,7 @@
             this.textBox16.ForeColor = System.Drawing.Color.Crimson;
             this.textBox16.Location = new System.Drawing.Point(121, 105);
             this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(139, 26);
+            this.textBox16.Size = new System.Drawing.Size(102, 26);
             this.textBox16.TabIndex = 6;
             this.textBox16.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             this.textBox16.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox23_KeyPress);
@@ -966,7 +966,7 @@
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(796, 56);
+            this.label46.Location = new System.Drawing.Point(785, 56);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(25, 20);
             this.label46.TabIndex = 16;
@@ -1046,13 +1046,17 @@
             "TENEKE KUTU",
             "ÖZEL AMBALAJ",
             "OPP POŞET",
+            "OPP POŞET GRİ",
+            "OPP POŞET SİYAH",
+            "KRAFT POŞET",
+            "ŞEFFAF POŞET",
             "CAM KAVANOZ",
             "CAM ŞİŞE",
             "POLIETILEN ŞİŞE ",
             "3 KG\'LIK KUTU"});
-            this.AmbalajUrunEkle.Location = new System.Drawing.Point(832, 50);
+            this.AmbalajUrunEkle.Location = new System.Drawing.Point(818, 50);
             this.AmbalajUrunEkle.Name = "AmbalajUrunEkle";
-            this.AmbalajUrunEkle.Size = new System.Drawing.Size(154, 28);
+            this.AmbalajUrunEkle.Size = new System.Drawing.Size(168, 28);
             this.AmbalajUrunEkle.TabIndex = 9;
             this.AmbalajUrunEkle.Text = "TENEKE KUTU";
             // 
@@ -1096,7 +1100,7 @@
             "30000",
             "40000",
             "50000"});
-            this.UrunGramajiUrunEkle.Location = new System.Drawing.Point(697, 48);
+            this.UrunGramajiUrunEkle.Location = new System.Drawing.Point(685, 48);
             this.UrunGramajiUrunEkle.Name = "UrunGramajiUrunEkle";
             this.UrunGramajiUrunEkle.Size = new System.Drawing.Size(93, 28);
             this.UrunGramajiUrunEkle.TabIndex = 7;
@@ -1106,7 +1110,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(698, 21);
+            this.label12.Location = new System.Drawing.Point(685, 21);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 20);
             this.label12.TabIndex = 6;
@@ -1555,6 +1559,19 @@
             this.groupBox12.TabIndex = 3;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "ÖZEL ARAMA";
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.Indigo;
+            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button11.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button11.Location = new System.Drawing.Point(139, 21);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(181, 33);
+            this.button11.TabIndex = 15;
+            this.button11.Text = "FATURASIZ ÖDEME";
+            this.button11.UseVisualStyleBackColor = false;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button10
             // 
@@ -2182,19 +2199,6 @@
             // sepetTableAdapter
             // 
             this.sepetTableAdapter.ClearBeforeFill = true;
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.Indigo;
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button11.Location = new System.Drawing.Point(139, 21);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(181, 33);
-            this.button11.TabIndex = 15;
-            this.button11.Text = "FATURASIZ ÖDEME";
-            this.button11.UseVisualStyleBackColor = false;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // Form1
             // 

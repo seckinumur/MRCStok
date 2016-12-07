@@ -62,15 +62,15 @@ namespace MRCStok
             {
                 try
                 {
-                    var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler == str && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adet && p.UrunGramaji== gramajii && p.UrunPaketi== ambalajiii).FirstOrDefault();
+                    var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler == str && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adet && p.UrunGramaji == gramajii && p.UrunPaketi == ambalajiii).FirstOrDefault();
                     textBox7.Text = bul.GidenUrunler;
                     UrunGramajiUrunEkle.SelectedItem = bul.UrunGramaji;
                     textBox3.Text = bul.UrunAdedi;
                     adedinial = bul.UrunAdedi;
                     AmbalajUrunEkle.SelectedItem = bul.UrunPaketi;
                     textBox6.Text = bul.Fiyati;
-                    if (bul.FaturaDurumu == "FATURASIZ") { textBox16.Enabled = false;  comboBox1.SelectedItem = bul.FaturaDurumu; }
-                    else if(bul.FaturaDurumu == "BEDELSİZ") { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
+                    if (bul.FaturaDurumu == "FATURASIZ") { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
+                    else if (bul.FaturaDurumu == "BEDELSİZ") { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
                     else if (bul.FaturaDurumu == "NUMUNE") { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
                     else if (bul.FaturaDurumu == "ZAYİ") { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
                     else if (bul.FaturaDurumu == "İADE") { textBox16.Enabled = false; comboBox1.SelectedItem = bul.FaturaDurumu; }
@@ -103,9 +103,9 @@ namespace MRCStok
                     else { textBox16.Enabled = true; textBox16.Text = bul.FaturaDurumu; comboBox1.SelectedItem = "FATURALI"; }
 
                 }
-                catch
+                catch (Exception ex)
                 {
-
+                    MessageBox.Show(ex.Message);
                 }
             }
         }
@@ -148,7 +148,7 @@ namespace MRCStok
                         bul.UrunAdedi = textBox3.Text;
                         bul.UrunPaketi = AmbalajUrunEkle.SelectedItem.ToString();
                         bul.Fiyati = textBox6.Text;
-                        if (comboBox1.SelectedItem == "FATURASIZ") { textBox16.Enabled = false;  bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                        if (comboBox1.SelectedItem == "FATURASIZ") { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
                         else if (comboBox1.SelectedItem == "BEDELSİZ") { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
                         else if (comboBox1.SelectedItem == "NUMUNE") { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
                         else if (comboBox1.SelectedItem == "ZAYİ") { textBox16.Enabled = false; bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
@@ -172,9 +172,9 @@ namespace MRCStok
                         this.Close();
                         MessageBox.Show("ÜRÜN DÜZELTMESİ TAMAMLANDI!");
                     }
-                    catch
+                    catch (Exception ex)
                     {
-
+                        MessageBox.Show(ex.Message);
                     }
 
                 }
@@ -229,9 +229,9 @@ namespace MRCStok
                         this.Close();
                         MessageBox.Show("ÜRÜN DÜZELTMESİ TAMAMLANDI!");
                     }
-                    catch
+                    catch (Exception EX)
                     {
-
+                        MessageBox.Show(EX.Message);
                     }
                 }
             }
@@ -269,9 +269,9 @@ namespace MRCStok
                             adedinial = "";
                             this.Close();
                         }
-                        catch
+                        catch (Exception ex)
                         {
-
+                            MessageBox.Show(ex.Message);
                         }
 
                     }
@@ -294,14 +294,14 @@ namespace MRCStok
                             this.Close();
 
                         }
-                        catch
+                        catch (Exception ex)
                         {
-
+                            MessageBox.Show(ex.Message);
                         }
                     }
                 }
             }
-            }
+        }
         private void button4_Click(object sender, EventArgs e)
         {
             DialogResult Uyari = new DialogResult();
@@ -316,10 +316,10 @@ namespace MRCStok
                     try
                     {
                         var bul = db.Raporlama.Where(p => p.GidenMusteriler == textBox1.Text && p.Ay == seciliay).ToList();
-                       
+
                         foreach (var n in bul)
                         {
-                            var ekle = db.Urunler.Where(p => p.UrunAdi == n.GidenUrunler && p.UrunGramaji== n.UrunGramaji && p.UrunPaketi== n.UrunPaketi).FirstOrDefault();
+                            var ekle = db.Urunler.Where(p => p.UrunAdi == n.GidenUrunler && p.UrunGramaji == n.UrunGramaji && p.UrunPaketi == n.UrunPaketi).FirstOrDefault();
                             double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
                             double seciliadet = Convert.ToDouble(n.UrunAdedi);
                             double sonuc = urunadedi + seciliadet;
@@ -339,9 +339,9 @@ namespace MRCStok
                         this.Close();
 
                     }
-                    catch
+                    catch (Exception ex)
                     {
-
+                        MessageBox.Show(ex.Message);
                     }
                 }
                 else
@@ -370,9 +370,9 @@ namespace MRCStok
                         frm.AdminKontrol = yetki;
                         this.Close();
                     }
-                    catch
+                    catch (Exception ex)
                     {
-
+                        MessageBox.Show(ex.Message);
                     }
                 }
             }
@@ -405,7 +405,7 @@ namespace MRCStok
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedItem != "FATURALI") { textBox16.Enabled = false; }
+            if (comboBox1.SelectedItem != "FATURALI") { textBox16.Enabled = false; }
             else { textBox16.Enabled = true; }
         }
     }
