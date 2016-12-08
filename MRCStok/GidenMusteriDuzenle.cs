@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using Microsoft.Office.Interop.Excel;
 
 namespace MRCStok
 {
@@ -407,6 +409,136 @@ namespace MRCStok
         {
             if (comboBox1.SelectedItem != "FATURALI") { textBox16.Enabled = false; }
             else { textBox16.Enabled = true; }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem == "") { MessageBox.Show("Önce fatura durumunu seçin"); }
+            else if (comboBox1.SelectedItem == "FATURALI" && textBox16.Text == "") { MessageBox.Show("Fatura Numarasını Girmeniz Gerekiyor"); }
+            else
+            {
+                DialogResult Uyari = new DialogResult();
+                Uyari = MessageBox.Show("Bu Listedeki Tüm Gönderilerin Fatura Durumu Değişecek. Devam Etmek İstiyormusunuz?", "DİKKAT!", MessageBoxButtons.YesNo);
+                if (Uyari == DialogResult.Yes)
+                {
+                    string selicideger = Convert.ToDateTime(f213.dateTimePicker2.Text).ToShortDateString();
+                    string seciliay = Convert.ToDateTime(f213.dateTimePicker2.Text).Month.ToString();
+                    if (f213.checkBox2.Checked == true)
+                    {
+                        try
+                        {
+                            for (int i = 0; i < dataGridView1.RowCount; i++)
+                            {
+                                string urunadi = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                                string adet = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                                string gramajii = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                                string ambalajiii = dataGridView1.Rows[i].Cells[4].Value.ToString();
+                                var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler == urunadi && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adet && p.UrunGramaji == gramajii && p.UrunPaketi == ambalajiii).FirstOrDefault();
+                                if (comboBox1.SelectedItem == "FATURASIZ") { bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                                else if (comboBox1.SelectedItem == "BEDELSİZ") {  bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                                else if (comboBox1.SelectedItem == "NUMUNE") { bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                                else if (comboBox1.SelectedItem == "ZAYİ") {  bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                                else if (comboBox1.SelectedItem == "İADE") { bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                                else if (comboBox1.SelectedItem == "FATURASIZ ÖDEME") { bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                                else {  bul.FaturaDurumu = textBox16.Text; }
+                                db.SaveChanges();
+                                f213.dataGridView6.Rows.Clear();
+                                adedinial = "";
+                                string yetki = f213.AdminKontrol;
+                                f211.yenidenbaslama = true;
+                                f213.Close();
+                                Form1 frm = new Form1();
+                                frm.Show();
+                                frm.AdminKontrol = yetki;
+                                this.Close();
+                                MessageBox.Show("Mevcut Listedeki Tüm Gönderilerin Fatura Durumu Başarıyla Değiştirildi!");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                    else
+                    {
+                        try
+                        {
+                            for (int i = 0; i < dataGridView1.RowCount; i++)
+                            {
+                                string urunadi = dataGridView1.Rows[i].Cells[0].Value.ToString();
+                                string adet = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                                string gramajii = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                                string ambalajiii = dataGridView1.Rows[i].Cells[4].Value.ToString();
+                                var bul = db.Raporlama.Where(p => p.Tarih == selicideger && p.GidenUrunler == urunadi && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adet && p.UrunGramaji == gramajii && p.UrunPaketi == ambalajiii).FirstOrDefault();
+                                if (comboBox1.SelectedItem == "FATURASIZ") { bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                                else if (comboBox1.SelectedItem == "BEDELSİZ") { bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                                else if (comboBox1.SelectedItem == "NUMUNE") { bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                                else if (comboBox1.SelectedItem == "ZAYİ") { bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                                else if (comboBox1.SelectedItem == "İADE") { bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                                else if (comboBox1.SelectedItem == "FATURASIZ ÖDEME") { bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
+                                else { bul.FaturaDurumu = textBox16.Text; }
+                                db.SaveChanges();
+                                db.SaveChanges();
+                                f213.dataGridView6.Rows.Clear();
+                                adedinial = "";
+                                string yetki = f213.AdminKontrol;
+                                f211.yenidenbaslama = true;
+                                f213.Close();
+                                Form1 frm = new Form1();
+                                frm.Show();
+                                frm.AdminKontrol = yetki;
+                                this.Close();
+                                MessageBox.Show("Mevcut Listedeki Tüm Gönderilerin Fatura Durumu Başarıyla Değiştirildi!");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                }
+            }
+            //FATURALI //FATURASIZ //BEDELSİZ //NUMUNE //ZAYİ  //İADE //FATURASIZ ÖDEME
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            ExcelUyari ac = new ExcelUyari();
+            ac.Show();
+            ac.Visible = false;
+            try
+            {
+                ac.Visible = true;
+                Excel.Application excel = new Excel.Application();
+                excel.Visible = true;
+                object Missing = Type.Missing;
+                Workbook workbook = excel.Workbooks.Add(Missing);
+                Worksheet sheet1 = (Worksheet)workbook.Sheets[1];
+                int StartCol = 1;
+                int StartRow = 1;
+                for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                {
+                    Range myRange = (Range)sheet1.Cells[StartRow, StartCol + j];
+                    myRange.Value2 = dataGridView1.Columns[j].HeaderText;
+                }
+                StartRow++;
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    for (int j = 0; j < dataGridView1.Columns.Count; j++)
+                    {
+
+                        Range myRange = (Range)sheet1.Cells[StartRow + i, StartCol + j];
+                        myRange.Value2 = dataGridView1[j, i].Value == null ? "" : dataGridView1[j, i].Value;
+                        myRange.Select();
+                    }
+                }
+                ac.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Bilgisayarınızda Microsoft Office 2016 Yüklü değil. İşlem İptal Edildi");
+                ac.Close();
+            }
         }
     }
 }

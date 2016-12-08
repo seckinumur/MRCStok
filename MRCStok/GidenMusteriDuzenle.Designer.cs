@@ -61,6 +61,9 @@
             this.gramajiurunun = new System.Windows.Forms.Label();
             this.ambalajiurunun = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -252,9 +255,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(495, 419);
+            this.button1.Location = new System.Drawing.Point(497, 419);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 75);
+            this.button1.Size = new System.Drawing.Size(114, 67);
             this.button1.TabIndex = 28;
             this.button1.Text = "DÜZELT";
             this.button1.UseVisualStyleBackColor = true;
@@ -262,9 +265,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(495, 497);
+            this.button2.Location = new System.Drawing.Point(497, 489);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(257, 73);
+            this.button2.Size = new System.Drawing.Size(255, 43);
             this.button2.TabIndex = 29;
             this.button2.Text = "SİL";
             this.button2.UseVisualStyleBackColor = true;
@@ -293,7 +296,7 @@
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Location = new System.Drawing.Point(766, 422);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(280, 167);
+            this.groupBox3.Size = new System.Drawing.Size(280, 156);
             this.groupBox3.TabIndex = 31;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ÖZET";
@@ -382,7 +385,7 @@
             // 
             this.button4.Location = new System.Drawing.Point(617, 419);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(135, 75);
+            this.button4.Size = new System.Drawing.Size(135, 67);
             this.button4.TabIndex = 32;
             this.button4.Text = "TÜMÜNÜ SİL";
             this.button4.UseVisualStyleBackColor = true;
@@ -391,9 +394,9 @@
             // textBox16
             // 
             this.textBox16.ForeColor = System.Drawing.Color.Crimson;
-            this.textBox16.Location = new System.Drawing.Point(481, 611);
+            this.textBox16.Location = new System.Drawing.Point(576, 611);
             this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(151, 35);
+            this.textBox16.Size = new System.Drawing.Size(176, 35);
             this.textBox16.TabIndex = 35;
             this.textBox16.TextChanged += new System.EventHandler(this.textBox16_TextChanged);
             this.textBox16.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
@@ -412,9 +415,10 @@
             // adiurunun
             // 
             this.adiurunun.AutoSize = true;
-            this.adiurunun.Location = new System.Drawing.Point(954, 592);
+            this.adiurunun.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.adiurunun.Location = new System.Drawing.Point(660, 27);
             this.adiurunun.Name = "adiurunun";
-            this.adiurunun.Size = new System.Drawing.Size(92, 29);
+            this.adiurunun.Size = new System.Drawing.Size(41, 13);
             this.adiurunun.TabIndex = 38;
             this.adiurunun.Text = "label14";
             this.adiurunun.Visible = false;
@@ -422,9 +426,10 @@
             // gramajiurunun
             // 
             this.gramajiurunun.AutoSize = true;
-            this.gramajiurunun.Location = new System.Drawing.Point(856, 592);
+            this.gramajiurunun.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.gramajiurunun.Location = new System.Drawing.Point(660, 11);
             this.gramajiurunun.Name = "gramajiurunun";
-            this.gramajiurunun.Size = new System.Drawing.Size(92, 29);
+            this.gramajiurunun.Size = new System.Drawing.Size(41, 13);
             this.gramajiurunun.TabIndex = 39;
             this.gramajiurunun.Text = "label15";
             this.gramajiurunun.Visible = false;
@@ -432,9 +437,10 @@
             // ambalajiurunun
             // 
             this.ambalajiurunun.AutoSize = true;
-            this.ambalajiurunun.Location = new System.Drawing.Point(758, 592);
+            this.ambalajiurunun.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ambalajiurunun.Location = new System.Drawing.Point(707, 12);
             this.ambalajiurunun.Name = "ambalajiurunun";
-            this.ambalajiurunun.Size = new System.Drawing.Size(92, 29);
+            this.ambalajiurunun.Size = new System.Drawing.Size(41, 13);
             this.ambalajiurunun.TabIndex = 40;
             this.ambalajiurunun.Text = "label16";
             this.ambalajiurunun.Visible = false;
@@ -456,6 +462,41 @@
             this.comboBox1.TabIndex = 41;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button5.Location = new System.Drawing.Point(497, 533);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(255, 72);
+            this.button5.TabIndex = 42;
+            this.button5.Text = "TÜMÜNÜN F.DURUMUNU DEĞİŞTİR";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.DarkOrange;
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button6.ForeColor = System.Drawing.SystemColors.Control;
+            this.button6.Location = new System.Drawing.Point(766, 584);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(280, 62);
+            this.button6.TabIndex = 43;
+            this.button6.Text = "MEVCUT LİSTEYİ EXCEL\'E AKTAR";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.Snow;
+            this.label14.Location = new System.Drawing.Point(492, 617);
+            this.label14.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(83, 29);
+            this.label14.TabIndex = 44;
+            this.label14.Text = "F. NO:";
+            // 
             // GidenMusteriDuzenle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(14F, 29F);
@@ -463,6 +504,9 @@
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(1058, 651);
             this.ControlBox = false;
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.button6);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.ambalajiurunun);
             this.Controls.Add(this.gramajiurunun);
@@ -543,5 +587,8 @@
         public System.Windows.Forms.Label gramajiurunun;
         public System.Windows.Forms.Label ambalajiurunun;
         private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Label label14;
     }
 }

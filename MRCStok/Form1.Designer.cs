@@ -1048,12 +1048,12 @@
             "OPP POŞET",
             "OPP POŞET GRİ",
             "OPP POŞET SİYAH",
+            "OPP POŞET GOLD",
             "KRAFT POŞET",
             "ŞEFFAF POŞET",
             "CAM KAVANOZ",
             "CAM ŞİŞE",
-            "POLIETILEN ŞİŞE ",
-            "3 KG\'LIK KUTU"});
+            "POLIETILEN ŞİŞE"});
             this.AmbalajUrunEkle.Location = new System.Drawing.Point(818, 50);
             this.AmbalajUrunEkle.Name = "AmbalajUrunEkle";
             this.AmbalajUrunEkle.Size = new System.Drawing.Size(168, 28);
@@ -2154,7 +2154,7 @@
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(170, 20);
             this.label35.TabIndex = 9;
-            this.label35.Text = "STOKMATİK V.1.0.6";
+            this.label35.Text = "STOKMATİK V.1.0.7";
             // 
             // urunSepetiBindingSource
             // 
@@ -2214,7 +2214,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "STOKMATİK V.1.0.6";
+            this.Text = "STOKMATİK V.1.0.7";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);

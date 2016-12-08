@@ -125,12 +125,12 @@
             "OPP POŞET",
             "OPP POŞET GRİ",
             "OPP POŞET SİYAH",
+            "OPP POŞET GOLD",
             "KRAFT POŞET",
             "ŞEFFAF POŞET",
             "CAM KAVANOZ",
             "CAM ŞİŞE",
-            "POLIETILEN ŞİŞE ",
-            "3 KG\'LIK KUTU"});
+            "POLIETILEN ŞİŞE"});
             this.AmbalajUrunDuzenle.Location = new System.Drawing.Point(341, 146);
             this.AmbalajUrunDuzenle.Name = "AmbalajUrunDuzenle";
             this.AmbalajUrunDuzenle.Size = new System.Drawing.Size(212, 33);
