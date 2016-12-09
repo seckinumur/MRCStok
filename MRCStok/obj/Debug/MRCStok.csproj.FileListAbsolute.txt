@@ -674,3 +674,4 @@ C:\Users\secki\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.exe.licenses
 C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.MusteriKontrolEkrani.resources
 C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.Hakkinda.resources
 C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.SepettenUrunCikar.resources
+C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.Safemod.resources

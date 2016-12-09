@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Excel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
+using System.IO;
 
 namespace MRCStok
 {
@@ -17,7 +18,7 @@ namespace MRCStok
         public StokMatikEntities db;
         public StokmatikHammaddeEntities db1;
         public StokmatikSepetEntities db2;
-       
+
         public GirisEkrani f21 = (GirisEkrani)System.Windows.Forms.Application.OpenForms["GirisEkrani"];
         public Uruneklemetektus uruneklemyegit = (Uruneklemetektus)System.Windows.Forms.Application.OpenForms["Uruneklemetektus"];
         public string AdminKontrol;
@@ -33,7 +34,7 @@ namespace MRCStok
             db = new StokMatikEntities();
             db1 = new StokmatikHammaddeEntities();
             db2 = new StokmatikSepetEntities();
-          
+
         }   // Veritabanı Nesnelerini Tanımladık ve Yenilerini Oluşturduk.
 
         private void label13_Click(object sender, EventArgs e)
@@ -346,7 +347,7 @@ namespace MRCStok
         {
             MusteriAdiMusteriEkle.Text = "";
             AdresMusteriEkle.Text = "";
-        } 
+        }
 
         private void UrunEkleButon_Click(object sender, EventArgs e)
         {
@@ -1414,7 +1415,7 @@ namespace MRCStok
             {
                 MessageBox.Show("Seçmek İçin Ürün İsmine Çift Tıklayın");
             }
-        }   
+        }
 
         private void button4_Click(object sender, EventArgs e)
         {
@@ -1625,7 +1626,7 @@ namespace MRCStok
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(comboBox3.SelectedItem != "FATURALI")
+            if (comboBox3.SelectedItem != "FATURALI")
             {
                 textBox16.Enabled = false;
             }
@@ -1903,6 +1904,31 @@ namespace MRCStok
                     }
                 }
             }
+        }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            DialogResult Uyari = new DialogResult();
+            Uyari = MessageBox.Show("VERİTABANI YEDEKLENECEK DEVAM EDİLSİNMİ? ", "DİKKAT!", MessageBoxButtons.YesNo);
+            if (Uyari == DialogResult.Yes)
+            {
+                folderBrowserDialog1.ShowNewFolderButton = true;
+                DialogResult result = folderBrowserDialog1.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    string dosyaadi = folderBrowserDialog1.SelectedPath;
+                    File.Copy(@"C:\MRCStok\Data\StokMatik.db", dosyaadi+ "\\StokMatik.db");
+                    File.Copy(@"C:\MRCStok\Data\StokmatikHammadde.db", dosyaadi+ "\\StokmatikHammadde.db");
+                    File.Copy(@"C:\MRCStok\Data\StokmatikSepet.db", dosyaadi+ "\\StokmatikSepet.db");
+                    MessageBox.Show("VERİTABANI YEDEKLENDİ!");
+                }
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            Safemod ac = new Safemod();
+            ac.Show();
         }
     }
 }

@@ -60,9 +60,15 @@ namespace MRCStok
                             MessageBox.Show("Kullanıcı Bulunamadı!", "HATA!");
                         }
                     }
-                    catch (Exception ex)
+                    catch 
                     {
-                        MessageBox.Show(ex.Message);
+                        DialogResult Uyari = new DialogResult();
+                        Uyari = MessageBox.Show("Program Veritabanı Bağlantısı Kuramadı!,\n Bunun Sebebi Veritabanı Dosyaları Bozulmuş Yada Silinmiş Olabilir. \n Programın Düzgün Çalışabilmesi İçin Veritabanı dosyalarını İlgili Klasörüne Geri Yüklememiz Gerekiyor. Program Vertabanı Dosyalarını Yeniden Oluşturabilir Bu şekilde Programı Kullanmaya Devam edebilirsiniz ama daha önceki veritabnınızda bulunan tüm bilgiler yok olacaktır. yada kendiniz Veritabanı Ekleyebilirsiniz. Bu işlemler için kurtarma araçları tanıcısı çalıştırlsınmı?", "DİKKAT!", MessageBoxButtons.YesNo);
+                        if (Uyari == DialogResult.Yes)
+                        {
+                            Safemod ac = new Safemod();
+                            ac.Show();
+                        }
                     }
                 }
             }

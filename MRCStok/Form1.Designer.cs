@@ -168,6 +168,11 @@
             this.button24 = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.Kullaniciİslemleri = new System.Windows.Forms.GroupBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button15 = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.button14 = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
             this.KullaniciListesi = new System.Windows.Forms.DataGridView();
             this.kullaniciAdiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kullaniciSifresiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -215,6 +220,7 @@
             this.urunlerBindingSource5 = new System.Windows.Forms.BindingSource(this.components);
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.sepetTableAdapter = new MRCStok.StokmatikSepetDataSetTableAdapters.SepetTableAdapter();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
@@ -250,6 +256,7 @@
             this.groupBox10.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.Kullaniciİslemleri.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KullaniciListesi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kullanicilarBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet1)).BeginInit();
@@ -1853,6 +1860,7 @@
             // 
             // Kullaniciİslemleri
             // 
+            this.Kullaniciİslemleri.Controls.Add(this.groupBox5);
             this.Kullaniciİslemleri.Controls.Add(this.KullaniciListesi);
             this.Kullaniciİslemleri.Controls.Add(this.button8);
             this.Kullaniciİslemleri.Controls.Add(this.checkBox1);
@@ -1872,6 +1880,61 @@
             this.Kullaniciİslemleri.Text = "KULLANICI İŞLEMLERİ";
             this.Kullaniciİslemleri.Visible = false;
             // 
+            // groupBox5
+            // 
+            this.groupBox5.BackColor = System.Drawing.Color.DarkRed;
+            this.groupBox5.Controls.Add(this.button15);
+            this.groupBox5.Controls.Add(this.label18);
+            this.groupBox5.Controls.Add(this.button14);
+            this.groupBox5.Controls.Add(this.label17);
+            this.groupBox5.ForeColor = System.Drawing.Color.White;
+            this.groupBox5.Location = new System.Drawing.Point(16, 407);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(643, 148);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "VERİTABANI YEDEKLE / GERİ YÜKLE";
+            // 
+            // button15
+            // 
+            this.button15.BackColor = System.Drawing.Color.DarkOliveGreen;
+            this.button15.Location = new System.Drawing.Point(379, 67);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(170, 38);
+            this.button15.TabIndex = 6;
+            this.button15.Text = "GERİ YÜKLE";
+            this.button15.UseVisualStyleBackColor = false;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(342, 35);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(224, 20);
+            this.label18.TabIndex = 5;
+            this.label18.Text = "VERİTABANI GERİYÜKLE";
+            // 
+            // button14
+            // 
+            this.button14.BackColor = System.Drawing.Color.DarkOrange;
+            this.button14.Location = new System.Drawing.Point(84, 67);
+            this.button14.Name = "button14";
+            this.button14.Size = new System.Drawing.Size(170, 38);
+            this.button14.TabIndex = 4;
+            this.button14.Text = "YEDEKLE";
+            this.button14.UseVisualStyleBackColor = false;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(67, 35);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(203, 20);
+            this.label17.TabIndex = 2;
+            this.label17.Text = "VERİTABANI YEDEKLE";
+            // 
             // KullaniciListesi
             // 
             this.KullaniciListesi.AllowUserToDeleteRows = false;
@@ -1884,10 +1947,10 @@
             this.kullaniciSifresiDataGridViewTextBoxColumn,
             this.kullaniciYetkisiDataGridViewTextBoxColumn});
             this.KullaniciListesi.DataSource = this.kullanicilarBindingSource;
-            this.KullaniciListesi.Location = new System.Drawing.Point(14, 205);
+            this.KullaniciListesi.Location = new System.Drawing.Point(14, 141);
             this.KullaniciListesi.Name = "KullaniciListesi";
             this.KullaniciListesi.ReadOnly = true;
-            this.KullaniciListesi.Size = new System.Drawing.Size(645, 401);
+            this.KullaniciListesi.Size = new System.Drawing.Size(645, 260);
             this.KullaniciListesi.TabIndex = 5;
             this.KullaniciListesi.Visible = false;
             this.KullaniciListesi.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.KullaniciListesi_CellDoubleClick);
@@ -1931,7 +1994,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(526, 154);
+            this.button8.Location = new System.Drawing.Point(526, 561);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(133, 45);
             this.button8.TabIndex = 16;
@@ -1951,7 +2014,7 @@
             // 
             // button37
             // 
-            this.button37.Location = new System.Drawing.Point(14, 154);
+            this.button37.Location = new System.Drawing.Point(14, 561);
             this.button37.Name = "button37";
             this.button37.Size = new System.Drawing.Size(506, 45);
             this.button37.TabIndex = 14;
@@ -1963,7 +2026,7 @@
             // 
             this.button36.Location = new System.Drawing.Point(236, 94);
             this.button36.Name = "button36";
-            this.button36.Size = new System.Drawing.Size(216, 45);
+            this.button36.Size = new System.Drawing.Size(216, 41);
             this.button36.TabIndex = 13;
             this.button36.Text = "KULLANICIYI SİL";
             this.button36.UseVisualStyleBackColor = true;
@@ -1973,7 +2036,7 @@
             // 
             this.button35.Location = new System.Drawing.Point(14, 94);
             this.button35.Name = "button35";
-            this.button35.Size = new System.Drawing.Size(216, 45);
+            this.button35.Size = new System.Drawing.Size(216, 41);
             this.button35.TabIndex = 12;
             this.button35.Text = "KULLANICIYI KAYDET";
             this.button35.UseVisualStyleBackColor = true;
@@ -2154,7 +2217,7 @@
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(170, 20);
             this.label35.TabIndex = 9;
-            this.label35.Text = "STOKMATİK V.1.0.7";
+            this.label35.Text = "STOKMATİK V.1.0.8";
             // 
             // urunSepetiBindingSource
             // 
@@ -2214,7 +2277,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "STOKMATİK V.1.0.7";
+            this.Text = "STOKMATİK V.1.0.8";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
@@ -2260,6 +2323,8 @@
             this.tabPage6.ResumeLayout(false);
             this.Kullaniciİslemleri.ResumeLayout(false);
             this.Kullaniciİslemleri.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.KullaniciListesi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kullanicilarBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stokMatikDataSet1)).EndInit();
@@ -2477,6 +2542,12 @@
         private DevExpress.XtraGrid.Columns.GridColumn colUrunFiyati2;
         private DevExpress.XtraGrid.Columns.GridColumn colUrunPaketi2;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }
 

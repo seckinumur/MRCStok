@@ -178,6 +178,12 @@
     <Compile Include="Raporlama.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Safemod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Safemod.Designer.cs">
+      <DependentUpon>Safemod.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sepet.cs">
       <DependentUpon>Stokmatiksepet.tt</DependentUpon>
     </Compile>
@@ -297,6 +303,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Safemod.resx">
+      <DependentUpon>Safemod.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SepettenUrunCikar.resx">
       <DependentUpon>SepettenUrunCikar.cs</DependentUpon>
     </EmbeddedResource>
