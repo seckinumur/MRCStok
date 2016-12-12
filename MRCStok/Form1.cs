@@ -374,7 +374,7 @@ namespace MRCStok
                             string urungramaji = UrunGramajiUrunEkle.SelectedItem.ToString();
                             string urunpaketi = AmbalajUrunEkle.SelectedItem.ToString();
                             var bul = db.Urunler.Where(p => p.UrunAdi == UrunadiUrunEkle.Text && p.UrunGramaji == urungramaji && p.UrunPaketi == urunpaketi).FirstOrDefault();
-                            if (bul.UrunAdi == UrunadiUrunEkle.Text)
+                            if (bul.UrunAdi == UrunadiUrunEkle.Text && bul.UrunGramaji==urungramaji && bul.UrunPaketi==urunpaketi)
                             {
                                 MessageBox.Show("Bu ürün Daha Önceden Kaydedilmiş!, Eğer Ürünün Bilgilerini Güncellemek istiyorsanız ürün ismine çift tıklayarak ürün güncelle Panosundan işlemlerinizi yapabilirsiniz!", "UYARI!");
                             }
@@ -422,9 +422,9 @@ namespace MRCStok
                                 UrunFiyatiUrunEkle.Text = "0";
                                 Form1_Load(sender, e);
                             }
-                            catch
+                            catch (Exception ex)
                             {
-                                MessageBox.Show("Veritabanına Bağlanamadı!");
+                                MessageBox.Show(ex.Message);
                             }
 
                         }

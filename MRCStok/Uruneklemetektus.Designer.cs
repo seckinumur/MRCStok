@@ -126,6 +126,8 @@
             "OPP POŞET GRİ",
             "OPP POŞET SİYAH",
             "OPP POŞET GOLD",
+            "OPP POŞET SARI",
+            "OPP POŞET KIRMIZI",
             "KRAFT POŞET",
             "ŞEFFAF POŞET",
             "CAM KAVANOZ",

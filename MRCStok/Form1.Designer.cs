@@ -609,9 +609,9 @@
             this.label5.ForeColor = System.Drawing.Color.Maroon;
             this.label5.Location = new System.Drawing.Point(189, 21);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 20);
+            this.label5.Size = new System.Drawing.Size(36, 20);
             this.label5.TabIndex = 2;
-            this.label5.Text = "KG";
+            this.label5.Text = "GR";
             // 
             // textBox4
             // 
@@ -1056,6 +1056,8 @@
             "OPP POŞET GRİ",
             "OPP POŞET SİYAH",
             "OPP POŞET GOLD",
+            "OPP POŞET SARI",
+            "OPP POŞET KIRMIZI",
             "KRAFT POŞET",
             "ŞEFFAF POŞET",
             "CAM KAVANOZ",

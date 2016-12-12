@@ -204,12 +204,14 @@
             "OPP POŞET",
             "OPP POŞET GRİ",
             "OPP POŞET SİYAH",
+            "OPP POŞET GOLD",
+            "OPP POŞET SARI",
+            "OPP POŞET KIRMIZI",
             "KRAFT POŞET",
             "ŞEFFAF POŞET",
             "CAM KAVANOZ",
             "CAM ŞİŞE",
-            "POLIETILEN ŞİŞE ",
-            "3 KG\'LIK KUTU"});
+            "POLIETILEN ŞİŞE"});
             this.AmbalajUrunEkle.Location = new System.Drawing.Point(232, 533);
             this.AmbalajUrunEkle.Name = "AmbalajUrunEkle";
             this.AmbalajUrunEkle.Size = new System.Drawing.Size(227, 37);
@@ -357,9 +359,9 @@
             this.label11.ForeColor = System.Drawing.Color.Maroon;
             this.label11.Location = new System.Drawing.Point(225, 32);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(47, 29);
+            this.label11.Size = new System.Drawing.Size(48, 29);
             this.label11.TabIndex = 2;
-            this.label11.Text = "KG";
+            this.label11.Text = "GR";
             // 
             // textBox4
             // 
