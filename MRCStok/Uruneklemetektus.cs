@@ -235,7 +235,7 @@ namespace MRCStok
                 {
                     try
                     {
-                        var bul = db.Raporlama.Where(p=> p.FaturaDurumu == textBox16.Text && p.GidenUrunler== label3.Text && p.UrunGramaji == label4.Text && p.UrunPaketi == label5.Text).FirstOrDefault();
+                        var bul = db.Raporlama.Where(p=> p.GidenMusteriler == textBox1.Text && p.GidenUrunler== label3.Text && p.UrunGramaji == label4.Text && p.UrunPaketi == label5.Text).FirstOrDefault();
                         double satilanurun = Convert.ToDouble(bul.UrunAdedi);
                         double girilenurunadedtt = Convert.ToDouble(textBox2.Text);
                         double sonucc = satilanurun - girilenurunadedtt;
