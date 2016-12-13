@@ -16,11 +16,13 @@ namespace MRCStok
         public GirisEkrani f216 = (GirisEkrani)System.Windows.Forms.Application.OpenForms["GirisEkrani"];
         public StokMatikEntities db;
         public StokmatikHammaddeEntities db1;
+       
         public Uruneklemetektus()
         {
             InitializeComponent();
             db = new StokMatikEntities();
             db1 = new StokmatikHammaddeEntities();
+          
         }
 
         private void Uruneklemetektus_Load(object sender, EventArgs e)
@@ -32,7 +34,7 @@ namespace MRCStok
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if(HizliStokUrunAdedi.Text=="")
+                if (HizliStokUrunAdedi.Text == "")
                 {
                     MessageBox.Show("Lütfen eklenecek stok adedini giriniz!");
                 }
@@ -79,18 +81,18 @@ namespace MRCStok
         {
             if (Anaformburda.AdminKontrol == "admin" || Anaformburda.AdminKontrol == "stok")
             {
-            UrunAdiUrunDuzenle.ReadOnly = false;
-            UrunAdediUrunDuzenle.ReadOnly = false;
-            UrunFiyatiUrunDuzenle.ReadOnly = false;
-            UrunGramajıUrunDuzenle.Enabled = true;
-            AmbalajUrunDuzenle.Enabled = true;
-            MessageBox.Show("Ürün Düzenleme Aktifleştirildi! Şimdi Ürünü Düzenleyebilirsiniz!");
+                UrunAdiUrunDuzenle.ReadOnly = false;
+                UrunAdediUrunDuzenle.ReadOnly = false;
+                UrunFiyatiUrunDuzenle.ReadOnly = false;
+                UrunGramajıUrunDuzenle.Enabled = true;
+                AmbalajUrunDuzenle.Enabled = true;
+                MessageBox.Show("Ürün Düzenleme Aktifleştirildi! Şimdi Ürünü Düzenleyebilirsiniz!");
             }
             else
             {
                 MessageBox.Show("Sadece ADMIN Yetkisi Verilen Kullanıcılar Hızlı Ürün Ekleyebilir.", "Yetkisiz Kullanıcı!");
             }
-            
+
         }
 
         private void UrunSilButonu_Click(object sender, EventArgs e)
@@ -134,36 +136,36 @@ namespace MRCStok
             {
                 try
                 {
-                    var bul = db.Urunler.Where(p => p.UrunAdi == label3.Text && p.UrunGramaji==label4.Text && p.UrunPaketi== label5.Text).FirstOrDefault();
-                        DialogResult Uyari = new DialogResult();
-                        Uyari = MessageBox.Show(UrunAdiUrunDuzenle.Text + " Adlı ürünün Bilgileri Güncellenecek Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
-                        if (Uyari == DialogResult.Yes)
-                        {
-                            bul.UrunAdi = UrunAdiUrunDuzenle.Text;
-                            bul.UrunAdedi = UrunAdediUrunDuzenle.Text;
-                            bul.UrunBarkodu = UrunBarkoduUrunDuzenle.Text;
-                            bul.UrunFiyati = UrunFiyatiUrunDuzenle.Text;
-                            if (UrunGramajıUrunDuzenle.Text!= UrunGramajıUrunDuzenle.SelectedItem)
+                    var bul = db.Urunler.Where(p => p.UrunAdi == label3.Text && p.UrunGramaji == label4.Text && p.UrunPaketi == label5.Text).FirstOrDefault();
+                    DialogResult Uyari = new DialogResult();
+                    Uyari = MessageBox.Show(UrunAdiUrunDuzenle.Text + " Adlı ürünün Bilgileri Güncellenecek Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
+                    if (Uyari == DialogResult.Yes)
+                    {
+                        bul.UrunAdi = UrunAdiUrunDuzenle.Text;
+                        bul.UrunAdedi = UrunAdediUrunDuzenle.Text;
+                        bul.UrunBarkodu = UrunBarkoduUrunDuzenle.Text;
+                        bul.UrunFiyati = UrunFiyatiUrunDuzenle.Text;
+                        if (UrunGramajıUrunDuzenle.Text != UrunGramajıUrunDuzenle.SelectedItem)
                         {
                             bul.UrunGramaji = UrunGramajıUrunDuzenle.Text;
                         }
                         else
                         {
-                             bul.UrunGramaji = UrunGramajıUrunDuzenle.SelectedItem.ToString();
+                            bul.UrunGramaji = UrunGramajıUrunDuzenle.SelectedItem.ToString();
                         }
-                            
-                            bul.UrunPaketi = AmbalajUrunDuzenle.SelectedItem.ToString();
-                            bul.UrunEklemeTarihi = DateTime.Now.ToShortDateString();
-                            db.SaveChanges();
-                            string yetki = Anaformburda.AdminKontrol;
-                            f216.yenidenbaslama = true;
-                            Anaformburda.Close();
-                            Form1 frm = new Form1();
-                            frm.Show();
-                            frm.AdminKontrol = yetki;
-                            this.Close();
-                            MessageBox.Show("Ürün Başarıyla Güncellendi");
-                        }
+
+                        bul.UrunPaketi = AmbalajUrunDuzenle.SelectedItem.ToString();
+                        bul.UrunEklemeTarihi = DateTime.Now.ToShortDateString();
+                        db.SaveChanges();
+                        string yetki = Anaformburda.AdminKontrol;
+                        f216.yenidenbaslama = true;
+                        Anaformburda.Close();
+                        Form1 frm = new Form1();
+                        frm.Show();
+                        frm.AdminKontrol = yetki;
+                        this.Close();
+                        MessageBox.Show("Ürün Başarıyla Güncellendi");
+                    }
                 }
                 catch
                 {
@@ -210,6 +212,90 @@ namespace MRCStok
         private void UrunGramajıUrunDuzenle_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = Char.IsLetter(e.KeyChar) || Char.IsWhiteSpace(e.KeyChar);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            MusteriSecmeEkrani ac = new MusteriSecmeEkrani();
+            ac.Show();
+            ac.counter = "3";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "" || textBox2.Text=="" || textBox16.Text=="")
+            {
+                MessageBox.Show("Müşteri Adı, adet ve Fatura No Boş Bırakılamaz!");
+            }
+            else
+            {
+                DialogResult Uyari = new DialogResult();
+                Uyari = MessageBox.Show(UrunAdiUrunDuzenle.Text + " Adlı ürünün " + textBox1.Text + " Adlı Müşteriden İade Olarak Alınacak. İşleme Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
+                if (Uyari == DialogResult.Yes)
+                {
+                    try
+                    {
+                        var bul = db.Raporlama.Where(p=> p.FaturaDurumu == textBox16.Text && p.GidenUrunler== label3.Text && p.UrunGramaji == label4.Text && p.UrunPaketi == label5.Text).FirstOrDefault();
+                        double satilanurun = Convert.ToDouble(bul.UrunAdedi);
+                        double girilenurunadedtt = Convert.ToDouble(textBox2.Text);
+                        double sonucc = satilanurun - girilenurunadedtt;
+                        if(bul.FaturaDurumu!= textBox16.Text)
+                        {
+                            MessageBox.Show("Bu Ürünün Faturası Gönderilen Hiçbir Fatura İle Uyuşmadı. Bu fatura numarası ile çıkış yapılmamış. Çıkış yapılmayan ürün giriş yapılamaz.");
+                        }
+                        else if (satilanurun< girilenurunadedtt)
+                        {
+                            MessageBox.Show("Bu Ürünün " + bul.FaturaDurumu + " Nolu Faturasında Yer Alan " + bul.UrunAdedi + " Adet Üründen Daha Fazla Ürünü İade Almaya Çalıştınız! Sattığınızdan Daha Fazla iade alamazsınız!");
+                        }
+                        else
+                        {
+                            Raporlama ekle = new Raporlama();
+                            var ara = db.Urunler.Where(p => p.UrunAdi == label3.Text && p.UrunGramaji == label4.Text && p.UrunPaketi == label5.Text).FirstOrDefault();
+                            int ekleurun = Convert.ToInt32(textBox2.Text);
+                            int mevcuturun = Convert.ToInt32(ara.UrunAdedi);
+                            int sonhali = ekleurun + mevcuturun;
+                            ara.UrunAdedi = sonhali.ToString();
+                            ara.UrunEklemeTarihi = DateTime.Now.ToShortDateString();
+                            ekle.Ay = DateTime.Now.Month.ToString();
+                            ekle.Gun = DateTime.Now.Day.ToString();
+                            ekle.Tarih = DateTime.Now.ToShortDateString();
+                            ekle.UrunAdedi = textBox2.Text;
+                            ekle.GidenUrunler = label3.Text;
+                            ekle.FaturaDurumu = "İADE GELEN ÜRÜN "+textBox16.Text;
+                            ekle.Fiyati = bul.Fiyati;
+                            ekle.UrunGramaji = bul.UrunGramaji;
+                            ekle.UrunPaketi = bul.UrunPaketi;
+                            ekle.Yil = DateTime.Now.Year.ToString();
+                            ekle.GidenMusteriler = bul.GidenMusteriler;
+                            if (sonucc==0)
+                            {
+                                db.Raporlama.Remove(bul);
+                            }
+                            else
+                            {
+                                bul.UrunAdedi = sonucc.ToString();
+                            }
+                            db.Raporlama.Add(ekle);
+                            db.SaveChanges();
+                            f216.yenidenbaslama = true;
+                            string kontrolal = Anaformburda.AdminKontrol;
+                            Anaformburda.Close();
+                            Form1 frm = new Form1();
+                            frm.Show();
+                            frm.AdminKontrol = kontrolal;
+                            this.Close();
+                            MessageBox.Show(bul.GidenUrunler + " Adlı Ürünün " +textBox2.Text+" Adet "+bul.GidenMusteriler+ " Adlı Müşteri Tarafından İade Edilmiştir." );
+                        }
+                        
+                        
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+
         }
     }
 }

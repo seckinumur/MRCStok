@@ -56,6 +56,15 @@ namespace MRCStok
                             sepeteat.Tarih = DateTime.Now.ToShortDateString();
                             sepeteat.UrunAdedi = textBox4.Text;
                             sepeteat.UrunAdi = textBox1.Text;
+                            if (textBox6.Text != ekle.UrunFiyati)
+                            {
+                                DialogResult Uyari = new DialogResult();
+                                Uyari = MessageBox.Show("Bu Ürünün Fiyatı Kalıcı Olarak Değiştirilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
+                                if (Uyari == DialogResult.Yes)
+                                {
+                                    ekle.UrunFiyati = textBox6.Text;
+                                }
+                            }
                             sepeteat.UrunFiyati = textBox6.Text;
                             sepeteat.UrunGramaji = textBox2.Text;
                             sepeteat.UrunPaketi = textBox5.Text;

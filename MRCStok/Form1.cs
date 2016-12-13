@@ -568,6 +568,7 @@ namespace MRCStok
         {
             MusteriSecmeEkrani musac = new MusteriSecmeEkrani();
             musac.Show();
+            musac.counter = "1";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -864,7 +865,7 @@ namespace MRCStok
         {
             MusteriSecmeEkrani AC = new MusteriSecmeEkrani();
             AC.Show();
-            AC.counter = true;
+            AC.counter = "2";
         }
 
         private void button29_Click(object sender, EventArgs e)

@@ -221,6 +221,7 @@
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.sepetTableAdapter = new MRCStok.StokmatikSepetDataSetTableAdapters.SepetTableAdapter();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.defaultLookAndFeel1 = new DevExpress.LookAndFeel.DefaultLookAndFeel(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl4)).BeginInit();
@@ -548,7 +549,7 @@
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Location = new System.Drawing.Point(817, 539);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(396, 78);
+            this.groupBox3.Size = new System.Drawing.Size(408, 78);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ÖZET";
@@ -556,7 +557,7 @@
             // textBox6
             // 
             this.textBox6.ForeColor = System.Drawing.Color.Navy;
-            this.textBox6.Location = new System.Drawing.Point(301, 18);
+            this.textBox6.Location = new System.Drawing.Point(313, 15);
             this.textBox6.Name = "textBox6";
             this.textBox6.ReadOnly = true;
             this.textBox6.Size = new System.Drawing.Size(89, 26);
@@ -567,7 +568,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.Navy;
-            this.label9.Location = new System.Drawing.Point(234, 21);
+            this.label9.Location = new System.Drawing.Point(246, 18);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(61, 20);
             this.label9.TabIndex = 6;
@@ -651,7 +652,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.Control;
             this.button2.Location = new System.Drawing.Point(1075, 496);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(144, 38);
+            this.button2.Size = new System.Drawing.Size(150, 38);
             this.button2.TabIndex = 6;
             this.button2.Text = "GÖNDER";
             this.button2.UseVisualStyleBackColor = false;
@@ -2219,7 +2220,7 @@
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(170, 20);
             this.label35.TabIndex = 9;
-            this.label35.Text = "STOKMATİK V.1.0.8";
+            this.label35.Text = "STOKMATİK V.1.0.9";
             // 
             // urunSepetiBindingSource
             // 
@@ -2279,7 +2280,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "STOKMATİK V.1.0.8";
+            this.Text = "STOKMATİK V.1.0.9";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
@@ -2550,6 +2551,7 @@
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
     }
 }
 

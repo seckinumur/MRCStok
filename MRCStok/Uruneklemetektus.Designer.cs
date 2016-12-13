@@ -50,6 +50,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label47
@@ -348,13 +358,117 @@
             this.label5.Text = "label5";
             this.label5.Visible = false;
             // 
+            // button3
+            // 
+            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button3.Location = new System.Drawing.Point(6, 116);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(547, 44);
+            this.button3.TabIndex = 43;
+            this.button3.Text = "BU ÜRÜNÜ İADE OLARAK STOK\'A GİR";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.textBox16);
+            this.groupBox1.Controls.Add(this.label24);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.button4);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Location = new System.Drawing.Point(19, 319);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(559, 167);
+            this.groupBox1.TabIndex = 44;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "İADE EKLE";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.OrangeRed;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBox1.Location = new System.Drawing.Point(181, 28);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(163, 32);
+            this.textBox1.TabIndex = 46;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(10, 31);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(171, 26);
+            this.label6.TabIndex = 45;
+            this.label6.Text = "MÜŞTERİ ADI:";
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.DarkCyan;
+            this.button4.ForeColor = System.Drawing.SystemColors.Control;
+            this.button4.Location = new System.Drawing.Point(350, 28);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(203, 32);
+            this.button4.TabIndex = 47;
+            this.button4.Text = "MÜŞTERİ SEÇ";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.ForeColor = System.Drawing.SystemColors.Control;
+            this.label7.Location = new System.Drawing.Point(10, 78);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(92, 26);
+            this.label7.TabIndex = 48;
+            this.label7.Text = "ADEDİ:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.Color.DarkGreen;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox2.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBox2.Location = new System.Drawing.Point(181, 66);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(135, 44);
+            this.textBox2.TabIndex = 45;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UrunBarkoduUrunDuzenle_KeyPress);
+            // 
+            // textBox16
+            // 
+            this.textBox16.ForeColor = System.Drawing.Color.Crimson;
+            this.textBox16.Location = new System.Drawing.Point(420, 78);
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(133, 26);
+            this.textBox16.TabIndex = 50;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.ForeColor = System.Drawing.Color.LavenderBlush;
+            this.label24.Location = new System.Drawing.Point(320, 80);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(94, 20);
+            this.label24.TabIndex = 49;
+            this.label24.Text = "Fatura No:";
+            // 
             // Uruneklemetektus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkRed;
-            this.ClientSize = new System.Drawing.Size(590, 325);
+            this.ClientSize = new System.Drawing.Size(590, 493);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -389,6 +503,8 @@
             this.Text = "Uruneklemetektus";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Uruneklemetektus_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -418,5 +534,14 @@
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label6;
+        public System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.Label label24;
     }
 }
