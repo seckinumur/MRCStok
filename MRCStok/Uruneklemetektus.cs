@@ -239,11 +239,7 @@ namespace MRCStok
                         double satilanurun = Convert.ToDouble(bul.UrunAdedi);
                         double girilenurunadedtt = Convert.ToDouble(textBox2.Text);
                         double sonucc = satilanurun - girilenurunadedtt;
-                        if(bul.FaturaDurumu!= textBox16.Text)
-                        {
-                            MessageBox.Show("Bu Ürünün Faturası Gönderilen Hiçbir Fatura İle Uyuşmadı. Bu fatura numarası ile çıkış yapılmamış. Çıkış yapılmayan ürün giriş yapılamaz.");
-                        }
-                        else if (satilanurun< girilenurunadedtt)
+                        if (satilanurun< girilenurunadedtt)
                         {
                             MessageBox.Show("Bu Ürünün " + bul.FaturaDurumu + " Nolu Faturasında Yer Alan " + bul.UrunAdedi + " Adet Üründen Daha Fazla Ürünü İade Almaya Çalıştınız! Sattığınızdan Daha Fazla iade alamazsınız!");
                         }

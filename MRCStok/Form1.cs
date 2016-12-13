@@ -1246,7 +1246,7 @@ namespace MRCStok
                 dataGridView6.Rows.Clear();
                 try
                 {
-                    var musteri = db.Raporlama.Where(p => p.FaturaDurumu == "İADE" && p.Ay == seciliay).ToList();
+                    var musteri = db.Raporlama.Where(p => p.FaturaDurumu.Contains("İADE GELEN ÜRÜN ") && p.Ay == seciliay).ToList();
                     int i = 0;
                     foreach (var m in musteri)
                     {
@@ -1279,7 +1279,7 @@ namespace MRCStok
                     try
                     {
                         string tarih = ilktarih.ToShortDateString();
-                        var bul = db.Raporlama.Where(p => p.FaturaDurumu == "İADE" && p.Tarih == tarih).ToList();
+                        var bul = db.Raporlama.Where(p => p.FaturaDurumu.Contains("İADE GELEN ÜRÜN ") && p.Tarih == tarih).ToList();
                         foreach (var m in bul)
                         {
                             dataGridView6.Rows.Add();
