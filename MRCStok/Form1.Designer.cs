@@ -287,7 +287,7 @@
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(12, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1240, 657);
@@ -1441,7 +1441,7 @@
             this.groupBox2.Controls.Add(this.button6);
             this.groupBox2.Location = new System.Drawing.Point(893, 283);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(333, 60);
+            this.groupBox2.Size = new System.Drawing.Size(339, 60);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "FATURA NO  ARAMA";
@@ -1460,7 +1460,7 @@
             this.button6.ForeColor = System.Drawing.SystemColors.Control;
             this.button6.Location = new System.Drawing.Point(186, 15);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(134, 39);
+            this.button6.Size = new System.Drawing.Size(144, 39);
             this.button6.TabIndex = 7;
             this.button6.Text = "GÖSTER";
             this.button6.UseVisualStyleBackColor = false;
@@ -1565,7 +1565,7 @@
             this.groupBox12.Controls.Add(this.button31);
             this.groupBox12.Location = new System.Drawing.Point(893, 343);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(333, 285);
+            this.groupBox12.Size = new System.Drawing.Size(339, 285);
             this.groupBox12.TabIndex = 3;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "ÖZEL ARAMA";
@@ -1577,7 +1577,7 @@
             this.button11.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.button11.Location = new System.Drawing.Point(139, 21);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(181, 33);
+            this.button11.Size = new System.Drawing.Size(191, 33);
             this.button11.TabIndex = 15;
             this.button11.Text = "FATURASIZ ÖDEME";
             this.button11.UseVisualStyleBackColor = false;
@@ -1587,9 +1587,9 @@
             // 
             this.button10.BackColor = System.Drawing.Color.DarkViolet;
             this.button10.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button10.Location = new System.Drawing.Point(13, 192);
+            this.button10.Location = new System.Drawing.Point(7, 192);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(307, 33);
+            this.button10.Size = new System.Drawing.Size(323, 33);
             this.button10.TabIndex = 14;
             this.button10.Text = "ZAYİ OLAN ÜRÜNLER";
             this.button10.UseVisualStyleBackColor = false;
@@ -1599,9 +1599,9 @@
             // 
             this.button9.BackColor = System.Drawing.Color.MidnightBlue;
             this.button9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button9.Location = new System.Drawing.Point(13, 157);
+            this.button9.Location = new System.Drawing.Point(7, 157);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(307, 33);
+            this.button9.Size = new System.Drawing.Size(323, 33);
             this.button9.TabIndex = 13;
             this.button9.Text = "NUMUNE GİDEN ÜRÜNLER";
             this.button9.UseVisualStyleBackColor = false;
@@ -1611,9 +1611,9 @@
             // 
             this.button4.BackColor = System.Drawing.Color.Orange;
             this.button4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button4.Location = new System.Drawing.Point(13, 21);
+            this.button4.Location = new System.Drawing.Point(7, 21);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(120, 33);
+            this.button4.Size = new System.Drawing.Size(126, 33);
             this.button4.TabIndex = 12;
             this.button4.Text = "ÜRÜN SEÇ";
             this.button4.UseVisualStyleBackColor = false;
@@ -1623,9 +1623,9 @@
             // 
             this.button1.BackColor = System.Drawing.Color.DarkSlateGray;
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(13, 122);
+            this.button1.Location = new System.Drawing.Point(7, 122);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(307, 33);
+            this.button1.Size = new System.Drawing.Size(323, 33);
             this.button1.TabIndex = 6;
             this.button1.Text = "İADE GELEN ÜRÜNLER";
             this.button1.UseVisualStyleBackColor = false;
@@ -1635,9 +1635,9 @@
             // 
             this.button33.BackColor = System.Drawing.Color.DarkGreen;
             this.button33.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button33.Location = new System.Drawing.Point(13, 88);
+            this.button33.Location = new System.Drawing.Point(7, 88);
             this.button33.Name = "button33";
-            this.button33.Size = new System.Drawing.Size(307, 33);
+            this.button33.Size = new System.Drawing.Size(323, 33);
             this.button33.TabIndex = 1;
             this.button33.Text = "BEDELSİZ GİDEN ÜRÜNLER";
             this.button33.UseVisualStyleBackColor = false;
@@ -1659,9 +1659,9 @@
             // 
             this.button30.BackColor = System.Drawing.Color.SaddleBrown;
             this.button30.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button30.Location = new System.Drawing.Point(13, 55);
+            this.button30.Location = new System.Drawing.Point(7, 55);
             this.button30.Name = "button30";
-            this.button30.Size = new System.Drawing.Size(307, 33);
+            this.button30.Size = new System.Drawing.Size(323, 33);
             this.button30.TabIndex = 0;
             this.button30.Text = "FATURASIZ GİDEN ÜRÜNLER";
             this.button30.UseVisualStyleBackColor = false;
@@ -1673,7 +1673,7 @@
             this.button31.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button31.Location = new System.Drawing.Point(168, 227);
             this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(156, 52);
+            this.button31.Size = new System.Drawing.Size(162, 52);
             this.button31.TabIndex = 4;
             this.button31.Text = "MEVCUT LİSTEYİ  Excel’e Aktar";
             this.button31.UseVisualStyleBackColor = false;
@@ -1758,9 +1758,9 @@
             // 
             this.button7.BackColor = System.Drawing.Color.DarkSlateGray;
             this.button7.ForeColor = System.Drawing.SystemColors.Control;
-            this.button7.Location = new System.Drawing.Point(10, 141);
+            this.button7.Location = new System.Drawing.Point(6, 141);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(317, 33);
+            this.button7.Size = new System.Drawing.Size(321, 33);
             this.button7.TabIndex = 13;
             this.button7.Text = "ÜRETİLEN SEÇİLEN ÜRÜN";
             this.button7.UseVisualStyleBackColor = false;
@@ -1770,9 +1770,9 @@
             // 
             this.button5.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.button5.ForeColor = System.Drawing.SystemColors.Control;
-            this.button5.Location = new System.Drawing.Point(10, 107);
+            this.button5.Location = new System.Drawing.Point(6, 107);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(317, 33);
+            this.button5.Size = new System.Drawing.Size(321, 33);
             this.button5.TabIndex = 12;
             this.button5.Text = "ÜRETİLEN TÜM ÜRÜNLER";
             this.button5.UseVisualStyleBackColor = false;
@@ -2188,7 +2188,7 @@
             this.UyariBilgisi,
             this.toolStripStatusLabel2,
             this.Kullaniciata});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 672);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 659);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1264, 22);
             this.statusStrip1.TabIndex = 8;
@@ -2271,7 +2271,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1264, 694);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.label35);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tabControl1);

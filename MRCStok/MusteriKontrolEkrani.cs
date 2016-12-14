@@ -46,12 +46,18 @@ namespace MRCStok
                 try
                 {
                     DialogResult Uyari = new DialogResult();
-                    Uyari = MessageBox.Show(BurdanAl.Text + " Adlı Müşteri"+MusteriAdiMusteriDuzenle.Text+ " Olarak Değiştirilecek Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
+                    Uyari = MessageBox.Show(BurdanAl.Text + " Adlı Müşteri "+MusteriAdiMusteriDuzenle.Text+ " Olarak Değiştirilecek Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
                     if (Uyari == DialogResult.Yes)
                     {
                         var bul = db.Musteriler.Where(p => p.MusteriAdi == BurdanAl.Text).FirstOrDefault();
+                        var bul1 = db.Raporlama.Where(p => p.GidenMusteriler == BurdanAl.Text).ToList();
                         bul.MusteriAdi = MusteriAdiMusteriDuzenle.Text;
                         bul.MusteriAdresi = AdresMusteriDuzenle.Text;
+                        foreach (var n in bul1)
+                        {
+                            n.GidenMusteriler = MusteriAdiMusteriDuzenle.Text;
+                            //db.SaveChanges();
+                        }
                         db.SaveChanges();
                         formbaslangic.yenidenbaslama = true;
                         string kontrolal = form111.AdminKontrol;
@@ -61,6 +67,7 @@ namespace MRCStok
                         frm.AdminKontrol = kontrolal;
                         this.Close();
                         MessageBox.Show("Müşteri Başarıyla Güncellendi!");
+
                     }
                 }catch (Exception ex)
                 {

@@ -145,13 +145,22 @@ namespace MRCStok
                         foreach (var m in bul)
                         {
                             ff11.dataGridView6.Rows.Add();
-                            ff11.dataGridView6.Rows[i].Cells[0].Value = "MRC ÜRETİM";
+                            if (m.Uretici == null)
+                            {
+                                ff11.dataGridView6.Rows[i].Cells[0].Value = "MRC ÜRETİM";
+                                ff11.dataGridView6.Rows[i].Cells[6].Value = "###";
+                            }
+                            else
+                            {
+                                ff11.dataGridView6.Rows[i].Cells[0].Value = m.Uretici;
+                                ff11.dataGridView6.Rows[i].Cells[6].Value = m.UreticiFaturasi;
+                            }
+
                             ff11.dataGridView6.Rows[i].Cells[1].Value = m.UrunAdi;
                             ff11.dataGridView6.Rows[i].Cells[2].Value = m.UrunGramaji;
                             ff11.dataGridView6.Rows[i].Cells[3].Value = m.UrunAdedi;
                             ff11.dataGridView6.Rows[i].Cells[4].Value = m.UrunAmbalaji;
                             ff11.dataGridView6.Rows[i].Cells[5].Value = "###";
-                            ff11.dataGridView6.Rows[i].Cells[6].Value = "###";
                             ff11.dataGridView6.Rows[i].Cells[7].Value = m.UrunUretimTarihi;
                             i++;
                         }
@@ -177,13 +186,22 @@ namespace MRCStok
                             foreach (var m in bul)
                             {
                                 ff11.dataGridView6.Rows.Add();
-                                ff11.dataGridView6.Rows[n].Cells[0].Value = "MRC ÜRETİM";
+                                if (m.Uretici == null)
+                                {
+                                    ff11.dataGridView6.Rows[n].Cells[0].Value = "MRC ÜRETİM";
+                                    ff11.dataGridView6.Rows[n].Cells[6].Value = "###";
+                                }
+                                else
+                                {
+                                    ff11.dataGridView6.Rows[n].Cells[0].Value = m.Uretici;
+                                    ff11.dataGridView6.Rows[n].Cells[6].Value = m.UreticiFaturasi;
+                                }
+
                                 ff11.dataGridView6.Rows[n].Cells[1].Value = m.UrunAdi;
                                 ff11.dataGridView6.Rows[n].Cells[2].Value = m.UrunGramaji;
                                 ff11.dataGridView6.Rows[n].Cells[3].Value = m.UrunAdedi;
                                 ff11.dataGridView6.Rows[n].Cells[4].Value = m.UrunAmbalaji;
                                 ff11.dataGridView6.Rows[n].Cells[5].Value = "###";
-                                ff11.dataGridView6.Rows[n].Cells[6].Value = "###";
                                 ff11.dataGridView6.Rows[n].Cells[7].Value = m.UrunUretimTarihi;
                                 n++;
                             }
@@ -205,13 +223,22 @@ namespace MRCStok
                                 foreach (var m in bul)
                                 {
                                     ff11.dataGridView6.Rows.Add();
-                                    ff11.dataGridView6.Rows[n].Cells[0].Value = "MRC ÜRETİM";
+                                    if (m.Uretici == null)
+                                    {
+                                        ff11.dataGridView6.Rows[n].Cells[0].Value = "MRC ÜRETİM";
+                                        ff11.dataGridView6.Rows[n].Cells[6].Value = "###";
+                                    }
+                                    else
+                                    {
+                                        ff11.dataGridView6.Rows[n].Cells[0].Value = m.Uretici;
+                                        ff11.dataGridView6.Rows[n].Cells[6].Value = m.UreticiFaturasi;
+                                    }
+
                                     ff11.dataGridView6.Rows[n].Cells[1].Value = m.UrunAdi;
                                     ff11.dataGridView6.Rows[n].Cells[2].Value = m.UrunGramaji;
                                     ff11.dataGridView6.Rows[n].Cells[3].Value = m.UrunAdedi;
                                     ff11.dataGridView6.Rows[n].Cells[4].Value = m.UrunAmbalaji;
                                     ff11.dataGridView6.Rows[n].Cells[5].Value = "###";
-                                    ff11.dataGridView6.Rows[n].Cells[6].Value = "###";
                                     ff11.dataGridView6.Rows[n].Cells[7].Value = m.UrunUretimTarihi;
                                     n++;
                                 }

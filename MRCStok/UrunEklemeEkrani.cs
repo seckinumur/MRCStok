@@ -44,9 +44,9 @@ namespace MRCStok
                             double urungramaji = Convert.ToDouble(ekle.UrunGramaji);
                             double urunadeti = girilen;
                             double urunfiyati = Convert.ToDouble(textBox6.Text);
-                            double toplamgramaj = mevcutgramaj + urungramaji * girilen;
+                            double toplamgramaj = mevcutgramaj + (urungramaji * girilen);
                             double toplamadet = mevcutadet + girilen;
-                            double tolamtl = mevcuttl + urunfiyati * girilen;
+                            double tolamtl = mevcuttl + (urunfiyati * girilen);
                             double Urunadetii = Convert.ToDouble(ekle.UrunAdedi);
                             double Sonurunadedi = Urunadetii - girilen;
                             ekle.UrunAdedi = Sonurunadedi.ToString();

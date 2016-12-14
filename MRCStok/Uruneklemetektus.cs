@@ -86,6 +86,8 @@ namespace MRCStok
                 UrunFiyatiUrunDuzenle.ReadOnly = false;
                 UrunGramajıUrunDuzenle.Enabled = true;
                 AmbalajUrunDuzenle.Enabled = true;
+                UrunSilButonu.Visible = true;
+                UrunduzenleButonu.Visible = true;
                 MessageBox.Show("Ürün Düzenleme Aktifleştirildi! Şimdi Ürünü Düzenleyebilirsiniz!");
             }
             else
@@ -153,7 +155,6 @@ namespace MRCStok
                         {
                             bul.UrunGramaji = UrunGramajıUrunDuzenle.SelectedItem.ToString();
                         }
-
                         bul.UrunPaketi = AmbalajUrunDuzenle.SelectedItem.ToString();
                         bul.UrunEklemeTarihi = DateTime.Now.ToShortDateString();
                         db.SaveChanges();
@@ -292,6 +293,64 @@ namespace MRCStok
                 }
             }
 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            MusteriSecmeEkrani ac = new MusteriSecmeEkrani();
+            ac.Show();
+            ac.counter = "4";
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "" || textBox3.Text == "" || textBox5.Text == "")
+            {
+                MessageBox.Show("Tedarikçi Adı, adet ve Fatura No Boş Bırakılamaz!");
+            }
+            else
+            {
+                DialogResult Uyari = new DialogResult();
+                Uyari = MessageBox.Show(UrunAdiUrunDuzenle.Text + " Adlı ürünün " + textBox5.Text + " Adlı Tedarikçiden Stok'a Giriş Yapılacaktır. İşleme Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
+                if (Uyari == DialogResult.Yes)
+                {
+                    try
+                    {
+                        Uretim ekle = new Uretim();
+                        var ara = db.Urunler.Where(p => p.UrunAdi == label3.Text && p.UrunGramaji == label4.Text && p.UrunPaketi == label5.Text).FirstOrDefault();
+                        int ekleurun = Convert.ToInt32(textBox4.Text);
+                        int mevcuturun = Convert.ToInt32(ara.UrunAdedi);
+                        int sonhali = ekleurun + mevcuturun;
+                        ara.UrunAdedi = sonhali.ToString();
+                        ara.UrunEklemeTarihi = DateTime.Now.ToShortDateString();
+                        ekle.Ay = DateTime.Now.Month.ToString();
+                        ekle.Gun = DateTime.Now.Day.ToString();
+                        ekle.Uretici = textBox5.Text;
+                        ekle.UreticiFaturasi = textBox3.Text;
+                        ekle.UrunAdedi = textBox4.Text;
+                        ekle.UrunAdi = label3.Text;
+                        ekle.UrunAmbalaji = label5.Text;
+                        ekle.UrunGramaji = label4.Text;
+                        ekle.UrunUretimTarihi = DateTime.Now.ToShortDateString();
+                        ekle.Yil = DateTime.Now.Year.ToString();
+                        db1.Uretim.Add(ekle);
+                        db1.SaveChanges();
+                        db.SaveChanges();
+                        f216.yenidenbaslama = true;
+                        string kontrolal = Anaformburda.AdminKontrol;
+                        Anaformburda.Close();
+                        Form1 frm = new Form1();
+                        frm.Show();
+                        frm.AdminKontrol = kontrolal;
+                        this.Close();
+                        MessageBox.Show(label3.Text + " Adlı Ürünün " + textBox4.Text + " Adet " + textBox5.Text + " Adlı Üretici Tarafından Stok'a eklenmiştir.");
+                    }
+                    catch
+                    {
+
+                    }
+                }
+            }
         }
     }
 }

@@ -1474,13 +1474,22 @@ namespace MRCStok
                     foreach (var m in bul)
                     {
                         dataGridView6.Rows.Add();
+                        if(m.Uretici== null)
+                        {
                         dataGridView6.Rows[i].Cells[0].Value = "MRC ÜRETİM";
+                        dataGridView6.Rows[i].Cells[6].Value = "###";
+                        }
+                        else
+                        {
+                        dataGridView6.Rows[i].Cells[0].Value =m.Uretici;
+                        dataGridView6.Rows[i].Cells[6].Value = m.UreticiFaturasi;
+                        }
+                        
                         dataGridView6.Rows[i].Cells[1].Value = m.UrunAdi;
                         dataGridView6.Rows[i].Cells[2].Value = m.UrunGramaji;
                         dataGridView6.Rows[i].Cells[3].Value = m.UrunAdedi;
                         dataGridView6.Rows[i].Cells[4].Value = m.UrunAmbalaji;
                         dataGridView6.Rows[i].Cells[5].Value = "###";
-                        dataGridView6.Rows[i].Cells[6].Value = "###";
                         dataGridView6.Rows[i].Cells[7].Value = m.UrunUretimTarihi;
                         i++;
                     }
@@ -1504,13 +1513,22 @@ namespace MRCStok
                         foreach (var m in bul)
                         {
                             dataGridView6.Rows.Add();
-                            dataGridView6.Rows[n].Cells[0].Value = "MRC ÜRETİM";
+                            if (m.Uretici == null)
+                            {
+                                dataGridView6.Rows[n].Cells[0].Value = "MRC ÜRETİM";
+                                dataGridView6.Rows[n].Cells[6].Value = "###";
+                            }
+                            else
+                            {
+                                dataGridView6.Rows[n].Cells[0].Value = m.Uretici;
+                                dataGridView6.Rows[n].Cells[6].Value = m.UreticiFaturasi;
+                            }
+
                             dataGridView6.Rows[n].Cells[1].Value = m.UrunAdi;
                             dataGridView6.Rows[n].Cells[2].Value = m.UrunGramaji;
                             dataGridView6.Rows[n].Cells[3].Value = m.UrunAdedi;
                             dataGridView6.Rows[n].Cells[4].Value = m.UrunAmbalaji;
                             dataGridView6.Rows[n].Cells[5].Value = "###";
-                            dataGridView6.Rows[n].Cells[6].Value = "###";
                             dataGridView6.Rows[n].Cells[7].Value = m.UrunUretimTarihi;
                             n++;
                         }
@@ -1530,13 +1548,22 @@ namespace MRCStok
                             foreach (var m in bul)
                             {
                                 dataGridView6.Rows.Add();
-                                dataGridView6.Rows[n].Cells[0].Value = "MRC ÜRETİM";
+                                if (m.Uretici == null)
+                                {
+                                    dataGridView6.Rows[n].Cells[0].Value = "MRC ÜRETİM";
+                                    dataGridView6.Rows[n].Cells[6].Value = "###";
+                                }
+                                else
+                                {
+                                    dataGridView6.Rows[n].Cells[0].Value = m.Uretici;
+                                    dataGridView6.Rows[n].Cells[6].Value = m.UreticiFaturasi;
+                                }
+
                                 dataGridView6.Rows[n].Cells[1].Value = m.UrunAdi;
                                 dataGridView6.Rows[n].Cells[2].Value = m.UrunGramaji;
                                 dataGridView6.Rows[n].Cells[3].Value = m.UrunAdedi;
                                 dataGridView6.Rows[n].Cells[4].Value = m.UrunAmbalaji;
                                 dataGridView6.Rows[n].Cells[5].Value = "###";
-                                dataGridView6.Rows[n].Cells[6].Value = "###";
                                 dataGridView6.Rows[n].Cells[7].Value = m.UrunUretimTarihi;
                                 n++;
                             }

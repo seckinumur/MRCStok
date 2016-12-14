@@ -86,7 +86,23 @@ namespace MRCStok
                     MessageBox.Show("MÜŞTERİYİ SEÇMEK İÇİN; MÜŞTERİ İSMİNE TIKLAMALISINIZ!");
                 }
             }
-                   
+             else if(counter=="4")
+            {
+                string str = gridView1.FocusedValue.ToString();
+                try
+                {
+                    var bul = bulma.db.Musteriler.Where(p => p.MusteriAdi == str).FirstOrDefault();
+                    if (bul.MusteriAdi == str)
+                    {
+                        bulma1.textBox5.Text = str;
+                        this.Close();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("MÜŞTERİYİ SEÇMEK İÇİN; MÜŞTERİ İSMİNE TIKLAMALISINIZ!");
+                }
+            }      
         }
     }
 }

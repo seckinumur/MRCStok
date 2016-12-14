@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="StokmatikHammaddeModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=C:\MRCStok\Data\StokmatikHammadde.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="StokmatikHammaddeModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=C:\MRCStok\Data\StokmatikHammadde.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Uretim">
           <Key>
             <PropertyRef Name="UretimId" />
@@ -18,12 +18,13 @@
           <Property Name="Gun" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="Ay" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
           <Property Name="Yil" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="Uretici" Type="nvarchar" MaxLength="2147483647" />
+          <Property Name="UreticiFaturasi" Type="nvarchar" MaxLength="2147483647" />
         </EntityType>
         <EntityContainer Name="StokmatikHammaddeModelStoreContainer">
           <EntitySet Name="Uretim" EntityType="Self.Uretim" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="StokmatikHammaddeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -40,6 +41,8 @@
           <Property Name="Gun" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Ay" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Yil" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Uretici" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <Property Name="UreticiFaturasi" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityContainer Name="StokmatikHammaddeEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Uretim" EntityType="Self.Uretim" />
@@ -53,6 +56,8 @@
           <EntitySetMapping Name="Uretim">
             <EntityTypeMapping TypeName="StokmatikHammaddeModel.Uretim">
               <MappingFragment StoreEntitySet="Uretim">
+                <ScalarProperty Name="UreticiFaturasi" ColumnName="UreticiFaturasi" />
+                <ScalarProperty Name="Uretici" ColumnName="Uretici" />
                 <ScalarProperty Name="UretimId" ColumnName="UretimId" />
                 <ScalarProperty Name="UrunAdi" ColumnName="UrunAdi" />
                 <ScalarProperty Name="UrunAdedi" ColumnName="UrunAdedi" />
