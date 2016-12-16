@@ -80,6 +80,7 @@
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -234,6 +235,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>StokmatikSepetDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="TedarikciEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TedarikciEkle.Designer.cs">
+      <DependentUpon>TedarikciEkle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Uretim.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -309,6 +316,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SepettenUrunCikar.resx">
       <DependentUpon>SepettenUrunCikar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TedarikciEkle.resx">
+      <DependentUpon>TedarikciEkle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Urunegorelistele.resx">
       <DependentUpon>Urunegorelistele.cs</DependentUpon>

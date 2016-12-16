@@ -91,11 +91,13 @@
             this.urunEklemeTarihiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.urunlerBindingSource9 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.button18 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
             this.label46 = new System.Windows.Forms.Label();
             this.button16 = new System.Windows.Forms.Button();
             this.UrunbarkoduUrunEkle = new System.Windows.Forms.TextBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.IptalButonUrunEkle = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
             this.UrunEkleButon = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.AmbalajUrunEkle = new System.Windows.Forms.ComboBox();
@@ -773,7 +775,7 @@
             this.gridControl2.Location = new System.Drawing.Point(3, 6);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1223, 514);
+            this.gridControl2.Size = new System.Drawing.Size(1223, 486);
             this.gridControl2.TabIndex = 19;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -946,11 +948,13 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.button18);
+            this.groupBox4.Controls.Add(this.button17);
             this.groupBox4.Controls.Add(this.label46);
             this.groupBox4.Controls.Add(this.button16);
             this.groupBox4.Controls.Add(this.UrunbarkoduUrunEkle);
-            this.groupBox4.Controls.Add(this.label15);
             this.groupBox4.Controls.Add(this.IptalButonUrunEkle);
+            this.groupBox4.Controls.Add(this.label15);
             this.groupBox4.Controls.Add(this.UrunEkleButon);
             this.groupBox4.Controls.Add(this.label14);
             this.groupBox4.Controls.Add(this.AmbalajUrunEkle);
@@ -963,18 +967,42 @@
             this.groupBox4.Controls.Add(this.label10);
             this.groupBox4.Controls.Add(this.UrunadiUrunEkle);
             this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Location = new System.Drawing.Point(3, 526);
+            this.groupBox4.Location = new System.Drawing.Point(3, 498);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1226, 92);
+            this.groupBox4.Size = new System.Drawing.Size(1226, 120);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "ÜRÜN EKLE";
             this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
+            // button18
+            // 
+            this.button18.BackColor = System.Drawing.Color.DarkSlateGray;
+            this.button18.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button18.Location = new System.Drawing.Point(907, 24);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(112, 89);
+            this.button18.TabIndex = 45;
+            this.button18.Text = "FATURALI ÜRÜN GİR";
+            this.button18.UseVisualStyleBackColor = false;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
+            // 
+            // button17
+            // 
+            this.button17.BackColor = System.Drawing.Color.OrangeRed;
+            this.button17.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button17.Location = new System.Drawing.Point(1025, 24);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(113, 89);
+            this.button17.TabIndex = 44;
+            this.button17.Text = "İADE EDİLEN ÜRÜN GİR";
+            this.button17.UseVisualStyleBackColor = false;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
+            // 
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(785, 56);
+            this.label46.Location = new System.Drawing.Point(548, 53);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(25, 20);
             this.label46.TabIndex = 16;
@@ -986,7 +1014,7 @@
             this.button16.ForeColor = System.Drawing.SystemColors.Control;
             this.button16.Location = new System.Drawing.Point(1144, 22);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(79, 56);
+            this.button16.Size = new System.Drawing.Size(73, 92);
             this.button16.TabIndex = 16;
             this.button16.Text = " Excel’e Aktar";
             this.button16.UseVisualStyleBackColor = false;
@@ -1003,6 +1031,18 @@
             this.UrunbarkoduUrunEkle.TabIndex = 14;
             this.UrunbarkoduUrunEkle.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox23_KeyPress);
             // 
+            // IptalButonUrunEkle
+            // 
+            this.IptalButonUrunEkle.BackColor = System.Drawing.Color.Crimson;
+            this.IptalButonUrunEkle.ForeColor = System.Drawing.SystemColors.Control;
+            this.IptalButonUrunEkle.Location = new System.Drawing.Point(828, 22);
+            this.IptalButonUrunEkle.Name = "IptalButonUrunEkle";
+            this.IptalButonUrunEkle.Size = new System.Drawing.Size(73, 92);
+            this.IptalButonUrunEkle.TabIndex = 12;
+            this.IptalButonUrunEkle.Text = "İPTAL";
+            this.IptalButonUrunEkle.UseVisualStyleBackColor = false;
+            this.IptalButonUrunEkle.Click += new System.EventHandler(this.IptalButonUrunEkle_Click);
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -1012,25 +1052,13 @@
             this.label15.TabIndex = 13;
             this.label15.Text = "Ürün Barkodu:";
             // 
-            // IptalButonUrunEkle
-            // 
-            this.IptalButonUrunEkle.BackColor = System.Drawing.Color.Crimson;
-            this.IptalButonUrunEkle.ForeColor = System.Drawing.SystemColors.Control;
-            this.IptalButonUrunEkle.Location = new System.Drawing.Point(1067, 22);
-            this.IptalButonUrunEkle.Name = "IptalButonUrunEkle";
-            this.IptalButonUrunEkle.Size = new System.Drawing.Size(71, 56);
-            this.IptalButonUrunEkle.TabIndex = 12;
-            this.IptalButonUrunEkle.Text = "İPTAL";
-            this.IptalButonUrunEkle.UseVisualStyleBackColor = false;
-            this.IptalButonUrunEkle.Click += new System.EventHandler(this.IptalButonUrunEkle_Click);
-            // 
             // UrunEkleButon
             // 
             this.UrunEkleButon.BackColor = System.Drawing.Color.DarkGreen;
             this.UrunEkleButon.ForeColor = System.Drawing.SystemColors.Control;
-            this.UrunEkleButon.Location = new System.Drawing.Point(992, 22);
+            this.UrunEkleButon.Location = new System.Drawing.Point(749, 22);
             this.UrunEkleButon.Name = "UrunEkleButon";
-            this.UrunEkleButon.Size = new System.Drawing.Size(73, 56);
+            this.UrunEkleButon.Size = new System.Drawing.Size(73, 92);
             this.UrunEkleButon.TabIndex = 11;
             this.UrunEkleButon.Text = "EKLE";
             this.UrunEkleButon.UseVisualStyleBackColor = false;
@@ -1039,7 +1067,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(659, 50);
+            this.label14.Location = new System.Drawing.Point(405, 79);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(19, 20);
             this.label14.TabIndex = 10;
@@ -1064,7 +1092,7 @@
             "CAM KAVANOZ",
             "CAM ŞİŞE",
             "POLIETILEN ŞİŞE"});
-            this.AmbalajUrunEkle.Location = new System.Drawing.Point(818, 50);
+            this.AmbalajUrunEkle.Location = new System.Drawing.Point(575, 49);
             this.AmbalajUrunEkle.Name = "AmbalajUrunEkle";
             this.AmbalajUrunEkle.Size = new System.Drawing.Size(168, 28);
             this.AmbalajUrunEkle.TabIndex = 9;
@@ -1073,7 +1101,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(832, 27);
+            this.label13.Location = new System.Drawing.Point(589, 26);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(78, 20);
             this.label13.TabIndex = 8;
@@ -1110,7 +1138,7 @@
             "30000",
             "40000",
             "50000"});
-            this.UrunGramajiUrunEkle.Location = new System.Drawing.Point(685, 48);
+            this.UrunGramajiUrunEkle.Location = new System.Drawing.Point(449, 47);
             this.UrunGramajiUrunEkle.Name = "UrunGramajiUrunEkle";
             this.UrunGramajiUrunEkle.Size = new System.Drawing.Size(93, 28);
             this.UrunGramajiUrunEkle.TabIndex = 7;
@@ -1120,7 +1148,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(685, 21);
+            this.label12.Location = new System.Drawing.Point(449, 20);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 20);
             this.label12.TabIndex = 6;
@@ -1130,7 +1158,7 @@
             // 
             this.UrunFiyatiUrunEkle.BackColor = System.Drawing.SystemColors.HotTrack;
             this.UrunFiyatiUrunEkle.ForeColor = System.Drawing.SystemColors.Window;
-            this.UrunFiyatiUrunEkle.Location = new System.Drawing.Point(583, 50);
+            this.UrunFiyatiUrunEkle.Location = new System.Drawing.Point(329, 79);
             this.UrunFiyatiUrunEkle.Name = "UrunFiyatiUrunEkle";
             this.UrunFiyatiUrunEkle.Size = new System.Drawing.Size(70, 26);
             this.UrunFiyatiUrunEkle.TabIndex = 5;
@@ -1141,7 +1169,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(579, 23);
+            this.label11.Location = new System.Drawing.Point(222, 82);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(101, 20);
             this.label11.TabIndex = 4;
@@ -1151,7 +1179,7 @@
             // 
             this.UrunAdediUrunEkle.BackColor = System.Drawing.SystemColors.HotTrack;
             this.UrunAdediUrunEkle.ForeColor = System.Drawing.SystemColors.Window;
-            this.UrunAdediUrunEkle.Location = new System.Drawing.Point(462, 50);
+            this.UrunAdediUrunEkle.Location = new System.Drawing.Point(116, 79);
             this.UrunAdediUrunEkle.Name = "UrunAdediUrunEkle";
             this.UrunAdediUrunEkle.Size = new System.Drawing.Size(100, 26);
             this.UrunAdediUrunEkle.TabIndex = 3;
@@ -1160,7 +1188,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(458, 23);
+            this.label10.Location = new System.Drawing.Point(6, 79);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(104, 20);
             this.label10.TabIndex = 2;
@@ -1649,7 +1677,7 @@
             this.button32.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button32.Location = new System.Drawing.Point(7, 227);
             this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(158, 52);
+            this.button32.Size = new System.Drawing.Size(126, 52);
             this.button32.TabIndex = 5;
             this.button32.Text = "LİSTEYİ TEMİZLE";
             this.button32.UseVisualStyleBackColor = false;
@@ -1671,9 +1699,9 @@
             // 
             this.button31.BackColor = System.Drawing.Color.Orange;
             this.button31.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button31.Location = new System.Drawing.Point(168, 227);
+            this.button31.Location = new System.Drawing.Point(139, 227);
             this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(162, 52);
+            this.button31.Size = new System.Drawing.Size(191, 52);
             this.button31.TabIndex = 4;
             this.button31.Text = "MEVCUT LİSTEYİ  Excel’e Aktar";
             this.button31.UseVisualStyleBackColor = false;
@@ -2220,7 +2248,7 @@
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(170, 20);
             this.label35.TabIndex = 9;
-            this.label35.Text = "STOKMATİK V.1.0.9";
+            this.label35.Text = "STOKMATİK V.1.1.0";
             // 
             // urunSepetiBindingSource
             // 
@@ -2280,7 +2308,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "STOKMATİK V.1.0.9";
+            this.Text = "STOKMATİK V.1.1.0";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
@@ -2552,6 +2580,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
+        private System.Windows.Forms.Button button18;
+        private System.Windows.Forms.Button button17;
     }
 }
 

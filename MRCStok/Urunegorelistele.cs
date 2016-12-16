@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace MRCStok
 {
@@ -15,7 +16,9 @@ namespace MRCStok
         public StokMatikEntities db;
         public StokmatikHammaddeEntities db1;
         public Form1 ff11 = (Form1)System.Windows.Forms.Application.OpenForms["Form1"];
-        public bool gelenurunrapor=false;
+        public TedarikciEkle urunegore = (TedarikciEkle) Application.OpenForms["TedarikciEkle"];
+        public string gelenurunrapor;
+        public bool gelenrapor2 = false;
         public Urunegorelistele()
         {
             InitializeComponent();
@@ -32,7 +35,7 @@ namespace MRCStok
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            if(gelenurunrapor==false)
+            if(gelenurunrapor=="1")
             {
                 string str = gridView1.FocusedValue.ToString();
                 string Urungramajinial = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "UrunGramaji").ToString();
@@ -129,7 +132,7 @@ namespace MRCStok
                 }
             
             }
-            else    // Filmin başladığı yer hacı
+            else if (gelenurunrapor == "2")  // Filmin başladığı yer hacı
             {
                 string str = gridView1.FocusedValue.ToString();
                 string Urungramajinial = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "UrunGramaji").ToString();
@@ -250,6 +253,41 @@ namespace MRCStok
                             }
                         }
                     }
+                }
+            }
+            if (gelenrapor2==true)
+            {
+                urunegore.Hide();
+                this.Hide();
+                string str = gridView1.FocusedValue.ToString();
+                string Urungramajinial = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "UrunGramaji").ToString();
+                string urunpaketinial = gridView1.GetRowCellValue(gridView1.FocusedRowHandle, "UrunPaketi").ToString();
+                try
+                {
+                    var bul = db.Urunler.Where(p => p.UrunAdi == str && p.UrunGramaji == Urungramajinial && p.UrunPaketi == urunpaketinial).FirstOrDefault();
+                    string Urunadedi = Interaction.InputBox(str+" ADLI ÜRÜNÜN ADEDİNİ GİRİN:", "ÜRÜN ADEDİ", "", 680, 380);
+                    if (Urunadedi == "0" || Urunadedi=="")
+                    {
+                        MessageBox.Show("Sıfır Girilemez");
+                    }
+                    else
+                    {
+                        urunegore.dataGridView1.Rows.Add();
+                        urunegore.dataGridView1.Rows[urunegore.Sayac].Cells[0].Value = bul.UrunAdi;
+                        urunegore.dataGridView1.Rows[urunegore.Sayac].Cells[1].Value = Urunadedi;
+                        urunegore.dataGridView1.Rows[urunegore.Sayac].Cells[2].Value = bul.UrunGramaji;
+                        urunegore.dataGridView1.Rows[urunegore.Sayac].Cells[3].Value = bul.UrunPaketi;
+                        urunegore.dataGridView1.Rows[urunegore.Sayac].Cells[4].Value = bul.UrunFiyati;
+                        urunegore.Sayac++;
+                    }
+                    urunegore.Visible = true;
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    urunegore.Visible = true;
+                    this.Close();
                 }
             }
         }

@@ -13,7 +13,7 @@ namespace MRCStok
     public partial class MusteriSecmeEkrani : Form
     {
         public Form1 bulma = (Form1)System.Windows.Forms.Application.OpenForms["Form1"];
-        public Uruneklemetektus bulma1 = (Uruneklemetektus)System.Windows.Forms.Application.OpenForms["Uruneklemetektus"];
+        public TedarikciEkle bulma1 = (TedarikciEkle)Application.OpenForms["TedarikciEkle"];
         public string counter;
         
         public MusteriSecmeEkrani()
@@ -35,7 +35,7 @@ namespace MRCStok
 
         private void gridView1_DoubleClick(object sender, EventArgs e)
         {
-            if(counter=="1")
+            if (counter == "1")
             {
                 string str = gridView1.FocusedValue.ToString();
                 try
@@ -52,7 +52,7 @@ namespace MRCStok
                     MessageBox.Show("MÜŞTERİYİ SEÇMEK İÇİN; MÜŞTERİ İSMİNE TIKLAMALISINIZ!");
                 }
             }
-            else if (counter=="2")
+            else if (counter == "2")
             {
                 string str = gridView1.FocusedValue.ToString();
                 try
@@ -69,7 +69,7 @@ namespace MRCStok
                     MessageBox.Show("MÜŞTERİYİ SEÇMEK İÇİN; MÜŞTERİ İSMİNE TIKLAMALISINIZ!");
                 }
             }
-            else if(counter=="3")
+            else if (counter == "3")
             {
                 string str = gridView1.FocusedValue.ToString();
                 try
@@ -77,24 +77,7 @@ namespace MRCStok
                     var bul = bulma.db.Musteriler.Where(p => p.MusteriAdi == str).FirstOrDefault();
                     if (bul.MusteriAdi == str)
                     {
-                        bulma1.textBox1.Text = str;
-                        this.Close();
-                    }
-                }
-                catch
-                {
-                    MessageBox.Show("MÜŞTERİYİ SEÇMEK İÇİN; MÜŞTERİ İSMİNE TIKLAMALISINIZ!");
-                }
-            }
-             else if(counter=="4")
-            {
-                string str = gridView1.FocusedValue.ToString();
-                try
-                {
-                    var bul = bulma.db.Musteriler.Where(p => p.MusteriAdi == str).FirstOrDefault();
-                    if (bul.MusteriAdi == str)
-                    {
-                        bulma1.textBox5.Text = str;
+                        bulma1.MVeTedarikciAdi.Text = str;
                         this.Close();
                     }
                 }

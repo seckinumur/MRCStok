@@ -107,7 +107,7 @@ namespace MRCStok
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (StokMatikyolu== null && StokmatikHammadde== null && StokmatikSepet==null)
+            if (StokMatikyolu== "" && StokmatikHammadde== "" && StokmatikSepet=="")
             {
                 MessageBox.Show("Tüm Veritabanlarını doğru seçiniz");
             }

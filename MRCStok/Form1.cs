@@ -1305,7 +1305,7 @@ namespace MRCStok
                         string tarih = ilktarih.AddDays(i).ToShortDateString();
                         try
                         {
-                            var bul = db.Raporlama.Where(p => p.FaturaDurumu == "İADE" && p.Tarih == tarih).ToList();
+                            var bul = db.Raporlama.Where(p => p.FaturaDurumu.Contains("İADE GELEN ÜRÜN ") && p.Tarih == tarih).ToList();
                             foreach (var m in bul)
                             {
                                 dataGridView6.Rows.Add();
@@ -1422,6 +1422,7 @@ namespace MRCStok
         {
             Urunegorelistele ac = new Urunegorelistele();
             ac.Show();
+            ac.gelenurunrapor = "1";
         }
 
         private void groupBox4_Enter(object sender, EventArgs e)
@@ -1580,7 +1581,7 @@ namespace MRCStok
         {
             Urunegorelistele ac = new Urunegorelistele();
             ac.Show();
-            ac.gelenurunrapor = true;
+            ac.gelenurunrapor = "2";
         }
 
         private void textBox23_KeyPress(object sender, KeyPressEventArgs e)
@@ -1957,6 +1958,22 @@ namespace MRCStok
         {
             Safemod ac = new Safemod();
             ac.Show();
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            TedarikciEkle ac = new TedarikciEkle();
+            ac.Show();
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            TedarikciEkle ac = new TedarikciEkle();
+            ac.Show();
+            ac.Onayla.Text = "BU ÜRÜNÜ İADE OLARAK STOK'A GİR";
+            ac.MusteriTedarikciDegistir.Text = "MÜŞTERİ ADI:";
+            ac.MusteriVeyaTedarikciSec.Text = "MÜŞTERİ SEÇ";
+            ac.iade = true;
         }
     }
 }
