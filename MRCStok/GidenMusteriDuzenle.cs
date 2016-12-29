@@ -32,12 +32,12 @@ namespace MRCStok
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string yetki = f213.AdminKontrol;
-            f211.yenidenbaslama = true;
-            f213.Close();
-            Form1 frm = new Form1();
-            frm.Show();
-            frm.AdminKontrol = yetki;
+            //string yetki = f213.AdminKontrol;
+            //f211.yenidenbaslama = true;
+            //f213.Close();
+            //Form1 frm = new Form1();
+            //frm.Show();
+            //frm.AdminKontrol = yetki;
             this.Close();
         }
 
@@ -127,7 +127,7 @@ namespace MRCStok
                     try
                     {
                         double sonuc = 0;
-                        var bul = db.Raporlama.Where(p => p.Tarih == selicideger && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial && p.UrunGramaji == gramajiurunun.Text && p.UrunPaketi == ambalajiurunun.Text).FirstOrDefault();
+                        var bul = db.Raporlama.Where(p => p.Ay == seciliay && p.GidenUrunler == textBox7.Text && p.GidenMusteriler == textBox1.Text && p.UrunAdedi == adedinial && p.UrunGramaji == gramajiurunun.Text && p.UrunPaketi == ambalajiurunun.Text).FirstOrDefault();
                         var ekle = db.Urunler.Where(p => p.UrunAdi == textBox7.Text && p.UrunGramaji == bul.UrunGramaji && p.UrunPaketi == bul.UrunPaketi).FirstOrDefault();
                         double urunadedi = Convert.ToDouble(ekle.UrunAdedi);
                         double seciliadet = Convert.ToDouble(bul.UrunAdedi);

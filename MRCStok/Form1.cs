@@ -48,7 +48,12 @@ namespace MRCStok
             this.kullanicilarTableAdapter.Fill(this.stokMatikDataSet1.Kullanicilar);
             this.urunlerTableAdapter.Fill(this.stokMatikDataSet.Urunler);
             f21.yenidenbaslama = false;
-
+            double sepetkalem=0;
+            for (int i=0; i< gridView4.RowCount; i++)
+            {
+                sepetkalem++;
+                textBox6.Text = sepetkalem.ToString();
+            }
         }  // Form1 Yükleme Alanı.
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -60,6 +65,7 @@ namespace MRCStok
             txBox.SelectionStart = pos;
             txBox.SelectionLength = slen;
             txBox.Focus();
+           
         }  // Tüm TextBox Büyük Harfle Yazma Kodu.
 
         private void button34_Click(object sender, EventArgs e)
@@ -374,7 +380,7 @@ namespace MRCStok
                             string urungramaji = UrunGramajiUrunEkle.SelectedItem.ToString();
                             string urunpaketi = AmbalajUrunEkle.SelectedItem.ToString();
                             var bul = db.Urunler.Where(p => p.UrunAdi == UrunadiUrunEkle.Text && p.UrunGramaji == urungramaji && p.UrunPaketi == urunpaketi).FirstOrDefault();
-                            if (bul.UrunAdi == UrunadiUrunEkle.Text && bul.UrunGramaji==urungramaji && bul.UrunPaketi==urunpaketi)
+                            if (bul.UrunAdi == UrunadiUrunEkle.Text && bul.UrunGramaji == urungramaji && bul.UrunPaketi == urunpaketi)
                             {
                                 MessageBox.Show("Bu ürün Daha Önceden Kaydedilmiş!, Eğer Ürünün Bilgilerini Güncellemek istiyorsanız ürün ismine çift tıklayarak ürün güncelle Panosundan işlemlerinizi yapabilirsiniz!", "UYARI!");
                             }
@@ -552,7 +558,7 @@ namespace MRCStok
                     textBox2.Text = "";
                     textBox16.Text = "";
                     sayac = 0;
-                    textBox4.Text = "0";
+                    //textBox4.Text = "0";
                     textBox5.Text = "0";
                     textBox6.Text = "0";
                     Form1_Load(sender, e);
@@ -571,7 +577,7 @@ namespace MRCStok
             musac.counter = "1";
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)  // sipariş sepetinden gönder
         {
             if (textBox2.Text == "")
             {
@@ -586,6 +592,23 @@ namespace MRCStok
                         MessageBox.Show("Fatura Numarası girmemişsiniz!");
                         return;
                     }
+                    else
+                    {
+                        try
+                        {
+                            var faturabul = db.Raporlama.Where(p => p.FaturaDurumu == textBox16.Text).FirstOrDefault();
+
+                            if (faturabul.FaturaDurumu == textBox16.Text)
+                            {
+                                MessageBox.Show("Bu Fatura Numarası ile Daha Önceden Kayıt Olmuş. Lütfen Fatura Numarasını Değiştirin.");
+                                return;
+                            }
+                        }
+                        catch
+                        {
+                        }
+                    }
+
                 }
                 DialogResult Uyari = new DialogResult();
                 Uyari = MessageBox.Show("Siparişiniz Tamamlanacak Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
@@ -638,7 +661,7 @@ namespace MRCStok
                         textBox2.Text = "";
                         textBox16.Text = "";
                         sayac = 0;
-                        textBox4.Text = "0";
+                        //textBox4.Text = "0";
                         textBox5.Text = "0";
                         textBox6.Text = "0";
                         Form1_Load(sender, e);
@@ -850,8 +873,6 @@ namespace MRCStok
                 }
             }
         }
-
-
 
         private void gridView2_DoubleClick(object sender, EventArgs e)
         {
@@ -1475,17 +1496,17 @@ namespace MRCStok
                     foreach (var m in bul)
                     {
                         dataGridView6.Rows.Add();
-                        if(m.Uretici== null)
+                        if (m.Uretici == null)
                         {
-                        dataGridView6.Rows[i].Cells[0].Value = "MRC ÜRETİM";
-                        dataGridView6.Rows[i].Cells[6].Value = "###";
+                            dataGridView6.Rows[i].Cells[0].Value = "MRC ÜRETİM";
+                            dataGridView6.Rows[i].Cells[6].Value = "###";
                         }
                         else
                         {
-                        dataGridView6.Rows[i].Cells[0].Value =m.Uretici;
-                        dataGridView6.Rows[i].Cells[6].Value = m.UreticiFaturasi;
+                            dataGridView6.Rows[i].Cells[0].Value = m.Uretici;
+                            dataGridView6.Rows[i].Cells[6].Value = m.UreticiFaturasi;
                         }
-                        
+
                         dataGridView6.Rows[i].Cells[1].Value = m.UrunAdi;
                         dataGridView6.Rows[i].Cells[2].Value = m.UrunGramaji;
                         dataGridView6.Rows[i].Cells[3].Value = m.UrunAdedi;
@@ -1655,7 +1676,7 @@ namespace MRCStok
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox3.SelectedItem != "FATURALI")
+            if (comboBox3.SelectedItem.ToString() != "FATURALI")
             {
                 textBox16.Enabled = false;
             }
@@ -1946,9 +1967,9 @@ namespace MRCStok
                 if (result == DialogResult.OK)
                 {
                     string dosyaadi = folderBrowserDialog1.SelectedPath;
-                    File.Copy(@"C:\MRCStok\Data\StokMatik.db", dosyaadi+ "\\StokMatik.db");
-                    File.Copy(@"C:\MRCStok\Data\StokmatikHammadde.db", dosyaadi+ "\\StokmatikHammadde.db");
-                    File.Copy(@"C:\MRCStok\Data\StokmatikSepet.db", dosyaadi+ "\\StokmatikSepet.db");
+                    File.Copy(@"C:\MRCStok\Data\StokMatik.db", dosyaadi + "\\StokMatik.db");
+                    File.Copy(@"C:\MRCStok\Data\StokmatikHammadde.db", dosyaadi + "\\StokmatikHammadde.db");
+                    File.Copy(@"C:\MRCStok\Data\StokmatikSepet.db", dosyaadi + "\\StokmatikSepet.db");
                     MessageBox.Show("VERİTABANI YEDEKLENDİ!");
                 }
             }
@@ -1975,7 +1996,60 @@ namespace MRCStok
             ac.MusteriVeyaTedarikciSec.Text = "MÜŞTERİ SEÇ";
             ac.iade = true;
         }
+
+        private void gridView2_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string str = gridView2.FocusedValue.ToString();
+                string Urungramajinial = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "UrunGramaji").ToString();
+                string urunpaketinial = gridView2.GetRowCellValue(gridView2.FocusedRowHandle, "UrunPaketi").ToString();
+                try
+                {
+                    var ekle = db.Urunler.Where(p => p.UrunAdi == str && p.UrunGramaji == Urungramajinial && p.UrunPaketi == urunpaketinial).FirstOrDefault();
+                    if (ekle.UrunAdi == str)
+                    {
+                        Uruneklemetektus ac = new Uruneklemetektus();
+                        ac.Show();
+                        ac.label3.Text = ekle.UrunAdi;
+                        ac.label4.Text = ekle.UrunGramaji;
+                        ac.label5.Text = ekle.UrunPaketi;
+                        ac.UrunAdiUrunDuzenle.Text = ekle.UrunAdi;
+                        ac.UrunGramajıUrunDuzenle.SelectedItem = ekle.UrunGramaji;
+                        ac.UrunAdediUrunDuzenle.Text = ekle.UrunAdedi;
+                        ac.AmbalajUrunDuzenle.SelectedItem = ekle.UrunPaketi;
+                        ac.UrunFiyatiUrunDuzenle.Text = ekle.UrunFiyati;
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Ürün Bulunamadı!", "UYARI!");
+                }
+            }
+        }
+
+        private void gridView3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                string str = gridView3.FocusedValue.ToString();
+                try
+                {
+                    var musteribul = db.Musteriler.Where(p => p.MusteriAdi == str).FirstOrDefault();
+                    if (musteribul.MusteriAdi == str)
+                    {
+                        MusteriKontrolEkrani ac = new MusteriKontrolEkrani();
+                        ac.Show();
+                        ac.BurdanAl.Text = musteribul.MusteriAdi;
+                        ac.MusteriAdiMusteriDuzenle.Text = musteribul.MusteriAdi;
+                        ac.AdresMusteriDuzenle.Text = musteribul.MusteriAdresi;
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Seçmek İçin Müşteri İsmine Çift Tıklayın");
+                }
+            }
+        }
     }
 }
-
-

@@ -59,19 +59,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.button39 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.gridControl2 = new DevExpress.XtraGrid.GridControl();
             this.urunlerBindingSource10 = new System.Windows.Forms.BindingSource(this.components);
@@ -318,7 +313,7 @@
             this.gridControl4.Location = new System.Drawing.Point(817, 3);
             this.gridControl4.MainView = this.gridView4;
             this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(408, 340);
+            this.gridControl4.Size = new System.Drawing.Size(408, 427);
             this.gridControl4.TabIndex = 13;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -546,12 +541,9 @@
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.textBox5);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Location = new System.Drawing.Point(817, 539);
+            this.groupBox3.Location = new System.Drawing.Point(818, 565);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(408, 78);
+            this.groupBox3.Size = new System.Drawing.Size(408, 53);
             this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ÖZET";
@@ -570,17 +562,17 @@
             // 
             this.label9.AutoSize = true;
             this.label9.ForeColor = System.Drawing.Color.Navy;
-            this.label9.Location = new System.Drawing.Point(246, 18);
+            this.label9.Location = new System.Drawing.Point(234, 18);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(61, 20);
+            this.label9.Size = new System.Drawing.Size(73, 20);
             this.label9.TabIndex = 6;
-            this.label9.Text = "ADET:";
+            this.label9.Text = "KALEM:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label7.Location = new System.Drawing.Point(189, 52);
+            this.label7.Location = new System.Drawing.Point(189, 21);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(19, 20);
             this.label7.TabIndex = 5;
@@ -589,7 +581,7 @@
             // textBox5
             // 
             this.textBox5.ForeColor = System.Drawing.Color.DarkGreen;
-            this.textBox5.Location = new System.Drawing.Point(94, 49);
+            this.textBox5.Location = new System.Drawing.Point(94, 18);
             this.textBox5.Name = "textBox5";
             this.textBox5.ReadOnly = true;
             this.textBox5.Size = new System.Drawing.Size(89, 26);
@@ -600,47 +592,17 @@
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.DarkGreen;
-            this.label6.Location = new System.Drawing.Point(10, 52);
+            this.label6.Location = new System.Drawing.Point(10, 21);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(84, 20);
             this.label6.TabIndex = 3;
             this.label6.Text = "TOPLAM:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Maroon;
-            this.label5.Location = new System.Drawing.Point(189, 21);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 20);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "GR";
-            // 
-            // textBox4
-            // 
-            this.textBox4.ForeColor = System.Drawing.Color.Maroon;
-            this.textBox4.Location = new System.Drawing.Point(94, 18);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(89, 26);
-            this.textBox4.TabIndex = 1;
-            this.textBox4.Text = "0";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.Maroon;
-            this.label4.Location = new System.Drawing.Point(10, 21);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "TOPLAM:";
-            // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.Red;
             this.button3.ForeColor = System.Drawing.SystemColors.Control;
-            this.button3.Location = new System.Drawing.Point(815, 496);
+            this.button3.Location = new System.Drawing.Point(815, 526);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(254, 38);
             this.button3.TabIndex = 7;
@@ -652,7 +614,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Green;
             this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(1075, 496);
+            this.button2.Location = new System.Drawing.Point(1075, 526);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(150, 38);
             this.button2.TabIndex = 6;
@@ -664,14 +626,12 @@
             // 
             this.groupBox1.Controls.Add(this.comboBox3);
             this.groupBox1.Controls.Add(this.button39);
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.textBox16);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(817, 349);
+            this.groupBox1.Location = new System.Drawing.Point(817, 436);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(408, 141);
+            this.groupBox1.Size = new System.Drawing.Size(408, 89);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "GÖNDERİLEN MÜŞTERİ";
@@ -688,7 +648,7 @@
             "ZAYİ",
             "İADE",
             "FATURASIZ ÖDEME"});
-            this.comboBox3.Location = new System.Drawing.Point(229, 103);
+            this.comboBox3.Location = new System.Drawing.Point(229, 53);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(173, 28);
             this.comboBox3.TabIndex = 12;
@@ -699,27 +659,18 @@
             // 
             this.button39.BackColor = System.Drawing.Color.Red;
             this.button39.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button39.Location = new System.Drawing.Point(122, 28);
+            this.button39.Location = new System.Drawing.Point(252, 19);
             this.button39.Name = "button39";
-            this.button39.Size = new System.Drawing.Size(280, 31);
+            this.button39.Size = new System.Drawing.Size(150, 31);
             this.button39.TabIndex = 11;
             this.button39.Text = "MÜŞTERİ SEÇ";
             this.button39.UseVisualStyleBackColor = false;
             this.button39.Click += new System.EventHandler(this.button39_Click);
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 28);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 20);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Müşteri Seç:";
-            // 
             // textBox16
             // 
             this.textBox16.ForeColor = System.Drawing.Color.Crimson;
-            this.textBox16.Location = new System.Drawing.Point(121, 105);
+            this.textBox16.Location = new System.Drawing.Point(121, 55);
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(102, 26);
             this.textBox16.TabIndex = 6;
@@ -730,7 +681,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.ForeColor = System.Drawing.Color.Crimson;
-            this.label24.Location = new System.Drawing.Point(9, 107);
+            this.label24.Location = new System.Drawing.Point(9, 57);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(94, 20);
             this.label24.TabIndex = 5;
@@ -739,22 +690,12 @@
             // textBox2
             // 
             this.textBox2.ForeColor = System.Drawing.Color.DarkBlue;
-            this.textBox2.Location = new System.Drawing.Point(121, 65);
+            this.textBox2.Location = new System.Drawing.Point(6, 23);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(281, 26);
+            this.textBox2.Size = new System.Drawing.Size(240, 26);
             this.textBox2.TabIndex = 1;
             this.textBox2.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label2.Location = new System.Drawing.Point(6, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Müşteri Adı:";
             // 
             // tabPage2
             // 
@@ -804,6 +745,7 @@
             this.gridView2.OptionsView.ShowGroupPanel = false;
             this.gridView2.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colUrunAdi1, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.gridView2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView2_KeyDown_1);
             this.gridView2.DoubleClick += new System.EventHandler(this.gridView2_DoubleClick_1);
             // 
             // colUrunAdi1
@@ -1262,6 +1204,7 @@
             this.gridView3.OptionsView.ShowGroupPanel = false;
             this.gridView3.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colMusteriAdi, DevExpress.Data.ColumnSortOrder.Ascending)});
+            this.gridView3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gridView3_KeyDown);
             this.gridView3.DoubleClick += new System.EventHandler(this.gridView3_DoubleClick);
             // 
             // colMusteriAdi
@@ -2045,9 +1988,9 @@
             // 
             // button37
             // 
-            this.button37.Location = new System.Drawing.Point(14, 561);
+            this.button37.Location = new System.Drawing.Point(16, 561);
             this.button37.Name = "button37";
-            this.button37.Size = new System.Drawing.Size(506, 45);
+            this.button37.Size = new System.Drawing.Size(504, 45);
             this.button37.TabIndex = 14;
             this.button37.Text = "OTURUMU KAPAT";
             this.button37.UseVisualStyleBackColor = true;
@@ -2248,7 +2191,7 @@
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(170, 20);
             this.label35.TabIndex = 9;
-            this.label35.Text = "STOKMATİK V.1.1.0";
+            this.label35.Text = "STOKMATİK V.1.1.1";
             // 
             // urunSepetiBindingSource
             // 
@@ -2299,6 +2242,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.label35);
             this.Controls.Add(this.statusStrip1);
@@ -2308,7 +2252,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "STOKMATİK V.1.1.0";
+            this.Text = "STOKMATİK V.1.1.1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
@@ -2389,13 +2333,10 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -2418,7 +2359,6 @@
         private System.Windows.Forms.Button UrunEkleButon;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Button MusteriKaydetMusteriEkle;
@@ -2482,7 +2422,6 @@
         private System.Windows.Forms.Label label46;
         public System.Windows.Forms.TextBox textBox6;
         public System.Windows.Forms.TextBox textBox5;
-        public System.Windows.Forms.TextBox textBox4;
         private StokMatikDataSet3 stokMatikDataSet3;
         private System.Windows.Forms.BindingSource urunSepetiBindingSource;
         private StokMatikDataSet3TableAdapters.UrunSepetiTableAdapter urunSepetiTableAdapter;
