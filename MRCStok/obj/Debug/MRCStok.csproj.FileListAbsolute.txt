@@ -680,4 +680,3 @@ C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.csproj.GenerateRe
 C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.exe.licenses
 C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.exe
 C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.pdb
-C:\Users\Grafik\Source\Repos\MRCStok\MRCStok\obj\Debug\MRCStok.csprojResolveAssemblyReference.cache

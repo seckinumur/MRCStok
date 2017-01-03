@@ -416,7 +416,7 @@
             this.gridControl1.Location = new System.Drawing.Point(3, 3);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(809, 618);
+            this.gridControl1.Size = new System.Drawing.Size(809, 615);
             this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -954,9 +954,9 @@
             // 
             this.button16.BackColor = System.Drawing.Color.DarkOrange;
             this.button16.ForeColor = System.Drawing.SystemColors.Control;
-            this.button16.Location = new System.Drawing.Point(1144, 22);
+            this.button16.Location = new System.Drawing.Point(1144, 26);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(73, 92);
+            this.button16.Size = new System.Drawing.Size(73, 88);
             this.button16.TabIndex = 16;
             this.button16.Text = " Excel’e Aktar";
             this.button16.UseVisualStyleBackColor = false;
@@ -977,9 +977,9 @@
             // 
             this.IptalButonUrunEkle.BackColor = System.Drawing.Color.Crimson;
             this.IptalButonUrunEkle.ForeColor = System.Drawing.SystemColors.Control;
-            this.IptalButonUrunEkle.Location = new System.Drawing.Point(828, 22);
+            this.IptalButonUrunEkle.Location = new System.Drawing.Point(828, 24);
             this.IptalButonUrunEkle.Name = "IptalButonUrunEkle";
-            this.IptalButonUrunEkle.Size = new System.Drawing.Size(73, 92);
+            this.IptalButonUrunEkle.Size = new System.Drawing.Size(73, 90);
             this.IptalButonUrunEkle.TabIndex = 12;
             this.IptalButonUrunEkle.Text = "İPTAL";
             this.IptalButonUrunEkle.UseVisualStyleBackColor = false;
@@ -998,9 +998,9 @@
             // 
             this.UrunEkleButon.BackColor = System.Drawing.Color.DarkGreen;
             this.UrunEkleButon.ForeColor = System.Drawing.SystemColors.Control;
-            this.UrunEkleButon.Location = new System.Drawing.Point(749, 22);
+            this.UrunEkleButon.Location = new System.Drawing.Point(749, 26);
             this.UrunEkleButon.Name = "UrunEkleButon";
-            this.UrunEkleButon.Size = new System.Drawing.Size(73, 92);
+            this.UrunEkleButon.Size = new System.Drawing.Size(73, 88);
             this.UrunEkleButon.TabIndex = 11;
             this.UrunEkleButon.Text = "EKLE";
             this.UrunEkleButon.UseVisualStyleBackColor = false;
