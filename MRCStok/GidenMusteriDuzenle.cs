@@ -442,17 +442,17 @@ namespace MRCStok
                                 else if (comboBox1.SelectedItem == "FATURASIZ ÖDEME") { bul.FaturaDurumu = comboBox1.SelectedItem.ToString(); }
                                 else {  bul.FaturaDurumu = textBox16.Text; }
                                 db.SaveChanges();
-                                f213.dataGridView6.Rows.Clear();
-                                adedinial = "";
-                                string yetki = f213.AdminKontrol;
-                                f211.yenidenbaslama = true;
-                                f213.Close();
-                                Form1 frm = new Form1();
-                                frm.Show();
-                                frm.AdminKontrol = yetki;
-                                this.Close();
-                                MessageBox.Show("Mevcut Listedeki Tüm Gönderilerin Fatura Durumu Başarıyla Değiştirildi!");
                             }
+                            f213.dataGridView6.Rows.Clear();
+                            adedinial = "";
+                            string yetki = f213.AdminKontrol;
+                            f211.yenidenbaslama = true;
+                            f213.Close();
+                            Form1 frm = new Form1();
+                            frm.Show();
+                            frm.AdminKontrol = yetki;
+                            this.Close();
+                            MessageBox.Show("Mevcut Listedeki Tüm Gönderilerin Fatura Durumu Başarıyla Değiştirildi!");
                         }
                         catch (Exception ex)
                         {

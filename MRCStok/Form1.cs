@@ -18,7 +18,7 @@ namespace MRCStok
         public StokMatikEntities db;
         public StokmatikHammaddeEntities db1;
         public StokmatikSepetEntities db2;
-
+        public string RaporlamaKontrol = "OFFLINE";
         public GirisEkrani f21 = (GirisEkrani)System.Windows.Forms.Application.OpenForms["GirisEkrani"];
         public Uruneklemetektus uruneklemyegit = (Uruneklemetektus)System.Windows.Forms.Application.OpenForms["Uruneklemetektus"];
         public string AdminKontrol;
@@ -43,6 +43,7 @@ namespace MRCStok
 
         public void Form1_Load(object sender, EventArgs e)
         {
+            RAPORLAMADURUMUGOSTER.Text = "RAPORLAMA AKTİF DEĞİL!";
             this.sepetTableAdapter.Fill(this.stokmatikSepetDataSet.Sepet);
             this.musterilerTableAdapter.Fill(this.stokMatikDataSet2.Musteriler);
             this.kullanicilarTableAdapter.Fill(this.stokMatikDataSet1.Kullanicilar);
@@ -585,7 +586,7 @@ namespace MRCStok
             }
             else
             {
-                if (comboBox3.SelectedItem.ToString() == "FATURALI")
+                if (comboBox3.SelectedItem.ToString() == "FATURALI" || comboBox3.SelectedItem.ToString() == "İADE")
                 {
                     if (textBox16.Text == "")
                     {
@@ -642,6 +643,17 @@ namespace MRCStok
                                     ekle.FaturaDurumu = textBox16.Text;
                                 }
                             }
+                            else if (comboBox3.SelectedItem.ToString() == "İADE")
+                            {
+                                if (m.UrunFaturası == "BEDELSİZ")
+                                {
+                                    ekle.FaturaDurumu = m.UrunFaturası;
+                                }
+                                else
+                                {
+                                    ekle.FaturaDurumu = textBox16.Text+" İADE EDİLEN ÜRÜN";
+                                }
+                            }
                             else
                             {
                                 if (m.UrunFaturası == "BEDELSİZ")
@@ -676,8 +688,10 @@ namespace MRCStok
             }
         }
 
-        private void button24_Click(object sender, EventArgs e)
+        private void button24_Click(object sender, EventArgs e)  // hepsini göster
         {
+            RaporlamaKontrol = "HEPSİ";
+            RAPORLAMADURUMUGOSTER.Text = "Seçilen Tarih Aralığına Göre Rapolama Gösteriliyor!";
             string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
             if (checkBox2.Checked == true)
             {
@@ -771,6 +785,8 @@ namespace MRCStok
         {
             dataGridView6.Rows.Clear();
             textBox7.Text = "";
+            RaporlamaKontrol = "OFFLINE";
+            RAPORLAMADURUMUGOSTER.Text = "RAPORLAMA AKTİF DEĞİL!";
         }
 
         private void button31_Click(object sender, EventArgs e)
@@ -889,8 +905,10 @@ namespace MRCStok
             AC.counter = "2";
         }
 
-        private void button29_Click(object sender, EventArgs e)
+        private void button29_Click(object sender, EventArgs e) //Müşteriye göre raporlama
         {
+            RaporlamaKontrol = "MÜŞTERİ";
+            RAPORLAMADURUMUGOSTER.Text = "Müşteriye Göre Rapolama Gösteriliyor!";
             string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
             if (checkBox2.Checked == true)
             {
@@ -982,10 +1000,14 @@ namespace MRCStok
         {
             dataGridView6.Rows.Clear();
             textBox7.Text = "";
+            RaporlamaKontrol = "OFFLINE";
+            RAPORLAMADURUMUGOSTER.Text = "RAPORLAMA AKTİF DEĞİL!";
         }
 
-        private void button30_Click(object sender, EventArgs e)
+        private void button30_Click(object sender, EventArgs e)  // FATURASIZ RAPOR
         {
+            RaporlamaKontrol = "FATURASIZ";
+            RAPORLAMADURUMUGOSTER.Text = "Faturasız Rapolama Gösteriliyor!";
             string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
             if (checkBox2.Checked == true)
             {
@@ -1074,8 +1096,10 @@ namespace MRCStok
             }
         }
 
-        private void button33_Click(object sender, EventArgs e)
+        private void button33_Click(object sender, EventArgs e) // Bedelsiz raporlama
         {
+            RaporlamaKontrol = "BEDELSİZ";
+            RAPORLAMADURUMUGOSTER.Text = "Bedelsiz Rapolama Gösteriliyor!";
             string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
             if (checkBox2.Checked == true)
             {
@@ -1168,10 +1192,14 @@ namespace MRCStok
         {
             dataGridView6.Rows.Clear();
             textBox7.Text = "";
+            RaporlamaKontrol = "OFFLINE";
+            RAPORLAMADURUMUGOSTER.Text = "RAPORLAMA AKTİF DEĞİL!";
         }
 
-        private void button6_Click_1(object sender, EventArgs e)
+        private void button6_Click_1(object sender, EventArgs e) //fatura no ile arama raporlama
         {
+            RaporlamaKontrol = textBox1.Text;
+            RAPORLAMADURUMUGOSTER.Text = "Fatura No İle Rapolama Gösteriliyor!";
             string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
             if (checkBox2.Checked == true)
             {
@@ -1259,15 +1287,17 @@ namespace MRCStok
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) // İade Gelen Ürün raporlama
         {
+            RaporlamaKontrol = "İADE GELEN ÜRÜN";
+            RAPORLAMADURUMUGOSTER.Text = "İade Gelen Ürün Rapolama Gösteriliyor!";
             string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
             if (checkBox2.Checked == true)
             {
                 dataGridView6.Rows.Clear();
                 try
                 {
-                    var musteri = db.Raporlama.Where(p => p.FaturaDurumu.Contains("İADE GELEN ÜRÜN ") && p.Ay == seciliay).ToList();
+                    var musteri = db.Raporlama.Where(p => p.FaturaDurumu.Contains("İADE GELEN ÜRÜN") && p.Ay == seciliay).ToList();
                     int i = 0;
                     foreach (var m in musteri)
                     {
@@ -1300,7 +1330,7 @@ namespace MRCStok
                     try
                     {
                         string tarih = ilktarih.ToShortDateString();
-                        var bul = db.Raporlama.Where(p => p.FaturaDurumu.Contains("İADE GELEN ÜRÜN ") && p.Tarih == tarih).ToList();
+                        var bul = db.Raporlama.Where(p => p.FaturaDurumu.Contains("İADE GELEN ÜRÜN") && p.Tarih == tarih).ToList();
                         foreach (var m in bul)
                         {
                             dataGridView6.Rows.Add();
@@ -1326,7 +1356,7 @@ namespace MRCStok
                         string tarih = ilktarih.AddDays(i).ToShortDateString();
                         try
                         {
-                            var bul = db.Raporlama.Where(p => p.FaturaDurumu.Contains("İADE GELEN ÜRÜN ") && p.Tarih == tarih).ToList();
+                            var bul = db.Raporlama.Where(p => p.FaturaDurumu.Contains("İADE GELEN ÜRÜN") && p.Tarih == tarih).ToList();
                             foreach (var m in bul)
                             {
                                 dataGridView6.Rows.Add();
@@ -1354,89 +1384,219 @@ namespace MRCStok
 
         }
 
-        private void dataGridView6_CellDoubleClick(object sender, DataGridViewCellEventArgs e)   // Raporlar 
+        private void dataGridView6_CellDoubleClick(object sender, DataGridViewCellEventArgs e)   // Raporlar bölgesi
         {
-            int xkoordinat = dataGridView6.CurrentCellAddress.X; //Seçili satırın X koordinatı
-            int ykoordinat = dataGridView6.CurrentCellAddress.Y;  //Seçili satırın Y koordinatı
-            string str = "";
-            str = dataGridView6.Rows[ykoordinat].Cells[xkoordinat].Value.ToString();
-            if (e.RowIndex == -1)
+            
+            if(RaporlamaKontrol== "OFFLINE") { MessageBox.Show("BU LİSTE DEĞİŞTİRİLEMEZ!"); }
+            else
             {
-                return;
-            }
-            try
-            {
-                GidenMusteriDuzenle ac = new GidenMusteriDuzenle();
-                ac.Show();
-                ac.textBox1.Text = str;
-                ac.dataGridView1.Columns.Add("1", "ÜRÜN ADI");
-                ac.dataGridView1.Columns.Add("2", "ÜRÜN ADEDİ");
-                ac.dataGridView1.Columns.Add("3", "ÜRÜN FİYATI");
-                ac.dataGridView1.Columns.Add("4", "ÜRÜN GRAMAJI");
-                ac.dataGridView1.Columns.Add("5", "ÜRÜN PAKETİ");
-                ac.dataGridView1.Columns.Add("6", "ÜRÜN FATURASI");
-                ac.dataGridView1.Columns.Add("7", "ÜRÜN TARİHİ");
+                string GOREV = RaporlamaKontrol;
+                int xkoordinat = dataGridView6.CurrentCellAddress.X; //Seçili satırın X koordinatı
+                int ykoordinat = dataGridView6.CurrentCellAddress.Y;  //Seçili satırın Y koordinatı
+                string str = "";
+                str = dataGridView6.Rows[ykoordinat].Cells[xkoordinat].Value.ToString();
+                if (e.RowIndex == -1)
+                {
+                    return;
+                }
 
-                string selicideger = Convert.ToDateTime(dateTimePicker2.Text).ToShortDateString();
-                string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
-                double adet, sonuc = 0, fiyat, fiyatsonuc = 0, gramaj, toplamgramaj = 0;
-                if (checkBox2.Checked == true)
+                try
                 {
-                    var bul = db.Raporlama.Where(p => p.GidenMusteriler == str && p.Ay == seciliay).ToList();
-                    int sayac = 0;
-                    foreach (var n in bul)
+                    GidenMusteriDuzenle ac = new GidenMusteriDuzenle();
+                    ac.Show();
+                    ac.textBox1.Text = str;
+                    ac.dataGridView1.Columns.Add("1", "ÜRÜN ADI");
+                    ac.dataGridView1.Columns.Add("2", "ÜRÜN ADEDİ");
+                    ac.dataGridView1.Columns.Add("3", "ÜRÜN FİYATI");
+                    ac.dataGridView1.Columns.Add("4", "ÜRÜN GRAMAJI");
+                    ac.dataGridView1.Columns.Add("5", "ÜRÜN PAKETİ");
+                    ac.dataGridView1.Columns.Add("6", "ÜRÜN FATURASI");
+                    ac.dataGridView1.Columns.Add("7", "ÜRÜN TARİHİ");
+
+                    string selicideger = Convert.ToDateTime(dateTimePicker2.Text).ToShortDateString();
+                    string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
+                    double adet, sonuc = 0, fiyat, fiyatsonuc = 0, gramaj, toplamgramaj = 0;
+                    if (checkBox2.Checked == true)
                     {
-                        ac.dataGridView1.Rows.Add();
-                        ac.dataGridView1.Rows[sayac].Cells[0].Value = n.GidenUrunler;
-                        ac.dataGridView1.Rows[sayac].Cells[1].Value = n.UrunAdedi;
-                        ac.dataGridView1.Rows[sayac].Cells[2].Value = n.Fiyati;
-                        ac.dataGridView1.Rows[sayac].Cells[3].Value = n.UrunGramaji;
-                        ac.dataGridView1.Rows[sayac].Cells[4].Value = n.UrunPaketi;
-                        ac.dataGridView1.Rows[sayac].Cells[5].Value = n.FaturaDurumu;
-                        ac.dataGridView1.Rows[sayac].Cells[6].Value = n.Tarih;
-                        adet = Convert.ToDouble(n.UrunAdedi);
-                        sonuc = adet + sonuc;
-                        ac.textBox2.Text = sonuc.ToString();
-                        fiyat = Convert.ToDouble(n.Fiyati);
-                        fiyatsonuc = fiyat + fiyatsonuc;
-                        ac.textBox5.Text = fiyatsonuc.ToString();
-                        gramaj = Convert.ToDouble(n.UrunGramaji);
-                        toplamgramaj = gramaj + toplamgramaj;
-                        ac.textBox4.Text = toplamgramaj.ToString();
-                        sayac++;
+                        if (GOREV == "HEPSİ" || GOREV == "MÜŞTERİ" || GOREV == "FATURASIZ ÖDEME" || GOREV == "ÜRÜN" || GOREV == "ZAYİ" || GOREV == "NUMUNE" || GOREV == "İADE GELEN ÜRÜN" || GOREV == "İADE GİDEN ÜRÜN")
+                        {
+                            var bul = db.Raporlama.Where(p => p.GidenMusteriler == str && p.Ay == seciliay).ToList();
+                            int sayac = 0;
+                            foreach (var n in bul)
+                            {
+                                ac.dataGridView1.Rows.Add();
+                                ac.dataGridView1.Rows[sayac].Cells[0].Value = n.GidenUrunler;
+                                ac.dataGridView1.Rows[sayac].Cells[1].Value = n.UrunAdedi;
+                                ac.dataGridView1.Rows[sayac].Cells[2].Value = n.Fiyati;
+                                ac.dataGridView1.Rows[sayac].Cells[3].Value = n.UrunGramaji;
+                                ac.dataGridView1.Rows[sayac].Cells[4].Value = n.UrunPaketi;
+                                ac.dataGridView1.Rows[sayac].Cells[5].Value = n.FaturaDurumu;
+                                ac.dataGridView1.Rows[sayac].Cells[6].Value = n.Tarih;
+                                adet = Convert.ToDouble(n.UrunAdedi);
+                                sonuc = adet + sonuc;
+                                ac.textBox2.Text = sonuc.ToString();
+                                fiyat = Convert.ToDouble(n.Fiyati);
+                                fiyatsonuc = fiyat + fiyatsonuc;
+                                ac.textBox5.Text = fiyatsonuc.ToString();
+                                gramaj = Convert.ToDouble(n.UrunGramaji);
+                                toplamgramaj = gramaj + toplamgramaj;
+                                ac.textBox4.Text = toplamgramaj.ToString();
+                                sayac++;
+                            }
+                        }
+                        else {
+                            var bul = db.Raporlama.Where(p => p.GidenMusteriler == str && p.Ay == seciliay && p.FaturaDurumu == GOREV).ToList();
+                            int sayac = 0;
+                            foreach (var n in bul)
+                            {
+                                ac.dataGridView1.Rows.Add();
+                                ac.dataGridView1.Rows[sayac].Cells[0].Value = n.GidenUrunler;
+                                ac.dataGridView1.Rows[sayac].Cells[1].Value = n.UrunAdedi;
+                                ac.dataGridView1.Rows[sayac].Cells[2].Value = n.Fiyati;
+                                ac.dataGridView1.Rows[sayac].Cells[3].Value = n.UrunGramaji;
+                                ac.dataGridView1.Rows[sayac].Cells[4].Value = n.UrunPaketi;
+                                ac.dataGridView1.Rows[sayac].Cells[5].Value = n.FaturaDurumu;
+                                ac.dataGridView1.Rows[sayac].Cells[6].Value = n.Tarih;
+                                adet = Convert.ToDouble(n.UrunAdedi);
+                                sonuc = adet + sonuc;
+                                ac.textBox2.Text = sonuc.ToString();
+                                fiyat = Convert.ToDouble(n.Fiyati);
+                                fiyatsonuc = fiyat + fiyatsonuc;
+                                ac.textBox5.Text = fiyatsonuc.ToString();
+                                gramaj = Convert.ToDouble(n.UrunGramaji);
+                                toplamgramaj = gramaj + toplamgramaj;
+                                ac.textBox4.Text = toplamgramaj.ToString();
+                                sayac++;
+                            }
+                        }
                     }
-                }
-                else
+                    else
+                    {
+                        DateTime ilktarih = this.dateTimePicker2.Value.Date;
+                        DateTime sontarih = this.dateTimePicker1.Value.Date;
+                        if (ilktarih.ToShortDateString() == sontarih.ToShortDateString())
+                        {
+                            if (GOREV == "HEPSİ" || GOREV == "MÜŞTERİ" || GOREV == "FATURASIZ ÖDEME" || GOREV == "ÜRÜN" || GOREV == "ZAYİ" || GOREV == "NUMUNE" || GOREV == "İADE GELEN ÜRÜN" || GOREV == "İADE GİDEN ÜRÜN")
+                            {
+                                var bul = db.Raporlama.Where(p => p.GidenMusteriler == str && p.Tarih == selicideger).ToList();
+                                int sayac = 0;
+                                foreach (var n in bul)
+                                {
+                                    ac.dataGridView1.Rows.Add();
+                                    ac.dataGridView1.Rows[sayac].Cells[0].Value = n.GidenUrunler;
+                                    ac.dataGridView1.Rows[sayac].Cells[1].Value = n.UrunAdedi;
+                                    ac.dataGridView1.Rows[sayac].Cells[2].Value = n.Fiyati;
+                                    ac.dataGridView1.Rows[sayac].Cells[3].Value = n.UrunGramaji;
+                                    ac.dataGridView1.Rows[sayac].Cells[4].Value = n.UrunPaketi;
+                                    ac.dataGridView1.Rows[sayac].Cells[5].Value = n.FaturaDurumu;
+                                    ac.dataGridView1.Rows[sayac].Cells[6].Value = n.Tarih;
+                                    adet = Convert.ToDouble(n.UrunAdedi);
+                                    sonuc = adet + sonuc;
+                                    ac.textBox2.Text = sonuc.ToString();
+                                    fiyat = Convert.ToDouble(n.Fiyati);
+                                    fiyatsonuc = fiyat + fiyatsonuc;
+                                    ac.textBox5.Text = fiyatsonuc.ToString();
+                                    gramaj = Convert.ToDouble(n.UrunGramaji);
+                                    toplamgramaj = gramaj + toplamgramaj;
+                                    ac.textBox4.Text = toplamgramaj.ToString();
+                                    sayac++;
+                                }
+                            }
+                            else
+                            {
+                                var bul = db.Raporlama.Where(p => p.GidenMusteriler == str && p.Tarih == selicideger && p.FaturaDurumu == GOREV).ToList();
+                                int sayac = 0;
+                                foreach (var n in bul)
+                                {
+                                    ac.dataGridView1.Rows.Add();
+                                    ac.dataGridView1.Rows[sayac].Cells[0].Value = n.GidenUrunler;
+                                    ac.dataGridView1.Rows[sayac].Cells[1].Value = n.UrunAdedi;
+                                    ac.dataGridView1.Rows[sayac].Cells[2].Value = n.Fiyati;
+                                    ac.dataGridView1.Rows[sayac].Cells[3].Value = n.UrunGramaji;
+                                    ac.dataGridView1.Rows[sayac].Cells[4].Value = n.UrunPaketi;
+                                    ac.dataGridView1.Rows[sayac].Cells[5].Value = n.FaturaDurumu;
+                                    ac.dataGridView1.Rows[sayac].Cells[6].Value = n.Tarih;
+                                    adet = Convert.ToDouble(n.UrunAdedi);
+                                    sonuc = adet + sonuc;
+                                    ac.textBox2.Text = sonuc.ToString();
+                                    fiyat = Convert.ToDouble(n.Fiyati);
+                                    fiyatsonuc = fiyat + fiyatsonuc;
+                                    ac.textBox5.Text = fiyatsonuc.ToString();
+                                    gramaj = Convert.ToDouble(n.UrunGramaji);
+                                    toplamgramaj = gramaj + toplamgramaj;
+                                    ac.textBox4.Text = toplamgramaj.ToString();
+                                    sayac++;
+                                }
+                            }
+                        }
+                        else
+                        {
+                            for (int i = 0; i <= (sontarih - ilktarih).Days; i++)
+                            {
+                                string tarih = ilktarih.AddDays(i).ToShortDateString();
+                                if (GOREV == "HEPSİ" || GOREV == "MÜŞTERİ" || GOREV == "FATURASIZ ÖDEME" || GOREV == "ÜRÜN" || GOREV == "ZAYİ" || GOREV == "NUMUNE" || GOREV == "İADE GELEN ÜRÜN" || GOREV == "İADE GİDEN ÜRÜN")
+                                {
+                                    var bul = db.Raporlama.Where(p => p.GidenMusteriler == str && p.Tarih == tarih).ToList();
+                                    int sayac = 0;
+                                    foreach (var n in bul)
+                                    {
+                                        ac.dataGridView1.Rows.Add();
+                                        ac.dataGridView1.Rows[sayac].Cells[0].Value = n.GidenUrunler;
+                                        ac.dataGridView1.Rows[sayac].Cells[1].Value = n.UrunAdedi;
+                                        ac.dataGridView1.Rows[sayac].Cells[2].Value = n.Fiyati;
+                                        ac.dataGridView1.Rows[sayac].Cells[3].Value = n.UrunGramaji;
+                                        ac.dataGridView1.Rows[sayac].Cells[4].Value = n.UrunPaketi;
+                                        ac.dataGridView1.Rows[sayac].Cells[5].Value = n.FaturaDurumu;
+                                        ac.dataGridView1.Rows[sayac].Cells[6].Value = n.Tarih;
+                                        adet = Convert.ToDouble(n.UrunAdedi);
+                                        sonuc = adet + sonuc;
+                                        ac.textBox2.Text = sonuc.ToString();
+                                        fiyat = Convert.ToDouble(n.Fiyati);
+                                        fiyatsonuc = fiyat + fiyatsonuc;
+                                        ac.textBox5.Text = fiyatsonuc.ToString();
+                                        gramaj = Convert.ToDouble(n.UrunGramaji);
+                                        toplamgramaj = gramaj + toplamgramaj;
+                                        ac.textBox4.Text = toplamgramaj.ToString();
+                                        sayac++;
+                                    }
+                                }
+                                else
+                                {
+                                    var bul = db.Raporlama.Where(p => p.GidenMusteriler == str && p.Tarih == tarih && p.FaturaDurumu == GOREV).ToList();
+                                    int sayac = 0;
+                                    foreach (var n in bul)
+                                    {
+                                        ac.dataGridView1.Rows.Add();
+                                        ac.dataGridView1.Rows[sayac].Cells[0].Value = n.GidenUrunler;
+                                        ac.dataGridView1.Rows[sayac].Cells[1].Value = n.UrunAdedi;
+                                        ac.dataGridView1.Rows[sayac].Cells[2].Value = n.Fiyati;
+                                        ac.dataGridView1.Rows[sayac].Cells[3].Value = n.UrunGramaji;
+                                        ac.dataGridView1.Rows[sayac].Cells[4].Value = n.UrunPaketi;
+                                        ac.dataGridView1.Rows[sayac].Cells[5].Value = n.FaturaDurumu;
+                                        ac.dataGridView1.Rows[sayac].Cells[6].Value = n.Tarih;
+                                        adet = Convert.ToDouble(n.UrunAdedi);
+                                        sonuc = adet + sonuc;
+                                        ac.textBox2.Text = sonuc.ToString();
+                                        fiyat = Convert.ToDouble(n.Fiyati);
+                                        fiyatsonuc = fiyat + fiyatsonuc;
+                                        ac.textBox5.Text = fiyatsonuc.ToString();
+                                        gramaj = Convert.ToDouble(n.UrunGramaji);
+                                        toplamgramaj = gramaj + toplamgramaj;
+                                        ac.textBox4.Text = toplamgramaj.ToString();
+                                        sayac++;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    }
+                
+                catch
                 {
-                    var bul = db.Raporlama.Where(p => p.GidenMusteriler == str && p.Tarih == selicideger).ToList();
-                    int sayac = 0;
-                    foreach (var n in bul)
-                    {
-                        ac.dataGridView1.Rows.Add();
-                        ac.dataGridView1.Rows[sayac].Cells[0].Value = n.GidenUrunler;
-                        ac.dataGridView1.Rows[sayac].Cells[1].Value = n.UrunAdedi;
-                        ac.dataGridView1.Rows[sayac].Cells[2].Value = n.Fiyati;
-                        ac.dataGridView1.Rows[sayac].Cells[3].Value = n.UrunGramaji;
-                        ac.dataGridView1.Rows[sayac].Cells[4].Value = n.UrunPaketi;
-                        ac.dataGridView1.Rows[sayac].Cells[5].Value = n.FaturaDurumu;
-                        ac.dataGridView1.Rows[sayac].Cells[6].Value = n.Tarih;
-                        adet = Convert.ToDouble(n.UrunAdedi);
-                        sonuc = adet + sonuc;
-                        ac.textBox2.Text = sonuc.ToString();
-                        fiyat = Convert.ToDouble(n.Fiyati);
-                        fiyatsonuc = fiyat + fiyatsonuc;
-                        ac.textBox5.Text = fiyatsonuc.ToString();
-                        gramaj = Convert.ToDouble(n.UrunGramaji);
-                        toplamgramaj = gramaj + toplamgramaj;
-                        ac.textBox4.Text = toplamgramaj.ToString();
-                        sayac++;
-                    }
+                    MessageBox.Show("Seçmek İçin Ürün İsmine Çift Tıklayın");
                 }
             }
-            catch
-            {
-                MessageBox.Show("Seçmek İçin Ürün İsmine Çift Tıklayın");
-            }
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -1444,6 +1604,8 @@ namespace MRCStok
             Urunegorelistele ac = new Urunegorelistele();
             ac.Show();
             ac.gelenurunrapor = "1";
+            RaporlamaKontrol = "ÜRÜN";
+            RAPORLAMADURUMUGOSTER.Text = "ÜRÜNE GÖRE Rapolama Gösteriliyor!";
         }
 
         private void groupBox4_Enter(object sender, EventArgs e)
@@ -1484,6 +1646,8 @@ namespace MRCStok
 
         private void button5_Click_1(object sender, EventArgs e)
         {
+            RaporlamaKontrol = "OFFLINE";
+            RAPORLAMADURUMUGOSTER.Text = "Üretilen Tüm Ürünlere Göre Rapolama Gösteriliyor!";
             string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
             if (checkBox2.Checked == true)
             {
@@ -1603,6 +1767,8 @@ namespace MRCStok
             Urunegorelistele ac = new Urunegorelistele();
             ac.Show();
             ac.gelenurunrapor = "2";
+            RaporlamaKontrol = "OFFLINE";
+            RAPORLAMADURUMUGOSTER.Text = "Üretilen Ürüne Göre Rapolama Gösteriliyor!";
         }
 
         private void textBox23_KeyPress(object sender, KeyPressEventArgs e)
@@ -1676,7 +1842,7 @@ namespace MRCStok
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBox3.SelectedItem.ToString() != "FATURALI")
+            if (comboBox3.SelectedItem.ToString() != "FATURALI" && comboBox3.SelectedItem.ToString() != "İADE")
             {
                 textBox16.Enabled = false;
             }
@@ -1686,8 +1852,10 @@ namespace MRCStok
             }
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        private void button9_Click(object sender, EventArgs e) // Numune Raporlama
         {
+            RaporlamaKontrol = "NUMUNE";
+            RAPORLAMADURUMUGOSTER.Text = "Numune Rapolama Gösteriliyor!";
             string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
             if (checkBox2.Checked == true)
             {
@@ -1776,8 +1944,10 @@ namespace MRCStok
             }
         }
 
-        private void button10_Click_1(object sender, EventArgs e)
+        private void button10_Click_1(object sender, EventArgs e) // zayi olan ürün raporlama
         {
+            RaporlamaKontrol = "ZAYİ";
+            RAPORLAMADURUMUGOSTER.Text = "Zayi Rapolama Gösteriliyor!";
             string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
             if (checkBox2.Checked == true)
             {
@@ -1866,8 +2036,10 @@ namespace MRCStok
             }
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        private void button11_Click(object sender, EventArgs e)  // faturasız ödeme raporla
         {
+            RaporlamaKontrol = "FATURASIZ ÖDEME";
+            RAPORLAMADURUMUGOSTER.Text = "Faturasız Ödeme Rapolama Gösteriliyor!";
             string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
             if (checkBox2.Checked == true)
             {
@@ -2048,6 +2220,98 @@ namespace MRCStok
                 catch
                 {
                     MessageBox.Show("Seçmek İçin Müşteri İsmine Çift Tıklayın");
+                }
+            }
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            RaporlamaKontrol = "İADE GİDEN ÜRÜN";
+            RAPORLAMADURUMUGOSTER.Text = "İade Giden Ürün Rapolama Gösteriliyor!";
+            string seciliay = Convert.ToDateTime(dateTimePicker2.Text).Month.ToString();
+            if (checkBox2.Checked == true)
+            {
+                dataGridView6.Rows.Clear();
+                try
+                {
+                    var musteri = db.Raporlama.Where(p => p.FaturaDurumu.Contains("İADE EDİLEN ÜRÜN") && p.Ay == seciliay).ToList();
+                    int i = 0;
+                    foreach (var m in musteri)
+                    {
+                        dataGridView6.Rows.Add();
+                        dataGridView6.Rows[i].Cells[0].Value = m.GidenMusteriler;
+                        dataGridView6.Rows[i].Cells[1].Value = m.GidenUrunler;
+                        dataGridView6.Rows[i].Cells[2].Value = m.UrunGramaji;
+                        dataGridView6.Rows[i].Cells[3].Value = m.UrunAdedi;
+                        dataGridView6.Rows[i].Cells[4].Value = m.UrunPaketi;
+                        dataGridView6.Rows[i].Cells[5].Value = m.Fiyati;
+                        dataGridView6.Rows[i].Cells[6].Value = m.FaturaDurumu;
+                        dataGridView6.Rows[i].Cells[7].Value = m.Tarih;
+                        i++;
+                    }
+                    Form1_Load(sender, e);
+                }
+                catch
+                {
+                    MessageBox.Show("Bulunamadı!");
+                }
+            }
+            else
+            {
+                int n = 0;
+                dataGridView6.Rows.Clear();
+                DateTime ilktarih = this.dateTimePicker2.Value.Date;
+                DateTime sontarih = this.dateTimePicker1.Value.Date;
+                if (ilktarih.ToShortDateString() == sontarih.ToShortDateString())
+                {
+                    try
+                    {
+                        string tarih = ilktarih.ToShortDateString();
+                        var bul = db.Raporlama.Where(p => p.FaturaDurumu.Contains("İADE EDİLEN ÜRÜN") && p.Tarih == tarih).ToList();
+                        foreach (var m in bul)
+                        {
+                            dataGridView6.Rows.Add();
+                            dataGridView6.Rows[n].Cells[0].Value = m.GidenMusteriler;
+                            dataGridView6.Rows[n].Cells[1].Value = m.GidenUrunler;
+                            dataGridView6.Rows[n].Cells[2].Value = m.UrunGramaji;
+                            dataGridView6.Rows[n].Cells[3].Value = m.UrunAdedi;
+                            dataGridView6.Rows[n].Cells[4].Value = m.UrunPaketi;
+                            dataGridView6.Rows[n].Cells[5].Value = m.Fiyati;
+                            dataGridView6.Rows[n].Cells[6].Value = m.FaturaDurumu;
+                            dataGridView6.Rows[n].Cells[7].Value = m.Tarih;
+                            n++;
+                        }
+                    }
+                    catch
+                    {
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i <= (sontarih - ilktarih).Days; i++)
+                    {
+                        string tarih = ilktarih.AddDays(i).ToShortDateString();
+                        try
+                        {
+                            var bul = db.Raporlama.Where(p => p.FaturaDurumu.Contains("İADE EDİLEN ÜRÜN") && p.Tarih == tarih).ToList();
+                            foreach (var m in bul)
+                            {
+                                dataGridView6.Rows.Add();
+                                dataGridView6.Rows[n].Cells[0].Value = m.GidenMusteriler;
+                                dataGridView6.Rows[n].Cells[1].Value = m.GidenUrunler;
+                                dataGridView6.Rows[n].Cells[2].Value = m.UrunGramaji;
+                                dataGridView6.Rows[n].Cells[3].Value = m.UrunAdedi;
+                                dataGridView6.Rows[n].Cells[4].Value = m.UrunPaketi;
+                                dataGridView6.Rows[n].Cells[5].Value = m.Fiyati;
+                                dataGridView6.Rows[n].Cells[6].Value = m.FaturaDurumu;
+                                dataGridView6.Rows[n].Cells[7].Value = m.Tarih;
+                                n++;
+                            }
+                        }
+                        catch
+                        {
+                        }
+                    }
                 }
             }
         }

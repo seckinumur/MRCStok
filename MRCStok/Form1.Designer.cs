@@ -139,13 +139,13 @@
             this.faturadurumu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.button19 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button33 = new System.Windows.Forms.Button();
-            this.button32 = new System.Windows.Forms.Button();
             this.button30 = new System.Windows.Forms.Button();
             this.button31 = new System.Windows.Forms.Button();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
@@ -206,6 +206,8 @@
             this.UyariBilgisi = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.Kullaniciata = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.RAPORLAMADURUMUGOSTER = new System.Windows.Forms.ToolStripStatusLabel();
             this.label35 = new System.Windows.Forms.Label();
             this.urunSepetiBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.stokMatikDataSet3 = new MRCStok.StokMatikDataSet3();
@@ -278,16 +280,19 @@
             // 
             // tabControl1
             // 
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tabControl1.Location = new System.Drawing.Point(12, 2);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1240, 657);
+            this.tabControl1.Size = new System.Drawing.Size(1264, 659);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -302,18 +307,20 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 29);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1232, 624);
+            this.tabPage1.Size = new System.Drawing.Size(1256, 626);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ÜRÜN ÇIKIŞI YAP";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // gridControl4
             // 
+            this.gridControl4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl4.DataSource = this.sepetBindingSource;
-            this.gridControl4.Location = new System.Drawing.Point(817, 3);
+            this.gridControl4.Location = new System.Drawing.Point(839, 3);
             this.gridControl4.MainView = this.gridView4;
             this.gridControl4.Name = "gridControl4";
-            this.gridControl4.Size = new System.Drawing.Size(408, 427);
+            this.gridControl4.Size = new System.Drawing.Size(409, 427);
             this.gridControl4.TabIndex = 13;
             this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4});
@@ -416,7 +423,7 @@
             this.gridControl1.Location = new System.Drawing.Point(3, 3);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(809, 615);
+            this.gridControl1.Size = new System.Drawing.Size(830, 615);
             this.gridControl1.TabIndex = 12;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -541,7 +548,7 @@
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.textBox5);
             this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Location = new System.Drawing.Point(818, 565);
+            this.groupBox3.Location = new System.Drawing.Point(840, 565);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(408, 53);
             this.groupBox3.TabIndex = 9;
@@ -602,7 +609,7 @@
             // 
             this.button3.BackColor = System.Drawing.Color.Red;
             this.button3.ForeColor = System.Drawing.SystemColors.Control;
-            this.button3.Location = new System.Drawing.Point(815, 526);
+            this.button3.Location = new System.Drawing.Point(837, 526);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(254, 38);
             this.button3.TabIndex = 7;
@@ -614,7 +621,7 @@
             // 
             this.button2.BackColor = System.Drawing.Color.Green;
             this.button2.ForeColor = System.Drawing.SystemColors.Control;
-            this.button2.Location = new System.Drawing.Point(1075, 526);
+            this.button2.Location = new System.Drawing.Point(1097, 526);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(150, 38);
             this.button2.TabIndex = 6;
@@ -629,7 +636,7 @@
             this.groupBox1.Controls.Add(this.textBox16);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Location = new System.Drawing.Point(817, 436);
+            this.groupBox1.Location = new System.Drawing.Point(839, 436);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(408, 89);
             this.groupBox1.TabIndex = 4;
@@ -706,17 +713,19 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1232, 624);
+            this.tabPage2.Size = new System.Drawing.Size(1256, 626);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "ÜRÜN GİRİŞİ YAP";
             // 
             // gridControl2
             // 
+            this.gridControl2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl2.DataSource = this.urunlerBindingSource10;
             this.gridControl2.Location = new System.Drawing.Point(3, 6);
             this.gridControl2.MainView = this.gridView2;
             this.gridControl2.Name = "gridControl2";
-            this.gridControl2.Size = new System.Drawing.Size(1223, 486);
+            this.gridControl2.Size = new System.Drawing.Size(1245, 486);
             this.gridControl2.TabIndex = 19;
             this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -911,7 +920,7 @@
             this.groupBox4.Controls.Add(this.label8);
             this.groupBox4.Location = new System.Drawing.Point(3, 498);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1226, 120);
+            this.groupBox4.Size = new System.Drawing.Size(1245, 120);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "ÜRÜN EKLE";
@@ -956,7 +965,7 @@
             this.button16.ForeColor = System.Drawing.SystemColors.Control;
             this.button16.Location = new System.Drawing.Point(1144, 26);
             this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(73, 88);
+            this.button16.Size = new System.Drawing.Size(95, 88);
             this.button16.TabIndex = 16;
             this.button16.Text = " Excel’e Aktar";
             this.button16.UseVisualStyleBackColor = false;
@@ -1163,18 +1172,20 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1232, 624);
+            this.tabPage4.Size = new System.Drawing.Size(1256, 626);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "MÜŞTERİ YÖNETİMİ";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // gridControl3
             // 
+            this.gridControl3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gridControl3.DataSource = this.musterilerBindingSource1;
             this.gridControl3.Location = new System.Drawing.Point(6, 6);
             this.gridControl3.MainView = this.gridView3;
             this.gridControl3.Name = "gridControl3";
-            this.gridControl3.Size = new System.Drawing.Size(1220, 495);
+            this.gridControl3.Size = new System.Drawing.Size(1242, 495);
             this.gridControl3.TabIndex = 8;
             this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -1239,7 +1250,7 @@
             this.groupBox8.Controls.Add(this.label27);
             this.groupBox8.Location = new System.Drawing.Point(6, 507);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(1220, 111);
+            this.groupBox8.Size = new System.Drawing.Size(1242, 111);
             this.groupBox8.TabIndex = 1;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "MÜŞTERİ EKLE";
@@ -1401,7 +1412,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 29);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1232, 624);
+            this.tabPage5.Size = new System.Drawing.Size(1256, 626);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "RAPORLAR";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1410,7 +1421,7 @@
             // 
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.button6);
-            this.groupBox2.Location = new System.Drawing.Point(893, 283);
+            this.groupBox2.Location = new System.Drawing.Point(911, 278);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(339, 60);
             this.groupBox2.TabIndex = 12;
@@ -1455,7 +1466,7 @@
             this.dataGridView6.Location = new System.Drawing.Point(3, 3);
             this.dataGridView6.Name = "dataGridView6";
             this.dataGridView6.ReadOnly = true;
-            this.dataGridView6.Size = new System.Drawing.Size(884, 615);
+            this.dataGridView6.Size = new System.Drawing.Size(905, 615);
             this.dataGridView6.TabIndex = 11;
             this.dataGridView6.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView6_CellDoubleClick);
             // 
@@ -1525,21 +1536,33 @@
             // 
             // groupBox12
             // 
+            this.groupBox12.Controls.Add(this.button19);
             this.groupBox12.Controls.Add(this.button11);
             this.groupBox12.Controls.Add(this.button10);
             this.groupBox12.Controls.Add(this.button9);
             this.groupBox12.Controls.Add(this.button4);
             this.groupBox12.Controls.Add(this.button1);
             this.groupBox12.Controls.Add(this.button33);
-            this.groupBox12.Controls.Add(this.button32);
             this.groupBox12.Controls.Add(this.button30);
             this.groupBox12.Controls.Add(this.button31);
-            this.groupBox12.Location = new System.Drawing.Point(893, 343);
+            this.groupBox12.Location = new System.Drawing.Point(911, 335);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(339, 285);
+            this.groupBox12.Size = new System.Drawing.Size(339, 294);
             this.groupBox12.TabIndex = 3;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "ÖZEL ARAMA";
+            // 
+            // button19
+            // 
+            this.button19.BackColor = System.Drawing.Color.SlateGray;
+            this.button19.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button19.Location = new System.Drawing.Point(7, 154);
+            this.button19.Name = "button19";
+            this.button19.Size = new System.Drawing.Size(323, 33);
+            this.button19.TabIndex = 16;
+            this.button19.Text = "İADE GİDEN ÜRÜNLER";
+            this.button19.UseVisualStyleBackColor = false;
+            this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
             // button11
             // 
@@ -1558,7 +1581,7 @@
             // 
             this.button10.BackColor = System.Drawing.Color.DarkViolet;
             this.button10.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button10.Location = new System.Drawing.Point(7, 192);
+            this.button10.Location = new System.Drawing.Point(7, 220);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(323, 33);
             this.button10.TabIndex = 14;
@@ -1570,7 +1593,7 @@
             // 
             this.button9.BackColor = System.Drawing.Color.MidnightBlue;
             this.button9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button9.Location = new System.Drawing.Point(7, 157);
+            this.button9.Location = new System.Drawing.Point(7, 187);
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(323, 33);
             this.button9.TabIndex = 13;
@@ -1614,23 +1637,11 @@
             this.button33.UseVisualStyleBackColor = false;
             this.button33.Click += new System.EventHandler(this.button33_Click);
             // 
-            // button32
-            // 
-            this.button32.BackColor = System.Drawing.Color.DarkRed;
-            this.button32.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button32.Location = new System.Drawing.Point(7, 227);
-            this.button32.Name = "button32";
-            this.button32.Size = new System.Drawing.Size(126, 52);
-            this.button32.TabIndex = 5;
-            this.button32.Text = "LİSTEYİ TEMİZLE";
-            this.button32.UseVisualStyleBackColor = false;
-            this.button32.Click += new System.EventHandler(this.button32_Click);
-            // 
             // button30
             // 
             this.button30.BackColor = System.Drawing.Color.SaddleBrown;
             this.button30.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button30.Location = new System.Drawing.Point(7, 55);
+            this.button30.Location = new System.Drawing.Point(7, 54);
             this.button30.Name = "button30";
             this.button30.Size = new System.Drawing.Size(323, 33);
             this.button30.TabIndex = 0;
@@ -1642,9 +1653,9 @@
             // 
             this.button31.BackColor = System.Drawing.Color.Orange;
             this.button31.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button31.Location = new System.Drawing.Point(139, 227);
+            this.button31.Location = new System.Drawing.Point(7, 254);
             this.button31.Name = "button31";
-            this.button31.Size = new System.Drawing.Size(191, 52);
+            this.button31.Size = new System.Drawing.Size(323, 32);
             this.button31.TabIndex = 4;
             this.button31.Text = "MEVCUT LİSTEYİ  Excel’e Aktar";
             this.button31.UseVisualStyleBackColor = false;
@@ -1656,9 +1667,9 @@
             this.groupBox11.Controls.Add(this.button25);
             this.groupBox11.Controls.Add(this.button27);
             this.groupBox11.Controls.Add(this.button29);
-            this.groupBox11.Location = new System.Drawing.Point(896, 184);
+            this.groupBox11.Location = new System.Drawing.Point(914, 179);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(333, 99);
+            this.groupBox11.Size = new System.Drawing.Size(336, 99);
             this.groupBox11.TabIndex = 2;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "MÜŞTERİYE GÖRE ARAMA";
@@ -1718,9 +1729,9 @@
             this.groupBox10.Controls.Add(this.checkBox2);
             this.groupBox10.Controls.Add(this.button26);
             this.groupBox10.Controls.Add(this.button24);
-            this.groupBox10.Location = new System.Drawing.Point(893, 1);
+            this.groupBox10.Location = new System.Drawing.Point(911, 2);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(333, 183);
+            this.groupBox10.Size = new System.Drawing.Size(339, 177);
             this.groupBox10.TabIndex = 1;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "RAPORLA";
@@ -1789,7 +1800,7 @@
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.ForeColor = System.Drawing.Color.Maroon;
-            this.checkBox2.Location = new System.Drawing.Point(10, 83);
+            this.checkBox2.Location = new System.Drawing.Point(10, 81);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(179, 24);
             this.checkBox2.TabIndex = 7;
@@ -1827,7 +1838,7 @@
             this.tabPage6.Location = new System.Drawing.Point(4, 29);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1232, 624);
+            this.tabPage6.Size = new System.Drawing.Size(1256, 626);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "AYARLAR";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -2158,7 +2169,9 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.UyariBilgisi,
             this.toolStripStatusLabel2,
-            this.Kullaniciata});
+            this.Kullaniciata,
+            this.toolStripStatusLabel1,
+            this.RAPORLAMADURUMUGOSTER});
             this.statusStrip1.Location = new System.Drawing.Point(0, 659);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1264, 22);
@@ -2183,6 +2196,18 @@
             this.Kullaniciata.Size = new System.Drawing.Size(102, 17);
             this.Kullaniciata.Text = "SİSTEM DURUMU:";
             // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(10, 17);
+            this.toolStripStatusLabel1.Text = "|";
+            // 
+            // RAPORLAMADURUMUGOSTER
+            // 
+            this.RAPORLAMADURUMUGOSTER.Name = "RAPORLAMADURUMUGOSTER";
+            this.RAPORLAMADURUMUGOSTER.Size = new System.Drawing.Size(137, 17);
+            this.RAPORLAMADURUMUGOSTER.Text = "RAPORLAMA DURUMU: ";
+            // 
             // label35
             // 
             this.label35.AutoSize = true;
@@ -2191,7 +2216,7 @@
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(170, 20);
             this.label35.TabIndex = 9;
-            this.label35.Text = "STOKMATİK V.1.1.1";
+            this.label35.Text = "STOKMATİK V.1.1.2";
             // 
             // urunSepetiBindingSource
             // 
@@ -2241,6 +2266,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1264, 681);
@@ -2249,10 +2275,11 @@
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
-            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1366, 768);
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "STOKMATİK V.1.1.1";
+            this.Text = "STOKMATİK V.1.1.2";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
@@ -2367,7 +2394,6 @@
         private System.Windows.Forms.TextBox MusteriAdiMusteriEkle;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.DataGridView dataGridView5;
-        private System.Windows.Forms.Button button32;
         private System.Windows.Forms.Button button31;
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.Button button30;
@@ -2521,6 +2547,9 @@
         private DevExpress.LookAndFeel.DefaultLookAndFeel defaultLookAndFeel1;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button17;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel RAPORLAMADURUMUGOSTER;
+        private System.Windows.Forms.Button button19;
     }
 }
 

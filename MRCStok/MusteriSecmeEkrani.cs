@@ -15,7 +15,7 @@ namespace MRCStok
         public Form1 bulma = (Form1)System.Windows.Forms.Application.OpenForms["Form1"];
         public TedarikciEkle bulma1 = (TedarikciEkle)Application.OpenForms["TedarikciEkle"];
         public string counter;
-        
+
         public MusteriSecmeEkrani()
         {
             InitializeComponent();
@@ -85,7 +85,65 @@ namespace MRCStok
                 {
                     MessageBox.Show("MÜŞTERİYİ SEÇMEK İÇİN; MÜŞTERİ İSMİNE TIKLAMALISINIZ!");
                 }
-            }      
+            }
+        }
+
+        private void gridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (counter == "1")
+                {
+                    string str = gridView1.FocusedValue.ToString();
+                    try
+                    {
+                        var bul = bulma.db.Musteriler.Where(p => p.MusteriAdi == str).FirstOrDefault();
+                        if (bul.MusteriAdi == str)
+                        {
+                            bulma.textBox2.Text = str;
+                            this.Close();
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("MÜŞTERİYİ SEÇMEK İÇİN; MÜŞTERİ İSMİNE TIKLAMALISINIZ!");
+                    }
+                }
+                else if (counter == "2")
+                {
+                    string str = gridView1.FocusedValue.ToString();
+                    try
+                    {
+                        var bul = bulma.db.Musteriler.Where(p => p.MusteriAdi == str).FirstOrDefault();
+                        if (bul.MusteriAdi == str)
+                        {
+                            bulma.textBox7.Text = str;
+                            this.Close();
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("MÜŞTERİYİ SEÇMEK İÇİN; MÜŞTERİ İSMİNE TIKLAMALISINIZ!");
+                    }
+                }
+                else if (counter == "3")
+                {
+                    string str = gridView1.FocusedValue.ToString();
+                    try
+                    {
+                        var bul = bulma.db.Musteriler.Where(p => p.MusteriAdi == str).FirstOrDefault();
+                        if (bul.MusteriAdi == str)
+                        {
+                            bulma1.MVeTedarikciAdi.Text = str;
+                            this.Close();
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("MÜŞTERİYİ SEÇMEK İÇİN; MÜŞTERİ İSMİNE TIKLAMALISINIZ!");
+                    }
+                }
+            }
         }
     }
 }
