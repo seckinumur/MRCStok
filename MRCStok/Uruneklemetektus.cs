@@ -139,25 +139,42 @@ namespace MRCStok
                 try
                 {
                     var bul = db.Urunler.Where(p => p.UrunAdi == label3.Text && p.UrunGramaji == label4.Text && p.UrunPaketi == label5.Text).FirstOrDefault();
+                    Uretim ekle = new Uretim();
                     DialogResult Uyari = new DialogResult();
                     Uyari = MessageBox.Show(UrunAdiUrunDuzenle.Text + " Adlı ürünün Bilgileri Güncellenecek Devam Edilsin mi?", "DİKKAT!", MessageBoxButtons.YesNo);
                     if (Uyari == DialogResult.Yes)
                     {
+                        double eskiurunadedi = Convert.ToDouble(bul.UrunAdedi);
+                        double yeniurunadedi = Convert.ToDouble(UrunAdediUrunDuzenle.Text);
+                        double sonuc = eskiurunadedi < yeniurunadedi ? yeniurunadedi - eskiurunadedi : yeniurunadedi - eskiurunadedi;
+                        string ay = DateTime.Now.Month.ToString();
+                        ekle.UrunAdi = UrunAdiUrunDuzenle.Text;
                         bul.UrunAdi = UrunAdiUrunDuzenle.Text;
+                        ekle.UrunAdedi = sonuc.ToString();
+                        ekle.Uretici = "ÜRÜN DÜZELTMESİ";
+                        ekle.Ay = ay;
+                        ekle.Gun = DateTime.Now.Day.ToString();
                         bul.UrunAdedi = UrunAdediUrunDuzenle.Text;
                         bul.UrunBarkodu = UrunBarkoduUrunDuzenle.Text;
                         bul.UrunFiyati = UrunFiyatiUrunDuzenle.Text;
                         if (UrunGramajıUrunDuzenle.Text != UrunGramajıUrunDuzenle.SelectedItem)
                         {
                             bul.UrunGramaji = UrunGramajıUrunDuzenle.Text;
+                            ekle.UrunGramaji = UrunGramajıUrunDuzenle.Text;
                         }
                         else
                         {
                             bul.UrunGramaji = UrunGramajıUrunDuzenle.SelectedItem.ToString();
+                            ekle.UrunGramaji = UrunGramajıUrunDuzenle.SelectedItem.ToString();
                         }
                         bul.UrunPaketi = AmbalajUrunDuzenle.SelectedItem.ToString();
+                        ekle.UrunAmbalaji = AmbalajUrunDuzenle.SelectedItem.ToString();
                         bul.UrunEklemeTarihi = DateTime.Now.ToShortDateString();
+                        ekle.Yil = DateTime.Now.Year.ToString();
+                        ekle.UrunUretimTarihi = DateTime.Now.ToShortDateString();
                         db.SaveChanges();
+                        db1.Uretim.Add(ekle);
+                        db1.SaveChanges();
                         string yetki = Anaformburda.AdminKontrol;
                         f216.yenidenbaslama = true;
                         Anaformburda.Close();
